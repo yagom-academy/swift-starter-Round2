@@ -16,5 +16,7 @@ struct LottoStore {
         self.lottoWinningNumber = lottoNumberGenerator.generateLottoNumbers()
     }
     
-    
+    func findOverlapNumbers() -> [Int] {
+        LottoOptions.myLottoNumbers.filter { lottoWinningNumber.contains($0) }
+    }
 }
