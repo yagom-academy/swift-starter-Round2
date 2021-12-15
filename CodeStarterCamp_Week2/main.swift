@@ -8,5 +8,7 @@
 
 import Foundation
 
-print(LottoNumberGenerator().generateLottoNumbers())
+let lottoNumberGenerator = LottoNumberGenerator()
+let lottoStore = LottoStore(lottoNumberGenerator: lottoNumberGenerator)
+print(lottoStore.lottoWinningNumber)
 

@@ -10,6 +10,7 @@
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
 		A13BD1AE2769C01B00855736 /* LottoNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BD1AD2769C01B00855736 /* LottoNumberGenerator.swift */; };
 		A13BD1B02769C36C00855736 /* LottoOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BD1AF2769C36C00855736 /* LottoOptions.swift */; };
+		A13BD1B22769C40F00855736 /* LottoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BD1B12769C40F00855736 /* LottoStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +31,7 @@
 		A13BD1AB2769B91A00855736 /* Week2_Step1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Week2_Step1.png; path = "../../../../yagom-test/Week2_Step1.png"; sourceTree = "<group>"; };
 		A13BD1AD2769C01B00855736 /* LottoNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoNumberGenerator.swift; sourceTree = "<group>"; };
 		A13BD1AF2769C36C00855736 /* LottoOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoOptions.swift; sourceTree = "<group>"; };
+		A13BD1B12769C40F00855736 /* LottoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				A13BD1AD2769C01B00855736 /* LottoNumberGenerator.swift */,
 				A13BD1AF2769C36C00855736 /* LottoOptions.swift */,
+				A13BD1B12769C40F00855736 /* LottoStore.swift */,
 			);
 			path = Lotto;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
 				A13BD1B02769C36C00855736 /* LottoOptions.swift in Sources */,
+				A13BD1B22769C40F00855736 /* LottoStore.swift in Sources */,
 				A13BD1AE2769C01B00855736 /* LottoNumberGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
