@@ -11,17 +11,11 @@ protocol LottoNumberGeneratable {
     func generateLottoNumbers() -> Set<Int>
 }
 
-struct LottoNumberGenerator: LottoNumberGeneratable {
-    private enum lottoOptions {
-        static let randomNumberRange: ClosedRange<Int> = 1 ... 45
-        static let lottoNumbersMaxAmount: Int = 6
-        static let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    }
-    
+struct LottoNumberGenerator: LottoNumberGeneratable {    
     func generateLottoNumbers() -> Set<Int> {
         var lottoNumbers: Set<Int> = []
         
-        while lottoNumbers.count != lottoOptions.lottoNumbersMaxAmount {
+        while lottoNumbers.count != LottoOptions.lottoNumbersMaxAmount {
             lottoNumbers.insert(generateRandomNumbers())
         }
         
@@ -29,6 +23,6 @@ struct LottoNumberGenerator: LottoNumberGeneratable {
     }
         
     private func generateRandomNumbers() -> Int {
-        Int.random(in: lottoOptions.randomNumberRange)
+        Int.random(in: LottoOptions.randomNumberRange)
     }
 }
