@@ -18,17 +18,17 @@ struct LottoStore {
         self.lottoWinningNumber = lottoNumberGenerator.generateLottoNumbers()
     }
     
-    mutating func findOverlapNumbers() {
+    mutating func findOverlappedNumbers() {
         self.overlappedNumber = LottoOptions
             .myLottoNumbers
             .filter { lottoWinningNumber.contains($0) }
         
-        printOverlapNumbers()
+        printOverlappedNumbers()
     }
     
-    private func printOverlapNumbers() {
+    private func printOverlappedNumbers() {
         if overlappedNumber.count != 0 {
-            print("축하합니다! 겹치는 번호는 \(converToString(overlappedNumber)) 입니다!")
+            print("축하합니다! 겹치는 번호는 \(convertToString(overlappedNumber)) 입니다!")
         }
         
         if overlappedNumber.count == 0 {
@@ -38,7 +38,7 @@ struct LottoStore {
 }
 
 extension LottoStore {
-    private func converToString(_ numbers: [Int]) -> String {
+    private func convertToString(_ numbers: [Int]) -> String {
         numbers
             .map{ String($0) }
             .joined(separator: ", ")

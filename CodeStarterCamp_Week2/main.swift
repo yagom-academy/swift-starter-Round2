@@ -11,4 +11,4 @@ import Foundation
 let lottoNumberGenerator = LottoNumberGenerator()
 var lottoStore = LottoStore(lottoNumberGenerator: lottoNumberGenerator)
 print(lottoStore.lottoWinningNumber)
-lottoStore.findOverlapNumbers()
+lottoStore.findOverlappedNumbers()
