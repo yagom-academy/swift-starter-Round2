@@ -11,7 +11,7 @@ func extractLottoNumbers() -> [Int] {
     var recommendedNumbersSet = Set<Int>()
     
     while recommendedNumbersSet.count < 6 {
-        recommendedNumbersSet.insert(Int.random(in: 0..<46))
+        recommendedNumbersSet.insert(Int.random(in: 1..<46))
     }
     
     return Array(recommendedNumbersSet)
