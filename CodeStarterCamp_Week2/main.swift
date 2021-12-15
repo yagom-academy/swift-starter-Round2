@@ -8,5 +8,9 @@
 
 import Foundation
 
-print("Hello, World!")
 
+let realLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let myLottoNumbers: [Int] = recommendNumberArray()
+
+printMessage(numbers: compareLottoNumbers(realLottoNumbers: Set(realLottoNumbers),
+                                          myLottoNumbers: Set(myLottoNumbers)))
