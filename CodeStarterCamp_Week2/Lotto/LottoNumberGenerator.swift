@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LottoNumberGeneratable {
-    
+
 }
 
 struct LottoNumberGenerator {
@@ -17,6 +17,8 @@ struct LottoNumberGenerator {
         static let lottoNumbersMaxAmount: Int = 6
         static let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
     }
-    
-    
+        
+    private func generateRandomNumbers() -> Int {
+        Int.random(in: lottoOptions.randomNumberRange)
+    }
 }
