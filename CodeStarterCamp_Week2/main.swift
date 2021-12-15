@@ -10,7 +10,9 @@ import Foundation
 
 
 let realLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let myLottoNumbers: [Int] = recommendNumberArray()
+let myLottoNumbers: [Int] = extractLottoNumbers()
 
-printMessage(numbers: compareLottoNumbers(realLottoNumbers: Set(realLottoNumbers),
-                                          myLottoNumbers: Set(myLottoNumbers)))
+let comparedResult = compareLottoNumbers(realLottoNumbers: Set(realLottoNumbers),
+                                                myLottoNumbers: Set(myLottoNumbers))
+
+printMessage(numbers: comparedResult)

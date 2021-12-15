@@ -7,7 +7,7 @@
 
 import Foundation
 
-func recommendNumberArray() -> [Int] {
+func extractLottoNumbers() -> [Int] {
     var recommendedNumbersSet = Set<Int>()
     
     while recommendedNumbersSet.count < 6 {
@@ -26,18 +26,19 @@ func printMessage(numbers: [Int]) {
     if numbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print(printArray(array: numbers.sorted()))
+        printArray(arrayForPrint: numbers.sorted())
     }
 }
 
-func printArray(array: [Int]) -> String {
+func printArray(arrayForPrint: [Int]) {
     var stringForPrint: String = ""
     
-    for idx in 0..<(array.count - 1) {
-        stringForPrint += "\(array[idx]), "
+    for idx in 0..<(arrayForPrint.count - 1) {
+        stringForPrint += "\(arrayForPrint[idx]), "
     }
-    stringForPrint += String(array[array.endIndex - 1])
+    stringForPrint += String(arrayForPrint[arrayForPrint.endIndex - 1])
     
-    return "축하합니다! 겹치는 번호는 " + stringForPrint + " 입니다!"
+    print("축하합니다! 겹치는 번호는 " + stringForPrint + " 입니다!")
 }
+
 
