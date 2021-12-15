@@ -9,7 +9,7 @@ import Foundation
 
 struct LottoStore {
     let lottoNumberGenerator: LottoNumberGenerator
-    let lottoWinningNumber: Set<Int>
+    let lottoWinningNumber: [Int]
     
     init(lottoNumberGenerator: LottoNumberGenerator) {
         self.lottoNumberGenerator = lottoNumberGenerator

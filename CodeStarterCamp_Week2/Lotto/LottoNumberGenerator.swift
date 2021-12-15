@@ -8,18 +8,18 @@
 import Foundation
 
 protocol LottoNumberGeneratable {
-    func generateLottoNumbers() -> Set<Int>
+    func generateLottoNumbers() -> [Int]
 }
 
 struct LottoNumberGenerator: LottoNumberGeneratable {    
-    func generateLottoNumbers() -> Set<Int> {
+    func generateLottoNumbers() -> [Int] {
         var lottoNumbers: Set<Int> = []
         
         while lottoNumbers.count != LottoOptions.lottoNumbersMaxAmount {
             lottoNumbers.insert(generateRandomNumbers())
         }
         
-        return lottoNumbers
+        return lottoNumbers.sorted()
     }
         
     private func generateRandomNumbers() -> Int {
