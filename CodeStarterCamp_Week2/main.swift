@@ -13,9 +13,9 @@ var lottoNumber: Set<Int> = []
 func pickLottoNumberUp () {
     var count: Int = 0
     while count < 6 {
-        let randomNumer: Int = Int.random(in: 1...45)
-        if !lottoNumber.contains(randomNumer) {
-            lottoNumber.insert(randomNumer)
+        let randomNumber: Int = Int.random(in: 1...45)
+        if !lottoNumber.contains(randomNumber) {
+            lottoNumber.insert(randomNumber)
             count = count + 1
         }
     }
