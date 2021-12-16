@@ -3,8 +3,8 @@
 //  CodeStarterCamp_Week2
 //
 //  Created by quokkaaa
-//  Copyright © yagom academy. All rights reserved.
-//
+//  Copyright © yagom academy. All rights reserved
 
 import Foundation
+
 
