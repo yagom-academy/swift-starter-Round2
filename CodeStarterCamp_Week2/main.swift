@@ -39,4 +39,3 @@ func confirmLottoNumbers(_ numbers: [Int]) -> String {
 }
 
 let myLottoNumbers: [Int] = [7, 8, 15, 20, 23, 38]
-print(confirmLotteryNumbers(myLottoNumbers))
