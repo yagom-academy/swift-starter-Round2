@@ -8,6 +8,7 @@
 import Foundation
 
 protocol LottoStoreProvider {
+    init(lottoNumberGenerator: LottoNumberGenerator)
     mutating func findOverlappedNumbers()
 }
 
