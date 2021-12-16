@@ -7,6 +7,8 @@
 
 import Foundation
 
+var lottoDrawHistoryRepository: [String: [Int]] = [:]
+
 func generateLotteryNumbers(count: Int) -> Set<Int> {
     var numbers: Set<Int> = []
     while numbers.count < count {
@@ -16,21 +18,21 @@ func generateLotteryNumbers(count: Int) -> Set<Int> {
 }
 
 func confirmLotteryNumbers(_ numbers: [Int]) -> String {
-    var lotteryNumbers = generateLotteryNumbers(count: 6)
-    var loteryNumbersStorage: [Int] = []
-    var answerNumbersStorage: [Int] = []
+    var drawLottoNumbers = generateLotteryNumbers(count: 6)
+    var lottoNumbersResult: [Int] = []
+    var answerLottoNumbersResult: [Int] = []
     
-    for _ in 0..<lotteryNumbers.count {
-        loteryNumbersStorage.append(lotteryNumbers.removeFirst())
+    for _ in 0..<drawLottoNumbers.count {
+        lottoNumbersResult.append(drawLottoNumbers.removeFirst())
     }
-    for i in 0..<numbers.count {
-        if numbers[i] == loteryNumbersStorage[i] {
-            answerNumbersStorage.append(numbers[i])
+    for index in 0..<numbers.count {
+        if numbers[index] == lottoNumbersResult[index] {
+            answerLottoNumbersResult.append(numbers[index])
         }
     }
     
-    if answerNumbersStorage.count >= 1 {
-        return "축하합니다! 겹치는 번호는 \(answerNumbersStorage) 입니다!"
+    if answerLottoNumbersResult.count >= 1 {
+        return "축하합니다! 겹치는 번호는 \(answerLottoNumbersResult) 입니다!"
     } else {
         return "아쉽지만 겹치는 번호가 없습니다."
     }
@@ -38,3 +40,5 @@ func confirmLotteryNumbers(_ numbers: [Int]) -> String {
 
 let myLottoNumbers: [Int] = [7, 8, 15, 20, 23, 38]
 print(confirmLotteryNumbers(myLottoNumbers))
+
+
