@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct LottoStore {
+protocol LottoStoreProvider {
+    mutating func findOverlappedNumbers()
+}
+
+struct LottoStore: LottoStoreProvider {
     let lottoNumberGenerator: LottoNumberGenerator
     let lottoWinningNumber: [Int]
     
