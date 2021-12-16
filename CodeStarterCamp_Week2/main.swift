@@ -10,6 +10,7 @@ import Foundation
 
 var lottoNumbers: Set<Int> = Set<Int>()
 var matchedNumbersArray: [Int] = []
+var matchedNumbersStringArray: [String] = []
 let myLottoNumbers: Set<Int> = [1, 11, 22, 33, 44]
 
 print("My Lotto Numbers : \(myLottoNumbers)")
@@ -28,32 +29,29 @@ func compareLottoNumbers() {
     matchedNumbersArray = Array(matchedNumbers)
 }
 
-func printSetToInt() {
-    if matchedNumbersArray.count > 1 {
-        for index in 0..<matchedNumbersArray.count-1 {
-            print(matchedNumbersArray[index], terminator: ", ")
-        }
-        if let num: Int = matchedNumbersArray.last {
-            print(num, terminator: " ")
-        }
-    } else {
-        if let num: Int = matchedNumbersArray.first {
-            print(num, terminator: " ")
-        }
+func changeIntToStringArray() {
+    for index in 0..<matchedNumbersArray.count {
+        matchedNumbersStringArray.append("\(matchedNumbersArray[index])")
     }
 }
 
-func printComparedNumbers() {
+func printMatchedNumbers() {
+    changeIntToStringArray()
+    let arr = matchedNumbersStringArray.joined(separator: ", ")
+    print(arr, terminator: " ")
+}
+
+func printMessage() {
     compareLottoNumbers()
     if matchedNumbersArray.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는", terminator: " ")
-        printSetToInt()
+        printMatchedNumbers()
         print("입니다!")
     }
 }
 
 createLottoNumbers()
-printComparedNumbers()
+printMessage()
 
