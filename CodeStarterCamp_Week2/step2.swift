@@ -8,13 +8,13 @@
 import Foundation
 
 func extractLottoNumbers() -> [Int] {
-    var recommendedNumbersSet = Set<Int>()
+    var extractedNumbersSet = Set<Int>()
     
-    while recommendedNumbersSet.count < 6 {
-        recommendedNumbersSet.insert(Int.random(in: 1..<46))
+    while extractedNumbersSet.count < 6 {
+        extractedNumbersSet.insert(Int.random(in: 1..<46))
     }
     
-    return Array(recommendedNumbersSet)
+    return Array(extractedNumbersSet)
 }
 
 func compareLottoNumbers(realLottoNumbers: Set<Int>, myLottoNumbers: Set<Int>) -> [Int] {
@@ -22,23 +22,23 @@ func compareLottoNumbers(realLottoNumbers: Set<Int>, myLottoNumbers: Set<Int>) -
     return Array(intersectionSet)
 }
 
-func printMessage(numbers: [Int]) {
-    if numbers.count == 0 {
+func printLottoResult(result resultArray: [Int]) {
+    if resultArray.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        printArray(arrayForPrint: numbers.sorted())
+        printHitNumbers(hitNumbers: resultArray.sorted())
     }
 }
 
-func printArray(arrayForPrint: [Int]) {
-    var stringForPrint: String = ""
+func printHitNumbers(hitNumbers hitNumbersArray: [Int]) {
+    var hitNumbersString: String = ""
     
-    for idx in 0..<(arrayForPrint.count - 1) {
-        stringForPrint += "\(arrayForPrint[idx]), "
+    for hitNumberIndex in 0..<(hitNumbersArray.count - 1) {
+        hitNumbersString += "\(hitNumbersArray[hitNumberIndex]), "
     }
-    stringForPrint += String(arrayForPrint[arrayForPrint.endIndex - 1])
+    hitNumbersString += String(hitNumbersArray[hitNumbersArray.endIndex - 1])
     
-    print("축하합니다! 겹치는 번호는 " + stringForPrint + " 입니다!")
+    print("축하합니다! 겹치는 번호는 " + hitNumbersString + " 입니다!")
 }
 
 

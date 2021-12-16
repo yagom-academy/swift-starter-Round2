@@ -13,6 +13,6 @@ let realLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 let myLottoNumbers: [Int] = extractLottoNumbers()
 
 let comparedResult = compareLottoNumbers(realLottoNumbers: Set(realLottoNumbers),
-                                                myLottoNumbers: Set(myLottoNumbers))
+                                         myLottoNumbers: Set(myLottoNumbers))
 
-printMessage(numbers: comparedResult)
+printLottoResult(result: comparedResult)
