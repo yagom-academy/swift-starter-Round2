@@ -31,15 +31,19 @@ func printMatch(match: Array<Int>) {
     if match.isEmpty {
             print("아쉽지만 겹치는 번호가 없습니다")
         } else {
-            let matchNumbers = match.map({ (number: Int) -> (String) in return "\(number)" })
-            let matchToPrint = matchNumbers.joined(separator: ", ")
+            let matchToPrint = convertArrayToString(someArray: match)
             print("축하합니다! 겹치는 번호는 \(matchToPrint) 입니다")
         }
     }
+
+func convertArrayToString(someArray: Array<Int>) -> String {
+    let setString = someArray.map({ (number: Int) -> (String) in return String(number) })
+    let line = setString.joined(separator: ", ")
+    return line
+}
 
 let myLottoNumbers: Set<Int> = [1, 8, 10, 23, 44, 36]
 
 pickLottoNumberUp()
 print("로또 번호: \(lottoNumber)")
 printMatch(match: matchLottoNumber())
-
