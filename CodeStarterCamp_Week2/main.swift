@@ -9,7 +9,7 @@ import Foundation
 
 var lottoDrawHistoryRepository: [String: [Int]] = [:]
 
-func generateLotteryNumbers(count: Int) -> Set<Int> {
+func generateLottoNumbers(count: Int) -> Set<Int> {
     var numbers: Set<Int> = []
     while numbers.count < count {
         numbers.insert(Int.random(in: 1...45))
@@ -17,8 +17,8 @@ func generateLotteryNumbers(count: Int) -> Set<Int> {
     return numbers
 }
 
-func confirmLotteryNumbers(_ numbers: [Int]) -> String {
-    var drawLottoNumbers = generateLotteryNumbers(count: 6)
+func confirmLottoNumbers(_ numbers: [Int]) -> String {
+    var drawLottoNumbers = generateLottoNumbers(count: 6)
     var lottoNumbersResult: [Int] = []
     var answerLottoNumbersResult: [Int] = []
     
@@ -40,5 +40,3 @@ func confirmLotteryNumbers(_ numbers: [Int]) -> String {
 
 let myLottoNumbers: [Int] = [7, 8, 15, 20, 23, 38]
 print(confirmLotteryNumbers(myLottoNumbers))
-
-
