@@ -14,8 +14,7 @@ func pickLottoNumberUp () {
     var count: Int = 0
     while count < 6 {
         let randomNumer: Int = Int.random(in: 1...45)
-        if lottoNumber.contains(randomNumer) {
-        } else {
+        if !lottoNumber.contains(randomNumer) {
             lottoNumber.insert(randomNumer)
             count = count + 1
         }
@@ -29,7 +28,7 @@ func matchLottoNumber() -> Array<Int> {
 }
 
 func printMatch(match: Array<Int>) {
-        if match == [] {
+    if match.isEmpty {
             print("아쉽지만 겹치는 번호가 없습니다")
         } else {
             let matchNumbers = match.map({ (number: Int) -> (String) in return "\(number)" })
