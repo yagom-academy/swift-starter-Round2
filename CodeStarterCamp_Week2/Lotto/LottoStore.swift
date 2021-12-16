@@ -11,7 +11,7 @@ struct LottoStore {
     let lottoNumberGenerator: LottoNumberGenerator
     let lottoWinningNumber: [Int]
     
-    private(set) var overlappedNumber: [Int] = []
+    private(set) var myLottoWinningNumbers: [Int] = []
     
     init(lottoNumberGenerator: LottoNumberGenerator) {
         self.lottoNumberGenerator = lottoNumberGenerator
@@ -19,7 +19,7 @@ struct LottoStore {
     }
     
     mutating func findOverlappedNumbers() {
-        self.overlappedNumber = LottoOptions
+        self.myLottoWinningNumbers = LottoOptions
             .myLottoNumbers
             .filter { lottoWinningNumber.contains($0) }
         
@@ -27,11 +27,11 @@ struct LottoStore {
     }
     
     private func printOverlappedNumbers() {
-        if overlappedNumber.count != 0 {
-            print("축하합니다! 겹치는 번호는 \(convertToString(overlappedNumber)) 입니다!")
+        if myLottoWinningNumbers.count != 0 {
+            print("축하합니다! 겹치는 번호는 \(convertToString(myLottoWinningNumbers)) 입니다!")
         }
         
-        if overlappedNumber.count == 0 {
+        if myLottoWinningNumbers.count == 0 {
             print("아쉽지만 겹치는 번호가 없습니다.")
         }
     }
