@@ -20,18 +20,9 @@ var presentLottoDrawCounter = 0
     return numbers
 }
 
-func transferToArray(the numbers: Set<Int>) -> [Int] {
-    var unorderedNumbers = numbers
-    var lottoNumbers = [Int]()
-    for _ in 0..<numbers.count {
-        lottoNumbers.append(unorderedNumbers.removeFirst())
-    }
-    return lottoNumbers
-}
-
 func compareLottoNumbers(_ numbers: [Int]) -> String {
     let drawLottoNumbers = generateLottoNumbers(count: 6)
-    let answerLottoNumbersResult = drawLottoNumbers.intersection(numbers)
+    let answerLottoNumbersResult = drawLottoNumbers.intersection(numbers).sorted()
     if answerLottoNumbersResult.count >= 1 {
         return "축하합니다! 겹치는 번호는 \(answerLottoNumbersResult.description.trimmingCharacters(in: ["[","]"])) 입니다!"
     } else {
@@ -40,12 +31,11 @@ func compareLottoNumbers(_ numbers: [Int]) -> String {
 }
 
 func saveLottoDrawNumbers(the numbers: Set<Int>) {
-    let lottoNumbers = transferToArray(the: numbers)
     if lottoDrawHistoryRepository.keys.count == 0 {
-        lottoDrawHistoryRepository["1회차"] = lottoNumbers
+        lottoDrawHistoryRepository["1회차"] = numbers.sorted()
         presentLottoDrawCounter += 1
     } else {
-        lottoDrawHistoryRepository["\(String(presentLottoDrawCounter))"+"회차"] = lottoNumbers
+        lottoDrawHistoryRepository["\(String(presentLottoDrawCounter))"+"회차"] = numbers.sorted()
         presentLottoDrawCounter += 1
     }
 }
