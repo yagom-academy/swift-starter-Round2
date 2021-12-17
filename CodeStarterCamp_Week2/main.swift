@@ -5,7 +5,7 @@
 //  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
 //
-
+//
 import Foundation
 
 var lottoNumbers: Set<Int> = Set<Int>()
@@ -17,8 +17,7 @@ print("My Lotto Numbers : \(myLottoNumbers)")
 
 func createLottoNumbers() {
     while lottoNumbers.count < 6 {
-        let randomNumber = Int.random(in: 1...45)
-        lottoNumbers.insert(randomNumber)
+        lottoNumbers.insert(Int.random(in: 1...45))
     }
     print("Lotto Numbers : \(lottoNumbers)")
 }
@@ -30,18 +29,18 @@ func compareLottoNumbers() {
 }
 
 func changeIntToStringArray() {
-    for index in 0..<matchedNumbersArray.count {
-        matchedNumbersStringArray.append("\(matchedNumbersArray[index])")
+    for index in matchedNumbersArray {
+        matchedNumbersStringArray.append("\(index)")
     }
 }
 
 func printMatchedNumbers() {
     changeIntToStringArray()
-    let arr = matchedNumbersStringArray.joined(separator: ", ")
-    print(arr, terminator: " ")
+    let joinedArray = matchedNumbersStringArray.joined(separator: ", ")
+    print(joinedArray, terminator: " ")
 }
 
-func printMessage() {
+func printMatchedResultMessage() {
     compareLottoNumbers()
     if matchedNumbersArray.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
@@ -53,5 +52,4 @@ func printMessage() {
 }
 
 createLottoNumbers()
-printMessage()
-
+printMatchedResultMessage()
