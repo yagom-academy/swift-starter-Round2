@@ -9,10 +9,19 @@
 import Foundation
 
 
-let realLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let myLottoNumbers: [Int] = extractLottoNumbers()
+//MARK: - Step2
 
-let comparedResult = compareLottoNumbers(realLottoNumbers: Set(realLottoNumbers),
-                                         myLottoNumbers: Set(myLottoNumbers))
+//let realLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+//let myLottoNumbers: [Int] = extractLottoNumbers()
+//let comparedResult = compareLottoNumbers(realLottoNumbers: Set(realLottoNumbers),
+//                                         myLottoNumbers: Set(myLottoNumbers))
 
-printLottoResult(result: comparedResult)
+//printLottoResult(result: comparedResult)
+
+//MARK: - Step3
+
+var savedLottoNumbers = [String: [Int]]()
+
+savedLottoNumbers = addLottoNumbersNtimes(historyDictionary: savedLottoNumbers, numOfLottoNumbers: 5)
+print(savedLottoNumbers)
+printNthLottoNumbers(lottoNumbersDict: savedLottoNumbers, num: 2)
