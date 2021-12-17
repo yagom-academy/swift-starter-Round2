@@ -69,3 +69,9 @@ func printLottoDrawNumbers(for when: Int) {
         print("\(when)회차의 로또 당첨 번호는 \(lottoNumbers.description.trimmingCharacters(in: ["[","]"])) 입니다.")
     }
 }
+generateLottoNumbers(count: 6)
+print(lottoDrawHistoryRepository)
+
+repeatGenerateLottoNumber(for: 5)
+
+printLottoDrawNumbers(for: 2)
