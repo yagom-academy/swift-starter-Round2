@@ -63,3 +63,9 @@ func repeatGenerateLottoNumber(for howMany: Int) {
         generateLottoNumbers(count: 6)
     }
 }
+
+func printLottoDrawNumbers(for when: Int) {
+    if let lottoNumbers = lottoDrawHistoryRepository["\(when)"+"회차"] {
+        print("\(when)회차의 로또 당첨 번호는 \(lottoNumbers.description.trimmingCharacters(in: ["[","]"])) 입니다.")
+    }
+}
