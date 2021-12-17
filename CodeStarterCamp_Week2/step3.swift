@@ -18,8 +18,8 @@ func addLottoNumbersNtimes(historyDictionary: [String: [Int]], numOfLottoNumbers
 }
 
 
-func printNthLottoNumbers(lottoNumbersDict: [String : [Int]], num: Int) {
-    if let nthLottoNumbers = lottoNumbersDict["\(num)회차"] {
-        print("\(num)회차의 로또 당첨 번호는 " + removeBracketFromArray(someArray: nthLottoNumbers) + " 입니다.")
+func printNthLottoNumbers(lottoNumbersDict: [String : [Int]], round: Int) {
+    if let nthLottoNumbers = lottoNumbersDict["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 " + removeBracketFromArray(someArray: nthLottoNumbers) + " 입니다.")
     }
 }

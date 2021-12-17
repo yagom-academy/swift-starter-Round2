@@ -24,4 +24,4 @@ var savedLottoNumbers = [String: [Int]]()
 
 savedLottoNumbers = addLottoNumbersNtimes(historyDictionary: savedLottoNumbers, numOfLottoNumbers: 5)
 print(savedLottoNumbers)
-printNthLottoNumbers(lottoNumbersDict: savedLottoNumbers, num: 2)
+printNthLottoNumbers(lottoNumbersDict: savedLottoNumbers, round: 2)
