@@ -8,11 +8,11 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [7, 8, 15, 20, 23, 38]
-var lottoDrawHistoryRepository: [String: [Int]] = [:]
+var lottoDrawHistoryRepository = [String: [Int]]()
 var presentLottoDrawCounter = 0
 
 @discardableResult func generateLottoNumbers(count: Int) -> Set<Int> {
-    var numbers: Set<Int> = []
+    var numbers = Set<Int>()
     while numbers.count < count {
         numbers.insert(Int.random(in: 1...45))
     }
@@ -22,7 +22,7 @@ var presentLottoDrawCounter = 0
 
 func transferToArray(the numbers: Set<Int>) -> [Int] {
     var unorderedNumbers = numbers
-    var lottoNumbers: [Int] = []
+    var lottoNumbers = [Int]()
     for _ in 0..<numbers.count {
         lottoNumbers.append(unorderedNumbers.removeFirst())
     }
@@ -32,7 +32,7 @@ func transferToArray(the numbers: Set<Int>) -> [Int] {
 func compareLottoNumbers(_ numbers: [Int]) -> String {
     let drawLottoNumbers = generateLottoNumbers(count: 6)
     let lottoNumbersResult = transferToArray(the: drawLottoNumbers)
-    var answerLottoNumbersResult: [Int] = []
+    var answerLottoNumbersResult = [Int]()
     
     for index in 0..<numbers.count {
         if numbers[index] == lottoNumbersResult[index] {
