@@ -25,7 +25,7 @@ func overlapedNumber() -> Array<Int> {
   var intersectionLottoNumber : Array<Int> = []
     for member in 1...45 {
       if myLottoNumbers.contains(member){
-          if makeLottoNumber().contains(member){
+        if makeLottoNumber().contains(member){
               intersectionLottoNumber.append(member)
       }
     }
@@ -44,7 +44,7 @@ func checkLotto() {
 
 
 func convertSetToString() -> String {
-  let toStringIntersectionLotto: String = overlapedNumber ().map { String($0) }.joined(separator: ", ")
+  let toStringIntersectionLotto: String = overlapedNumber().map { String($0) }.joined(separator: ", ")
   return toStringIntersectionLotto
 }
 
