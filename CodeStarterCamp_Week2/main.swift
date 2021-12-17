@@ -7,7 +7,9 @@
 
 import Foundation
 
+let myLottoNumbers: [Int] = [7, 8, 15, 20, 23, 38]
 var lottoDrawHistoryRepository: [String: [Int]] = [:]
+var presentLottoDrawCounter = 0
 
 func generateLottoNumbers(count: Int) -> Set<Int> {
     var numbers: Set<Int> = []
@@ -32,10 +34,8 @@ func confirmLottoNumbers(_ numbers: [Int]) -> String {
     }
     
     if answerLottoNumbersResult.count >= 1 {
-        return "축하합니다! 겹치는 번호는 \(answerLottoNumbersResult) 입니다!"
+        return "축하합니다! 겹치는 번호는 \(answerLottoNumbersResult.description.trimmingCharacters(in: ["[","]"])) 입니다!"
     } else {
         return "아쉽지만 겹치는 번호가 없습니다."
     }
 }
-
-let myLottoNumbers: [Int] = [7, 8, 15, 20, 23, 38]
