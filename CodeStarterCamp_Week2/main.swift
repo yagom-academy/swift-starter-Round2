@@ -16,6 +16,7 @@ func generateLottoNumbers(count: Int) -> Set<Int> {
     while numbers.count < count {
         numbers.insert(Int.random(in: 1...45))
     }
+    saveLottoDrawNumbers(the: numbers)
     return numbers
 }
 
@@ -54,5 +55,11 @@ func saveLottoDrawNumbers(the numbers: Set<Int>) {
     } else {
         lottoDrawHistoryRepository["\(String(presentLottoDrawCounter))"+"회차"] = lottoNumbers
         presentLottoDrawCounter += 1
+    }
+}
+
+func repeatGenerateLottoNumber(for howMany: Int) {
+    for _ in 0..<howMany {
+        generateLottoNumbers(count: 6)
     }
 }
