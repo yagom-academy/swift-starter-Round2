@@ -32,7 +32,6 @@ func transferToArray(the numbers: Set<Int>) -> [Int] {
 func compareLottoNumbers(_ numbers: [Int]) -> String {
     let drawLottoNumbers = generateLottoNumbers(count: 6)
     let answerLottoNumbersResult = drawLottoNumbers.intersection(numbers)
-    
     if answerLottoNumbersResult.count >= 1 {
         return "축하합니다! 겹치는 번호는 \(answerLottoNumbersResult.description.trimmingCharacters(in: ["[","]"])) 입니다!"
     } else {
@@ -42,7 +41,6 @@ func compareLottoNumbers(_ numbers: [Int]) -> String {
 
 func saveLottoDrawNumbers(the numbers: Set<Int>) {
     let lottoNumbers = transferToArray(the: numbers)
-    
     if lottoDrawHistoryRepository.keys.count == 0 {
         lottoDrawHistoryRepository["1회차"] = lottoNumbers
         presentLottoDrawCounter += 1
@@ -65,8 +63,6 @@ func printLottoDrawNumbers(when: Int) {
 }
 generateLottoNumbers(count: 6)
 print(lottoDrawHistoryRepository)
-
 repeatGenerateLottoNumber(for: 5)
-
 printLottoDrawNumbers(when: 2)
 
