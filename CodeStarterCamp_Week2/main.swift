@@ -39,3 +39,20 @@ func confirmLottoNumbers(_ numbers: [Int]) -> String {
         return "아쉽지만 겹치는 번호가 없습니다."
     }
 }
+
+func saveLottoDrawNumbers(the numbers: Set<Int>) {
+    var unorderedNumbers = numbers
+    var lottoNumbers: [Int] = []
+    
+    for _ in 0..<unorderedNumbers.count {
+        lottoNumbers.append(unorderedNumbers.removeFirst())
+    }
+    
+    if lottoDrawHistoryRepository.keys.count == 0 {
+        lottoDrawHistoryRepository["1회차"] = lottoNumbers
+        presentLottoDrawCounter += 1
+    } else {
+        lottoDrawHistoryRepository["\(String(presentLottoDrawCounter))"+"회차"] = lottoNumbers
+        presentLottoDrawCounter += 1
+    }
+}
