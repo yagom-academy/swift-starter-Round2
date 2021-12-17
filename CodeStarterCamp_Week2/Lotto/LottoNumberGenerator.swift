@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol LottoNumberGeneratable {
-    func generateLottoNumbers() -> [Int]
-}
-
-struct LottoNumberGenerator: LottoNumberGeneratable {    
+struct LottoNumberGenerator {
     func generateLottoNumbers() -> [Int] {
         var lottoNumbers: Set<Int> = []
         

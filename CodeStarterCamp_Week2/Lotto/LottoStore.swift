@@ -7,12 +7,7 @@
 
 import Foundation
 
-protocol LottoStoreProvider {
-    init(lottoNumberGenerator: LottoNumberGenerator)
-    mutating func findOverlappedNumbers()
-}
-
-struct LottoStore: LottoStoreProvider {
+struct LottoStore {
     let lottoNumberGenerator: LottoNumberGenerator
     let lottoWinningNumber: [Int]
     
@@ -32,11 +27,11 @@ struct LottoStore: LottoStoreProvider {
     }
     
     private func printOverlappedNumbers() {
-        if myLottoWinningNumbers.count != 0 {
+        if myLottoWinningNumbers.isEmpty == false {
             print("축하합니다! 겹치는 번호는 \(convertToString(myLottoWinningNumbers)) 입니다!")
         }
         
-        if myLottoWinningNumbers.count == 0 {
+        if myLottoWinningNumbers.isEmpty {
             print("아쉽지만 겹치는 번호가 없습니다.")
         }
     }
