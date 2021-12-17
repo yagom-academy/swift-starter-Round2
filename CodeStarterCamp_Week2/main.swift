@@ -7,7 +7,6 @@
 //
 import Foundation
 
-var lottoNumbers: Array<Int> = []
 
 func makeLottoNumber() -> Array<Int> {
   var lottoNumbers: Array<Int> = []
