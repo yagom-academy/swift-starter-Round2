@@ -10,13 +10,12 @@ import Foundation
 var lottoNumbers: Array<Int> = []
 
 func makeLottoNumber() -> Array<Int> {
-
+  var lottoNumbers: Array<Int> = []
   while lottoNumbers.count < 6 {
     let lottoNumber: Int = Int.random(in: 1...45)
       if !lottoNumbers.contains(lottoNumber) {
         lottoNumbers.append(lottoNumber)
-      }
-
+    }
   }
     return lottoNumbers
 }
@@ -38,7 +37,7 @@ func overlapedNumber() -> Array<Int> {
 func checkLotto() {
   if overlapedNumber().isEmpty {
     print("아쉽지만 겹치는 번호가 없습니다.")
-} else {
+  } else {
     print("축하합니다! 겹치는 번호는 \(convertSetToString()) 입니다!")
   }
 }
