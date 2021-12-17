@@ -55,4 +55,3 @@ generateLottoNumbers(count: 6)
 print(lottoDrawHistoryRepository)
 repeatGenerateLottoNumber(for: 5)
 printLottoDrawNumbers(when: 2)
-
