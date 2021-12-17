@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
-
+let lottoNumberGenerator = LottoNumberGenerator()
+var lottoStore = LottoStore(lottoNumberGenerator: lottoNumberGenerator)
+print(lottoStore.lottoWinningNumber)
+lottoStore.findOverlappedNumbers()
