@@ -20,7 +20,7 @@ func generateLottoNumbers(count: Int) -> Set<Int> {
     return numbers
 }
 
-func confirmLottoNumbers(_ numbers: [Int]) -> String {
+func compareLottoNumbers(_ numbers: [Int]) -> String {
     var drawLottoNumbers = generateLottoNumbers(count: 6)
     var lottoNumbersResult: [Int] = []
     var answerLottoNumbersResult: [Int] = []
@@ -75,3 +75,4 @@ print(lottoDrawHistoryRepository)
 repeatGenerateLottoNumber(for: 5)
 
 printLottoDrawNumbers(when: 2)
+
