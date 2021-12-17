@@ -11,7 +11,7 @@ let myLottoNumbers: [Int] = [7, 8, 15, 20, 23, 38]
 var lottoDrawHistoryRepository: [String: [Int]] = [:]
 var presentLottoDrawCounter = 0
 
-func generateLottoNumbers(count: Int) -> Set<Int> {
+@discardableResult func generateLottoNumbers(count: Int) -> Set<Int> {
     var numbers: Set<Int> = []
     while numbers.count < count {
         numbers.insert(Int.random(in: 1...45))
@@ -20,14 +20,20 @@ func generateLottoNumbers(count: Int) -> Set<Int> {
     return numbers
 }
 
+func transferToArray(the numbers: Set<Int>) -> [Int] {
+    var unorderedNumbers = numbers
+    var lottoNumbers: [Int] = []
+    for _ in 0..<numbers.count {
+        lottoNumbers.append(unorderedNumbers.removeFirst())
+    }
+    return lottoNumbers
+}
+
 func compareLottoNumbers(_ numbers: [Int]) -> String {
-    var drawLottoNumbers = generateLottoNumbers(count: 6)
-    var lottoNumbersResult: [Int] = []
+    let drawLottoNumbers = generateLottoNumbers(count: 6)
+    let lottoNumbersResult = transferToArray(the: drawLottoNumbers)
     var answerLottoNumbersResult: [Int] = []
     
-    for _ in 0..<drawLottoNumbers.count {
-        lottoNumbersResult.append(drawLottoNumbers.removeFirst())
-    }
     for index in 0..<numbers.count {
         if numbers[index] == lottoNumbersResult[index] {
             answerLottoNumbersResult.append(numbers[index])
@@ -42,12 +48,8 @@ func compareLottoNumbers(_ numbers: [Int]) -> String {
 }
 
 func saveLottoDrawNumbers(the numbers: Set<Int>) {
-    var unorderedNumbers = numbers
-    var lottoNumbers: [Int] = []
-    
-    for _ in 0..<unorderedNumbers.count {
-        lottoNumbers.append(unorderedNumbers.removeFirst())
-    }
+    let unorderedNumbers = numbers
+    let lottoNumbers = transferToArray(the: unorderedNumbers)
     
     if lottoDrawHistoryRepository.keys.count == 0 {
         lottoDrawHistoryRepository["1회차"] = lottoNumbers
