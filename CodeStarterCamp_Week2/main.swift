@@ -7,15 +7,13 @@
 //
 import Foundation
 
-var lottoNumber: Int!
 var lottoNumbers: Set<Int> = []
-var myLottoNumbers: Set<Int> = []
 var intersectionLottoNumber: Set<Int> = []
 
 
 func makeLottoNumber() -> Set<Int> {
   while lottoNumbers.count < 6 {
-    lottoNumber = Int.random(in: 1...45)
+    let lottoNumber: Int = Int.random(in: 1...45)
     if !lottoNumbers.contains(lottoNumber) {
       lottoNumbers.insert(lottoNumber)
     }
@@ -38,6 +36,7 @@ func checkLotto() {
   }
 }
 
-myLottoNumbers = [1, 2, 3, 4, 5, 6]
+
+let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 
 checkLotto()
