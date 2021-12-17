@@ -22,6 +22,6 @@ import Foundation
 
 var savedLottoNumbers = [String: [Int]]()
 
-savedLottoNumbers = addLottoNumbersNtimes(historyDictionary: savedLottoNumbers, numOfLottoNumbers: 5)
+addLottoNumbersNtimes(numOfRound: 5)
 print(savedLottoNumbers)
-printNthLottoNumbers(lottoNumbersDict: savedLottoNumbers, round: 2)
+printNthLottoNumbers(round: 2)

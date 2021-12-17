@@ -8,18 +8,15 @@
 import Foundation
 
 
-func addLottoNumbersNtimes(historyDictionary: [String: [Int]], numOfLottoNumbers: Int) -> [String: [Int]] {
-    var lottoNumbersDictionary = historyDictionary
-    
-    while lottoNumbersDictionary.count < numOfLottoNumbers {
-        lottoNumbersDictionary["\(lottoNumbersDictionary.count + 1)회차"] = extractLottoNumbers()
+func addLottoNumbersNtimes(numOfRound: Int) {
+    while savedLottoNumbers.count < numOfRound {
+        savedLottoNumbers["\(savedLottoNumbers.count + 1)회차"] = extractLottoNumbers()
     }
-    return lottoNumbersDictionary
 }
 
 
-func printNthLottoNumbers(lottoNumbersDict: [String : [Int]], round: Int) {
-    if let nthLottoNumbers = lottoNumbersDict["\(round)회차"] {
+func printNthLottoNumbers(round: Int) {
+    if let nthLottoNumbers = savedLottoNumbers["\(round)회차"] {
         print("\(round)회차의 로또 당첨 번호는 " + removeBracketFromArray(someArray: nthLottoNumbers) + " 입니다.")
     }
 }
