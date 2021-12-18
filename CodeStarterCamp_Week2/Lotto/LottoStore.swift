@@ -27,11 +27,12 @@ struct LottoStore {
         printOverlappedNumbers()
     }
     
-    mutating func findPreviousNumbers() {
+    mutating func findPreviousLottoWinningNumbers(round: Int) {
         for round in LottoOptions.roundRange {
             previousLottoWinningNumbers["\(round)회차"] = lottoNumberGenerator.generateLottoNumbers()
         }
         
+        printPreviousLottoWinningNumbers(round)
     }
     
     private func printOverlappedNumbers() {
@@ -43,6 +44,10 @@ struct LottoStore {
             print("아쉽지만 겹치는 번호가 없습니다.")
         }
     }
+    
+    private func printPreviousLottoWinningNumbers(_ round: Int) {
+        print("\(round)회차의 로또 당첨 번호는 \(convertToString(previousLottoWinningNumbers["\(round)회차"])) 입니다.")
+    }
 }
 
 extension LottoStore {
@@ -52,7 +57,7 @@ extension LottoStore {
             .joined(separator: ", ")
     }
     
-    func convertToString(_ previousLottoWinningNumbers: [Int]?) -> String {
+    private func convertToString(_ previousLottoWinningNumbers: [Int]?) -> String {
         guard let previousLottoWinningNumbers = previousLottoWinningNumbers else {
             return "로또가 생성되지 않았습니다. 다시 시도해주세요"
         }
