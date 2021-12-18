@@ -12,6 +12,7 @@ struct LottoStore {
     let lottoWinningNumber: [Int]
     
     private(set) var myLottoWinningNumbers: [Int] = []
+    private(set) var previousLottoWinningNumbers: Dictionary<String, [Int]> = [:]
     
     init(lottoNumberGenerator: LottoNumberGenerator) {
         self.lottoNumberGenerator = lottoNumberGenerator
@@ -24,6 +25,13 @@ struct LottoStore {
             .filter { lottoWinningNumber.contains($0) }
         
         printOverlappedNumbers()
+    }
+    
+    mutating func findPreviousNumbers() {
+        for round in LottoOptions.roundRange {
+            previousLottoWinningNumbers["\(round)회차"] = lottoNumberGenerator.generateLottoNumbers()
+        }
+        
     }
     
     private func printOverlappedNumbers() {
