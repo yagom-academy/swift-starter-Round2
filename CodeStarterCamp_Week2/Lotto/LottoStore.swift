@@ -28,7 +28,7 @@ struct LottoStore {
     }
     
     mutating func findLottoWinningNumbersHistory(roundNumber: Int) {
-        for round in LottoOptions.roundRange {
+        for round in LottoOptions.lottoHistoryRoundRange {
             lottoWinningNumbersHistory["\(round)회차"] = lottoNumberGenerator.generateLottoNumbers()
         }
         
