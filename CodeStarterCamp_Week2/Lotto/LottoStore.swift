@@ -12,30 +12,30 @@ struct LottoStore {
     let lottoWinningNumber: [Int]
     
     private(set) var myLottoWinningNumbers: [Int] = []
-    private(set) var previousLottoWinningNumbers: Dictionary<String, [Int]> = [:]
+    private(set) var lottoWinningNumbersHistory: Dictionary<String, [Int]> = [:]
     
     init(lottoNumberGenerator: LottoNumberGenerator) {
         self.lottoNumberGenerator = lottoNumberGenerator
         self.lottoWinningNumber = lottoNumberGenerator.generateLottoNumbers()
     }
     
-    mutating func findOverlappedNumbers() {
+    mutating func findMyLottoWinningNumbers() {
         self.myLottoWinningNumbers = LottoOptions
             .myLottoNumbers
             .filter { lottoWinningNumber.contains($0) }
         
-        printOverlappedNumbers()
+        printMyLottoWinningNumbers()
     }
     
-    mutating func findPreviousLottoWinningNumbers(round: Int) {
+    mutating func findLottoWinningNumbersHistory(round: Int) {
         for round in LottoOptions.roundRange {
-            previousLottoWinningNumbers["\(round)회차"] = lottoNumberGenerator.generateLottoNumbers()
+            lottoWinningNumbersHistory["\(round)회차"] = lottoNumberGenerator.generateLottoNumbers()
         }
         
-        printPreviousLottoWinningNumbers(round)
+        printLottoWinningNumbersHistory(round)
     }
     
-    private func printOverlappedNumbers() {
+    private func printMyLottoWinningNumbers() {
         if myLottoWinningNumbers.isEmpty == false {
             print("축하합니다! 겹치는 번호는 \(convertToString(myLottoWinningNumbers)) 입니다!")
         }
@@ -45,24 +45,24 @@ struct LottoStore {
         }
     }
     
-    private func printPreviousLottoWinningNumbers(_ round: Int) {
-        print("\(round)회차의 로또 당첨 번호는 \(convertToString(previousLottoWinningNumbers["\(round)회차"])) 입니다.")
+    private func printLottoWinningNumbersHistory(_ round: Int) {
+        print("\(round)회차의 로또 당첨 번호는 \(convertToString(lottoWinningNumbersHistory["\(round)회차"])) 입니다.")
     }
 }
 
 extension LottoStore {
-    private func convertToString(_ numbers: [Int]) -> String {
-        numbers
+    private func convertToString(_ lottoWinningNumbers: [Int]) -> String {
+        lottoWinningNumbers
             .map{ String($0) }
             .joined(separator: ", ")
     }
     
-    private func convertToString(_ previousLottoWinningNumbers: [Int]?) -> String {
-        guard let previousLottoWinningNumbers = previousLottoWinningNumbers else {
+    private func convertToString(_ lottoWinningNumbers: [Int]?) -> String {
+        guard let lottoWinningNumbers = lottoWinningNumbers else {
             return "로또가 생성되지 않았습니다. 다시 시도해주세요"
         }
 
-        return previousLottoWinningNumbers
+        return lottoWinningNumbers
             .map{ String($0) }
             .joined(separator: ", ")
     }

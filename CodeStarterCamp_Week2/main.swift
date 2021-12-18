@@ -10,4 +10,4 @@ import Foundation
 
 let lottoNumberGenerator = LottoNumberGenerator()
 var lottoStore = LottoStore(lottoNumberGenerator: lottoNumberGenerator)
-lottoStore.findPreviousLottoWinningNumbers(round: 2)
+lottoStore.findLottoWinningNumbersHistory(round: 2)
