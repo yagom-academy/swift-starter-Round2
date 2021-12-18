@@ -51,4 +51,14 @@ extension LottoStore {
             .map{ String($0) }
             .joined(separator: ", ")
     }
+    
+    func convertToString(_ previousLottoWinningNumbers: [Int]?) -> String {
+        guard let previousLottoWinningNumbers = previousLottoWinningNumbers else {
+            return "로또가 생성되지 않았습니다. 다시 시도해주세요"
+        }
+
+        return previousLottoWinningNumbers
+            .map{ String($0) }
+            .joined(separator: ", ")
+    }
 }
