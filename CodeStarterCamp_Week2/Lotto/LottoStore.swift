@@ -27,12 +27,12 @@ struct LottoStore {
         printMyLottoWinningNumbers()
     }
     
-    mutating func findLottoWinningNumbersHistory(round: Int) {
+    mutating func findLottoWinningNumbersHistory(roundNumber: Int) {
         for round in LottoOptions.roundRange {
             lottoWinningNumbersHistory["\(round)회차"] = lottoNumberGenerator.generateLottoNumbers()
         }
         
-        printLottoWinningNumbersHistory(round)
+        printLottoWinningNumbersHistory(roundNumber)
     }
     
     private func printMyLottoWinningNumbers() {
