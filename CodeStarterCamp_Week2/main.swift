@@ -18,15 +18,21 @@ func makeLottoNumber() -> Set<Int> {
 }
 
 
-func overlapedNumbers() -> Set<Int> {
+func makeOverlapedNumbers() -> Set<Int> {
   let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-  let intersectionLottoNumbers = myLottoNumbers.intersection(makeLottoNumber())
-  return intersectionLottoNumbers
+  let overlapedLottoNumbers = myLottoNumbers.intersection(makeLottoNumber())
+  return overlapedLottoNumbers
 }
 
 
 func convertSetToString() -> String {
-  let toStringIntersectionLotto: String = overlapedNumbers().map { String($0) }.joined(separator: ", ")
+  let toStringIntersectionLotto: String = makeOverlapedNumbers().map { String($0) }.joined(separator: ", ")
+  return toStringIntersectionLotto
+}
+
+
+func convertSetToStringNotOverlapedNumber() -> String {
+  let toStringIntersectionLotto: String = makeLottoNumber().map { String($0) }.joined(separator: ", ")
   return toStringIntersectionLotto
 }
 
@@ -38,9 +44,26 @@ func checkLotto() -> String  {
   } else {
       print("축하합니다! 겹치는 번호는 \(toStringIntersectionLotto) 입니다!")
   }
-    return toStringIntersectionLotto
+  return toStringIntersectionLotto
 }
 
 
-checkLotto()
+func saveDictionary() -> Dictionary<String, String> {
+  var lottoDictionary: [String: String] = [:]
+  for round in 1...5{
+    lottoDictionary["\(round)회차"] = convertSetToStringNotOverlapedNumber()
+  }
+  return lottoDictionary
+}
 
+
+func findRoundLotto(round: Int) {
+  let Dictionary = saveDictionary()
+  print(Dictionary)
+  if let actualDictionary = Dictionary["\(round)회차"] {
+    print("\(round)회차의 로또 당첨 번호는 \(actualDictionary) 입니다.")
+  }
+}
+
+
+findRoundLotto(round: 4)
