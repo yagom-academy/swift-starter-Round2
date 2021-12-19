@@ -34,7 +34,7 @@ func saveLottoDrawNumbers(the numbers: Set<Int>) {
         presentLottoDrawCounter += 1
 }
 
-func repeatGenerateLottoNumber(until count: Int) {
+func repeatGenerateLottoNumbers(until count: Int) {
     for _ in 0..<count {
         generateLottoNumbers(count: 6)
     }
@@ -47,6 +47,6 @@ func printLottoDrawNumbers(at round: Int) {
 }
 generateLottoNumbers(count: 6)
 print(lottoDrawHistoryRepository)
-repeatGenerateLottoNumber(until: 5)
+repeatGenerateLottoNumbers(until: 5)
 print(lottoDrawHistoryRepository)
 printLottoDrawNumbers(at: 2)
