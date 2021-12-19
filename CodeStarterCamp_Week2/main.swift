@@ -9,7 +9,7 @@ import Foundation
 
 let myLottoNumbers: [Int] = [7, 8, 15, 20, 23, 38]
 var lottoDrawHistoryRepository = [String: [Int]]()
-var presentLottoDrawCounter = 0
+var presentLottoDrawCounter = 1
 
 @discardableResult func generateLottoNumbers(count: Int) -> Set<Int> {
     var numbers = Set<Int>()
@@ -21,8 +21,7 @@ var presentLottoDrawCounter = 0
 }
 
 func compareLottoNumbers(_ numbers: [Int]) -> String {
-    let drawLottoNumbers = generateLottoNumbers(count: 6)
-    let answerLottoNumbersResult = drawLottoNumbers.intersection(numbers).sorted()
+    let answerLottoNumbersResult = generateLottoNumbers(count: 6).intersection(numbers).sorted()
     if answerLottoNumbersResult.count >= 1 {
         return "축하합니다! 겹치는 번호는 \(answerLottoNumbersResult.description.trimmingCharacters(in: ["[","]"])) 입니다!"
     } else {
@@ -31,27 +30,23 @@ func compareLottoNumbers(_ numbers: [Int]) -> String {
 }
 
 func saveLottoDrawNumbers(the numbers: Set<Int>) {
-    if lottoDrawHistoryRepository.keys.count == 0 {
-        lottoDrawHistoryRepository["1회차"] = numbers.sorted()
-        presentLottoDrawCounter += 1
-    } else {
         lottoDrawHistoryRepository["\(String(presentLottoDrawCounter))"+"회차"] = numbers.sorted()
         presentLottoDrawCounter += 1
-    }
 }
 
-func repeatGenerateLottoNumber(for howMany: Int) {
-    for _ in 0..<howMany {
+func repeatGenerateLottoNumber(until count: Int) {
+    for _ in 0..<count {
         generateLottoNumbers(count: 6)
     }
 }
 
-func printLottoDrawNumbers(when: Int) {
-    if let lottoNumbers = lottoDrawHistoryRepository["\(when)"+"회차"] {
-        print("\(when)회차의 로또 당첨 번호는 \(lottoNumbers.description.trimmingCharacters(in: ["[","]"])) 입니다.")
+func printLottoDrawNumbers(at round: Int) {
+    if let lottoNumbers = lottoDrawHistoryRepository["\(round)"+"회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(lottoNumbers.description.trimmingCharacters(in: ["[","]"])) 입니다.")
     }
 }
 generateLottoNumbers(count: 6)
 print(lottoDrawHistoryRepository)
-repeatGenerateLottoNumber(for: 5)
-printLottoDrawNumbers(when: 2)
+repeatGenerateLottoNumber(until: 5)
+print(lottoDrawHistoryRepository)
+printLottoDrawNumbers(at: 2)
