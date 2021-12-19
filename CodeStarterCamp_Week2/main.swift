@@ -4,7 +4,7 @@
 //
 //  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
-//
+
 import Foundation
 
 
@@ -19,6 +19,7 @@ func makeLottoNumber() -> Set<Int> {
 
 
 func overlapedNumbers() -> Set<Int> {
+  let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
   let intersectionLottoNumbers = myLottoNumbers.intersection(makeLottoNumber())
   return intersectionLottoNumbers
 }
@@ -27,35 +28,19 @@ func overlapedNumbers() -> Set<Int> {
 func convertSetToString() -> String {
   let toStringIntersectionLotto: String = overlapedNumbers().map { String($0) }.joined(separator: ", ")
   return toStringIntersectionLotto
-
 }
 
 
-func checkLotto() {
+func checkLotto() -> String  {
   let toStringIntersectionLotto = convertSetToString()
-    print(toStringIntersectionLotto)
   if toStringIntersectionLotto.isEmpty {
-    print("아쉽지만 겹치는 번호가 없습니다.")
+      print("아쉽지만 겹치는 번호가 없습니다.")
   } else {
       print("축하합니다! 겹치는 번호는 \(toStringIntersectionLotto) 입니다!")
   }
+    return toStringIntersectionLotto
 }
 
 
-var myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-
 checkLotto()
-checkLotto()
-checkLotto()
-checkLotto()
-checkLotto()
-checkLotto()
-checkLotto()
-checkLotto()
-checkLotto()
-checkLotto()
-
-
-
-
 
