@@ -1,1 +1,1 @@
-코드 스타터 캠프 2주차 미션을 위한 저장소입니다.
+![Step1순서도](https://user-images.githubusercontent.com/94295586/146680465-e2b92781-43f1-4b70-907b-be09a07e221d.png)
