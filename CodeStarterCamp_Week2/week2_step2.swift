@@ -7,24 +7,24 @@ func generateLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func getMatchedNumbers(winNumbers: Set<Int>, myNumbers: Set<Int>) -> Set<Int> {
-    return winNumbers.intersection(myNumbers)
+func getMatchedNumbers(win: Set<Int>, my: Set<Int>) -> [Int] {
+    return win.intersection(my).sorted()
 }
 
-func fromSetToString(from: Set<Int>) -> String {
+func changeArrayToString(from: [Int]) -> String {
     var to = String()
-    for item in from {
-        to.append("\(item), ")
+    for number in from {
+        to.append("\(number), ")
     }
     to.removeLast(2)
     return to
 }
 
-func printResult(numbers: Set<Int>) {
-    if numbers.count == 0 {
+func printResultOfLotto(matchedNumbers: [Int]) {
+    if matchedNumbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
     else {
-        print("축하합니다! 겹치는 번호는 \(fromSetToString(from: numbers)) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(changeArrayToString(from: matchedNumbers)) 입니다!")
     }
 }
