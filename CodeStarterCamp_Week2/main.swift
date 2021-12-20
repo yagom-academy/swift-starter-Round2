@@ -36,3 +36,5 @@ func compare(myLottoNumbers:[Int]) {
 }
 
 let myLottoNumbers: [Int] = [3,8,10,15,13,22]
+
+compare(myLottoNumbers: myLottoNumbers)
