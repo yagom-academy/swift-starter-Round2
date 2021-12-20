@@ -31,11 +31,15 @@ struct LottoFactory {
     // 두 숫자 Array를 비교하여 겹치는 숫자들을 배열로 반환하는 함수. 겹치는 숫자가 없을 경우 빈 배열을 반환합니다.
     func LottoComparor(myLottoNumbers: [Int], newlyPickedNumbers: [Int]) -> [Int] {
         var result: [Int] = []
+        
+        result = myLottoNumbers.filter {newlyPickedNumbers.contains($0)} // filter 사용
+        /*
         for num in newlyPickedNumbers {
             if myLottoNumbers.contains(num) {
                 result.append(num)
             }
         }
+         */
         return result
     }
     
