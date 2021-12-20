@@ -8,5 +8,12 @@
 
 import Foundation
 
-print("Hello, World!")
-
+func createWinnigNumbers() -> Set<Int>{
+    var numbers : Set<Int> = Set<Int>()
+    
+    repeat {
+        numbers.insert(Int.random(in: 1...45))
+    }while numbers.count < 6
+    
+    return numbers
+}
