@@ -8,49 +8,36 @@
 
 import Foundation
 
-var lottoNumber: Set<Int> = Set<Int> ()
-var matchedLottoNumberArray: [Int] = []
-var pickLottoNumberArray: [String] = []
-let myChooseLottoNumber: Set<Int>! = [1, 2, 3, 4, 5, 6]
+let lottoNumbers: [Int] = [1, 22, 33, 44, 35, 26]
 
-print(" 내 로또 번호는 : \(myChooseLottoNumber.sorted())")
-
-func createRandomLottoNum() {
-    while lottoNumber.count < 6 {
-        lottoNumber.insert(Int.random(in: 1...45))
-        
-    }
-    print("당첨된 내 로또 번호는 : \(lottoNumber.sorted())")
-}
-
-func compareLottoNum() {
+func createRandomLottoNumbers() -> Set<Int> {
     var matchNumber: Set<Int> = Set<Int>()
-    matchNumber = myChooseLottoNumber.intersection(lottoNumber)
-    matchedLottoNumberArray = Array(matchNumber)
-}
-
-func  changeLottoNumberArray() {
-    for index in pickLottoNumberArray {
-        pickLottoNumberArray.append("\(index)")
+    while matchNumber.count < 6 {
+        
+        let randomLottoNumber = Int.random(in: 1...45)
+        if !matchNumber.contains(randomLottoNumber){
+            matchNumber.insert(randomLottoNumber)
+            
+        }
     }
+    return matchNumber
 }
 
-func printMatchNum() {
-    changeLottoNumberArray()
-    let correctLottoArray = pickLottoNumberArray.joined(separator: " ,")
-    print(correctLottoArray, terminator: " ")
-}
 
-func printMatchLottoResultMessage() {
-    compareLottoNum()
-    if matchedLottoNumberArray.isEmpty {
-
-        print("아쉽지만  겹치는 번호가 없습니다  다음기회에 재 시도 해주세요")
+func printMatchLottoResultMessage(lottoNumbers mylottoNumber: Array<Int>, createRandomLottoNumbers randomNumber: Set<Int>) {
+    var duplicateNumber: [Int] = []
+    for index in 0...(mylottoNumber.count-1) {
+        if randomNumber.contains(mylottoNumber[index]) {
+            duplicateNumber.append(mylottoNumber[index])
+        }
+    }
+    if duplicateNumber.count>0 {
+        print("축하합니다!! 겹치는 번호는 \(duplicateNumber.sorted()) " + "입니다")
     } else {
-        print("축하합니다!! 겹치는 번호는 \(myChooseLottoNumber.sorted()) " + "입니다")
-      printMatchNum()
-    
+        print("아쉽지만  겹치는 번호가 없습니다  다음기회에 재시도 해주세요")
     }
 }
-createRandomLottoNum()
-printMatchLottoResultMessage()
+
+
+printMatchLottoResultMessage(lottoNumbers: lottoNumbers, createRandomLottoNumbers: createRandomLottoNumbers())
+
