@@ -22,16 +22,16 @@ func makeDeduplicatedNumbers() -> [Int] {
     return Array(deduplicatedNumbers)
 }
 
-func compareWithWinningNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) -> [Int] {
-    let myLottoNumbersWithOrder: Set<Int> = Set(winningNumbers)
-    let winningNumbersWithOrder: Set<Int> = Set(myLottoNumbers)
-    let sameNumbers: [Int] = winningNumbersWithOrder.intersection(myLottoNumbersWithOrder).sorted()
+func compareMyLottoNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) -> [Int] {
+    let capturedMyLottoNumberValues: Set<Int> = Set(myLottoNumbers)
+    let caputredWinningNumberValues: Set<Int> = Set(winningNumbers)
+    let sameNumbers: [Int] = capturedMyLottoNumberValues.intersection(caputredWinningNumberValues).sorted()
     
     return sameNumbers
 }
 
 func printWinningNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) {
-    let sameNumbers: [Int] = compareWithWinningNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+    let sameNumbers: [Int] = compareMyLottoNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
     
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
