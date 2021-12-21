@@ -57,9 +57,9 @@ func saveLotto(lastRound: Int) -> Dictionary<Int, String> {
   }
 
 
-func findRoundLotto(inputRastRound: Int, round: Int) {
-  let Dictionary = saveLotto(lastRound: inputRastRound)
-  if let actualDictionary = Dictionary[round] {
+func findLottoRound(inputRastRound: Int, round: Int) {
+  let lottoHistory = saveLotto(lastRound: inputRastRound)
+  if let actualDictionary = lottoHistory[round] {
     print("\(round)회차의 로또 당첨 번호는 \(actualDictionary) 입니다.")
   } else {
       print("1~6사이의 회차만 존재합니다.")
@@ -67,4 +67,4 @@ func findRoundLotto(inputRastRound: Int, round: Int) {
 }
 
 
-findRoundLotto(inputRastRound: 50, round: 50)
+findLottoRound(inputRastRound: 5, round: 2)
