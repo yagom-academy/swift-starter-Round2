@@ -25,41 +25,41 @@ func makeOverlapedNumbers() -> Set<Int> {
 }
 
 
-func duplicateNumber() -> String {
-  let toStringIntersectionLotto: String = makeOverlapedNumbers().map { String($0) }.joined(separator: ", ")
-  return toStringIntersectionLotto
+func duplicateOverlapedNumber() -> String {
+  let duplicateNumber: String = makeOverlapedNumbers().map { String($0) }.joined(separator: ", ")
+  return duplicateNumber
 }
 
 
-func duplicateNumberNotOverlapedNumber() -> String {
-  let toStringIntersectionLotto: String = makeLottoNumber().map { String($0) }.joined(separator: ", ")
-  return toStringIntersectionLotto
+func duplicateNumber() -> String {
+  let duplicateNumber: String = makeLottoNumber().map { String($0) }.joined(separator: ", ")
+  return duplicateNumber
 }
 
 
 func checkLotto() -> String  {
-  let toStringIntersectionLotto = duplicateNumber()
-  if toStringIntersectionLotto.isEmpty {
+  let duplicateNumber = duplicateOverlapedNumber()
+  if duplicateNumber.isEmpty {
       print("아쉽지만 겹치는 번호가 없습니다.")
   } else {
-      print("축하합니다! 겹치는 번호는 \(toStringIntersectionLotto) 입니다!")
+      print("축하합니다! 겹치는 번호는 \(duplicateNumber) 입니다!")
   }
-  return toStringIntersectionLotto
+  return duplicateNumber
 }
 
 
-func saveDictionary() -> Dictionary<String, String> {
-  var lottoDictionary: [String: String] = [:]
-  for round in 1...5{
-    lottoDictionary["\(round)회차"] = duplicateNumberNotOverlapedNumber()
+func saveLotto(lastRound: Int) -> Dictionary<Int, String> {
+  var lottoDictionary: [Int: String] = [:]
+    for round in 1...lastRound{
+       lottoDictionary[round] = duplicateNumber()
+     }
+    return lottoDictionary
   }
-  return lottoDictionary
-}
 
 
-func findRoundLotto(round: Int) {
-  let Dictionary = saveDictionary()
-  if let actualDictionary = Dictionary["\(round)회차"] {
+func findRoundLotto(inputRastRound: Int, round: Int) {
+  let Dictionary = saveLotto(lastRound: inputRastRound)
+  if let actualDictionary = Dictionary[round] {
     print("\(round)회차의 로또 당첨 번호는 \(actualDictionary) 입니다.")
   } else {
       print("1~6사이의 회차만 존재합니다.")
@@ -67,4 +67,4 @@ func findRoundLotto(round: Int) {
 }
 
 
-findRoundLotto(round: 4)
+findRoundLotto(inputRastRound: 50, round: 50)
