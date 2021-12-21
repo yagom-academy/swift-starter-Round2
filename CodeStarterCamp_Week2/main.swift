@@ -18,16 +18,26 @@ func makeDeduplicatedNumbers() -> [Int] {
         let deduplicatedNumber = Int.random(in: 1...45)
         deduplicatedNumbers.insert(deduplicatedNumber)
     }
-    print(Array(deduplicatedNumbers))
+    
     return Array(deduplicatedNumbers)
 }
 
-func checkSameNumbers(winningNumbers: [Int], with myLottoNumbers: [Int]) -> [Int] {
+func compareWithWinningNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) -> [Int] {
     let myLottoNumbersWithOrder: Set<Int> = Set(winningNumbers)
     let winningNumbersWithOrder: Set<Int> = Set(myLottoNumbers)
     let sameNumbers: [Int] = winningNumbersWithOrder.intersection(myLottoNumbersWithOrder).sorted()
     
     return sameNumbers
-    
 }
+
+func printWinningNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) {
+    let sameNumbers: [Int] = compareWithWinningNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+    
+    if sameNumbers.isEmpty {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 1, 2, 3, 4, 5, 6 입니다!")
+    }
+}
+
 
