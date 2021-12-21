@@ -36,7 +36,8 @@ func printWinningNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) {
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 1, 2, 3, 4, 5, 6 입니다!")
+        let convertedSameNumbers = sameNumbers.map{ String($0) }.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(convertedSameNumbers) 입니다!")
     }
 }
 
