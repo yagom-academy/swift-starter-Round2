@@ -18,6 +18,16 @@ func makeDeduplicatedNumbers() -> [Int] {
         let deduplicatedNumber = Int.random(in: 1...45)
         deduplicatedNumbers.insert(deduplicatedNumber)
     }
+    print(Array(deduplicatedNumbers))
     return Array(deduplicatedNumbers)
+}
+
+func checkSameNumbers(winningNumbers: [Int], with myLottoNumbers: [Int]) -> [Int] {
+    let myLottoNumbersWithOrder: Set<Int> = Set(winningNumbers)
+    let winningNumbersWithOrder: Set<Int> = Set(myLottoNumbers)
+    let sameNumbers: [Int] = winningNumbersWithOrder.intersection(myLottoNumbersWithOrder).sorted()
+    
+    return sameNumbers
+    
 }
 
