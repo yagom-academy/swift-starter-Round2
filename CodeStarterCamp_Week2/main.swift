@@ -40,4 +40,9 @@ func printWinningNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) {
     }
 }
 
+func startLotto() {
+    winningNumbers = makeDeduplicatedNumbers()
+    printWinningNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+}
 
+startLotto()
