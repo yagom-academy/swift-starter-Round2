@@ -21,16 +21,16 @@ func createLottoNumbers(_ round: Int) {
         lottoNumbersArray = Array(lottoNumbers)
         saveLottoNumbersToDictionary()
     }
+    print(lottoNumbersDictionary)
 }
 
 func saveLottoNumbersToDictionary() {
     lottoNumbersDictionary["\(lottoNumbersDictionary.count+1)회차"] = lottoNumbersArray
-    print(lottoNumbersDictionary)
 }
 
 func changeIntToStringArray() {
-    for index in someRoundNumbersArray {
-        someRoundNumbersStringArray.append("\(index)")
+    for someRoundNumber in someRoundNumbersArray {
+        someRoundNumbersStringArray.append("\(someRoundNumber)")
     }
 }
 
@@ -50,3 +50,6 @@ func checkLottoNumbers(_ round: Int) {
         print("\(round)회차의 로또 번호가 없습니다.")
     }
 }
+
+//createLottoNumbers(5)
+//checkLottoNumbers(2)
