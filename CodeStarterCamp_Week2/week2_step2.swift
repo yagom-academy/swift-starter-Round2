@@ -9,7 +9,8 @@ func generateLottoNumbers() -> Set<Int> {
 
 func getMatchedNumbers(win: Set<Int>, my: Set<Int>) -> [Int] {
     let matchedNumbers = win.intersection(my)
-    return matchedNumbers.sorted()
+    let sortedNumbers = matchedNumbers.sorted()
+    return sortedNumbers
 }
 
 func changeArrayToString(_ from: [Int]) -> String {
