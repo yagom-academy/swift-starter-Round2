@@ -7,6 +7,8 @@
 
 import Foundation
 
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+
 func makeWinningLottoNumbers() -> Set<Int> {
     var winningLottoNumbers = Set<Int>()
     
@@ -15,4 +17,11 @@ func makeWinningLottoNumbers() -> Set<Int> {
         winningLottoNumbers.insert(num)
     }
     return winningLottoNumbers
+}
+
+func compareMylottoNumbersWithWinningLottoNumbers() -> Set<Int> {
+    let winningLottoNumbers = makeWinningLottoNumbers()
+    
+    let matchNumbers = winningLottoNumbers.filter{myLottoNumbers.contains($0)}
+    return matchNumbers
 }
