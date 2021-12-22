@@ -51,14 +51,14 @@ func saveLottoRound(lastRound: Int) -> Dictionary<Int, Set<Int>> {
   }
 
 
-func findLottoRound(LastRound: Int, searchRound: Int) {
-  let lottoHistory = saveLottoRound(lastRound: LastRound)
+func findLottoRound(lastRound: Int, searchRound: Int) {
+  let lottoHistory = saveLottoRound(lastRound: lastRound)
   if let actualLottoHistory = lottoHistory[searchRound] {
     print("\(searchRound)회차의 로또 당첨 번호는 \(actualLottoHistory) 입니다.")
   } else {
-      print("\(LastRound)는 존재하지 않습니다.")
+      print("\(lastRound)는 존재하지 않습니다.")
   }
 }
 
 
-findLottoRound(LastRound: 5, searchRound: 2)
+findLottoRound(lastRound: 5, searchRound: 2)
