@@ -8,32 +8,45 @@
 
 import Foundation
 
-let lottoNumbers: [Int] = [1, 22, 33, 44, 35, 26]
+var lottoNumber: Set<Int> = Set<Int>()
+var matchedNumbersArray: [Int] = []
+var matchedNumbersStringArray: [String] = []
+let lottoNumbers: Set<Int> = [1, 22, 25, 39, 44]
 
-func createRandomLottoNumbers() -> Set<Int> {
-    var matchNumber: Set<Int> = Set<Int>()
-    while matchNumber.count < 6 {
-        let randomLottoNumber = Int.random(in: 1...45)
-        if !matchNumber.contains(randomLottoNumber){
-            matchNumber.insert(randomLottoNumber)
-        }
+func createRandomLottoNumbers() {
+    while lottoNumber.count < 6 {
+        lottoNumber.insert(Int.random(in: 1...45))
     }
-    return matchNumber
 }
 
-func printMatchLottoResultMessage(lottoNumbers mylottoNumber: Array<Int>, createRandomLottoNumbers randomNumber: Set<Int>) {
-    var lottoMatchNumber: [Int] = []
-    for index in 0...(mylottoNumber.count-1) {
-        if randomNumber.contains(mylottoNumber[index]) {
-            lottoMatchNumber.append(mylottoNumber[index])
-        }
+func compareLottoNumbers() {
+    var matchNumbers: Set<Int> = Set<Int>()
+    matchNumbers = lottoNumbers.intersection(lottoNumber)
+    matchedNumbersArray = Array(matchNumbers)
+}
+
+func changeIntToStringArray() {
+    for index in matchedNumbersArray {
+        matchedNumbersStringArray.append("\(index)")
     }
-    if lottoMatchNumber.count > 0 {
-        print("축하합니다!! 겹치는 번호는 \(lottoMatchNumber.sorted()) " + "입니다")
+}
+
+func printMatchedNumbers() {
+    changeIntToStringArray()
+    let joinedArray = matchedNumbersStringArray.joined(separator: ", ")
+    print(joinedArray, terminator: " ")
+}
+
+func printMatchedResultMessage() {
+    compareLottoNumbers()
+    if matchedNumbersArray.isEmpty {
+        print("아쉽지만  겹치는 번호가 없습니다 다음기회에 재시도 해주세요")
     } else {
-        print("아쉽지만  겹치는 번호가 없습니다  다음기회에 재시도 해주세요")
+        print("축하합니다!! 겹치는 번호는", terminator: " ")
+        printMatchedNumbers()
+        print("입니다!!")
     }
 }
 
-printMatchLottoResultMessage(lottoNumbers: lottoNumbers, createRandomLottoNumbers: createRandomLottoNumbers())
-
+createRandomLottoNumbers()
+printMatchedResultMessage()
