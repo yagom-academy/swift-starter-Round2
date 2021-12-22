@@ -25,3 +25,21 @@ func compareMylottoNumbersWithWinningLottoNumbers() -> Set<Int> {
     let matchNumbers = winningLottoNumbers.filter{myLottoNumbers.contains($0)}
     return matchNumbers
 }
+
+func convertArrayToString(arr:Set<Int>) -> String {
+    // 오름차순으로 정렬
+    let ascending = arr.sorted(by: <)
+    // Int배열을 String배열로 변환
+    let strArr = ascending.map { String($0) }
+    return strArr.joined(separator: ", ")
+}
+
+func confirmMyLottoResult() {
+    let matchNumbers = compareMylottoNumbersWithWinningLottoNumbers()
+    if matchNumbers.count == 0 {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        let result = convertArrayToString(arr: matchNumbers)
+        print("축하합니다! 겹치는 번호는 \(result) 입니다!")
+    }
+}
