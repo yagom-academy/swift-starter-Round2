@@ -8,11 +8,12 @@ func generateLottoNumbers() -> Set<Int> {
 }
 
 func getMatchedNumbers(win: Set<Int>, my: Set<Int>) -> [Int] {
-    return win.intersection(my).sorted()
+    let matchedNumbers = win.intersection(my)
+    return matchedNumbers.sorted()
 }
 
 func changeArrayToString(_ from: [Int]) -> String {
-    let to = from.map(String.init)
+    let to = from.map({String($0)})
     return to.joined(separator: ", ")
 }
 
