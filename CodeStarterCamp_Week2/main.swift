@@ -31,12 +31,6 @@ func duplicateOverlapedNumber() -> String {
 }
 
 
-func duplicateNumber() -> String {
-  let duplicateNumber: String = makeLottoNumber().map { String($0) }.joined(separator: ", ")
-  return duplicateNumber
-}
-
-
 func checkLotto() -> String  {
   let duplicateNumber = duplicateOverlapedNumber()
   if duplicateNumber.isEmpty {
@@ -48,23 +42,23 @@ func checkLotto() -> String  {
 }
 
 
-func saveLotto(lastRound: Int) -> Dictionary<Int, String> {
-  var lottoDictionary: [Int: String] = [:]
+func saveLottoRound(lastRound: Int) -> Dictionary<Int, Set<Int>> {
+  var lottoHistory: [Int: Set<Int>] = [:]
     for round in 1...lastRound{
-       lottoDictionary[round] = duplicateNumber()
+       lottoHistory[round] = makeLottoNumber()
      }
-    return lottoDictionary
+    return lottoHistory
   }
 
 
-func findLottoRound(inputRastRound: Int, round: Int) {
-  let lottoHistory = saveLotto(lastRound: inputRastRound)
-  if let actualDictionary = lottoHistory[round] {
-    print("\(round)회차의 로또 당첨 번호는 \(actualDictionary) 입니다.")
+func findLottoRound(RastRound: Int, searchRound: Int) {
+  let lottoHistory = saveLottoRound(lastRound: RastRound)
+  if let actualLottoHistory = lottoHistory[searchRound] {
+    print("\(searchRound)회차의 로또 당첨 번호는 \(actualLottoHistory) 입니다.")
   } else {
-      print("1~6사이의 회차만 존재합니다.")
+      print("\(RastRound)는 존재하지 않습니다.")
   }
 }
 
 
-findLottoRound(inputRastRound: 5, round: 2)
+findLottoRound(RastRound: 5, searchRound: 2)
