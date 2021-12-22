@@ -11,13 +11,9 @@ func getMatchedNumbers(win: Set<Int>, my: Set<Int>) -> [Int] {
     return win.intersection(my).sorted()
 }
 
-func changeArrayToString(from: [Int]) -> String {
-    var to = String()
-    for number in from {
-        to.append("\(number), ")
-    }
-    to.removeLast(2)
-    return to
+func changeArrayToString(_ from: [Int]) -> String {
+    let to = from.map(String.init)
+    return to.joined(separator: ", ")
 }
 
 func printResultOfLotto(matchedNumbers: [Int]) {
@@ -25,6 +21,6 @@ func printResultOfLotto(matchedNumbers: [Int]) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
     else {
-        print("축하합니다! 겹치는 번호는 \(changeArrayToString(from: matchedNumbers)) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(changeArrayToString(matchedNumbers)) 입니다!")
     }
 }
