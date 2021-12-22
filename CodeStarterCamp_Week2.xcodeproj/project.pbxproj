@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
 		4E83194627734595004A176A /* LottoDicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83194527734595004A176A /* LottoDicManager.swift */; };
+		4E831949277356E4004A176A /* IntArrayToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E831948277356E4004A176A /* IntArrayToStringConverter.swift */; };
 		4E9435A32770CAAB0092C19E /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9435A22770CAAB0092C19E /* NumberPicker.swift */; };
 		4E9435A52770CBBB0092C19E /* LottoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9435A42770CBBB0092C19E /* LottoFactory.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4E83194527734595004A176A /* LottoDicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoDicManager.swift; sourceTree = "<group>"; };
+		4E831948277356E4004A176A /* IntArrayToStringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntArrayToStringConverter.swift; sourceTree = "<group>"; };
 		4E9435A22770CAAB0092C19E /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
 		4E9435A42770CBBB0092C19E /* LottoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +65,7 @@
 		34811DC0274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {
 			isa = PBXGroup;
 			children = (
+				4E831947277355B9004A176A /* Utils */,
 				4E83194427734490004A176A /* LottoDictionary */,
 				4E9435A12770CA890092C19E /* LottoMaker */,
 				34811DC1274B93D800A1E994 /* main.swift */,
@@ -78,10 +81,18 @@
 			path = LottoDictionary;
 			sourceTree = "<group>";
 		};
-		4E9435A12770CA890092C19E /* LottoMaker */ = {
+		4E831947277355B9004A176A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				4E9435A22770CAAB0092C19E /* NumberPicker.swift */,
+				4E831948277356E4004A176A /* IntArrayToStringConverter.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4E9435A12770CA890092C19E /* LottoMaker */ = {
+			isa = PBXGroup;
+			children = (
 				4E9435A42770CBBB0092C19E /* LottoFactory.swift */,
 			);
 			path = LottoMaker;
@@ -146,6 +157,7 @@
 			files = (
 				4E9435A32770CAAB0092C19E /* NumberPicker.swift in Sources */,
 				4E83194627734595004A176A /* LottoDicManager.swift in Sources */,
+				4E831949277356E4004A176A /* IntArrayToStringConverter.swift in Sources */,
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
 				4E9435A52770CBBB0092C19E /* LottoFactory.swift in Sources */,
 			);

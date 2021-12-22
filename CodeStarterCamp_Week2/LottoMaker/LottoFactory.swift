@@ -12,10 +12,10 @@ struct LottoFactory {
     var myLottoNumbers: [Int] = []
     
     // 랜덤으로 여섯 개의 로또 번호를 생성하여 배열로 반환합니다.
-    func lottoPicker() -> [Int] {
+    func pickWinningNumbers() -> [Int] {
         var winningNumbers: [Int] = []
         repeat {
-            let number: Int = numberPicker(start: 1, end: 45)    // 랜덤으로 숫자 생성
+            let number: Int = pickOneRandomNumber(start: 1, end: 45)    // 랜덤으로 숫자 생성
             if !winningNumbers.contains(number) {
                 winningNumbers.append(number)
             }
