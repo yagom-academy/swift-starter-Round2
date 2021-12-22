@@ -8,5 +8,14 @@
 
 import Foundation
 
-print("Hello, World!")
+var randomNumber: Int
+var randomNumberArray: Array<Int> = []
 
+while randomNumberArray.count < 6 {
+    randomNumber = Int.random(in: 1...45)
+    if !randomNumberArray.contains(randomNumber) {
+        randomNumberArray.append(randomNumber)
+    }
+}
+
+print(randomNumberArray)
