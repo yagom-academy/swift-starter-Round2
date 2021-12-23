@@ -62,3 +62,8 @@ func printOut(time: Int) {
 let myLottoNumbers: [Int] = [3,8,10,15,13,22]
 var winningNumbersRepository = [String: Set<Int>]()
 var timeCount : Int = 0
+
+for _ in 0...4 {
+    print(createWinningNumbers())
+}
+printOut(time: 3)
