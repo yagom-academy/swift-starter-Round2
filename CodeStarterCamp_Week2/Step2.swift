@@ -7,7 +7,7 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 
 func makeWinningLottoNumbers() -> Set<Int> {
     var winningLottoNumbers = Set<Int>()
@@ -16,7 +16,6 @@ func makeWinningLottoNumbers() -> Set<Int> {
         let lottoNumber = Int.random(in: 1...45)
         winningLottoNumbers.insert(lottoNumber)
     }
-    print("\(winningLottoNumbers.sorted())")
     return winningLottoNumbers
 }
 
