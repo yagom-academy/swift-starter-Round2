@@ -8,41 +8,39 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [1, 10, 20, 30, 40, 45]
-var winningNumbers: [Int] = []
+let myLottoNumbers: Set<Int> = [1, 10, 20, 30, 40, 45]
+var winningNumbers: Set<Int> = []
 
-func makeDeduplicatedNumbers() -> [Int] {
-    var deduplicatedNumbers: Set<Int> = []
+func makeDeduplicatedNumbers(winningNumbers: Set<Int>) -> Set<Int> {
+    var winningNumbers = winningNumbers
     
-    while deduplicatedNumbers.count < 6 {
+    while winningNumbers.count < 6 {
         let deduplicatedNumber = Int.random(in: 1...45)
-        deduplicatedNumbers.insert(deduplicatedNumber)
+        winningNumbers.insert(deduplicatedNumber)
     }
     
-    return Array(deduplicatedNumbers)
+    return winningNumbers
 }
 
-func compareWithWinningNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) -> [Int] {
-    let myLottoNumbersWithOrder: Set<Int> = Set(winningNumbers)
-    let winningNumbersWithOrder: Set<Int> = Set(myLottoNumbers)
-    let sameNumbers: [Int] = winningNumbersWithOrder.intersection(myLottoNumbersWithOrder).sorted()
+func compareMyLottoNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) -> Set<Int> {
+    let sameNumbers: [Int] = winningNumbers.intersection(myLottoNumbers).sorted()
     
-    return sameNumbers
+    return Set(sameNumbers)
 }
 
-func printWinningNumbers(myLottoNumbers: [Int], with winningNumbers: [Int]) {
-    let sameNumbers: [Int] = compareWithWinningNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+func printWinningNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
+    let sameNumbers: Set<Int> = compareMyLottoNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
     
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        let convertedSameNumbers = sameNumbers.map{ String($0) }.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(convertedSameNumbers) 입니다!")
+        let convertedSameNumbersToString = sameNumbers.map{ String($0) }.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(convertedSameNumbersToString) 입니다!")
     }
 }
 
 func startLotto() {
-    winningNumbers = makeDeduplicatedNumbers()
+    winningNumbers = makeDeduplicatedNumbers(winningNumbers: winningNumbers)
     printWinningNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
 }
 
