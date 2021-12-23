@@ -1,6 +1,6 @@
 import Foundation
 
-func createWinnigNumbers() -> Set<Int> {
+func createWinningNumbers() -> Set<Int> {
     var numbers : Set<Int> = Set<Int>()
     
     repeat {
@@ -17,8 +17,8 @@ func saveInDictionary(numbers : Set<Int>) {
     winningNumbersRepository["\(timeCount)회차"] = numbers
 }
 
-func compareWinnigNumbersWith(myLottoNumbers:[Int]) -> [Int] {
-    let winningNumbers: Set<Int> = createWinnigNumbers()
+func compareWinningNumbersWith(myLottoNumbers:[Int]) -> [Int] {
+    let winningNumbers: Set<Int> = createWinningNumbers()
     var resultNumbers = [Int]()
     
     for index in 0...5 {
