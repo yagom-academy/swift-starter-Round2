@@ -10,6 +10,11 @@ func createWinnigNumbers() -> Set<Int> {
     return numbers
 }
 
+func saveInDictionary(numbers : Set<Int>) {
+    timeCount += 1
+    winningNumbersRepository["\(timeCount)회차"] = numbers
+}
+
 func compareWinnigNumbersWith(myLottoNumbers:[Int]) -> [Int] {
     let winningNumbers: Set<Int> = createWinnigNumbers()
     var resultNumbers = [Int]()
@@ -38,5 +43,5 @@ func printOut(resultNumbers: [Int]) {
 }
 
 let myLottoNumbers: [Int] = [3,8,10,15,13,22]
-
-printOut(resultNumbers: compareWinnigNumbersWith(myLottoNumbers: myLottoNumbers))
+var winningNumbersRepository = [String: Set<Int>]()
+var timeCount : Int = 0
