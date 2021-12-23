@@ -14,7 +14,7 @@ func getMatchedNumbers(win: Set<Int>, my: Set<Int>) -> [Int] {
 }
 
 func changeArrayToString(_ from: [Int]) -> String {
-    let to = from.map({String($0)})
+    let to = from.map{String($0)}
     return to.joined(separator: ", ")
 }
 
