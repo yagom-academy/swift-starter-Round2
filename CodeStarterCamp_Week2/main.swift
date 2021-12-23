@@ -23,7 +23,7 @@ func makeLotto (){
     }
     
     func printIntersectionNumber (){
-        print("내로또 번호는 :", winningLottoNumber)
+        print("로또 당첨 번호는 :", winningLottoNumber)
         if intersectionNumber.count > 0 {
             print("축하합니다! 겹치는 번호는\(intersectionNumber) 입니다!")
         } else {
