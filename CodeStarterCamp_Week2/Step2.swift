@@ -12,9 +12,9 @@ let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 func makeWinningLottoNumbers() -> Set<Int> {
     var winningLottoNumbers = Set<Int>()
     
-    while winningLottoNumbers.count <= 6 {
-        let num = Int.random(in: 1...45)
-        winningLottoNumbers.insert(num)
+    while winningLottoNumbers.count < 6 {
+        let lottoNumber = Int.random(in: 1...45)
+        winningLottoNumbers.insert(lottoNumber)
     }
     return winningLottoNumbers
 }
