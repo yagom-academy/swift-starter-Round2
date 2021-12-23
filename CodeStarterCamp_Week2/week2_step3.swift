@@ -8,7 +8,6 @@ func getListOfWinNumbers(count: Int) -> [String: [Int]] {
 }
 
 func printNthLottoNumbersOfList(N: Int) {
-    
     if let lottoNumbers = listOfNumbers["\(N)회차"] {
         print("\(N)회차의 로또 당첨 번호는 \(changeArrayToString(lottoNumbers)) 입니다.")
     } else {
