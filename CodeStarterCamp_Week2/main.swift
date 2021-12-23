@@ -42,11 +42,11 @@ func checkLottoNumbers(myLottoNumbers: [Int]) {
 }
 
 func printAnyLottoNumbers(index: Int) {
-    
-    if let randomLottoNumbers: Set<Int> = lottoDictionary["\(index)회차"] {
-        print("\(index)회차의 로또 당첨 번호는 \(randomLottoNumbers.sorted())입니다.")
-    }
-    
+//    if let randomLottoNumbers: Set<Int> = lottoDictionary["\(index)회차"] {
+//        print("\(index)회차의 로또 당첨 번호는 \(randomLottoNumbers.sorted())입니다.")
+//    }
+    guard let randomLottoNumbers: Set<Int> = lottoDictionary["\(index)회차"] else {return}
+    print("\(index)회차의 로또 당첨 번호는 \(randomLottoNumbers.sorted())입니다.")
 }
 
 checkLottoNumbers(myLottoNumbers: myLottoNumbers)
