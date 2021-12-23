@@ -26,7 +26,6 @@ func printLottoResult(result resultArray: [Int]) {
     if resultArray.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-//        printHitNumbers(hitNumbers: resultArray.sorted())
         print("축하합니다! 겹치는 번호는 " + removeBracketFromArray(someArray: resultArray) + " 입니다!")
     }
 }
@@ -34,12 +33,11 @@ func printLottoResult(result resultArray: [Int]) {
 
 func removeBracketFromArray(someArray: [Int]) -> String {
     var bracketRemovedString: String = ""
-    
-    for someArrayIndex in 0..<(someArray.count - 1) {
-        bracketRemovedString += "\(someArray[someArrayIndex]), "
+    let lastIndex = someArray.count - 1
+    for index in 0..<(lastIndex) {
+        bracketRemovedString += "\(someArray[index]), "
     }
-    bracketRemovedString += String(someArray[someArray.endIndex - 1])
-    
+    bracketRemovedString += String(someArray[lastIndex])
     return bracketRemovedString
 }
 
