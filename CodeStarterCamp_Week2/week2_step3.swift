@@ -11,8 +11,7 @@ func printNthOfList(N: Int, list: [String: [Int]]) {
     
     if let nthNumbers = list["\(N)회차"] {
         print("\(N)회차의 로또 당첨 번호는 \(changeArrayToString(nthNumbers)) 입니다.")
-    }
-    else {
+    } else {
         print("\(N)회차 번호 소환에 실패!")
     }
 }
