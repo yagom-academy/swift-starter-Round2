@@ -1,5 +1,3 @@
-let winNumbers: Set<Int> = generateLottoNumbers()
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-let sortedRightNumbers: [Int] = getMatchedNumbers(win: winNumbers, my: myLottoNumbers)
+let listOfNumbers = getListOfWinNumbers(count: 5)
 
-printResultOfLotto(matchedNumbers: sortedRightNumbers)
+printNthOfList(N: 2, list: listOfNumbers)
