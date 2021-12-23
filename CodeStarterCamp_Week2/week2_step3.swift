@@ -7,10 +7,10 @@ func getListOfWinNumbers(count: Int) -> [String: [Int]] {
     return winNumbersList
 }
 
-func printNthOfList(N: Int, list: [String: [Int]]) {
+func printNthLottoNumbersOfList(N: Int) {
     
-    if let nthNumbers = list["\(N)회차"] {
-        print("\(N)회차의 로또 당첨 번호는 \(changeArrayToString(nthNumbers)) 입니다.")
+    if let lottoNumbers = listOfNumbers["\(N)회차"] {
+        print("\(N)회차의 로또 당첨 번호는 \(changeArrayToString(lottoNumbers)) 입니다.")
     } else {
         print("\(N)회차 번호 소환에 실패!")
     }
