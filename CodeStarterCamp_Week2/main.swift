@@ -8,20 +8,7 @@
 
 import Foundation
 
-
-//MARK: - Step2
-
-//let realLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-//let myLottoNumbers: [Int] = extractLottoNumbers()
-//let comparedResult = compareLottoNumbers(realLottoNumbers: Set(realLottoNumbers),
-//                                         myLottoNumbers: Set(myLottoNumbers))
-
-//printLottoResult(result: comparedResult)
-
-//MARK: - Step3
-
 var savedLottoNumbers = [String: [Int]]()
 
 addLottoNumbersNtimes(numOfRound: 5)
-print(savedLottoNumbers)
 printNthLottoNumbers(round: 2)
