@@ -8,11 +8,7 @@
 
 import Foundation
 
+var savedLottoNumbers = [String: [Int]]()
 
-let realLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let myLottoNumbers: [Int] = extractLottoNumbers()
-
-let comparedResult = compareLottoNumbers(realLottoNumbers: Set(realLottoNumbers),
-                                         myLottoNumbers: Set(myLottoNumbers))
-
-printLottoResult(result: comparedResult)
+addLottoNumbersNtimes(numOfRound: 5)
+printNthLottoNumbers(round: 2)

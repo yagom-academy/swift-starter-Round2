@@ -14,31 +14,31 @@ func extractLottoNumbers() -> [Int] {
         extractedNumbersSet.insert(Int.random(in: 1..<46))
     }
     
-    return Array(extractedNumbersSet)
+    return Array(extractedNumbersSet).sorted()
 }
 
 func compareLottoNumbers(realLottoNumbers: Set<Int>, myLottoNumbers: Set<Int>) -> [Int] {
     let intersectionSet = realLottoNumbers.intersection(myLottoNumbers)
-    return Array(intersectionSet)
+    return Array(intersectionSet).sorted()
 }
 
 func printLottoResult(result resultArray: [Int]) {
     if resultArray.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        printHitNumbers(hitNumbers: resultArray.sorted())
+        print("축하합니다! 겹치는 번호는 " + removeBracketFromArray(someArray: resultArray) + " 입니다!")
     }
 }
 
-func printHitNumbers(hitNumbers hitNumbersArray: [Int]) {
-    var hitNumbersString: String = ""
-    
-    for hitNumberIndex in 0..<(hitNumbersArray.count - 1) {
-        hitNumbersString += "\(hitNumbersArray[hitNumberIndex]), "
+
+func removeBracketFromArray(someArray: [Int]) -> String {
+    var bracketRemovedString: String = ""
+    let lastIndex = someArray.count - 1
+    for index in 0..<(lastIndex) {
+        bracketRemovedString += "\(someArray[index]), "
     }
-    hitNumbersString += String(hitNumbersArray[hitNumbersArray.endIndex - 1])
-    
-    print("축하합니다! 겹치는 번호는 " + hitNumbersString + " 입니다!")
+    bracketRemovedString += String(someArray[lastIndex])
+    return bracketRemovedString
 }
 
 
