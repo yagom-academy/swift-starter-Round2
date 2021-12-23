@@ -3,7 +3,7 @@ import Foundation
 
 let myLottoNumbers: [Int] = [1,2,3,4,5,6]
 
-func anserLottoNumbers() -> Set<Int> {
+func answerLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
     while lottoNumbers.count < 6 {
@@ -27,18 +27,21 @@ func compareLotto(myLottoNumbers my: Array<Int>,answerLottoNumbers answer: Set<I
     }
     
     if countMatch.count > 0 {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        var resultSentence: String = "축하합니다! 겹치는 번호는 "
+        
         if countMatch.count > 2 {
-         for index in 0...countMatch.count-2{
-            print("\(countMatch[index]), ",terminator: "")
+         for index in 0...countMatch.count-2 {
+            resultSentence = resultSentence + String(countMatch[index]) + ", "
          }
         }
-        print("\(countMatch[countMatch.count-1]) 입니다!")
+        resultSentence = resultSentence + String(countMatch[countMatch.count-1]) + " 입니다."
+        print(resultSentence)
+        
     } else {
      print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
-compareLotto(myLottoNumbers: myLottoNumbers, answerLottoNumbers: anserLottoNumbers())
+compareLotto(myLottoNumbers: myLottoNumbers, answerLottoNumbers: answerLottoNumbers())
 
 
