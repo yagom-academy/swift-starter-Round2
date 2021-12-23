@@ -47,8 +47,8 @@ func compareLottoNumbers(_ lottoNumbers: Set<Int>, _ myLottoNumbers: [Int]) -> S
                 continue
             }
         }
-        let lastSpace = matchedNumbers.lastIndex(of: ",") ?? matchedNumbers.endIndex
-        let removeCommaNumbers = matchedNumbers[..<lastSpace]
+        let lastComma = matchedNumbers.lastIndex(of: ",") ?? matchedNumbers.endIndex
+        let removeCommaNumbers = matchedNumbers[..<lastComma]
         if (matchedNumbers.count > 0) {
             result = "축하합니다! 겹치는 번호는 \(removeCommaNumbers) 입니다!"
         } else {
