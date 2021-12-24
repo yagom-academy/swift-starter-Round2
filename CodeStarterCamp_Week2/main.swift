@@ -13,6 +13,9 @@ var randomNumber: Int?
 var myLottoNumbers: [Int] = []
 var matchedNumbers: String = ""
 var result: String = ""
+var lottoHistory: Dictionary<Int, Set<Int>> = [:]
+var lottoHistoryCount: Int = 0
+
 
 func pickRandomNumber() {
     randomNumber = Int.random(in: 1...45)
@@ -30,6 +33,8 @@ func pickLottoNumbers() -> Set<Int> {
         }
     }
     print("당첨 번호: \(lottoNumbers)")
+    lottoHistoryCount += 1
+    lottoHistory[lottoHistoryCount] = lottoNumbers
     return lottoNumbers
 }
 
