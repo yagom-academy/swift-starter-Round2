@@ -13,7 +13,7 @@ var randomNumber: Int?
 var myLottoNumbers: [Int] = []
 var matchedNumbers: String = ""
 var result: String = ""
-var lottoHistory: Dictionary<Int, Set<Int>> = [:]
+var lottoHistory: Dictionary<String, Set<Int>> = [:]
 var lottoHistoryCount: Int = 0
 
 
@@ -34,7 +34,7 @@ func pickLottoNumbers() -> Set<Int> {
     }
     print("당첨 번호: \(lottoNumbers)")
     lottoHistoryCount += 1
-    lottoHistory[lottoHistoryCount] = lottoNumbers
+    lottoHistory["\(lottoHistoryCount)회차"] = lottoNumbers
     return lottoNumbers
 }
 
