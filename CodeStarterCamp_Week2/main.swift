@@ -7,14 +7,14 @@ func createWinningNumbers() -> Set<Int> {
         numbers.insert(Int.random(in: 1...45))
     } while numbers.count < 6
     
-    saveInDictionary(numbers: numbers)
+    saveLottoHistory(numbers: numbers)
     
     return numbers
 }
 
-func saveInDictionary(numbers : Set<Int>) {
-    timeCount += 1
-    winningNumbersRepository["\(timeCount)회차"] = numbers
+func saveLottoHistory(numbers : Set<Int>) {
+    lottoHistoryNumber += 1
+    winningNumbersRepository["\(lottoHistoryNumber)회차"] = numbers
 }
 
 func compareWinningNumbersWith(myLottoNumbers:[Int]) -> [Int] {
@@ -44,26 +44,33 @@ func printOut(resultNumbers: [Int]) {
     }
 }
 
-func printOut(time: Int) {
-    print("\(time)회차의 로또 당첨 번호는 ", terminator: "")
-    
-    if let printWinning = winningNumbersRepository["\(time)회차"] {
+func printOut(lottoHistoryNumber: Int) {
+    var count: Int = 0
+    print("\(lottoHistoryNumber)회차의 로또 당첨 번호는 ", terminator: "")
+
+    if let printWinning = winningNumbersRepository["\(lottoHistoryNumber)회차"] {
         let sortNumber: [Int] = printWinning.sorted()
-        for index in 0...5 {
-            print(sortNumber[index], terminator: "")
-            if index < 5{
+        for number in sortNumber {
+            print(String(number), terminator: "")
+            if  count < 5{
                 print(", ", terminator: "")
+                count += 1
             }
         }
     }
     print("입니다.")
 }
 
+func repeatCreateWinningNumbers(iteration: Int) {
+    for _ in 0...4 {
+        print(createWinningNumbers())
+    }
+}
+
+
 let myLottoNumbers: [Int] = [3,8,10,15,13,22]
 var winningNumbersRepository = [String: Set<Int>]()
-var timeCount : Int = 0
+var lottoHistoryNumber : Int = 0
 
-for _ in 0...4 {
-    print(createWinningNumbers())
-}
-printOut(time: 3)
+repeatCreateWinningNumbers(iteration: 5)
+printOut(lottoHistoryNumber: 3)
