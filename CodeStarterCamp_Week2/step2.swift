@@ -21,15 +21,13 @@ func checkNumbers() {
 			dupNumbers.append(myLottoNumbers[idx])
 		}
 	}
+	print("생성된 로또번호는 \(lottoNumbers) 입니다!")
+	if dupNumbers.isEmpty {
+		print("아쉽지만 겹치는 번호가 없습니다.")
+	} else {
+		print("축하합니다! 겹치는 번호는 \(dupNumbers) 입니다!")
+	}
 }
 
 makeLotto()
 checkNumbers()
-
-print("생성된 로또번호는 \(lottoNumbers) 입니다!")
-
-if dupNumbers.isEmpty {
-	print("아쉽지만 겹치는 번호가 없습니다.")
-} else {
-	print("축하합니다! 겹치는 번호는 \(dupNumbers) 입니다!")
-}
