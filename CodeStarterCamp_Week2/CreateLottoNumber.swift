@@ -7,23 +7,28 @@
 
 import Foundation
 
-var LottoNumberGroup: Set<Int> = Set<Int>()
+var lottoNumbers: Set<Int> = Set<Int>()
 var intersectionLottoNumber: Set<Int> = Set<Int>()
 
-func CreateLottoNumber() -> Set<Int> {
-    while LottoNumberGroup.count < 6 {
-        LottoNumberGroup.insert(Int.random(in: 1...45))
+func createLottoNumber() -> Set<Int> {
+    while lottoNumbers.count < 6 {
+        lottoNumbers.insert(Int.random(in: 1...45))
     }
-    return LottoNumberGroup
+    return lottoNumbers
 }
 
-
-func printIntersectionLottoNumber(chooseLottoNumber: [Int]) {
-    intersectionLottoNumber = CreateLottoNumber().intersection(chooseLottoNumber)
+func printIntersectionLottoNumber(selectedLottoNumber: [Int]) {
+    intersectionLottoNumber = createLottoNumber().intersection(selectedLottoNumber)
+    var transformIntersectionLottoNumber: Array<String> = Array<String>()
     
-    if intersectionLottoNumber.count > 1 {
-        print("축하합니다! 겹치는 번호는 \(intersectionLottoNumber.sorted()) 입니다!")
+    for transformIntToString in intersectionLottoNumber {
+        transformIntersectionLottoNumber.append("\(transformIntToString)")
+    }
+    
+    if intersectionLottoNumber.count > 0 {
+        print("축하합니다! 겹치는 번호는 \((transformIntersectionLottoNumber.sorted()).joined(separator: ", ")) 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
+
