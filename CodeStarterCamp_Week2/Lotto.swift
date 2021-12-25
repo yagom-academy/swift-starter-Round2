@@ -1,13 +1,33 @@
 //
-//  Step2.swift
+//  Lotto.swift
 //  CodeStarterCamp_Week2
 //
-//  Created by hyogang on 2021/12/23.
+//  Created by hyogang on 2021/12/25.
 //
 
 import Foundation
 
+
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+var historyOfWinningLottoNumbers: Dictionary = [String : Set<Int>]()
+var round: Int = 0
+
+func saveWinningLottoNumbers(winningLottoNumbers: Set<Int>) {
+    round += 1
+    historyOfWinningLottoNumbers["\(round)회차"] = winningLottoNumbers
+}
+
+func makeHistoryOfWinningLottoNumbers(count: Int) {
+    for _ in 1...count {
+        let _ = makeWinningLottoNumbers()
+    }
+}
+
+func showHistoryOfWinningLottoNumbers(targetRound: Int) {
+    guard let winningLottoNumbers = historyOfWinningLottoNumbers["\(targetRound)회차"] else { return }
+    let targetRoundWinningNumbers = convertArrayToString(array: winningLottoNumbers)
+    print("\(targetRound)회차의 로또 당첨 번호는 \(targetRoundWinningNumbers) 입니다.")
+}
 
 func makeWinningLottoNumbers() -> Set<Int> {
     var winningLottoNumbers = Set<Int>()
@@ -16,6 +36,8 @@ func makeWinningLottoNumbers() -> Set<Int> {
         let lottoNumber = Int.random(in: 1...45)
         winningLottoNumbers.insert(lottoNumber)
     }
+    saveWinningLottoNumbers(winningLottoNumbers: winningLottoNumbers)
+    
     return winningLottoNumbers
 }
 
@@ -27,10 +49,8 @@ func compareMylottoNumbersWithWinningLottoNumbers() -> Set<Int> {
 }
 
 func convertArrayToString(array:Set<Int>) -> String {
-    let ascending = array.sorted()
-    let stringArray = ascending.map { String($0) }
-    let result = stringArray.joined(separator: ", ")
-    return result
+    let stringArray = array.sorted().map { String($0) }.joined(separator: ", ")
+    return stringArray
 }
 
 func confirmMyLottoResult() {

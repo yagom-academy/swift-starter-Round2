@@ -8,8 +8,7 @@
 
 import Foundation
 
-// STEP3 RESULT
-makeHistoryOfWinningLottoNumbers(round: 5)
-showHistoryOfWinningLottoNumbers(round: 2)
+makeHistoryOfWinningLottoNumbers(count: 5)
+showHistoryOfWinningLottoNumbers(targetRound: 2)
 
 
