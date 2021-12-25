@@ -18,8 +18,10 @@ func answerLottoNumbers() -> Set<Int> {
 }
 
 func compareLotto(myLottoNumbers my: Array<Int>,answerLottoNumbers answer: Set<Int>){
+    //로또 정답번호와 나의 번호를 비교해서 일치하는 번호를 담아놓는 변수
     var countMatch: [Int] = []
     
+    //
     for index in 0...(my.count-1){
         if answer.contains(my[index]){
             countMatch.append(my[index])
@@ -29,16 +31,14 @@ func compareLotto(myLottoNumbers my: Array<Int>,answerLottoNumbers answer: Set<I
     if countMatch.count > 0 {
         var resultSentence: String = "축하합니다! 겹치는 번호는 "
         
-        if countMatch.count > 2 {
-         for index in 0...countMatch.count-2 {
+        for index in 0...countMatch.count-1 {
             resultSentence = resultSentence + String(countMatch[index]) + ", "
-         }
         }
-        resultSentence = resultSentence + String(countMatch[countMatch.count-1]) + " 입니다."
-        print(resultSentence)
         
+        resultSentence = resultSentence.dropLast(2) + " 입니다."
+        print(resultSentence)
     } else {
-     print("아쉽지만 겹치는 번호가 없습니다.")
+        print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
