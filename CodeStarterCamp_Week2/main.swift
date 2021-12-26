@@ -13,7 +13,7 @@ func weekWinningLotto (){
     var winningLottoNumber : Set<Int> = Set<Int>()
     //당첨번호를 몇번 호출했는지의 카운트
     var makeRandomNumberCount : Int = 0
-    //몇회 호출했는지의 카운트를 문자열값으로 변환
+    //몇회 호출했는지의 카운트를 문자열값으로 변환, key 값
     var countWeekNumber : String = "\(makeRandomNumberCount)회차:"
     //딕셔너리 저장공간
     var weekLottoNumber : [String : String] = [:]
@@ -29,7 +29,7 @@ func weekWinningLotto (){
             winningLottoNumber.insert(Int.random(in: 1...45))
         }
         makeRandomNumberCount += 1
-        countWeekNumber = "\(makeRandomNumberCount)회차:"
+        countWeekNumber = "\(makeRandomNumberCount)회차"
         changeType(intArray: Array(winningLottoNumber))
         saveDictionary(key: countWeekNumber, value: stringValue)
         winningLottoNumber = []
@@ -50,10 +50,18 @@ func weekWinningLotto (){
         for _ in 1...5 {
             makeRandomNumber()
         }
-        print(weekLottoNumber)
+    }
+    
+    //언래핑, 출력 하는 함수
+    func PrintWeeingNumber (key : String) {
+        if let unwrapValue : String =  weekLottoNumber[key] {
+            print("\(key) 의 로또 당첨 번호는 \(unwrapValue) 입니다")
+        }
     }
     
     repeatFive()
+   PrintWeeingNumber(key: "2회차")
+    
 }
 
 weekWinningLotto()
