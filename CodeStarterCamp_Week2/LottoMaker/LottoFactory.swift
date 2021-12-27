@@ -12,10 +12,10 @@ struct LottoFactory {
     var myLottoNumbers: [Int] = []
     
     // 랜덤으로 여섯 개의 로또 번호를 생성하여 배열로 반환합니다.
-    func LottoPicker() -> [Int] {
+    func pickWinningNumbers() -> [Int] {
         var winningNumbers: [Int] = []
         repeat {
-            let number: Int = numberPicker(start: 1, end: 45)    // 랜덤으로 숫자 생성
+            let number: Int = pickOneRandomNumber(start: 1, end: 45)    // 랜덤으로 숫자 생성
             if !winningNumbers.contains(number) {
                 winningNumbers.append(number)
             }
@@ -25,10 +25,9 @@ struct LottoFactory {
     }
     
     // 두 숫자 Array를 비교하여 겹치는 숫자들을 배열로 반환하는 함수. 겹치는 숫자가 없을 경우 빈 배열을 반환합니다.
-    func LottoComparor(myLottoNumbers: [Int], winningNumbers: [Int]) -> [Int]? {
+    func lottoComparor(myLottoNumbers: [Int], winningNumbers: [Int]) -> [Int]? {
         var result: [Int]? = nil
         result = myLottoNumbers.filter { winningNumbers.contains($0) } // filter 사용
-      
         return result
     }
     
