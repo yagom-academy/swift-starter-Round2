@@ -14,7 +14,7 @@ var myLottoNumbers: [Int] = []
 var matchedNumbers: String = ""
 var result: String = ""
 
-func pickRandomNumber() {
+func createRandomNumber() {
     randomNumber = Int.random(in: 1...45)
 }
 
