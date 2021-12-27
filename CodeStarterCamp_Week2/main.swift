@@ -1,3 +1,3 @@
 let listOfNumbers = getListOfWinNumbers(count: 5)
 
-printNthLottoNumbersOfList(N: 2)
+printOneRoundOfLottoNumbers(round: 2)
