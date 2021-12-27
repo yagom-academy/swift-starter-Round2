@@ -1,7 +1,8 @@
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoNumbers = [Int]()
-var dupNumbers = [Int]()
+var duplicateNumbers = [Int]()
 var count: Int = 0
+var lottoNumbersLastIndex = 5
 
 func makeLotto () {
 	while count < 6 {
@@ -16,18 +17,15 @@ func makeLotto () {
 }
 
 func checkNumbers() {
-	for idx in 0...5 {
+	for idx in 0...lottoNumbersLastIndex {
 		if lottoNumbers.contains(myLottoNumbers[idx]) {
-			dupNumbers.append(myLottoNumbers[idx])
+			duplicateNumbers.append(myLottoNumbers[idx])
 		}
 	}
 	print("생성된 로또번호는 \(lottoNumbers) 입니다!")
-	if dupNumbers.isEmpty {
+	if duplicateNumbers.isEmpty {
 		print("아쉽지만 겹치는 번호가 없습니다.")
 	} else {
-		print("축하합니다! 겹치는 번호는 \(dupNumbers) 입니다!")
+		print("축하합니다! 겹치는 번호는 \(duplicateNumbers) 입니다!")
 	}
 }
-
-makeLotto()
-checkNumbers()
