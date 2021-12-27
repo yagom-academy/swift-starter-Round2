@@ -25,13 +25,11 @@ func checkNumbers() {
 	}
 	print("생성된 로또번호는", terminator: " ")
 	printArrayWithoutBracket(arr:lottoNumbers)
-	print("입니다!")
 	if duplicateNumbers.isEmpty {
 		print("아쉽지만 겹치는 번호가 없습니다.")
 	} else {
 		print("축하합니다! 겹치는 번호는", terminator: " ")
 		printArrayWithoutBracket(arr:duplicateNumbers)
-		print("입니다!")
 	}
 }
 
@@ -43,6 +41,7 @@ func printArrayWithoutBracket(arr: [Int]) {
 			print(arr[idx], terminator: ", ")
 		}
 	}
+	print("입니다!")
 }
 
 
