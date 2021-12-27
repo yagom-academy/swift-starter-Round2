@@ -42,7 +42,7 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
         wrongResult = "로또 번호를 입력하지 않았거나, 너무 많은 번호가 있습니다."
         return wrongResult
     } else {
-        for i in 0...myNumbers.count-1 {
+        for i in 0...myNumbers.count - 1 {
             if winningNumbers.contains(myNumbers[i]) {
                 matchedNumbers += "\(myNumbers[i]), "
             } else {
