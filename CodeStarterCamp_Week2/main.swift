@@ -62,7 +62,7 @@ func printOut(lottoHistoryNumber: Int) {
 }
 
 func repeatCreateWinningNumbers(iteration: Int) {
-    for _ in 0...4 {
+    for _ in 0..<iteration {
         print(createWinningNumbers())
     }
 }
