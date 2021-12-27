@@ -3,7 +3,7 @@ import Foundation
 
 let myLottoNumbers: [Int] = [1,2,3,4,5,6]
 
-func answerLottoNumbers() -> Set<Int> {
+func makeLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
     while lottoNumbers.count < 6 {
@@ -17,31 +17,31 @@ func answerLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func compareLotto(myLottoNumbers my: Array<Int>,answerLottoNumbers answer: Set<Int>){
-    //로또 정답번호와 나의 번호를 비교해서 일치하는 번호를 담아놓는 변수
-    var countMatch: [Int] = []
+
+//n번째 로또 추출을 프린트 합니다.
+func printLottoNDrow(maxDraw: Int, printDraw: Int){
+    let subfix: String = "회차"
+    var answerLottoDict: Dictionary<String, Set<Int>> = [:]
     
-    //
-    for index in 0...(my.count-1){
-        if answer.contains(my[index]){
-            countMatch.append(my[index])
-        }
+    for count in 1...maxDraw{
+        answerLottoDict[String(count) + subfix] = makeLottoNumbers()
     }
     
-    if countMatch.count > 0 {
-        var resultSentence: String = "축하합니다! 겹치는 번호는 "
+    if let printTarget = answerLottoDict[String(printDraw) + subfix]{
+        var resultSentence: String = String(printDraw) + "회차의 로또 당첨 번호는 "
         
-        for index in 0...countMatch.count-1 {
-            resultSentence = resultSentence + String(countMatch[index]) + ", "
+        for indexLottoNum in printTarget {
+            resultSentence = resultSentence + String(indexLottoNum) + ", "
         }
-        
         resultSentence = resultSentence.dropLast(2) + " 입니다."
         print(resultSentence)
+        
     } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+        print("범위에서 벗어난 회차입니다!")
     }
+            
 }
 
-compareLotto(myLottoNumbers: myLottoNumbers, answerLottoNumbers: answerLottoNumbers())
-
+//실행코드
+printLottoNDrow(maxDraw: 5, printDraw: 2)
 
