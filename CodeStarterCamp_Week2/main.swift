@@ -39,9 +39,8 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
         result = "로또 번호를 입력하지 않았습니다."
         return result
     } else {
-    
         for i in 0...myNumbers.count-1 {
-            if (winningNumbers.contains(myNumbers[i])) {
+            if winningNumbers.contains(myNumbers[i]) {
                 matchedNumbers += "\(myNumbers[i]), "
             } else {
                 continue
@@ -59,11 +58,11 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
     }
 }
 
-func tryLotto(_ myLottoNumbers: [Int]) {
+func checkLotto(_ myLottoNumbers: [Int]) {
     print(compareLottoNumbers(pickLottoNumbers(), myNumbers))
 }
 
-tryLotto([1, 2, 3, 4, 5, 6])
+checkLotto([1, 2, 3, 4, 5, 6])
 
 
 
