@@ -8,7 +8,7 @@
 
 import Foundation
 
-var lottoNumbers: Set<Int> = []
+var winningNumbers: Set<Int> = []
 var randomNumber: Int?
 var myLottoNumbers: [Int] = []
 var matchedNumbers: String = ""
@@ -18,22 +18,22 @@ func createRandomNumber() {
     randomNumber = Int.random(in: 1...45)
 }
 
-func pickLottoNumbers() -> Set<Int> {
+func createWinningNumbers() -> Set<Int> {
     
-    while lottoNumbers.count < 7 {
+    while winningNumbers.count < 7 {
         pickRandomNumber()
         if let lottoNumber = randomNumber {
-            lottoNumbers.insert(lottoNumber)
+            winningNumbers.insert(lottoNumber)
         } else {
             print("wrong input")
             break
         }
     }
-    print("당첨 번호: \(lottoNumbers)")
-    return lottoNumbers
+    print("당첨 번호: \(winningNumbers)")
+    return winningNumbers
 }
 
-func compareLottoNumbers(_ lottoNumbers: Set<Int>, _ myLottoNumbers: [Int]) -> String {
+func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myLottoNumbers: [Int]) -> String {
     
     if (myLottoNumbers.count < 1) {
         result = "로또 번호를 입력하지 않았습니다."
@@ -41,7 +41,7 @@ func compareLottoNumbers(_ lottoNumbers: Set<Int>, _ myLottoNumbers: [Int]) -> S
     } else {
     
         for i in 0...myLottoNumbers.count-1 {
-            if (lottoNumbers.contains(myLottoNumbers[i])) {
+            if (winningNumbers.contains(myLottoNumbers[i])) {
                 matchedNumbers += "\(myLottoNumbers[i]), "
             } else {
                 continue
