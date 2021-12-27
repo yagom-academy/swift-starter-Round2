@@ -10,9 +10,8 @@ import Foundation
 
 var winningNumbers: Set<Int> = []
 var randomNumber: Int?
-var myLottoNumbers: [Int] = []
-var matchedNumbers: String = ""
-var result: String = ""
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+
 
 func createRandomNumber() {
     randomNumber = Int.random(in: 1...45)
@@ -21,7 +20,7 @@ func createRandomNumber() {
 func createWinningNumbers() -> Set<Int> {
     
     while winningNumbers.count < 6 {
-        pickRandomNumber()
+        createRandomNumber()
         if let lottoNumber = randomNumber {
             winningNumbers.insert(lottoNumber)
         } else {
@@ -34,10 +33,14 @@ func createWinningNumbers() -> Set<Int> {
 }
 
 func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> String {
+    var matchedNumbers: String = ""
+    var winningResult: String = ""
+    var failResult: String = ""
+    var wrongResult: String = ""
     
-    if myNumbers.count < 1 {
-        result = "로또 번호를 입력하지 않았습니다."
-        return result
+    if myNumbers.count < 1 || myNumbers.count > 7 {
+        wrongResult = "로또 번호를 입력하지 않았거나, 너무 많은 번호가 있습니다."
+        return wrongResult
     } else {
         for i in 0...myNumbers.count-1 {
             if winningNumbers.contains(myNumbers[i]) {
@@ -49,20 +52,20 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
         let lastComma = matchedNumbers.lastIndex(of: ",") ?? matchedNumbers.endIndex
         let removeCommaNumbers = matchedNumbers[..<lastComma]
         if matchedNumbers.count > 0 {
-            result = "축하합니다! 겹치는 번호는 \(removeCommaNumbers) 입니다!"
+            winningResult = "축하합니다! 겹치는 번호는 \(removeCommaNumbers) 입니다!"
+            return winningResult
         } else {
-            result = "아쉽지만 겹치는 번호가 없습니다."
+            failResult = "아쉽지만 겹치는 번호가 없습니다."
+            return failResult
         }
-        
-        return result
     }
 }
 
-func checkLotto(_ myLottoNumbers: [Int]) {
-    print(compareLottoNumbers(pickLottoNumbers(), myNumbers))
+func checkLotto(_ myNumbers: [Int]) {
+    print(compareLottoNumbers(createWinningNumbers(), myNumbers))
 }
 
-checkLotto([1, 2, 3, 4, 5, 6])
+checkLotto(myLottoNumbers)
 
 
 
