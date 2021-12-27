@@ -20,7 +20,7 @@ func createRandomNumber() {
 
 func createWinningNumbers() -> Set<Int> {
     
-    while winningNumbers.count < 7 {
+    while winningNumbers.count < 6 {
         pickRandomNumber()
         if let lottoNumber = randomNumber {
             winningNumbers.insert(lottoNumber)
@@ -33,23 +33,23 @@ func createWinningNumbers() -> Set<Int> {
     return winningNumbers
 }
 
-func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myLottoNumbers: [Int]) -> String {
+func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> String {
     
-    if (myLottoNumbers.count < 1) {
+    if myNumbers.count < 1 {
         result = "로또 번호를 입력하지 않았습니다."
         return result
     } else {
     
-        for i in 0...myLottoNumbers.count-1 {
-            if (winningNumbers.contains(myLottoNumbers[i])) {
-                matchedNumbers += "\(myLottoNumbers[i]), "
+        for i in 0...myNumbers.count-1 {
+            if (winningNumbers.contains(myNumbers[i])) {
+                matchedNumbers += "\(myNumbers[i]), "
             } else {
                 continue
             }
         }
         let lastComma = matchedNumbers.lastIndex(of: ",") ?? matchedNumbers.endIndex
         let removeCommaNumbers = matchedNumbers[..<lastComma]
-        if (matchedNumbers.count > 0) {
+        if matchedNumbers.count > 0 {
             result = "축하합니다! 겹치는 번호는 \(removeCommaNumbers) 입니다!"
         } else {
             result = "아쉽지만 겹치는 번호가 없습니다."
@@ -60,7 +60,7 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myLottoNumbers: [Int]) ->
 }
 
 func tryLotto(_ myLottoNumbers: [Int]) {
-    print(compareLottoNumbers(pickLottoNumbers(), myLottoNumbers))
+    print(compareLottoNumbers(pickLottoNumbers(), myNumbers))
 }
 
 tryLotto([1, 2, 3, 4, 5, 6])
