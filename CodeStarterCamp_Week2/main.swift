@@ -50,9 +50,9 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
             }
         }
         let lastComma = matchedNumbers.lastIndex(of: ",") ?? matchedNumbers.endIndex
-        let removeCommaNumbers = matchedNumbers[..<lastComma]
+        let removedLastCommaNumbers = matchedNumbers[..<lastComma]
         if matchedNumbers.count > 0 {
-            winningResult = "축하합니다! 겹치는 번호는 \(removeCommaNumbers) 입니다!"
+            winningResult = "축하합니다! 겹치는 번호는 \(removedLastCommaNumbers) 입니다!"
             return winningResult
         } else {
             failResult = "아쉽지만 겹치는 번호가 없습니다."
