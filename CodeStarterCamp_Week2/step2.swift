@@ -1,8 +1,9 @@
+import Foundation
+
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoNumbers = [Int]()
 var duplicateNumbers = [Int]()
 var count: Int = 0
-var lottoNumbersLastIndex = 5
 
 func makeLotto () {
 	while count < 6 {
@@ -17,15 +18,34 @@ func makeLotto () {
 }
 
 func checkNumbers() {
-	for idx in 0...lottoNumbersLastIndex {
-		if lottoNumbers.contains(myLottoNumbers[idx]) {
-			duplicateNumbers.append(myLottoNumbers[idx])
+	for element in myLottoNumbers {
+		if lottoNumbers.contains(element) {
+			duplicateNumbers.append(element)
 		}
 	}
-	print("생성된 로또번호는 \(lottoNumbers) 입니다!")
+	print("생성된 로또번호는", terminator: " ")
+	printArrayWithoutBracket(arr:lottoNumbers)
+	print("입니다!")
 	if duplicateNumbers.isEmpty {
 		print("아쉽지만 겹치는 번호가 없습니다.")
 	} else {
-		print("축하합니다! 겹치는 번호는 \(duplicateNumbers) 입니다!")
+		print("축하합니다! 겹치는 번호는", terminator: " ")
+		printArrayWithoutBracket(arr:duplicateNumbers)
+		print("입니다!")
 	}
 }
+
+func printArrayWithoutBracket(arr: [Int]) {
+	for idx in 0...arr.count - 1 {
+		if idx == arr.count - 1 {
+			print(arr[idx], terminator: " ")
+		} else {
+			print(arr[idx], terminator: ", ")
+		}
+	}
+}
+
+
+
+
+
