@@ -28,6 +28,12 @@ func createWinningNumbers() -> Set<Int> {
     return winningNumbers
 }
 
+func removeLastComma(phrase: String) -> String {
+    guard let indexOfLastComma = phrase.lastIndex(of: ",") else { return phrase }
+    let filteredPhrase = phrase[..<indexOfLastComma]
+    return String(filteredPhrase)
+}
+
 func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> String {
     var matchedNumbers: String = ""
     var resultMessage: String = ""
@@ -43,10 +49,8 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
                 continue
             }
         }
-        let indexOfLastComma = matchedNumbers.lastIndex(of: ",") ?? matchedNumbers.endIndex
-        let matchedNumbersUntilLastComma = matchedNumbers[..<indexOfLastComma]
         if matchedNumbers.count > 0 {
-            resultMessage = "축하합니다! 겹치는 번호는 \(matchedNumbersUntilLastComma) 입니다!"
+            resultMessage = "축하합니다! 겹치는 번호는 \(removeLastComma(phrase: matchedNumbers)) 입니다!"
             return resultMessage
         } else {
             resultMessage = "아쉽지만 겹치는 번호가 없습니다."
