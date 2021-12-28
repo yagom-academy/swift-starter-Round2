@@ -8,4 +8,7 @@
 
 import Foundation
 
-confirmMyLottoResult()
+makeHistoryOfWinningLottoNumbers(count: 5)
+showHistoryOfWinningLottoNumbers(targetRound: 2)
+
+
