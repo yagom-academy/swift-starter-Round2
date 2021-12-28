@@ -10,7 +10,7 @@ import Foundation
 
 let myLottoNumbers: Set<Int> = [1, 10, 20, 30, 40, 45]
 var winningNumbers: Set<Int> = []
-var roundOfWinningNumbers: [String: Set<Int>] = [:]
+var roundOfWinningNumbers: [String: [Int]] = [:]
 
 func makeDeduplicatedNumbers(winningNumbers: Set<Int>) -> Set<Int> {
     var winningNumbers = winningNumbers
@@ -52,13 +52,13 @@ func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>, r
 }
 
 func saveWinningNumbers(round: Int) {
-    roundOfWinningNumbers["\(round)회차"] = winningNumbers
+    roundOfWinningNumbers["\(round)회차"] = Array(winningNumbers)
     winningNumbers = []
 }
 
 func searchRoundOfWinningNumbers(round: Int) {
     if let roundOfWinningNumbers = roundOfWinningNumbers["\(round)회차"] {
-        let searchedWinningNumbers = convertArrayToString(someArray: roundOfWinningNumbers)
+        let searchedWinningNumbers = convertArrayToString(someArray: Set(roundOfWinningNumbers))
         print("\(round)회차의 로또 당첨 번호는 \(searchedWinningNumbers) 입니다.")
     }
 }
