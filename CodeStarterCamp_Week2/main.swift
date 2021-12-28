@@ -35,19 +35,19 @@ func convertArrayToString(someArray: Set<Int>) -> String {
     return convertedArrayToString
 }
 
-func printWinningNumbers(winningNumbers: Set<Int>) {
+func printWinningNumbers(winningNumbers: Set<Int>, round: Int) {
     let convertedWinningNubmers = convertArrayToString(someArray: winningNumbers)
-    print("당첨 번호 : \(convertedWinningNubmers)")
+    print("\(round)회차 당첨 번호 : \(convertedWinningNubmers)")
 }
 
-func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
+func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>, round: Int) {
     let sameNumbers: Set<Int> = compareMyLottoNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
     
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         let convertedSameNumbersToString = convertArrayToString(someArray: sameNumbers)
-        print("축하합니다! 겹치는 번호는 \(convertedSameNumbersToString) 입니다!")
+        print("축하합니다! \(round)회차의 겹치는 번호는 \(convertedSameNumbersToString) 입니다!")
     }
 }
 
@@ -63,9 +63,13 @@ func searchRoundOfWinningNumbers(round: Int) {
     }
 }
 
-func startLotto() {
-    winningNumbers = makeDeduplicatedNumbers(winningNumbers: winningNumbers)
-    printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+func startLotto(countOfRound: Int) {
+    for round in 1...countOfRound {
+        winningNumbers = makeDeduplicatedNumbers(winningNumbers: winningNumbers)
+        printWinningNumbers(winningNumbers: winningNumbers, round: round)
+        printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers, round: round)
+        saveWinningNumbers(round: round)
+    }
 }
 
-startLotto()
+startLotto(countOfRound: 5)
