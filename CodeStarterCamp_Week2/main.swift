@@ -10,17 +10,19 @@ import Foundation
 
 var winningNumbers: Set<Int> = []
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var randomNumber: Int = 0
 
 
 func createRandomNumber() -> Int {
-    let randomNumber = Int.random(in: 1...45)
+    randomNumber = Int.random(in: 1...45)
     return randomNumber
 }
 
 func createWinningNumbers() -> Set<Int> {
     
     while winningNumbers.count < 6 {
-        winningNumbers.insert(createRandomNumber())
+        randomNumber = createRandomNumber()
+        winningNumbers.insert(randomNumber)
     }
     print("당첨 번호: \(winningNumbers)")
     return winningNumbers
@@ -41,10 +43,10 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
                 continue
             }
         }
-        let lastComma = matchedNumbers.lastIndex(of: ",") ?? matchedNumbers.endIndex
-        let removedLastCommaNumbers = matchedNumbers[..<lastComma]
+        let indexOfLastComma = matchedNumbers.lastIndex(of: ",") ?? matchedNumbers.endIndex
+        let matchedNumbersUntilLastComma = matchedNumbers[..<indexOfLastComma]
         if matchedNumbers.count > 0 {
-            resultMessage = "축하합니다! 겹치는 번호는 \(removedLastCommaNumbers) 입니다!"
+            resultMessage = "축하합니다! 겹치는 번호는 \(matchedNumbersUntilLastComma) 입니다!"
             return resultMessage
         } else {
             resultMessage = "아쉽지만 겹치는 번호가 없습니다."
@@ -54,7 +56,8 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
 }
 
 func checkLotto(myNumbers: [Int]) {
-    print(compareLottoNumbers(createWinningNumbers(), myNumbers))
+    let winningNumbers = createWinningNumbers()
+    print(compareLottoNumbers(winningNumbers, myNumbers))
 }
 
 checkLotto(myNumbers: myLottoNumbers)
