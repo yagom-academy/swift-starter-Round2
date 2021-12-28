@@ -10,6 +10,7 @@ import Foundation
 
 let myLottoNumbers: Set<Int> = [1, 10, 20, 30, 40, 45]
 var winningNumbers: Set<Int> = []
+var roundOfWinningNumbers: [String: Set<Int>] = [:]
 
 func makeDeduplicatedNumbers(winningNumbers: Set<Int>) -> Set<Int> {
     var winningNumbers = winningNumbers
@@ -43,6 +44,11 @@ func printWinningNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>
         let convertedSameNumbersToString = convertArrayToString(someArray: sameNumbers)
         print("축하합니다! 겹치는 번호는 \(convertedSameNumbersToString) 입니다!")
     }
+}
+
+func saveWinningNumbers(round: Int) {
+    roundOfWinningNumbers["\(round)회차"] = winningNumbers
+    winningNumbers = []
 }
 
 func startLotto() {
