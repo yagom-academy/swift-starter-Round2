@@ -28,13 +28,19 @@ func compareMyLottoNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<In
     return Set(sameNumbers)
 }
 
+func convertArrayToString(someArray: Set<Int>) -> String {
+    let convertedArrayToString = someArray.map{ String($0) }.joined(separator: ", ")
+    
+    return convertedArrayToString
+}
+
 func printWinningNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
     let sameNumbers: Set<Int> = compareMyLottoNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
     
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        let convertedSameNumbersToString = sameNumbers.map{ String($0) }.joined(separator: ", ")
+        let convertedSameNumbersToString = convertArrayToString(someArray: sameNumbers)
         print("축하합니다! 겹치는 번호는 \(convertedSameNumbersToString) 입니다!")
     }
 }
