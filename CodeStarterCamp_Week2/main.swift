@@ -35,6 +35,11 @@ func convertArrayToString(someArray: Set<Int>) -> String {
     return convertedArrayToString
 }
 
+func printWinningNumbers(winningNumbers: Set<Int>) {
+    let convertedWinningNubmers = convertArrayToString(someArray: winningNumbers)
+    print("당첨 번호 : \(convertedWinningNubmers)")
+}
+
 func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
     let sameNumbers: Set<Int> = compareMyLottoNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
     
