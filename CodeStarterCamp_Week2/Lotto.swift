@@ -9,10 +9,10 @@ import Foundation
 
 
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-var historyOfWinningLottoNumbers: Dictionary = [String : Set<Int>]()
+var historyOfWinningLottoNumbers: Dictionary = [String:[Int]]()
 var round: Int = 0
 
-func saveWinningLottoNumbers(winningLottoNumbers: Set<Int>) {
+func saveWinningLottoNumbers(winningLottoNumbers: [Int]) {
     round += 1
     historyOfWinningLottoNumbers["\(round)회차"] = winningLottoNumbers
 }
@@ -29,26 +29,27 @@ func showHistoryOfWinningLottoNumbers(targetRound: Int) {
     print("\(targetRound)회차의 로또 당첨 번호는 \(targetRoundWinningNumbers) 입니다.")
 }
 
-func makeWinningLottoNumbers() -> Set<Int> {
+func makeWinningLottoNumbers() -> [Int] {
     var winningLottoNumbers = Set<Int>()
     
     while winningLottoNumbers.count < 6 {
         let lottoNumber = Int.random(in: 1...45)
         winningLottoNumbers.insert(lottoNumber)
     }
-    saveWinningLottoNumbers(winningLottoNumbers: winningLottoNumbers)
+    let arrayWinningNumbers = Array(winningLottoNumbers)
+    saveWinningLottoNumbers(winningLottoNumbers: arrayWinningNumbers)
     
-    return winningLottoNumbers
+    return arrayWinningNumbers
 }
 
-func compareMylottoNumbersWithWinningLottoNumbers() -> Set<Int> {
+func compareMylottoNumbersWithWinningLottoNumbers() -> [Int] {
     let winningLottoNumbers = makeWinningLottoNumbers()
 
-    let matchNumbers = winningLottoNumbers.filter { myLottoNumbers.contains($0) }
+    let matchNumbers = winningLottoNumbers.filter { Array(myLottoNumbers).contains($0) }
     return matchNumbers
 }
 
-func convertArrayToString(array:Set<Int>) -> String {
+func convertArrayToString(array:[Int]) -> String {
     let stringArray = array.sorted().map { String($0) }.joined(separator: ", ")
     return stringArray
 }
