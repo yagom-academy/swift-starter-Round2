@@ -47,7 +47,7 @@ func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>, r
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         let convertedSameNumbersToString = convertArrayToString(someArray: sameNumbers)
-        print("축하합니다! \(round)회차의 겹치는 번호는 \(convertedSameNumbersToString) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(convertedSameNumbersToString) 입니다!")
     }
 }
 
