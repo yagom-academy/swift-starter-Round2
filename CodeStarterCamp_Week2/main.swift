@@ -42,5 +42,14 @@ func convertedSetType(set: Set<Int>) -> String {
     }
     return  result.joined(separator: ", ")
 }
-matchedWinningNumber()
 
+func secondWinnigNubmer() {
+    index = 2
+    if let randomLottoNumbers: Set<Int> = lottoDictionary["\(index)회차의"] {
+        print("\(index)회차의 로또 당첨 번호는 \(convertedSetType(set: randomLottoNumbers)) 입니다.")
+    }
+}
+for _ in 1...5 {
+    matchedWinningNumber()
+}
+secondWinnigNubmer()
