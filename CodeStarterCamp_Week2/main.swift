@@ -7,13 +7,20 @@
 //
 
 import Foundation
+var lottoDictionary: Dictionary<String, Set<Int>> = [:]
+var index = 0
 
 func showLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
+    lottoScore(score: lottoNumbers)
     return lottoNumbers
+}
+func lottoScore(score: Set<Int>) {
+    index += 1
+    lottoDictionary["\(index)회차의"] = score
 }
     
 func matchedWinningNumber() {
