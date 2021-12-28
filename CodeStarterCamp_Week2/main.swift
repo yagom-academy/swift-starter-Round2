@@ -9,7 +9,7 @@ func makeLottoNumbers() -> Set<Int> {
     while lottoNumbers.count < 6 {
         let targetNumber = Int.random(in: 1...45)
         
-        if !lottoNumbers.contains(targetNumber){
+        if !lottoNumbers.contains(targetNumber) {
            lottoNumbers.insert(targetNumber)
         }
     }
@@ -19,11 +19,11 @@ func makeLottoNumbers() -> Set<Int> {
 
 
 //n번째 로또 추출을 프린트 합니다.
-func printLottoNDrow(maxDraw: Int, printDraw: Int){
+func printLottoNDrow(maxDraw: Int,printDraw: Int) {
     let subfix: String = "회차"
     var answerLottoDict: Dictionary<String, Set<Int>> = [:]
     
-    for count in 1...maxDraw{
+    for count in 1...maxDraw {
         answerLottoDict[String(count) + subfix] = makeLottoNumbers()
     }
     
@@ -41,6 +41,8 @@ func printLottoNDrow(maxDraw: Int, printDraw: Int){
     }
             
 }
+
+
 
 //실행코드
 printLottoNDrow(maxDraw: 5, printDraw: 2)
