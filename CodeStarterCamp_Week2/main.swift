@@ -8,5 +8,6 @@
 
 import Foundation
 
-makeLotto()
-checkNumbers()
+makeLottoNumbers()
+checkDuplicateNumbers()
+printResult()

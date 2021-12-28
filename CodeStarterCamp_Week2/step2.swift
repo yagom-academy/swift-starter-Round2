@@ -3,48 +3,41 @@ import Foundation
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoNumbers = [Int]()
 var duplicateNumbers = [Int]()
-var count: Int = 0
+var duplicateNumberString: String = ""
 
-func makeLotto () {
-	while count < 6 {
-		let num = Int.random(in: 1...45)
-		if lottoNumbers.contains(num) {
+func makeLottoNumbers() {
+	while lottoNumbers.count < 6 {
+		let randomNumber = Int.random(in: 1...45)
+		if lottoNumbers.contains(randomNumber) {
 			continue
 		} else {
-			lottoNumbers.append(num)
-			count += 1
+			lottoNumbers.append(randomNumber)
 		}
 	}
 }
 
-func checkNumbers() {
+func checkDuplicateNumbers() {
 	for element in myLottoNumbers {
 		if lottoNumbers.contains(element) {
 			duplicateNumbers.append(element)
 		}
 	}
-	print("생성된 로또번호는", terminator: " ")
-	printArrayWithoutBracket(arr:lottoNumbers)
+}
+
+func makeDuplicateNumberString(arr: [Int]) {
+	for idx in 0...arr.count - 1 {
+		duplicateNumberString.append(String(arr[idx]))
+		if idx != arr.count - 1 {
+			duplicateNumberString.append(", ")
+		} 
+	}
+}
+
+func printResult() {
 	if duplicateNumbers.isEmpty {
 		print("아쉽지만 겹치는 번호가 없습니다.")
 	} else {
-		print("축하합니다! 겹치는 번호는", terminator: " ")
-		printArrayWithoutBracket(arr:duplicateNumbers)
+		makeDuplicateNumberString(arr: duplicateNumbers)
+		print("축하합니다! 겹치는 번호는 " + duplicateNumberString + " 입니다!")
 	}
 }
-
-func printArrayWithoutBracket(arr: [Int]) {
-	for idx in 0...arr.count - 1 {
-		if idx == arr.count - 1 {
-			print(arr[idx], terminator: " ")
-		} else {
-			print(arr[idx], terminator: ", ")
-		}
-	}
-	print("입니다!")
-}
-
-
-
-
-
