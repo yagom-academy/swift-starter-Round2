@@ -73,3 +73,4 @@ func startLotto(countOfRound: Int) {
 }
 
 startLotto(countOfRound: 5)
+searchRoundOfWinningNumbers(round: 2)
