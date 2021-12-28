@@ -35,7 +35,7 @@ func convertArrayToString(someArray: Set<Int>) -> String {
     return convertedArrayToString
 }
 
-func printWinningNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
+func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
     let sameNumbers: Set<Int> = compareMyLottoNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
     
     if sameNumbers.isEmpty {
@@ -60,7 +60,7 @@ func searchRoundOfWinningNumbers(round: Int) {
 
 func startLotto() {
     winningNumbers = makeDeduplicatedNumbers(winningNumbers: winningNumbers)
-    printWinningNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+    printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
 }
 
 startLotto()
