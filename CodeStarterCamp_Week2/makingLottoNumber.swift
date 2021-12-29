@@ -21,19 +21,18 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func addLottoDrow(lottoSaveDict: Dictionary<String, Set<Int>>,count: Int) -> Dictionary<String, Set<Int>> {
-    var lottoSaveDictTemp = lottoSaveDict
+func nextLottoDraw(lottoSaveHistoryDictonary: Dictionary<String, Set<Int>>,count: Int) -> Dictionary<String, Set<Int>> {
+    var lottoSaveHistoryDictonaryTemp = lottoSaveHistoryDictonary
     
     for _ in 1...count {
-        let saveSentence: String = String(lottoSaveDictTemp.count + 1) + "회차"
-        lottoSaveDictTemp[saveSentence] = makeLottoNumbers()
+        let saveSentence: String = String(lottoSaveHistoryDictonaryTemp.count + 1) + "회차"
+        lottoSaveHistoryDictonaryTemp[saveSentence] = makeLottoNumbers()
     }
-    return lottoSaveDictTemp
+    return lottoSaveHistoryDictonaryTemp
 }
 
-func printLotto(answerLottoDict: Dictionary<String, Set<Int>>,printDraw: Int) {
-    let subfix: String = "회차"
-    if let printTarget = answerLottoDict[String(printDraw) + subfix]{
+func printLottoAnswer(answerLottoDict: Dictionary<String, Set<Int>>,printDraw: Int) {
+    if let printTarget = answerLottoDict[String(printDraw) + "회차"]{
         var resultSentence: String = String(printDraw) + "회차의 로또 당첨 번호는 "
         
         for indexLottoNumber in printTarget {
