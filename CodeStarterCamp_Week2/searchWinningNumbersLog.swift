@@ -7,7 +7,7 @@
 
 import Foundation
 
-func searchRoundOfWinningNumbers(round: Int) {
+func searchWinningNumbersLog(round: Int) {
     if let winningNumbersLog = winningNumbersLog["\(round)회차"] {
         let searchedWinningNumbers = convertArrayToString(someArray: Set(winningNumbersLog))
         print("\(round)회차의 로또 당첨 번호는 \(searchedWinningNumbers) 입니다.")

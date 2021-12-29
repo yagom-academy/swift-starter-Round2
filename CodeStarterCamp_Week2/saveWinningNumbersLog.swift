@@ -15,5 +15,4 @@ func saveWinningNumbers(round: Int) {
         winningNumbersLog["\(number)회차"] = Array(winningNumbers)
         winningNumbers = []
     }
-
 }
