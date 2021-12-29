@@ -35,12 +35,12 @@ func convertArrayToString(someArray: Set<Int>) -> String {
     return convertedArrayToString
 }
 
-func printWinningNumbers(winningNumbers: Set<Int>, round: Int) {
+func printWinningNumbers(winningNumbers: Set<Int>) {
     let convertedWinningNubmers = convertArrayToString(someArray: winningNumbers)
-    print("\(round)회차 당첨 번호 : \(convertedWinningNubmers)")
+    print("당첨 번호 : \(convertedWinningNubmers)")
 }
 
-func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>, round: Int) {
+func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
     let sameNumbers: Set<Int> = compareMyLottoNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
     
     if sameNumbers.isEmpty {
@@ -51,11 +51,6 @@ func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>, r
     }
 }
 
-func saveWinningNumbers(round: Int) {
-    roundOfWinningNumbers["\(round)회차"] = Array(winningNumbers)
-    winningNumbers = []
-}
-
 func searchRoundOfWinningNumbers(round: Int) {
     if let roundOfWinningNumbers = roundOfWinningNumbers["\(round)회차"] {
         let searchedWinningNumbers = convertArrayToString(someArray: Set(roundOfWinningNumbers))
@@ -63,14 +58,17 @@ func searchRoundOfWinningNumbers(round: Int) {
     }
 }
 
-func startLotto(countOfRound: Int) {
-    for round in 1...countOfRound {
-        winningNumbers = makeDeduplicatedNumbers(winningNumbers: winningNumbers)
-        printWinningNumbers(winningNumbers: winningNumbers, round: round)
-        printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers, round: round)
-        saveWinningNumbers(round: round)
-    }
+func saveWinningNumbers(round: Int) {
+    roundOfWinningNumbers["\(round)회차"] = Array(winningNumbers)
+    winningNumbers = []
 }
 
-startLotto(countOfRound: 5)
+func matchLottoNumbers() {
+    winningNumbers = makeDeduplicatedNumbers(winningNumbers: winningNumbers)
+    printWinningNumbers(winningNumbers: winningNumbers)
+    printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+}
+
+matchLottoNumbers()
+saveWinningNumbers(round: 5)
 searchRoundOfWinningNumbers(round: 2)
