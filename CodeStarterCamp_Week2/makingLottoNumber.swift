@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 func makeLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
@@ -22,16 +21,18 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-
-//n번째 로또 추출을 프린트 합니다.
-func printLottoNDrow(maxDraw: Int,printDraw: Int) {
-    let subfix: String = "회차"
-    var answerLottoDict: Dictionary<String, Set<Int>> = [:]
+func addLottoDrow(lottoSaveDict: Dictionary<String, Set<Int>>,count: Int) -> Dictionary<String, Set<Int>> {
+    var lottoSaveDictTemp = lottoSaveDict
     
-    for count in 1...maxDraw {
-        answerLottoDict[String(count) + subfix] = makeLottoNumbers()
+    for _ in 1...count {
+        let saveSentence: String = String(lottoSaveDictTemp.count + 1) + "회차"
+        lottoSaveDictTemp[saveSentence] = makeLottoNumbers()
     }
-    
+    return lottoSaveDictTemp
+}
+
+func printLotto(answerLottoDict: Dictionary<String, Set<Int>>,printDraw: Int) {
+    let subfix: String = "회차"
     if let printTarget = answerLottoDict[String(printDraw) + subfix]{
         var resultSentence: String = String(printDraw) + "회차의 로또 당첨 번호는 "
         
@@ -40,34 +41,8 @@ func printLottoNDrow(maxDraw: Int,printDraw: Int) {
         }
         resultSentence = resultSentence.dropLast(2) + " 입니다."
         print(resultSentence)
-        
     } else {
         print("범위에서 벗어난 회차입니다!")
     }
-            
 }
 
-func compareLotto(myLottoNumbers my: Array<Int>,answerLottoNumbers answer: Set<Int>){
-    var countMatch: [Int] = []
-    
-    for index in 0...(my.count-1){
-        if answer.contains(my[index]){
-            countMatch.append(my[index])
-        }
-    }
-    
-    if countMatch.count > 0 {
-        var resultSentence: String = "축하합니다! 겹치는 번호는 "
-        
-        if countMatch.count > 2 {
-         for index in 0...countMatch.count-2 {
-            resultSentence = resultSentence + String(countMatch[index]) + ", "
-         }
-        }
-        resultSentence = resultSentence + String(countMatch[countMatch.count-1]) + " 입니다."
-        print(resultSentence)
-        
-    } else {
-     print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-}
