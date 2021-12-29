@@ -8,4 +8,4 @@
 
 import Foundation
 
-buyLotto()
+checkRound2LottoNumbers()
