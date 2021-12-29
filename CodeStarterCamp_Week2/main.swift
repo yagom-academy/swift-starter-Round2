@@ -10,4 +10,4 @@ import Foundation
 
 matchLottoNumbers()
 saveWinningNumbers(round: 5)
-searchWinningNumbersLog(round: 1)
+searchWinningNumbersLog(round: 5)

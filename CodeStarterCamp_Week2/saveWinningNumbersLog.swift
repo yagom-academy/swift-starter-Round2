@@ -11,8 +11,8 @@ var winningNumbersLog: [String: Set<Int>] = [:]
 
 func saveWinningNumbers(round: Int) {
     for number in 1...round {
-        makeDeduplicatedNumbers()
         winningNumbersLog["\(number)회차"] = winningNumbers
         winningNumbers = []
+        makeDeduplicatedNumbers()
     }
 }
