@@ -8,15 +8,11 @@
 let myLottoNumbers: Set<Int> = [1, 10, 20, 30, 40, 45]
 var winningNumbers: Set<Int> = []
 
-func makeDeduplicatedNumbers(winningNumbers: Set<Int>) -> Set<Int> {
-    var winningNumbers = winningNumbers
-    
+func makeDeduplicatedNumbers() {
     while winningNumbers.count < 6 {
         let deduplicatedNumber = Int.random(in: 1...45)
         winningNumbers.insert(deduplicatedNumber)
     }
-    
-    return winningNumbers
 }
 
 func compareMyLottoNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) -> Set<Int> {
@@ -48,7 +44,7 @@ func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
 }
 
 func matchLottoNumbers() {
-    winningNumbers = makeDeduplicatedNumbers(winningNumbers: winningNumbers)
+    makeDeduplicatedNumbers()
     printWinningNumbers(winningNumbers: winningNumbers)
     printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
 }

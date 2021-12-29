@@ -7,9 +7,15 @@
 
 import Foundation
 
-var roundOfWinningNumbers: [String: [Int]] = [:]
+var winningNumbersLog: [String: [Int]] = [:]
 
-func saveWinningNumbers(round: Int) {
-    roundOfWinningNumbers["\(round)회차"] = Array(winningNumbers)
+
+
+func saveWinningNumbers(winningNumbers: Set<Int>, round: Int) {
+    var winningNumbers = winningNumbers
+    winningNumbersLog["\(round)회차"] = Array(winningNumbers)
     winningNumbers = []
+    
+    print(winningNumbersLog)
 }
+

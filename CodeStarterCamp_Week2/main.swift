@@ -9,5 +9,3 @@
 import Foundation
 
 matchLottoNumbers()
-saveWinningNumbers(round: 5)
-searchRoundOfWinningNumbers(round: 2)

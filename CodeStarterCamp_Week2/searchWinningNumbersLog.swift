@@ -8,8 +8,8 @@
 import Foundation
 
 func searchRoundOfWinningNumbers(round: Int) {
-    if let roundOfWinningNumbers = roundOfWinningNumbers["\(round)회차"] {
-        let searchedWinningNumbers = convertArrayToString(someArray: Set(roundOfWinningNumbers))
+    if let winningNumbersLog = winningNumbersLog["\(round)회차"] {
+        let searchedWinningNumbers = convertArrayToString(someArray: Set(winningNumbersLog))
         print("\(round)회차의 로또 당첨 번호는 \(searchedWinningNumbers) 입니다.")
     }
 }
