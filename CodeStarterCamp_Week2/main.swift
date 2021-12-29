@@ -15,40 +15,51 @@ func weekWinningLotto (){
     var makeRandomNumberCount : Int = 1
     //딕셔너리 저장공간
     var weekLottoNumber : [String : [Int]] = [:]
-    var countWeekNumber : String = ""
+    //딕셔너리 키값 저장
+    var countWeekNumber : String = "\(makeRandomNumberCount)회차"
     
-    //6개의 겹치지 않는 로또번호 생성기 저장은 Dictionary 에 저장함 저장된 key, value 모두 String 타입
+    //6개의 겹치지 않는 로또번호 생성기
     func makeRandomNumber()  {
-        countWeekNumber = "\(makeRandomNumberCount)회차"
         winningLottoNumber = []
-        makeRandomNumberCount += 1
         while winningLottoNumber.count < 6 {
             winningLottoNumber.insert(Int.random(in: 1...45))
         }
     }
     
-    //키와 밸류 값을 받아 딕셔너리에 저장해주는 함수 매개변수 타입은 String : String
+    //메이크 랜덤넘버 카운트+1
+    func makeRandomNumberCountUp(){
+        makeRandomNumberCount += 1
+        makeRandomNumber()
+    }
+    
+    //키와 밸류 값을 받아 딕셔너리에 저장해주는 함수
     func saveDictionary (key: String, value : [Int] ){
+        countWeekNumber = "\(makeRandomNumberCount)회차"
         weekLottoNumber.updateValue(value, forKey: key)
     }
     
     //로또 번호 5번 생성 함수
     func makeRandomNumberRepeatFive(){
         for _ in 1...5 {
-            makeRandomNumber()
+            makeRandomNumberCountUp()
             saveDictionary(key: countWeekNumber, value: Array(winningLottoNumber))
         }
     }
     
     //언래핑, 출력 하는 함수
-    func PrintCheckWeekWinningNumber(key : Int){
-        guard let unwrapValue : [Int] =  weekLottoNumber["\(key)회차"] else { return }
-        print("\(key)회차 의 로또 당첨 번호는 \(unwrapValue) 입니다")
+    func printCheckWeekWinningNumber(key : Int){
+        var value : [String] = []
+        guard var unwrapValue : [Int] =  weekLottoNumber["\(key)회차"] else { return }
+        for _ in 1...6 {
+            value.append("\(unwrapValue.removeFirst())")
+        }
+        print("\(key)회차 의 로또 당첨 번호는 \(value.joined(separator: ", ")) 입니다.")
     }
-    
+   
     makeRandomNumberRepeatFive()
-    PrintCheckWeekWinningNumber(key: 1)
+    printCheckWeekWinningNumber(key: 1)
     
 }
 
 weekWinningLotto()
+
