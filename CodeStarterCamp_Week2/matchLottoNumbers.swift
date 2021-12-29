@@ -27,7 +27,7 @@ func convertArrayToString(someArray: Set<Int>) -> String {
     return convertedArrayToString
 }
 
-func printWinningNumbers(winningNumbers: Set<Int>) {
+func printWinningNumbers() {
     let convertedWinningNubmers = convertArrayToString(someArray: winningNumbers)
     print("당첨 번호 : \(convertedWinningNubmers)")
 }
@@ -45,7 +45,7 @@ func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
 
 func matchLottoNumbers() {
     makeDeduplicatedNumbers()
-    printWinningNumbers(winningNumbers: winningNumbers)
+    printWinningNumbers()
     printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
 }
 
