@@ -8,6 +8,6 @@
 
 import Foundation
 
-matchLottoNumbers()
+//matchLottoNumbers()
 saveWinningNumbers(round: 5)
 searchWinningNumbersLog(round: 6)
