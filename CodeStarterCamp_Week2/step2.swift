@@ -24,10 +24,10 @@ func checkDuplicateNumbers() {
 	}
 }
 
-func makeDuplicateNumberString(arr: [Int]) {
-	for idx in 0...arr.count - 1 {
-		duplicateNumberString.append(String(arr[idx]))
-		if idx != arr.count - 1 {
+func makeDuplicateNumberString(array: [Int]) {
+	for index in 0...array.count - 1 {
+		duplicateNumberString.append(String(array[index]))
+		if index != array.count - 1 {
 			duplicateNumberString.append(", ")
 		} 
 	}
@@ -37,7 +37,13 @@ func printResult() {
 	if duplicateNumbers.isEmpty {
 		print("아쉽지만 겹치는 번호가 없습니다.")
 	} else {
-		makeDuplicateNumberString(arr: duplicateNumbers)
+		makeDuplicateNumberString(array: duplicateNumbers)
 		print("축하합니다! 겹치는 번호는 " + duplicateNumberString + " 입니다!")
 	}
+}
+
+func buyLotto() {
+	makeLottoNumbers()
+	checkDuplicateNumbers()
+	printResult()
 }
