@@ -9,13 +9,11 @@ import Foundation
 
 var winningNumbersLog: [String: [Int]] = [:]
 
+func saveWinningNumbers(round: Int) {
+    for number in 1...round {
+        makeDeduplicatedNumbers()
+        winningNumbersLog["\(number)회차"] = Array(winningNumbers)
+        winningNumbers = []
+    }
 
-
-func saveWinningNumbers(winningNumbers: Set<Int>, round: Int) {
-    var winningNumbers = winningNumbers
-    winningNumbersLog["\(round)회차"] = Array(winningNumbers)
-    winningNumbers = []
-    
-    print(winningNumbersLog)
 }
-

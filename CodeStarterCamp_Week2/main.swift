@@ -9,3 +9,5 @@
 import Foundation
 
 matchLottoNumbers()
+saveWinningNumbers(round: 5)
+
