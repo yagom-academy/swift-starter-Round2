@@ -8,4 +8,5 @@
 
 import Foundation
 
-checkRound2LottoNumbers()
+// buyLotto()
+makeSaveAndPrintLottoNumber()
