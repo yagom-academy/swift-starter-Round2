@@ -40,7 +40,7 @@ if let lottoWinningNumbers: [Int] = secondLottoWinningNumbers {
     for index in 1...5 {
         print(", \(lottoWinningNumbers[index])", terminator: "")
     }
-    print("입니다.")
+    print(" 입니다.")
 } else {
     print("아쉽지만 2회차의 로또 당첨 번호가 없습니다.")
 }
