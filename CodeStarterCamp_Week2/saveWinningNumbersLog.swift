@@ -10,8 +10,8 @@ import Foundation
 var winningNumbersLog: [String: Set<Int>] = [:]
 
 func saveWinningNumbers(round: Int) {
-    for number in 1...round {
-        winningNumbersLog["\(number)회차"] = winningNumbers
+    for number in 0...round {
+        winningNumbersLog["\(number + 1)회차"] = winningNumbers
         winningNumbers = []
         makeDeduplicatedNumbers()
     }
