@@ -8,5 +8,4 @@
 
 import Foundation
 
-// buyLotto()
 makeSaveAndPrintLottoNumber()
