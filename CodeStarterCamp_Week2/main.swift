@@ -10,4 +10,10 @@ import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-printIntersectionLottoNumber(selectedLottoNumber: myLottoNumbers)
+//printIntersectionLottoNumber(selectedLottoNumber: myLottoNumbers)
+
+for _ in 1...5 {
+    saveLottoNumbers()
+}
+
+loadLottoNumbersInLottoNumbersGroup(roundLottoNumber: 2)
