@@ -21,14 +21,11 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func nextLottoDraw(lottoSaveHistoryDictonary: Dictionary<String, Set<Int>>,count: Int) -> Dictionary<String, Set<Int>> {
-    var lottoSaveHistoryDictonaryTemp = lottoSaveHistoryDictonary
-    
+func nextLottoDraw(lottoSaveHistoryDictonary:inout Dictionary<String, Set<Int>>,count: Int) {
     for _ in 1...count {
-        let saveSentence: String = String(lottoSaveHistoryDictonaryTemp.count + 1) + "회차"
-        lottoSaveHistoryDictonaryTemp[saveSentence] = makeLottoNumbers()
+        let saveSentence: String = String(lottoSaveHistoryDictonary.count + 1) + "회차"
+        lottoSaveHistoryDictonary[saveSentence] = makeLottoNumbers()
     }
-    return lottoSaveHistoryDictonaryTemp
 }
 
 func printLottoAnswer(answerLottoDict: Dictionary<String, Set<Int>>,printDraw: Int) {
