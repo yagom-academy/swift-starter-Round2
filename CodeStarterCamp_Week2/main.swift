@@ -40,9 +40,10 @@ func removeLastComma(phrase: String) -> String {
 
 func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> String {
     var matchedNumbers: String = ""
+    var resultMessage: String = ""
     
     if myNumbers.count < 1 || myNumbers.count > 7 {
-        return "로또 번호를 입력하지 않았거나, 너무 많은 번호가 있습니다."
+        resultMessage = "로또 번호를 입력하지 않았거나, 너무 많은 번호가 있습니다."
     } else {
         for myNumber in myNumbers {
             if winningNumbers.contains(myNumber) {
@@ -52,12 +53,12 @@ func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> Stri
             }
         }
         if matchedNumbers.count > 0 {
-            let matchedNumbersResult = "축하합니다! 겹치는 번호는 \(removeLastComma(phrase: matchedNumbers)) 입니다!"
-            return matchedNumbersResult
+            resultMessage = "축하합니다! 겹치는 번호는 \(removeLastComma(phrase: matchedNumbers)) 입니다!"
         } else {
-            return "아쉽지만 겹치는 번호가 없습니다."
+            resultMessage = "아쉽지만 겹치는 번호가 없습니다."
         }
     }
+    return resultMessage
 }
 
 func checkLotto(myNumbers: [Int]) {
