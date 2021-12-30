@@ -8,10 +8,9 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
+var myLottoNumbers: [Int] = [1,2,3,4,5,6]
 var randomNumbers: Set<Int> = Set<Int>()
-var lottoNumbers: Set<Int> = Set<Int>()
-lottoNumbers = Set(myLottoNumbers)
+var lottoNumbers: Set<Int> = Set(myLottoNumbers)
 
 func createLottoNumber() {
     var randomNumber: Int
@@ -25,7 +24,7 @@ func createLottoNumber() {
 }
 
 func checkLottoNumber() {
-    var intersectionLottoNumberString: String = ""
+    var intersectionLottoNumberSentence: String = ""
     let intersectionLottoNumbers: Set<Int> = randomNumbers.intersection(lottoNumbers)
     let sortedIntersectionLottoNumber = intersectionLottoNumbers.sorted()
     let myLottoNumberMax = sortedIntersectionLottoNumber.max()
@@ -33,12 +32,12 @@ func checkLottoNumber() {
     if sortedIntersectionLottoNumber != [] {
         for sortedLottoNumber in sortedIntersectionLottoNumber {
             if sortedLottoNumber != myLottoNumberMax {
-                intersectionLottoNumberString = intersectionLottoNumberString + "\(sortedLottoNumber)" + ","
+                intersectionLottoNumberSentence = intersectionLottoNumberSentence + "\(sortedLottoNumber)" + ","
             } else {
-                intersectionLottoNumberString = intersectionLottoNumberString + "\(sortedLottoNumber)"
+                intersectionLottoNumberSentence = intersectionLottoNumberSentence + "\(sortedLottoNumber)"
             }
         }
-        print("축하합니다! 겹치는 번호는 \(intersectionLottoNumberString) 입니다 !")
+        print("축하합니다! 겹치는 번호는 \(intersectionLottoNumberSentence) 입니다 !")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
@@ -46,4 +45,3 @@ func checkLottoNumber() {
 
 createLottoNumber()
 checkLottoNumber()
-
