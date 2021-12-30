@@ -2,9 +2,13 @@ import Foundation
 
 var lottoHistory = [Int : [Int]]()
 
-func saveLottoNumbers(roundNumber: Int) {
+func saveLottoNumbers() {
 	makeLottoNumbers()
-	lottoHistory[roundNumber] = lottoNumbers
+	if lottoHistory.isEmpty {
+		lottoHistory[1] = lottoNumbers
+	} else {
+		lottoHistory[lottoHistory.count + 1] = lottoNumbers
+	}
 	lottoNumbers.removeAll()
 }
 
@@ -15,7 +19,7 @@ func printLottoNumber(roundNumber: Int) {
 }
 
 func makeSaveLottoNumber(numberOfLottoRuns: Int) {
-	for element in 1...numberOfLottoRuns {
-		saveLottoNumbers(roundNumber: element)
+	for _ in 1...numberOfLottoRuns {
+		saveLottoNumbers()
 	}
 }
