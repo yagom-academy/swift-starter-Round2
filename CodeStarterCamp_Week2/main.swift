@@ -8,6 +8,5 @@
 
 import Foundation
 
-makeLottoNumbers()
-checkDuplicateNumbers()
-printResult()
+makeSaveLottoNumber(numberOfLottoRuns: 5)
+printLottoNumber(roundNumber: 2)
