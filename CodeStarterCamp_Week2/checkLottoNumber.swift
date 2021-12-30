@@ -21,6 +21,15 @@ func checkDuplicateNumbers() {
 			duplicateNumbers.append(element)
 		}
 	}
+	if duplicateNumbers.isEmpty {
+		printResult(message: "아쉽지만 겹치는 번호가 없습니다.")
+	} else {
+		printResult(message: "축하합니다! 겹치는 번호는 \(makeArrayToString(array: duplicateNumbers)) 입니다!")
+	}
+}
+
+func printResult(message: String) {
+	print(message)
 }
 
 func makeArrayToString(array: [Int]) -> String {
@@ -34,16 +43,7 @@ func makeArrayToString(array: [Int]) -> String {
 	return lottoNumberString
 }
 
-func printResult() {
-	if duplicateNumbers.isEmpty {
-		print("아쉽지만 겹치는 번호가 없습니다.")
-	} else {
-		print("축하합니다! 겹치는 번호는 \(makeArrayToString(array: duplicateNumbers)) 입니다!")
-	}
-}
-
 func buyLotto() {
 	makeLottoNumbers()
 	checkDuplicateNumbers()
-	printResult()
 }

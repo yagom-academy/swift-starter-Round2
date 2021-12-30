@@ -8,4 +8,5 @@
 
 import Foundation
 
-makeSaveAndPrintLottoNumber()
+makeSaveLottoNumber(numberOfLottoRuns: 5)
+printLottoNumber(roundNumber: 2)
