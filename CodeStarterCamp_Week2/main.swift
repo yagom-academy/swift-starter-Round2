@@ -17,12 +17,11 @@ func assignSelectableLottoNumbers(range: Int) {
     }
 }
 
-let orderedLottoNumbers = Array(selectableLottoNumbers)
-
-func makeWinningLottoNumbers(count: Int) -> Set<Int> {
+func makeWinningLottoNumbers(number: Int) -> Set<Int> {
     assignSelectableLottoNumbers(range: 45)
+    let orderedLottoNumbers = Array(selectableLottoNumbers)
     var winningLottoNumbers = Set<Int>()
-    for count in 0...count {
+    for count in 0...number {
         winningLottoNumbers.insert(orderedLottoNumbers[count])
     }
     return winningLottoNumbers
