@@ -27,3 +27,6 @@ func makeWinningLottoNumbers(number: Int) -> Set<Int> {
     return winningLottoNumbers
 }
 
+let orderedMyLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var myLottoNumbers: Set<Int> = Set(orderedMyLottoNumbers)
+
