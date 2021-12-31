@@ -42,17 +42,14 @@ func saveLottoNumbers() {
 }
 
 func loadLottoNumbersInLottoNumbersGroup(roundLottoNumber: Int) {
-    print(type(of: lottoNumbersGroup))
-    print(lottoNumbersGroup)
-    if let loadedLottoNumbers = lottoNumbersGroup["\(roundLottoNumber)회차"] {
-        print(loadedLottoNumbers)
-        print(type(of: loadedLottoNumbers))
+    if let loadedLottoNumbers = lottoNumbersGroup["\(roundLottoNumber)회차"] as? Array<Int> {
         var transformLottoNumber: Array<String> = Array<String>()
         
         for transformIntToString in loadedLottoNumbers {
             transformLottoNumber.append("\(transformIntToString)")
         }
+        print("\(roundLottoNumber)회차의 로또 당첨 번호는 \(transformLottoNumber.joined(separator: ", ")) 입니다.")
     } else {
-        print("nil")
+        print("lottoNumbersGroup[\(roundLottoNumber)회차] is nil")
     }
 }
