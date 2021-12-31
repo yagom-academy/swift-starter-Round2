@@ -34,10 +34,6 @@ func removeLastComma(phrase: String) -> String {
     return String(filteredPhrase)
 }
 
-// 삼항 연산자 >> (condition) ? a : b
-// nil-coalescing >> optional<T> ?? default(value)
-
-
 func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> String {
     var matchedNumbers: String = ""
     var resultMessage: String = ""
