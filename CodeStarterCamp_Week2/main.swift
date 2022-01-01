@@ -11,6 +11,9 @@ import Foundation
 var winningNumbers: Set<Int> = []
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var randomNumber: Int = 0
+var winningHistory: Dictionary<String, Set<Int>> = [:]
+var winningHistoryCount: Int = 0
+var resultMessage: String = ""
 
 
 func createRandomNumber() -> Int {
@@ -19,11 +22,13 @@ func createRandomNumber() -> Int {
 }
 
 func createWinningNumbers() -> Set<Int> {
-
+    winningNumbers.removeAll()
     while winningNumbers.count < 6 {
         randomNumber = createRandomNumber()
         winningNumbers.insert(randomNumber)
     }
+    winningHistoryCount += 1
+    recordWinningHistory(round: winningHistoryCount, numbers: winningNumbers)
     print("당첨 번호: \(winningNumbers)")
     return winningNumbers
 }
@@ -36,7 +41,6 @@ func removeLastComma(phrase: String) -> String {
 
 func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> String {
     var matchedNumbers: String = ""
-    var resultMessage: String = ""
     
     if myNumbers.count < 1 || myNumbers.count > 7 {
         resultMessage = "로또 번호를 입력하지 않았거나, 너무 많은 번호가 있습니다."
@@ -62,7 +66,33 @@ func checkLotto(myNumbers: [Int]) {
     print(compareLottoNumbers(winningNumbers, myNumbers))
 }
 
+func recordWinningHistory(round: Int, numbers: Set<Int>) {
+    winningHistory["\(round)회차"] = numbers
+}
+
+
+func readWinningHistory(round: Int) -> String {
+    var winningHistoryNumbers: String = ""
+    
+    if let someLottoHistory = winningHistory["\(round)회차"] {
+        for number in someLottoHistory {
+            winningHistoryNumbers += "\(number), "
+        }
+        resultMessage = "\(round)회차의 로또 당첨 번호는 \(removeLastComma(phrase: winningHistoryNumbers)) 입니다."
+    } else {
+        resultMessage = "해당 회차가 존재하지 않습니다."
+    }
+    
+    return resultMessage
+}
+
+
 checkLotto(myNumbers: myLottoNumbers)
+checkLotto(myNumbers: myLottoNumbers)
+checkLotto(myNumbers: myLottoNumbers)
+checkLotto(myNumbers: myLottoNumbers)
+checkLotto(myNumbers: myLottoNumbers)
+print(readWinningHistory(round: 2))
 
 
 
