@@ -10,7 +10,7 @@ import Foundation
 var lottoDictionary: Dictionary<String, Set<Int>> = [:]
 var index = 0
 
-func showLottoNumbers() -> Set<Int> {
+func showedLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
@@ -18,6 +18,7 @@ func showLottoNumbers() -> Set<Int> {
     lottoScore(score: lottoNumbers)
     return lottoNumbers
 }
+
 func lottoScore(score: Set<Int>) {
     index += 1
     lottoDictionary["\(index)회차의"] = score
@@ -25,16 +26,15 @@ func lottoScore(score: Set<Int>) {
     
 func matchedWinningNumber() {
     let myLottoNumbers: [Int] = [1, 2, 3, 4 ,5, 6]
-    let matchedLottoNumbers = showLottoNumbers().intersection(myLottoNumbers)
-    let convertedMatchedLottoNumbers = convertedSetType(set: matchedLottoNumbers)
+    let matchedLottoNumbers = showedLottoNumbers().intersection(myLottoNumbers)
     if matchedLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(convertedMatchedLottoNumbers) 입니다 ! ")
+        print("축하합니다! 겹치는 번호는 \(convertedSetTypeByString(set: matchedLottoNumbers)) 입니다 ! ")
     }
 }
 
-func convertedSetType(set: Set<Int>) -> String {
+func convertedSetTypeByString(set: Set<Int>) -> String {
     let sorted = set.sorted()
     var result: [String] = []
     for number in sorted {
@@ -43,13 +43,19 @@ func convertedSetType(set: Set<Int>) -> String {
     return  result.joined(separator: ", ")
 }
 
-func secondWinnigNubmer() {
-    index = 2
+func winnerNumberByRound(index: Int) {
+    
     if let randomLottoNumbers: Set<Int> = lottoDictionary["\(index)회차의"] {
-        print("\(index)회차의 로또 당첨 번호는 \(convertedSetType(set: randomLottoNumbers)) 입니다.")
+        print("\(index)회차의 로또 당첨 번호는 \(convertedSetTypeByString(set: randomLottoNumbers)) 입니다.")
     }
 }
-for _ in 1...5 {
+
+func pickingLottoNumbers(index: Int) {
+for _ in 1...index {
     matchedWinningNumber()
+    }
 }
-secondWinnigNubmer()
+
+pickingLottoNumbers(index: 5)
+winnerNumberByRound(index: 2)
+print(lottoDictionary)
