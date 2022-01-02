@@ -8,22 +8,26 @@
 
 import Foundation
 
+var winningLottoNumbers: Dictionary<Int, Any> = Dictionary<Int, Any>()
 var myLottoNumbers: [Int] = [1,2,3,4,5,6]
-var randomNumbers: Set<Int> = Set<Int>()
 var lottoNumbers: Set<Int> = Set(myLottoNumbers)
+var round: Int = 1
 
 func createLottoNumber() {
+    var randomNumbers: Set<Int> = Set<Int>()
     var randomNumber: Int
-    
     while randomNumbers.count < 6 {
         randomNumber = Int.random(in: 1...45)
         if !randomNumbers.contains(randomNumber) {
             randomNumbers.insert(randomNumber)
         }
     }
+    storeWinningLottoNumbers(round: round, randomNumbers: randomNumbers)
+    checkLottoNumber(randomNumbers: randomNumbers)
+    round += 1
 }
 
-func checkLottoNumber() {
+func checkLottoNumber(randomNumbers: Set<Int>) {
     var intersectionLottoNumberSentence: String = ""
     let intersectionLottoNumbers: Set<Int> = randomNumbers.intersection(lottoNumbers)
     let sortedIntersectionLottoNumber = intersectionLottoNumbers.sorted()
@@ -43,5 +47,23 @@ func checkLottoNumber() {
     }
 }
 
+func storeWinningLottoNumbers(round: Int, randomNumbers: Set<Int>) {
+    let sortedRandomNumbers = randomNumbers.sorted()
+    winningLottoNumbers[round] = sortedRandomNumbers
+}
+
+func RoundWinningLottoNumbers(round: Int) {
+    if let RoundLottoNumber = winningLottoNumbers[round]{
+        print("\(round)회차의 로또 당첨 번호는 \(RoundLottoNumber) 입니다.")
+    }else{
+        print("nil값이다")
+    }
+}
+
 createLottoNumber()
-checkLottoNumber()
+createLottoNumber()
+createLottoNumber()
+createLottoNumber()
+createLottoNumber()
+
+RoundWinningLottoNumbers(round: 2)
