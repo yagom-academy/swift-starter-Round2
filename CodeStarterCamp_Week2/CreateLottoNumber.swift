@@ -9,7 +9,7 @@ import Foundation
 
 var lottoNumbers: Set<Int> = Set<Int>()
 var intersectionLottoNumber: Set<Int> = Set<Int>()
-var lottoNumbersGroup: [String: Any] = [:]
+var lottoNumbersGroup:  [String: [Int]] = [:]
 var lottoRoundCount: Int = 0
 
 func createLottoNumber() -> Set<Int> {
@@ -36,13 +36,12 @@ func printIntersectionLottoNumber(selectedLottoNumber: [Int]) {
 
 func saveLottoNumbers() {
     lottoRoundCount += 1
-    createLottoNumber()
-    lottoNumbersGroup["\(lottoRoundCount)회차"] = lottoNumbers.sorted()
+    lottoNumbersGroup["\(lottoRoundCount)회차"] = createLottoNumber().sorted()
     lottoNumbers.removeAll()
 }
 
 func loadLottoNumbersInLottoNumbersGroup(roundLottoNumber: Int) {
-    if let loadedLottoNumbers = lottoNumbersGroup["\(roundLottoNumber)회차"] as? Array<Int> {
+    if let loadedLottoNumbers = lottoNumbersGroup["\(roundLottoNumber)회차"] {
         var transformLottoNumber: Array<String> = Array<String>()
         
         for transformIntToString in loadedLottoNumbers {
