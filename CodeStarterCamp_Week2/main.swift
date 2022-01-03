@@ -8,24 +8,15 @@
 
 import Foundation
 
-var winningNumbers: Set<Int> = []
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var randomNumber: Int = 0
 var winningHistory: Dictionary<String, Set<Int>> = [:]
 var winningHistoryCount: Int = 0
-var resultMessage: String = ""
 
-
-func createRandomNumber() -> Int {
-    randomNumber = Int.random(in: 1...45)
-    return randomNumber
-}
 
 func createWinningNumbers() -> Set<Int> {
-    winningNumbers.removeAll()
+    var winningNumbers: Set<Int> = []
     while winningNumbers.count < 6 {
-        randomNumber = createRandomNumber()
-        winningNumbers.insert(randomNumber)
+        winningNumbers.insert(Int.random(in: 1...45))
     }
     winningHistoryCount += 1
     recordWinningHistory(round: winningHistoryCount, numbers: winningNumbers)
@@ -39,26 +30,42 @@ func removeLastComma(phrase: String) -> String {
     return String(filteredPhrase)
 }
 
-func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> String {
+func checkMyNumbersCount(_ myNumbers: [Int]) -> Bool {
+    if myNumbers.count < 1 || myNumbers.count > 7 {
+        return false
+    } else {
+        return true
+    }
+}
+
+func insertMatchedNumber(winningNumbers: Set<Int>, myNumbers: [Int]) -> String {
     var matchedNumbers: String = ""
     
-    if myNumbers.count < 1 || myNumbers.count > 7 {
-        resultMessage = "로또 번호를 입력하지 않았거나, 너무 많은 번호가 있습니다."
-    } else {
-        for myNumber in myNumbers {
-            if winningNumbers.contains(myNumber) {
-                matchedNumbers += "\(myNumber), "
-            } else {
-                continue
-            }
-        }
-        if matchedNumbers.count > 0 {
-            resultMessage = "축하합니다! 겹치는 번호는 \(removeLastComma(phrase: matchedNumbers)) 입니다!"
+    for myNumber in myNumbers {
+        if winningNumbers.contains(myNumber) {
+            matchedNumbers += "\(myNumber), "
         } else {
-            resultMessage = "아쉽지만 겹치는 번호가 없습니다."
+            continue
         }
     }
-    return resultMessage
+    return matchedNumbers
+}
+
+func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) -> String {
+    var compareResultMessage: String = ""
+    
+    if checkMyNumbersCount(myNumbers) {
+        let resultMatchedNumbers = insertMatchedNumber(winningNumbers: winningNumbers, myNumbers: myNumbers)
+        if resultMatchedNumbers != "" {
+            let matchedNumbersWithoutLastComma = removeLastComma(phrase: resultMatchedNumbers)
+            compareResultMessage = "축하합니다! 겹치는 번호는 \(matchedNumbersWithoutLastComma) 입니다!"
+        } else {
+            compareResultMessage = "아쉽지만 겹치는 번호가 없습니다."
+        }
+    } else {
+        compareResultMessage = "로또 번호를 입력하지 않았거나, 너무 많은 번호가 있습니다."
+    }
+    return compareResultMessage
 }
 
 func checkLotto(myNumbers: [Int]) {
@@ -71,19 +78,21 @@ func recordWinningHistory(round: Int, numbers: Set<Int>) {
 }
 
 
-func readWinningHistory(round: Int) -> String {
+func getWinningHistory(round: Int) -> String {
     var winningHistoryNumbers: String = ""
+    var historyResultMessage: String = ""
     
-    if let someLottoHistory = winningHistory["\(round)회차"] {
-        for number in someLottoHistory {
+    if let theLottoHistory = winningHistory["\(round)회차"] {
+        for number in theLottoHistory {
             winningHistoryNumbers += "\(number), "
         }
-        resultMessage = "\(round)회차의 로또 당첨 번호는 \(removeLastComma(phrase: winningHistoryNumbers)) 입니다."
+        let winningHistoryWithoutLastComma = removeLastComma(phrase: winningHistoryNumbers)
+        historyResultMessage = "\(round)회차의 로또 당첨 번호는 \(winningHistoryWithoutLastComma) 입니다."
     } else {
-        resultMessage = "해당 회차가 존재하지 않습니다."
+        historyResultMessage = "해당 회차가 존재하지 않습니다."
     }
     
-    return resultMessage
+    return historyResultMessage
 }
 
 
@@ -92,7 +101,8 @@ checkLotto(myNumbers: myLottoNumbers)
 checkLotto(myNumbers: myLottoNumbers)
 checkLotto(myNumbers: myLottoNumbers)
 checkLotto(myNumbers: myLottoNumbers)
-print(readWinningHistory(round: 2))
+print(getWinningHistory(round: 2))
+
 
 
 
