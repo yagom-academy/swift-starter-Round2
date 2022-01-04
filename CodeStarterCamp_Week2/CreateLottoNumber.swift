@@ -9,6 +9,8 @@ import Foundation
 
 var lottoNumbers: Set<Int> = Set<Int>()
 var intersectionLottoNumber: Set<Int> = Set<Int>()
+var lottoNumbersGroup:  [String: [Int]] = [:]
+var lottoRoundCount: Int = 0
 
 func createLottoNumber() -> Set<Int> {
     while lottoNumbers.count < 6 {
@@ -32,3 +34,21 @@ func printIntersectionLottoNumber(selectedLottoNumber: [Int]) {
     }
 }
 
+func saveLottoNumbers() {
+    lottoRoundCount += 1
+    lottoNumbersGroup["\(lottoRoundCount)회차"] = createLottoNumber().sorted()
+    lottoNumbers.removeAll()
+}
+
+func loadLottoNumbersInLottoNumbersGroup(roundLottoNumber: Int) {
+    if let loadedLottoNumbers = lottoNumbersGroup["\(roundLottoNumber)회차"] {
+        var transformLottoNumber: Array<String> = Array<String>()
+        
+        for transformIntToString in loadedLottoNumbers {
+            transformLottoNumber.append("\(transformIntToString)")
+        }
+        print("\(roundLottoNumber)회차의 로또 당첨 번호는 \(transformLottoNumber.joined(separator: ", ")) 입니다.")
+    } else {
+        print("lottoNumbersGroup[\(roundLottoNumber)회차] is nil")
+    }
+}
