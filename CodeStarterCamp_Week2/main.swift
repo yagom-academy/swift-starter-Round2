@@ -12,7 +12,7 @@ var selectableLottoNumbers = Set<Int>()
 let orderedMyLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var myLottoNumbers: Set<Int> = Set(orderedMyLottoNumbers)
 var winningNumbers: Set<Int> = makeWinningLottoNumbers().intersection(myLottoNumbers)
-var orderedWinningNumbers = Array(winningNumbers)
+var orderedWinningNumbers: [Int] = winningNumbers.sorted()
 
 func assignSelectableLottoNumbers() {
     for number in 1...45 {
