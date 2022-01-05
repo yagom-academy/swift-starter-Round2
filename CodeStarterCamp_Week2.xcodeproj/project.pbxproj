@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
+		AC752E2A2785D8BB00762B4F /* LottoWinningNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752E292785D8BB00762B4F /* LottoWinningNumberGenerator.swift */; };
+		AC752E2C2785D9B100762B4F /* LottoNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752E2B2785D9B100762B4F /* LottoNumberGenerator.swift */; };
+		AC752E2E2785DA0100762B4F /* LottoNumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752E2D2785DA0100762B4F /* LottoNumberChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AC752E292785D8BB00762B4F /* LottoWinningNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoWinningNumberGenerator.swift; sourceTree = "<group>"; };
+		AC752E2B2785D9B100762B4F /* LottoNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoNumberGenerator.swift; sourceTree = "<group>"; };
+		AC752E2D2785DA0100762B4F /* LottoNumberChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoNumberChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				34811DC1274B93D800A1E994 /* main.swift */,
+				AC752E292785D8BB00762B4F /* LottoWinningNumberGenerator.swift */,
+				AC752E2B2785D9B100762B4F /* LottoNumberGenerator.swift */,
+				AC752E2D2785DA0100762B4F /* LottoNumberChecker.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -119,7 +128,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC752E2C2785D9B100762B4F /* LottoNumberGenerator.swift in Sources */,
+				AC752E2A2785D8BB00762B4F /* LottoWinningNumberGenerator.swift in Sources */,
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
+				AC752E2E2785DA0100762B4F /* LottoNumberChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
