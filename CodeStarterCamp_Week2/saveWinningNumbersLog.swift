@@ -10,5 +10,5 @@ import Foundation
 var winningNumbersLog: [String: Set<Int>] = [:]
 
 func saveWinningNumbers() {
-    winningNumbersLog["\(winningNumbersLog)회차"] = winningNumbers
+    winningNumbersLog["\(winningNumbersLogCount)회차"] = winningNumbers
 }

@@ -14,6 +14,8 @@ func makeDeduplicatedNumbers() {
         let deduplicatedNumber = Int.random(in: 1...45)
         winningNumbers.insert(deduplicatedNumber)
     }
+    winningNumbersLogCount += 1
+    saveWinningNumbers()
 }
 
 func compareMyLottoNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) -> Set<Int> {
@@ -48,6 +50,7 @@ func matchLottoNumbers() {
     makeDeduplicatedNumbers()
     printWinningNumbers()
     printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+    winningNumbers = []
 }
 
 
