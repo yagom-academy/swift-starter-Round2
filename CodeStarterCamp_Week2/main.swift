@@ -8,9 +8,7 @@
 
 import Foundation
 
-matchLottoNumbers()
-matchLottoNumbers()
-matchLottoNumbers()
-searchWinningNumbersLog(winningNumbersRound: 3)
-matchLottoNumbers()
-searchWinningNumbersLog(winningNumbersRound: 4)
+matchLottoNumbers(round: 5)
+searchWinningNumbersLog(winningNumbersRound: 5)
+matchLottoNumbers(round: 1)
+searchWinningNumbersLog(winningNumbersRound: 6)
