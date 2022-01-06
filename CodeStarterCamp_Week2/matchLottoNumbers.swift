@@ -7,6 +7,7 @@
 
 let myLottoNumbers: Set<Int> = [1, 10, 20, 30, 40, 45]
 var winningNumbers: Set<Int> = []
+var winningNumbersLogCount = 0
 
 func makeDeduplicatedNumbers() {
     while winningNumbers.count < 6 {
