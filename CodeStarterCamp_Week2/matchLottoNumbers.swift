@@ -47,14 +47,14 @@ func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
 }
 
 func matchLottoNumbers() {
+    makeDeduplicatedNumbers()
     printWinningNumbers()
     printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
-    winningNumbers = []
 }
 
 func makeLottoNumbers(round: Int) {
     for _ in 1...round {
         makeDeduplicatedNumbers()
-        matchLottoNumbers()
+        winningNumbers = []
     }
 }
