@@ -47,9 +47,9 @@ func printSameNumbers(myLottoNumbers: Set<Int>, with winningNumbers: Set<Int>) {
 }
 
 func matchLottoNumbers() {
-        printWinningNumbers()
-        printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
-        winningNumbers = []
+    printWinningNumbers()
+    printSameNumbers(myLottoNumbers: myLottoNumbers, with: winningNumbers)
+    winningNumbers = []
 }
 
 func makeLottoNumbers(round: Int) {
