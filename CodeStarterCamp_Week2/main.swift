@@ -7,10 +7,11 @@
 //
 
 import Foundation
+
 var lottoDictionary: Dictionary<String, Set<Int>> = [:]
 var index = 0
 
-func showedLottoNumbers() -> Set<Int> {
+func makeLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
@@ -26,15 +27,15 @@ func lottoScore(score: Set<Int>) {
     
 func matchedWinningNumber() {
     let myLottoNumbers: [Int] = [1, 2, 3, 4 ,5, 6]
-    let matchedLottoNumbers = showedLottoNumbers().intersection(myLottoNumbers)
+    let matchedLottoNumbers = makeLottoNumbers().intersection(myLottoNumbers)
     if matchedLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(convertedSetTypeByString(set: matchedLottoNumbers)) 입니다 ! ")
+        print("축하합니다! 겹치는 번호는 \(convertedSetTypeToString(set: matchedLottoNumbers)) 입니다 ! ")
     }
 }
 
-func convertedSetTypeByString(set: Set<Int>) -> String {
+func convertedSetTypeToString(set: Set<Int>) -> String {
     let sorted = set.sorted()
     var result: [String] = []
     for number in sorted {
@@ -43,19 +44,17 @@ func convertedSetTypeByString(set: Set<Int>) -> String {
     return  result.joined(separator: ", ")
 }
 
-func winnerNumberByRound(index: Int) {
-    
+func showHistoryOfWinngLottoNumbers(index: Int) {
     if let randomLottoNumbers: Set<Int> = lottoDictionary["\(index)회차의"] {
-        print("\(index)회차의 로또 당첨 번호는 \(convertedSetTypeByString(set: randomLottoNumbers)) 입니다.")
+        print("\(index)회차의 로또 당첨 번호는 \(convertedSetTypeToString(set: randomLottoNumbers)) 입니다.")
     }
 }
 
-func pickingLottoNumbers(index: Int) {
-for _ in 1...index {
-    matchedWinningNumber()
+func makeLottoNumbersOfRound(Round: Int) {
+    for _ in 1...Round {
+        print(makeLottoNumbers())
     }
 }
-
-pickingLottoNumbers(index: 5)
-winnerNumberByRound(index: 2)
+makeLottoNumbersOfRound(Round: 5)
 print(lottoDictionary)
+showHistoryOfWinngLottoNumbers(index: 2)
