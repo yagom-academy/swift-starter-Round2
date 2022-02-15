@@ -41,4 +41,3 @@ func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) -> Void {
         print("축하합니다! 겹치는 번호는 \(result) 입니다!")
     }
 }
-
