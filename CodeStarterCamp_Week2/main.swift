@@ -18,3 +18,27 @@ func generateRandomNumber() -> Void {
     }
 }
 
+func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) -> Void {
+    var commonNumber: Array<Int> = Array<Int>()
+    
+    for element in winningNumber {
+        if(myNumbers.contains(element)){
+            commonNumber.append(element)
+        }
+    }
+    
+    commonNumber.sort()
+    
+    if commonNumber.isEmpty {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        var result: String = ""
+        for index in 0...commonNumber.count-1 {
+            result += String(commonNumber[index])
+            result += ","
+        }
+        result.removeLast()
+        print("축하합니다! 겹치는 번호는 \(result) 입니다!")
+    }
+}
+
