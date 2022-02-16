@@ -18,7 +18,7 @@ func generateRandomNumber() {
     }
 }
 
-func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) -> Void {
+func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) {
     var commonNumber: Array<Int> = Array<Int>()
     
     for element in winningNumber {
