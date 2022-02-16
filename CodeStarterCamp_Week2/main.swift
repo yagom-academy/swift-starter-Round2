@@ -33,8 +33,8 @@ func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         var result: String = ""
-        for index in 0...commonNumber.count-1 {
-            result += String(commonNumber[index])
+        for element in commonNumber {
+            result += String(element)
             result += ","
         }
         result.removeLast()
