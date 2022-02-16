@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net" modified="2022-02-16T12:49:02.552Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.2 Safari/605.1.15" etag="n-V7jMITH1u-5mxmFXJt" version="16.5.6" type="github">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1070" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="ZjrmSuOerMXnjLwDaMrD-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" target="ZjrmSuOerMXnjLwDaMrD-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="시작" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="160" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-11" value="끝" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="160" y="560" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZjrmSuOerMXnjLwDaMrD-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="vrWCo0_fhZ9TLQJ0WArd-0">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="410" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="221" y="410" />
+              <mxPoint x="221" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u8WtvlgLEzTUPxfdTq0Y-3" value="&amp;nbsp;선택된 숫자들을 Set Collection에 넣는다." style="whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="155" y="350" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u8WtvlgLEzTUPxfdTq0Y-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="219.5" y="530" />
+              <mxPoint x="219.5" y="530" />
+            </Array>
+            <mxPoint x="219.5" y="520" as="sourcePoint" />
+            <mxPoint x="219.5" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vrWCo0_fhZ9TLQJ0WArd-0" value="선택된 6개의 값을 return한다." style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="152.5" y="460" width="137.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZjrmSuOerMXnjLwDaMrD-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZjrmSuOerMXnjLwDaMrD-1" target="u8WtvlgLEzTUPxfdTq0Y-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZjrmSuOerMXnjLwDaMrD-1" value="반복문을 &amp;nbsp;통해 1...45의 정수값에서 숫자를 선택한다.(=&amp;lt;6)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="160" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
