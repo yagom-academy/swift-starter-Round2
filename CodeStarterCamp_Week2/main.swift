@@ -22,7 +22,7 @@ func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) {
     var commonNumber: Array<Int> = Array<Int>()
     
     for element in winningNumber {
-        if(myNumbers.contains(element)){
+        if myNumbers.contains(element) {
             commonNumber.append(element)
         }
     }
