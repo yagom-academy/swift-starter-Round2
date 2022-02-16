@@ -10,11 +10,11 @@ import Swift
 
 let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
 
-var randomNumber : Set<Int> = Set<Int>()
+var randomNumbers: Set<Int> = Set<Int>()
 
-func generateRandomNumber() -> Void {
-    while randomNumber.count < 6 {
-        randomNumber.insert(Int.random(in: 1...45))
+func generateRandomNumber() {
+    while randomNumbers.count < 6 {
+        randomNumbers.insert(Int.random(in: 1...45))
     }
 }
 
@@ -43,4 +43,4 @@ func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) -> Void {
 }
 
 generateRandomNumber()
-checkLottoNumber(myNumbers: myLottoNumbers, winningNumber: randomNumber)
+checkLottoNumber(myNumbers: myLottoNumbers, winningNumber: randomNumbers)
