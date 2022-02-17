@@ -16,3 +16,9 @@ func generateRandomNumber() -> Set<Int> {
     }
     return randomNumbers
 }
+
+func makeLottoBook() {
+    for count in 1...5 {
+        lottoNumbersByWeek[count] = generateRandomNumber()
+    }
+}
