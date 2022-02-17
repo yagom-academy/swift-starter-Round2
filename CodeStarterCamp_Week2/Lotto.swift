@@ -6,3 +6,5 @@
 //
 
 import Swift
+
+var lottoNumbersByWeek: Dictionary<Int, Set<Int>> = Dictionary<Int, Set<Int>>()
