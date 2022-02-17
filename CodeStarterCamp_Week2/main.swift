@@ -12,7 +12,7 @@ let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
 
 var randomNumbers: Set<Int> = Set<Int>()
 
-func generateRandomNumber() {
+func generateRandomNumbers() {
     while randomNumbers.count < 6 {
         randomNumbers.insert(Int.random(in: 1...45))
     }
@@ -42,5 +42,8 @@ func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) {
     }
 }
 
-generateRandomNumber()
-checkLottoNumber(myNumbers: myLottoNumbers, winningNumber: randomNumbers)
+//generateRandomNumbers()
+//checkLottoNumber(myNumbers: myLottoNumbers, winningNumber: randomNumbers)
+
+makeLottoBook()
+checkWinningNumbers(week: 2)
