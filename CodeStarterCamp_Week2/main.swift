@@ -21,3 +21,15 @@ func generateLottoNumbers() {
 func findMatchingNumbers() {
     matchingNumbers = lottoNumbers.intersection(myLottoNumbers).sorted()
 }
+
+func printResult() {
+    if matchingNumbers.isEmpty == false{
+        print("축하합니다! 겹치는 번호는 \(matchingNumbers) 입니다.")
+    } else{
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+}
+
+generateLottoNumbers()
+findMatchingNumbers()
+printResult()
