@@ -24,22 +24,26 @@ func findMatchingNumbers() {
 
 func printMatchingNumbers() {
     while matchingNumbers.isEmpty == false {
-        if matchingNumbers.count == 1{
-            print(matchingNumbers[0], terminator: "")
+        if matchingNumbers.count == 1 {
+            if let matchingNumber = matchingNumbers.first {
+                print(matchingNumber, terminator: "")
+            }
             matchingNumbers.removeFirst()
-        }else {
-            print(matchingNumbers[0], terminator: ", ")
+        } else {
+            if let matchingNumber = matchingNumbers.first {
+                print(matchingNumber, terminator: ", ")
+            }
             matchingNumbers.removeFirst()
         }
     }
 }
 
 func printResult() {
-    if matchingNumbers.isEmpty == false{
+    if matchingNumbers.isEmpty == false {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
         printMatchingNumbers()
         print(" 입니다!")
-    } else{
+    } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
