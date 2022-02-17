@@ -8,3 +8,11 @@
 import Swift
 
 var lottoNumbersByWeek: Dictionary<Int, Set<Int>> = Dictionary<Int, Set<Int>>()
+
+func generateRandomNumber() -> Set<Int> {
+    var randomNumbers: Set<Int> = Set<Int>()
+    while randomNumbers.count < 6 {
+        randomNumbers.insert(Int.random(in: 1...45))
+    }
+    return randomNumbers
+}
