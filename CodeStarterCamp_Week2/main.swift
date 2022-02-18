@@ -16,15 +16,17 @@ func makeLottoNumbers() {
     while randomNumbers.count < 6 {
         randomNumbers.insert(Int.random(in: 1...45))
     }
-    print(randomNumbers)
 }
 func resultLottoNumbers() {
+    makeLottoNumbers()
     var winnigLottoNumbers = Set<Int>()
     winnigLottoNumbers = randomNumbers.intersection(myNumbers)
+    let overLapNumber = winnigLottoNumbers.map { String($0) }.joined(separator: ", ")
+    
     if winnigLottoNumbers.isEmpty {
-        print("맞는번호 없음")
+        print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("맞는 번호는 \(winnigLottoNumbers) 입니다")
+        print("축하합니다! 겹치는 번호는 \(overLapNumber) 입니다!")
         }
     }
 
@@ -39,5 +41,4 @@ for numbers in duplicateNumber {
     print(numbers)
 }
 */
-makeLottoNumbers()
 resultLottoNumbers()
