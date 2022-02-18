@@ -25,14 +25,11 @@ func setLottoBook() {
 
 func checkWinningNumbers(week: Int) {
     var resultNumber: String = ""
-    if let winningNumber = lottoNumbersByWeek[week] {
-        for element in winningNumber {
-            resultNumber += "\(element), "
-        }
-        let range = resultNumber.index(resultNumber.endIndex, offsetBy: -2)..<resultNumber.endIndex
-        resultNumber.removeSubrange(range)
-        print("\(week)회차의 로또 당첨 번호는 \(resultNumber) 입니다.")
-    } else {
-        print("\(week)회차의 로또 당첨 번호는 다음주에 발표 됩니다.")
+    guard let winningNumber = lottoNumbersByWeek[week-1] else { return }
+    for element in winningNumber {
+        resultNumber += "\(element), "
     }
+    let range = resultNumber.index(resultNumber.endIndex, offsetBy: -2)..<resultNumber.endIndex
+    resultNumber.removeSubrange(range)
+    print("\(week)회차의 로또 당첨 번호는 \(resultNumber) 입니다.")
 }
