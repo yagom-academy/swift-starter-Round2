@@ -42,8 +42,5 @@ func checkLottoNumber(myNumbers: Array<Int>, winningNumber: Set<Int>) {
     }
 }
 
-//generateRandomNumbers()
-//checkLottoNumber(myNumbers: myLottoNumbers, winningNumber: randomNumbers)
-
-makeLottoBook()
+setLottoBook()
 checkWinningNumbers(week: 2)
