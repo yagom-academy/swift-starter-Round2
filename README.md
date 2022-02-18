@@ -1,1 +1,4 @@
-코드 스타터 캠프 2주차 미션을 위한 저장소입니다.
+## Step 1 순서도
+| 초기 순서도 | 1차 수정본 | 
+|:--:|:--:|
+| ![image](/FlowChart/GenerateRandomNumber_1.drawio.png) | ![image](/FlowChart/GenerateRandomNumber_2.drawio.png) |
