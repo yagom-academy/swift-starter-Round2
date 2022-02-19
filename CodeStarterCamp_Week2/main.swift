@@ -13,7 +13,7 @@ let winnerLottoNumbers: [Int] = generateLottoNumbers()
 
 func generateLottoNumbers() -> [Int] {
   var allNumbers: [Int] = []
-  allNumbers.append(contentsOf: stride(from: 1, to: 45, by: 1))
+  allNumbers.append(contentsOf: stride(from: 1, to: 46, by: 1))
   allNumbers.shuffle()
   let lottoNumbers = Array(allNumbers[0...5])
   return lottoNumbers
