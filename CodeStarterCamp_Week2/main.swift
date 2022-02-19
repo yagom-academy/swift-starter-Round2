@@ -12,12 +12,11 @@ let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 let winnerLottoNumbers: [Int] = generateLottoNumbers()
 
 func generateLottoNumbers() -> [Int] {
-  var lottoNumbers: Set<Int> = Set<Int>()
-  while lottoNumbers.count < 6 {
-    let randomNumber = Int.random(in: 1...45)
-    lottoNumbers.insert(randomNumber)
-  }
-  return Array(lottoNumbers)
+  var allNumbers: [Int] = []
+  allNumbers.append(contentsOf: stride(from: 1, to: 45, by: 1))
+  allNumbers.shuffle()
+  let lottoNumbers = Array(allNumbers[0...5])
+  return lottoNumbers
 }
 
 func checkLottoNumbers(mine: [Int], winner: [Int]) {
