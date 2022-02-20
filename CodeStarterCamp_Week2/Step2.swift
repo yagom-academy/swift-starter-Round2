@@ -8,32 +8,29 @@
 import Foundation
 
 //로또 당첨 번호를 생성하는 함수
-var lottoNumbers: Set<Int> = Set<Int>()
 func makeLottoNumbers()-> Set<Int>{
-    while lottoNumbers.count < 6{
+    var emptyLotto : Set<Int> = Set<Int>()
+    while emptyLotto.count < 6{
         let number = Int.random(in: 1...45)
-        lottoNumbers.insert(number)
+        emptyLotto.insert(number)
     }
-    return lottoNumbers
+    return emptyLotto
 }
 
-//생성된 로또 번호를 확인하는 함수
-func checkLottoNumbers(){
-    print(makeLottoNumbers())
-}
 
 //찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수
-let myLottoNumbers: [Int] = [1,23,32,4,15,6]
-var exactNumbers: [Int] = []
-func checkExactNumbers(){
-    for count in myLottoNumbers{
-        for i in lottoNumbers{
-            if count == i{
-                exactNumbers.append(i)
+func checkExactNumbers(myLottoNumbers:[Int]){
+    var exactNumbers: [Int] = []
+    let fullLotto : Set<Int> = makeLottoNumbers()
+    for checkMyLotto in myLottoNumbers{
+        for lottoNumbers in fullLotto{
+            if checkMyLotto == lottoNumbers{
+                exactNumbers.append(lottoNumbers)
             }
         }
     }
-    if exactNumbers.count == 0 {
+    print(fullLotto)//로또 번호를 출력합니다.
+    if exactNumbers.isEmpty == true {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }else{
         print("축하합니다! 겹치는 번호는 \(exactNumbers) 입니다.")
@@ -41,7 +38,6 @@ func checkExactNumbers(){
 }
 
 //생성된 로또번호와 내가 찍은 번호를 확인하여 결과를 알려주는 함수
-func drawAndCheckLottoNumbers(){
-    checkLottoNumbers()
-    checkExactNumbers()
+func drawAndCheckLottoNumbers(myLottoNumbers : [Int]){
+    checkExactNumbers(myLottoNumbers: myLottoNumbers)
 }

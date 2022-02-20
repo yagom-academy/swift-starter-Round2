@@ -8,6 +8,7 @@
 
 import Foundation
 //step2
-drawAndCheckLottoNumbers()
+drawAndCheckLottoNumbers(myLottoNumbers: [1,23,32,4,15,6])
+
 
 
