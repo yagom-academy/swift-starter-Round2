@@ -8,5 +8,4 @@
 
 import Foundation
 
-print("Hello, World!")
-
+print(generateLottoNumbers(maxRange: 45, maxNumber: 6))
