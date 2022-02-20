@@ -9,24 +9,24 @@
 import Foundation
 
 let myNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-var randomNumbers = Set<Int>()
+var sixLottoNumbers = Set<Int>()
 
 func makeLottoNumbers() {
-    while randomNumbers.count < 6 {
-        randomNumbers.insert(Int.random(in: 1...45))
+    while sixLottoNumbers.count < 6 {
+        sixLottoNumbers.insert(Int.random(in: 1...45))
     }
 }
 
 func resultLottoNumbers() {
     var winnigLottoNumbers = Set<Int>()
-    winnigLottoNumbers = randomNumbers.intersection(myNumbers)
-    let overLapNumber = winnigLottoNumbers.map { String($0) }.joined(separator: ", ")
+    winnigLottoNumbers = sixLottoNumbers.intersection(myNumbers)
+    let overlapNumber = winnigLottoNumbers.map { String($0) }.joined(separator: ", ")
     
-    func printResultLotto(){
+    func printResultLotto() {
     if winnigLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(overLapNumber) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(overlapNumber) 입니다!")
         }
     }
     printResultLotto()
