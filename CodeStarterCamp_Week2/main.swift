@@ -18,15 +18,21 @@ func makeLottoNumbers() {
 }
 
 func resultLottoNumbers() {
-    makeLottoNumbers()
     var winnigLottoNumbers = Set<Int>()
     winnigLottoNumbers = randomNumbers.intersection(myNumbers)
     let overLapNumber = winnigLottoNumbers.map { String($0) }.joined(separator: ", ")
+    
+    func printResultLotto(){
     if winnigLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는 \(overLapNumber) 입니다!")
         }
     }
-
-resultLottoNumbers()
+    printResultLotto()
+}
+func test1(){
+    makeLottoNumbers()
+    resultLottoNumbers()
+}
+test1()
