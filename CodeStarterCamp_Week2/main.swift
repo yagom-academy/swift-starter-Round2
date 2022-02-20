@@ -22,24 +22,26 @@ let lottoNumbers = generateLottoNumbers()
 let myLottoNumbers: Set<Int> = [5, 13, 23, 25, 37, 42]
 
 //찍은 번호와 로또 당첨 번호 의 겹치는 숫자를 확인하는 함수를 생성합니다.
-func compareLottoNumbers(_ myLottoNumbers: Set<Int>, with lottoNumbers: Set<Int>) {
+func compareLottoNumbers(myLottoNumbers: Set<Int>, with lottoNumbers: Set<Int>) {
     let intersectSet: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
     if intersectSet.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         var finalAnswer = ""
-        var counter = 0
+        var lottoNumbersLength = 0
+        let intersectSetLength = intersectSet.count
+        let isLast = intersectSetLength == lottoNumbersLength + 1
         for number in intersectSet {
             let numberString = String(number)
-            if intersectSet.count == counter + 1 {
-                finalAnswer = finalAnswer + numberString
+            if isLast == true {
+                finalAnswer += numberString
             } else {
-                finalAnswer = finalAnswer + numberString + ", "
+                finalAnswer += numberString + ", "
             }
-            counter = counter + 1
+            lottoNumbersLength += 1
         }
         print("축하합니다! 겹치는 번호는 \(finalAnswer) 입니다!")
     }
 }
 
-compareLottoNumbers(_: myLottoNumbers, with: lottoNumbers)
+compareLottoNumbers(myLottoNumbers: myLottoNumbers, with: lottoNumbers)
