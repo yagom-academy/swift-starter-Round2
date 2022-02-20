@@ -31,8 +31,10 @@ func resultLottoNumbers() {
     }
     showResultLotto()
 }
-func buyLotto(){
+
+func buyLotto() {
     makeLottoNumbers()
     resultLottoNumbers()
 }
+
 buyLotto()
