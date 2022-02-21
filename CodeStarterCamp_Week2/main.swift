@@ -10,11 +10,18 @@ import Foundation
 
 let myNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 var sixLottoNumbers = Set<Int>()
+var roundLottoNumbers = [String: Set<Int>]()
 
-func makeLottoNumbers() {
-    while sixLottoNumbers.count < 6 {
+func makeLottoNumbers() -> Set<Int> {
+    while sixLottoNumbers.count < 5 {
         sixLottoNumbers.insert(Int.random(in: 1...45))
     }
+    return sixLottoNumbers
+}
+
+func lottoNumbersaved(round: Int) {
+    let round = round + 1
+    roundLottoNumbers["\(round)회차"] = makeLottoNumbers()
 }
 
 func resultLottoNumbers() -> Set<Int> {
