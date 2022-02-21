@@ -8,3 +8,10 @@
 
 import Foundation
 
+func generateLottoNumbers() -> Set<Int> {
+    let numbers: Array<Int> = Array(1...45)
+    let randomNumbers = numbers.shuffled()
+    let lottoNumbers: Set<Int> = Set(randomNumbers[0...5])
+    return lottoNumbers
+}
+let lottoNumbers = generateLottoNumbers()
