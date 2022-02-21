@@ -10,7 +10,8 @@ import Foundation
 
 var randomNumbers: Set<Int> = Set<Int>()
 let myLottoNumbers: Set<Int> = [1,20,25,30,39,44]
-var printNumber = [Int]()
+var printNumber: String = ""
+var printArray = [Int]()
 var countNumber = 0
 
 func printLotto(){
@@ -18,26 +19,28 @@ func printLotto(){
     if countNumber == 0{
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다 ! 겹치는 번호는 \(printNumber) 입니다 !")
+        print("축하합니다 ! 겹치는 번호는\(printNumber.dropFirst()) 입니다 !")
     }
 }
 
 func checkNumbers(){
     makeRandom()
-    for randomIndex in randomNumbers{
-        for myNumberIndex in myLottoNumbers{
-            if randomIndex == myNumberIndex {
-                countNumber = countNumber + 1
-                printNumber.append(randomIndex)
-            }
+    for randomIndex in printArray{
+        if myLottoNumbers.contains(randomIndex){
+            countNumber += 1
+            printNumber += ", \(String(randomIndex))"
         }
     }
 }
 
 func makeRandom(){
-    for _ in 0..<6{
+    while randomNumbers.count < 6{
         randomNumbers.insert(Int.random(in: 1...45))
     }
+    for randomIndex in randomNumbers.sorted(){
+        printArray.append(randomIndex)
+    }    
 }
+
 
 printLotto()
