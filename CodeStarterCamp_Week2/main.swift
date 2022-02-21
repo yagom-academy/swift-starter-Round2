@@ -8,5 +8,5 @@
 
 import Foundation
 
-print("Hello, World!")
+compare(lotteryNumbers : lotteryNumbers, myLotteryNumbers: myLotteryNumbers)
 
