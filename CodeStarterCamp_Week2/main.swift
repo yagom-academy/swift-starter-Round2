@@ -39,6 +39,11 @@ func showLottoNumberInRound(round: Int) {
     }
 }
 
+func findLottoNumbers(round: Int) {
+    countedRoundLottoNumbers()
+    showLottoNumberInRound(round: round)
+}
+
 func resultLottoNumbers() -> Set<Int> {
     var overlapNumbers = Set<Int>()
     overlapNumbers = sixLottoNumbers.intersection(myNumbers)
@@ -62,3 +67,4 @@ func buyLotto() {
 }
 
 buyLotto()
+findLottoNumbers(round: 2)
