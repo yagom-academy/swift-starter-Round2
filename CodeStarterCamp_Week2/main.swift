@@ -28,18 +28,31 @@ func saveDictionary (key: String, value : [Int]) {
     winningLottoNumbers.updateValue(value, forKey: key)
 }
 
+func makeLottoNumberFiveTimes() {
+    for _ in 1...5 {
+        countUpLottoNumbers()
+        saveDictionary(key: countWinningLottoNumbers, value: Array(lottoNumbers))
+        print(lottoNumbers)
+        lottoNumbers.removeAll()
+    }
+}
+
+func checkWinningNumber(key: Int) {
+    var value: [String] = []
+    guard var unwrapValue : [Int] = winningLottoNumbers["\(key)회차"] else {return}
+            for _ in 1...6 {
+                value.append("\(unwrapValue.removeFirst())")
+            }
+    print("\(key)회차의 로또 당첨 번호는 \(value.joined(separator: ", "))입니다.")
+}
+
 func makeLottoNumbers(){
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
 }
-
-
-
-
-
-
-
+makeLottoNumberFiveTimes()
+checkWinningNumber(key: 2)
 
 //로또 당첨번호를 나타내는 함수 -> makeLottoNumbers()를 dictionary에 회차와 함께 저장 하여 n회차 번호가 무엇이었는지 확인한다.
 //key값: n회차
