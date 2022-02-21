@@ -24,6 +24,12 @@ func lottoNumbersaved(round: Int) {
     roundLottoNumbers["\(round)회차"] = makeLottoNumbers()
 }
 
+func countedRoundLottoNumbers() {
+    for round in 0...4 {
+        lottoNumbersaved(round: round)
+    }
+}
+
 func resultLottoNumbers() -> Set<Int> {
     var overlapNumbers = Set<Int>()
     overlapNumbers = sixLottoNumbers.intersection(myNumbers)
