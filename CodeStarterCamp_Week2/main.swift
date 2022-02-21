@@ -13,7 +13,7 @@ var sixLottoNumbers = Set<Int>()
 var roundLottoNumbers = [String: Set<Int>]()
 
 func makeLottoNumbers() -> Set<Int> {
-    while sixLottoNumbers.count < 5 {
+    while sixLottoNumbers.count < 6 {
         sixLottoNumbers.insert(Int.random(in: 1...45))
     }
     return sixLottoNumbers
