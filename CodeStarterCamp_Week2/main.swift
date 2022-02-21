@@ -8,10 +8,10 @@ func generateLottoNumber() -> Set<Int> {
     
  }
 
- func checkLottoNumber() {
+func checkLottoNumber() {
      
      let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-     let chosenNumber : Set<Int> = Set(generateLottoNumber()).intersection(Set(myLottoNumbers))
+     let chosenNumber : Set<Int> = generateLottoNumber().intersection(myLottoNumbers)
      let joinedStr = chosenNumber.map { String($0) }.joined(separator: ", ")
 
      if chosenNumber.count == 0  {
@@ -21,5 +21,4 @@ func generateLottoNumber() -> Set<Int> {
      }
  }
 
-generateLottoNumber()
 checkLottoNumber()
