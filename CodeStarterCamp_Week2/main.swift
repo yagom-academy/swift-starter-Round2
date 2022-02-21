@@ -15,3 +15,12 @@ func generateLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 let lottoNumbers = generateLottoNumbers()
+
+func generateLottoPack(lottoNumbers: Set<Int>) -> Dictionary<String, String> {
+    var lottoNumberDict: Dictionary<String, String> = Dictionary<String, String>()
+    for count in 1...5 {
+        lottoNumberDict["\(count)회차"] = "\(lottoNumbers)"
+    }
+    return lottoNumberDict
+}
+let lottoNumberDict = generateLottoPack(lottoNumbers: lottoNumbers)
