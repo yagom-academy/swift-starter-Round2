@@ -17,24 +17,26 @@ func makeLottoNumbers() {
     }
 }
 
-func resultLottoNumbers() {
-    var overlapNumber = Set<Int>()
-    overlapNumber = sixLottoNumbers.intersection(myNumbers)
-    let printedOverlapNumber = overlapNumber.map { String($0) }.joined(separator: ", ")
+func resultLottoNumbers() -> Set<Int> {
+    var overlapNumbers = Set<Int>()
+    overlapNumbers = sixLottoNumbers.intersection(myNumbers)
     
-    func showResultLotto() {
-    if overlapNumber.isEmpty {
+    return overlapNumbers
+}
+
+func showResultLotto(overlapNumbers: Set<Int>) {
+    let printedOverlapNumbers = overlapNumbers.map { String($0) }.joined(separator: ", ")
+    if overlapNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(printedOverlapNumber) 입니다!")
-        }
+        print("축하합니다! 겹치는 번호는 \(printedOverlapNumbers) 입니다!")
     }
-    showResultLotto()
 }
 
 func buyLotto() {
     makeLottoNumbers()
-    resultLottoNumbers()
+    let overlapNumbers = resultLottoNumbers()
+    showResultLotto(overlapNumbers: overlapNumbers)
 }
 
 buyLotto()
