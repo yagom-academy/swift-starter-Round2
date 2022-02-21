@@ -10,7 +10,6 @@ import Foundation
 
 //MARK: - lottoNumberGenerator
 func lottoNumberGenerator() -> Set<Int> {
-    
     var lottoNumber = Set<Int>()
     while lottoNumber.count < 6 {
         var randomNumber = Int.random(in: 1...45)
