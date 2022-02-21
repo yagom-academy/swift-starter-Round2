@@ -15,10 +15,17 @@ import Foundation
 var lottoNumbers: Set<Int> = Set<Int>()
 let myLottoNumbers: Set<Int> = [1,2,3,4,5,6]
 var round : Int = 1
+var winningLottoNumbers: [String: [Int]] = [:]
+var countWinningLottoNumbers: String = ""
 
 func countUpLottoNumbers() {
     round += 1
     makeLottoNumbers()
+}
+
+func saveDictionary (key: String, value : [Int]) {
+    countWinningLottoNumbers = "\(round)회차"
+    winningLottoNumbers.updateValue(value, forKey: key)
 }
 
 func makeLottoNumbers(){
