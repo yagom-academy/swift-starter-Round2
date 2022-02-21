@@ -30,6 +30,15 @@ func countedRoundLottoNumbers() {
     }
 }
 
+func showLottoNumberInRound(round: Int) {
+    if let lottoData = roundLottoNumbers["\(round)회차"] {
+        let printLottoData = lottoData.map { String($0) }.joined(separator: ", ")
+        print("\(round)회차의 로또 당첨 번호는 \(printLottoData) 입니다.")
+    } else {
+        print("No data")
+    }
+}
+
 func resultLottoNumbers() -> Set<Int> {
     var overlapNumbers = Set<Int>()
     overlapNumbers = sixLottoNumbers.intersection(myNumbers)
