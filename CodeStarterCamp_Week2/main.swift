@@ -24,4 +24,4 @@
 checkLottoNumber() */
 
 playLottoNumber(endRound: 5)
-searchLottoNumber(round: 2)
+searchLottoNumber(round: 5)
