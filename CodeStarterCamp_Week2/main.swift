@@ -8,4 +8,8 @@
 
 import Foundation
 
-print(generateLottoNumbers(maxRange: 45, maxNumber: 6))
+let generatedNumberSet = generateLottoNumbers(maxRange: 45, maxNumber: 6)
+
+let myLottoNumbers: Set<Int> = [16, 4, 23, 24, 6, 3]
+
+checkLottoWinner(lottoNumberSet: generatedNumberSet, myNumberSet: myLottoNumbers)
