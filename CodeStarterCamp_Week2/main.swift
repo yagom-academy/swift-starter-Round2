@@ -24,3 +24,13 @@ func generateLottoPack(lottoNumbers: Set<Int>) -> Dictionary<String, String> {
     return lottoNumberDict
 }
 let lottoNumberDict = generateLottoPack(lottoNumbers: lottoNumbers)
+
+func findSecondLottoNumber(week: String, lottoNumberDict: Dictionary<String, String>) {
+    if let winnigLottoNumber = lottoNumberDict["\(week)"] {
+        let finalLottoNumber = "\(winnigLottoNumber)".trimmingCharacters(in: ["[","]"])
+        print("\(week) 로또 당첨 번호는 \(finalLottoNumber) 입니다.")
+    } else {
+        print("선택하신 회차의 로또 번호는 없습니다.")
+    }
+}
+findSecondLottoNumber(week: "2회차", lottoNumberDict: lottoNumberDict)
