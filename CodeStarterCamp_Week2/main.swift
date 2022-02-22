@@ -8,7 +8,8 @@
 
 import Foundation
 //step2
-drawAndCheckLottoNumbers(myLottoNumbers: [1,23,32,4,15,6])
+//drawAndCheckLottoNumbers(myLottoNumbers: [5,15,25,35,45,1])
 
-
+//step3
+saveAndCallLottoHistory(totalWeek: 5, callWantWeek: "5회차")
 
