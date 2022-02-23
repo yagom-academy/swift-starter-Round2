@@ -8,14 +8,14 @@
 import Foundation
 
 //로또 당첨 번호를 생성하는 함수
-func makeLottoNumbers()-> Set<Int>{
-    var emptyLotto : Set<Int> = Set<Int>()
-    while emptyLotto.count < 6{
-        let number = Int.random(in: 1...45)
-        emptyLotto.insert(number)
-    }
-    return emptyLotto
-}
+//func makeLottoNumbers()-> Set<Int>{
+//    var emptyLotto : Set<Int> = Set<Int>()
+//    while emptyLotto.count < 6{
+//        let number = Int.random(in: 1...45)
+//        emptyLotto.insert(number)
+//    }
+//    return emptyLotto
+//}
 
 
 //찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수
