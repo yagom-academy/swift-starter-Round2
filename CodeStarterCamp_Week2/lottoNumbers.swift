@@ -19,4 +19,13 @@ func generateLottoNumbers() -> Set<Int> {
     return randomLottoNumbers
 }
 
+func checkLottoNumbers() {
+    let matchLottoNumbers: Set<Int> = generateLottoNumbers().intersection(myLottoNumbers)
+    if matchLottoNumbers.isEmpty {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        let lottoNumbers = matchLottoNumbers.map{String($0)}.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(lottoNumbers)입니다!")
+    }
+}
 
