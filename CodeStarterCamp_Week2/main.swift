@@ -22,15 +22,8 @@ func checkNumber(chooseNumber: Set<Int>, winningNumber: Set<Int>) {
     let intersectionNumber = chooseNumber.intersection(winningNumber)
     let literalNumber = changeLiteral(integerNumber: intersectionNumber)
     
-    if intersectionNumber.isEmpty != true {
-        /*
-        print("축하합니다! 겹치는 번호는", terminator: " ")
-        print(literalNumber.joined(separator: ", "))
-        // printSet(intersectionNumber: intersectionNumber)
-        print("입니다!")
-        */
-        print("축하합니다! 겹치는 번호는 " + literalNumber.sorted().joined(separator: ", ") + "입니다!")
-        
+    if literalNumber.isEmpty != true {
+        printIntersectionNumber(intersectionNumber: literalNumber)
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
