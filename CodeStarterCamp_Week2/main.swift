@@ -9,28 +9,32 @@
 import Foundation
 
 //MARK: - lottoNumberGenerator
-func lottoNumberGenerator() -> Set<Int> {
-    var lottoNumber = Set<Int>()
+func lottoNumberGenerator() -> Set<String> {
+    var lottoNumber = Set<String>()
     while lottoNumber.count < 6 {
-        var randomNumber = Int.random(in: 1...45)
+        var randomNumber = String(Int.random(in: 1...45))
         lottoNumber.insert(randomNumber)
     }
     return lottoNumber
 }
 
-//MARK: - winningNumbers
-let myLottoNumbers:[Int] = [42, 2, 10, 14, 25]
+//MARK: - joinedIntersection
+let myLottoNumbers:[String] = ["42", "2", "10", "14", "25"]
 
-func overlappingNumbers(lottoNumber: Set<Int>, myNumber: [Int]) {
-    let intersection = lottoNumberGenerator().intersection(myLottoNumbers)
-    let intersectionJoined = intersection.map(String.init).joined(separator: ", ") //Set, joined 공식문서 다시 참고하기
-    if intersection == [] {
+func joinedIntersection(lottoNumber: Set<String>, myNumber: [String]) -> String {
+    let intersection = lottoNumber.intersection(myNumber)
+    return intersection.map{String($0)}.joined(separator: ", ")
+}
+
+//MARK: - overlappingNumbers
+func overlappingNumbers(lottoNumber: Set<String>, myNumber: [String]) {
+
+    if joinedIntersection(lottoNumber: lottoNumber, myNumber: myNumber) == ""  {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(intersectionJoined)입니다!") //순서가 없는 Set는 joined를 사용하지 못함
+        print("축하합니다! 겹치는 번호는 \(joinedIntersection(lottoNumber: lottoNumber, myNumber: myNumber))입니다!")
     }
 }
 
 overlappingNumbers(lottoNumber: lottoNumberGenerator(), myNumber: myLottoNumbers)
-
 
