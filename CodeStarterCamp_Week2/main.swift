@@ -1,14 +1,11 @@
 func drawLotto() -> Set<Int> {
     var lottoNumbers = Set<Int>()
     
-    for _ in 1... {
+    while lottoNumbers.count != 6 {
         let number = Int.random(in: 1...45)
         lottoNumbers.insert(number)
-        
-        if lottoNumbers.count == 6 {
-            break
-        }
     }
+
     return lottoNumbers
 }
 
@@ -34,5 +31,6 @@ func checkNumber(chooseNumber: Set<Int>, winningNumber: Set<Int>) {
 }
 
 var lotto = drawLotto()
+print(lotto)
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 checkNumber(chooseNumber: myLottoNumbers, winningNumber: lotto)
