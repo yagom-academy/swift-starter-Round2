@@ -8,5 +8,5 @@
 
 import Foundation
 
-compare(lotteryNumbers : lotteryNumbers, myLotteryNumbers: myLotteryNumbers)
+compareNumbers()
 
