@@ -9,22 +9,28 @@ func drawLotto() -> Set<Int> {
     return lottoNumbers
 }
 
-func printSet(intersectionNumber: Set<Int>) {
-    var loopCount = 1
+func changeLiteral(integerNumber: Set<Int>) -> Set<String> {
+    var literalNumber: Set<String> = Set<String>()
     
-    for number in intersectionNumber.sorted() {
-        loopCount == intersectionNumber.count ? print("\(number)", terminator: " ") : print("\(number)", terminator: ", ")
-            loopCount += 1
+    for member in integerNumber {
+        literalNumber.insert(String(member))
     }
+    return literalNumber
 }
 
 func checkNumber(chooseNumber: Set<Int>, winningNumber: Set<Int>) {
-    let intersectionNumber: Set<Int> = chooseNumber.intersection(winningNumber)
+    let intersectionNumber = chooseNumber.intersection(winningNumber)
+    let literalNumber = changeLiteral(integerNumber: intersectionNumber)
     
     if intersectionNumber.isEmpty != true {
+        /*
         print("축하합니다! 겹치는 번호는", terminator: " ")
-        printSet(intersectionNumber: intersectionNumber)
+        print(literalNumber.joined(separator: ", "))
+        // printSet(intersectionNumber: intersectionNumber)
         print("입니다!")
+        */
+        print("축하합니다! 겹치는 번호는 " + literalNumber.sorted().joined(separator: ", ") + "입니다!")
+        
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
