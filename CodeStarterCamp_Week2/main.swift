@@ -18,6 +18,10 @@ func changeLiteral(integerNumber: Set<Int>) -> Set<String> {
     return literalNumber
 }
 
+func printIntersectionNumber(intersectionNumber: Set<String>) {
+    print("축하합니다! 겹치는 번호는 " + intersectionNumber.sorted().joined(separator: ", ") + " 입니다!")
+}
+
 func checkNumber(chooseNumber: Set<Int>, winningNumber: Set<Int>) {
     let intersectionNumber = chooseNumber.intersection(winningNumber)
     let literalNumber = changeLiteral(integerNumber: intersectionNumber)
