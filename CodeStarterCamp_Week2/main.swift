@@ -8,7 +8,6 @@
 
 import Foundation
 
-// Array와 shuffled를 이용한 코드
 func generateWinningNumbers() -> [Int] {
     let shuffledNumberPool: [Int] = Array(1...45).shuffled()
     var winningNumbers: [Int] = []
@@ -19,18 +18,8 @@ func generateWinningNumbers() -> [Int] {
     return winningNumbers
 }
 
-/*Set과 Int.random을 이용한 코드
-func generateWinningNumbers() -> Set<Int> {
-    var winningNumbers: Set<Int> = Set<Int>()
-    while winningNumbers.count < 6 {
-        winningNumbers.insert(Int.random(in: 1...45))
-    }
-    return winningNumbers
-}*/
-
 func checkOverlappingNumbers(winningNumbers: [Int], myLottoNumbers: [Int]) -> [Int] {
     var myOverlappingNumbers: [Int] = []
-    
     
     if winningNumbers.elementsEqual(myLottoNumbers) {
         return myLottoNumbers
@@ -64,7 +53,7 @@ func showLottoResult(myOverlappingNumbers: [Int]) {
 
 func playLotto() {
     let winningNumbers = generateWinningNumbers()
-    let myLottoNumbers: [Int] = winningNumbers
+    let myLottoNumbers: [Int] = [4, 5, 10, 14, 6, 7]
     let myOverlappingNumbers: [Int] = checkOverlappingNumbers(winningNumbers: winningNumbers, myLottoNumbers: myLottoNumbers)
     
     showLottoResult(myOverlappingNumbers: myOverlappingNumbers)
