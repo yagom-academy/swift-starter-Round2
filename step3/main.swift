@@ -7,26 +7,30 @@
 
 import Foundation
 
-var randomNumbers = Set<String>()
+var randomNumbers = Set<Int>()
 var lottoNumbers = [String: Array<String>]()
-var roundNumbers = [String]()
+var roundNumbers = [Int]()
+var changeIntToString = [String]()
 
 
 func makeRandom(){
     while randomNumbers.count < 6{
-        randomNumbers.insert(String(Int.random(in: 1...45)))
+        randomNumbers.insert(Int.random(in: 1...45))
     }
     for randomIndex in randomNumbers.sorted(){
         roundNumbers.append(randomIndex)
     }
+    print(roundNumbers)
+    changeIntToString = roundNumbers.map(String.init)
 }
+
 
 func makeRound(round: Int){
     while lottoNumbers.count < 5
     {
         makeRandom()
         let getRoundCount = lottoNumbers.count + 1
-        lottoNumbers["\(getRoundCount)회차"] = roundNumbers
+        lottoNumbers["\(getRoundCount)회차"] = changeIntToString
         
         removeNumbers()
     }
@@ -34,6 +38,7 @@ func makeRound(round: Int){
     let getContents = lottoNumbers["\(round)회차"] ?? [""]
     let changeContents = getContents.joined(separator: ", ")
     
+
     print("\(round)회차의 로또 당첨 번호는 \(changeContents) 입니다.")
 
 }
