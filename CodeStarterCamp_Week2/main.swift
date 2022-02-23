@@ -15,6 +15,7 @@ func changeLiteral(integerNumber: Set<Int>) -> Set<String> {
     for member in integerNumber {
         literalNumber.insert(String(member))
     }
+    
     return literalNumber
 }
 
@@ -34,6 +35,5 @@ func checkNumber(chooseNumber: Set<Int>, winningNumber: Set<Int>) {
 }
 
 var lotto = drawLotto()
-print(lotto)
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 checkNumber(chooseNumber: myLottoNumbers, winningNumber: lotto)
