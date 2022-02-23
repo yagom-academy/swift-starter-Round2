@@ -1,4 +1,4 @@
-func drawLotto() -> Set<Int> {
+func makeLottoNumbers() -> Set<Int> {
     var lottoNumbers = Set<Int>()
     
     while lottoNumbers.count != 6 {
@@ -23,7 +23,7 @@ func printIntersectionNumber(intersectionNumber: Set<String>) {
     print("축하합니다! 겹치는 번호는 " + intersectionNumber.sorted().joined(separator: ", ") + " 입니다!")
 }
 
-func checkNumber(chooseNumber: Set<Int>, winningNumber: Set<Int>) {
+func checkLotto(chooseNumber: Set<Int>, winningNumber: Set<Int>) {
     let intersectionNumber = chooseNumber.intersection(winningNumber)
     let literalNumber = changeLiteral(integerNumber: intersectionNumber)
     
@@ -34,6 +34,11 @@ func checkNumber(chooseNumber: Set<Int>, winningNumber: Set<Int>) {
     }
 }
 
-var lotto = drawLotto()
+
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+var winnigLottoNumbers = makeLottoNumbers()
+
+// 번호를 체크하자
+// 당첨여부를 출력하자
+
 checkNumber(chooseNumber: myLottoNumbers, winningNumber: lotto)
