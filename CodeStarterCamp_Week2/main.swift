@@ -23,18 +23,18 @@ func makeLottoNumbers() -> [Int] {
 func checkMyLottoNumbers(myLottoNumbers: Array<Int>) {
     let lottoNumbers = makeLottoNumbers()
     var winningMyNumbers: [Int] = []
-    for member in myLottoNumbers {
-        if lottoNumbers.contains(member) {
-            winningMyNumbers.append(member)
+    for myLottoNumber in myLottoNumbers {
+        if lottoNumbers.contains(myLottoNumber) {
+            winningMyNumbers.append(myLottoNumber)
         }
     }
     if winningMyNumbers.count > 0 {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for member in winningMyNumbers {
-            if member == winningMyNumbers.last {
-                print("\(member) 입니다!")
+        for winningMyNumber in winningMyNumbers {
+            if winningMyNumber == winningMyNumbers.last {
+                print("\(winningMyNumber) 입니다!")
             } else {
-                print(member, terminator: ", ")
+                print(winningMyNumber, terminator: ", ")
             }
         }
     } else {
