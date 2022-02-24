@@ -39,7 +39,6 @@ func overlappingNumbers(lottoNumber: Set<String>, myNumber: [String]) {
 
 overlappingNumbers(lottoNumber: lottoNumberGenerator(), myNumber: myLottoNumbers)
 
-
 //MARK: - arrayLottoNumberGenerator()
 var lottoDictionary:[String : [Int]] = [:]
 
@@ -77,3 +76,4 @@ func showWinningNumbers(round: Int) {
     }
 }
 showWinningNumbers(round: 3)
+print(lottoNumberGenerator())
