@@ -20,8 +20,8 @@ func generateLottoNumbers() -> [Int] {
   return lottoNumbers
 }
 
-func saveLottoNumbers(round: Int, numbers: [Int]) {
-  let roundString = "\(round + 1)회차"
+func saveLottoNumbers(numbers: [Int]) {
+  let roundString = "\(lottoHistory.count + 1)회차"
   lottoHistory[roundString] = numbers
 }
 
@@ -35,13 +35,17 @@ func checkLottoNumbers(mine: [Int], winner: [Int]) {
   }
 }
 
-func saveLottoNubmersAndPrintSpecificRoundNumbers(saveRound: Int, printRound: Int) {
-  for num in 0..<saveRound {
-    saveLottoNumbers(round:num, numbers: generateLottoNumbers())
-  }
-  guard let secondLottoNumbers = lottoHistory["\(printRound)회차"] else { return }
-  let numbersString = secondLottoNumbers.map { "\($0)" }.joined(separator: ", ")
-  print("\(printRound)회차의 로또 당첨 번호는 \(numbersString) 입니다!")
+func printLottoNumbers(of round: Int) {
+  guard let lottoNumbers = lottoHistory["\(round)회차"] else { return }
+  let numbersString = lottoNumbers.map { "\($0)" }.joined(separator: ", ")
+  print("\(round)회차의 로또 당첨 번호는 \(numbersString) 입니다!")
 }
 
-saveLottoNubmersAndPrintSpecificRoundNumbers(saveRound: 5, printRound: 2)
+func generateLottoNumbersAndPrint(of round: Int) {
+  for _ in 0..<5 {
+    saveLottoNumbers(numbers: generateLottoNumbers())
+  }
+  printLottoNumbers(of: round)
+}
+
+generateLottoNumbersAndPrint(of: 2)
