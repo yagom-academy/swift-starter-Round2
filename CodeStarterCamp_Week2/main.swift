@@ -9,3 +9,8 @@
 import Foundation
 
 var lottoNumber: Set<Int> = Set<Int>()
+
+func makeLottoNumber() {
+    let random = Int.random(in: 1...45)
+    lottoNumber.insert(random)
+}
