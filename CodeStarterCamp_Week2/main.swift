@@ -8,5 +8,4 @@
 
 import Foundation
 
-print("Hello, World!")
-
+var lottoNumber: Set<Int> = Set<Int>()
