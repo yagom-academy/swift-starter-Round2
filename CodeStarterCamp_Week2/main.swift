@@ -33,3 +33,10 @@ func checkLottoNumber() {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
+
+func playLotto() {
+    saveLottoNumber()
+    checkLottoNumber()
+}
+
+playLotto()
