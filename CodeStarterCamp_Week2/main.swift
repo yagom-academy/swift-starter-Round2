@@ -23,3 +23,13 @@ func saveLottoNumber() -> Set<Int> {
 }
 
 let myLottoNumber: [Int] = [1, 2, 3, 4, 5, 6]
+
+func checkLottoNumber() {
+    let intersection: Set<Int> = lottoNumber.intersection(myLottoNumber)
+    if intersection.count > 0 {
+        print("축하합니다! 겹치는 번호는 \(intersection) 입니다!")
+    }
+    else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+}
