@@ -14,3 +14,10 @@ func makeLottoNumber() {
     let random = Int.random(in: 1...45)
     lottoNumber.insert(random)
 }
+
+func saveLottoNumber() -> Set<Int> {
+    while lottoNumber.count < 6 {
+        makeLottoNumber()
+    }
+    return lottoNumber
+}
