@@ -8,5 +8,6 @@
 
 import Foundation
 
-compareNumbers()
-
+//compareNumbers()
+print(generateAndSaveLotteryNumbers(showFullRound: 7))
+lookUpLotteryNumbers(round: 2)
