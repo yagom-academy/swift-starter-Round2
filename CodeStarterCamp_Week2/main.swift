@@ -15,6 +15,7 @@ func makeLottoNumber() {
     lottoNumber.insert(random)
 }
 
+@discardableResult
 func saveLottoNumber() -> Set<Int> {
     while lottoNumber.count < 6 {
         makeLottoNumber()
