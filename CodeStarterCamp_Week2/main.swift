@@ -9,62 +9,62 @@
 import Foundation
 
 let myNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-var sixLottoNumbers = Set<Int>()
-var roundLottoNumbers = [String: Set<Int>]()
+var historyLotto = [String: Set<Int>]()
+var round: Int = historyLotto.count
+var roundString = historyLotto["\(round)"]
 
 func makeLottoNumbers() -> Set<Int> {
+    var sixLottoNumbers = Set<Int>()
+    
     while sixLottoNumbers.count < 6 {
         sixLottoNumbers.insert(Int.random(in: 1...45))
     }
     return sixLottoNumbers
 }
 
-func lottoNumbersaved(round: Int) {
-    let round = round + 1
-    roundLottoNumbers["\(round)회차"] = makeLottoNumbers()
+func lottoNumberSaved(count: Int) {
+    historyLotto["\(count)회차"] = makeLottoNumbers()
 }
 
-func countedRoundLottoNumbers() {
-    for round in 0...4 {
-        lottoNumbersaved(round: round)
+func quantityOFLotto(quantity: Int) {
+    for count in 1...quantity {
+        lottoNumberSaved(count: count)
     }
 }
 
-func showLottoNumberInRound(round: Int) {
-    if let lottoData = roundLottoNumbers["\(round)회차"] {
+func findLottoNumbers(count: Int) {
+    if let lottoData = historyLotto["\(count)회차"] {
         let printLottoData = lottoData.map { String($0) }.joined(separator: ", ")
-        print("\(round)회차의 로또 당첨 번호는 \(printLottoData) 입니다.")
+        print("\(count)회차의 로또 당첨 번호는 \(printLottoData) 입니다.")
     } else {
         print("No data")
     }
 }
 
-func findLottoNumbers(round: Int) {
-    countedRoundLottoNumbers()
-    showLottoNumberInRound(round: round)
-}
-
-func resultLottoNumbers() -> Set<Int> {
+func resultLottoNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
     var overlapNumbers = Set<Int>()
-    overlapNumbers = sixLottoNumbers.intersection(myNumbers)
+    overlapNumbers = lottoNumbers.intersection(myNumbers)
     
     return overlapNumbers
 }
 
 func showResultLotto(overlapNumbers: Set<Int>) {
-    let printedOverlapNumbers = overlapNumbers.map { String($0) }.joined(separator: ", ")
     if overlapNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
+        let printedOverlapNumbers = overlapNumbers.map { String($0) }.joined(separator: ", ")
         print("축하합니다! 겹치는 번호는 \(printedOverlapNumbers) 입니다!")
     }
 }
 
 func buyLotto() {
-    makeLottoNumbers()
-    let overlapNumbers = resultLottoNumbers()
+    round += 1
+    let lottoNumbers = makeLottoNumbers()
+    let overlapNumbers = resultLottoNumbers(lottoNumbers: lottoNumbers)
+    historyLotto["\(round)회차"] = lottoNumbers
     showResultLotto(overlapNumbers: overlapNumbers)
+    
 }
 
-buyLotto()
-findLottoNumbers(round: 2)
+findLottoNumbers(count: 2)
+print(historyLotto)
