@@ -9,14 +9,20 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var lottoHistory: [String: [Int]] = [:]
 let winnerLottoNumbers: [Int] = generateLottoNumbers()
 
 func generateLottoNumbers() -> [Int] {
   var allNumbers: [Int] = []
   allNumbers.append(contentsOf: stride(from: 1, to: 46, by: 1))
   allNumbers.shuffle()
-  let lottoNumbers = Array(allNumbers[0...5])
+  let lottoNumbers = Array(allNumbers[0...5]).sorted()
   return lottoNumbers
+}
+
+func saveLottoNumbers(numbers: [Int]) {
+  let roundString = "\(lottoHistory.count + 1)회차"
+  lottoHistory[roundString] = numbers
 }
 
 func checkLottoNumbers(mine: [Int], winner: [Int]) {
@@ -29,4 +35,17 @@ func checkLottoNumbers(mine: [Int], winner: [Int]) {
   }
 }
 
-checkLottoNumbers(mine: myLottoNumbers, winner: winnerLottoNumbers)
+func printLottoNumbers(of round: Int) {
+  guard let lottoNumbers = lottoHistory["\(round)회차"] else { return }
+  let numbersString = lottoNumbers.map { "\($0)" }.joined(separator: ", ")
+  print("\(round)회차의 로또 당첨 번호는 \(numbersString) 입니다!")
+}
+
+func generateLottoNumbersAndPrint(of round: Int) {
+  for _ in 0..<5 {
+    saveLottoNumbers(numbers: generateLottoNumbers())
+  }
+  printLottoNumbers(of: round)
+}
+
+generateLottoNumbersAndPrint(of: 2)
