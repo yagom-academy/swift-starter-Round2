@@ -18,46 +18,38 @@ func generateWinningNumbers() -> [Int] {
     return winningNumbers
 }
 
-func checkOverlappingNumbers(winningNumbers: [Int], myLottoNumbers: [Int]) -> [Int] {
-    var myOverlappingNumbers: [Int] = []
+func generateLottoHistory(rounds: Int) -> [String: [Int]] {
+    var lottoHistory: [String: [Int]] = [:]
     
-    for myLottoNumber in myLottoNumbers {
-        for winningNumber in winningNumbers {
-            if myLottoNumber == winningNumber {
-                myOverlappingNumbers.append(myLottoNumber)
-                
-            }
-            
-        }
-        
+    for round in 1...rounds {
+        let winningNumbers: [Int] = generateWinningNumbers()
+        lottoHistory["\(round)회차"] = winningNumbers
     }
-    return myOverlappingNumbers
+    return lottoHistory
 }
 
-func showLottoResult(myOverlappingNumbers: [Int]) {
-    if myOverlappingNumbers.count == 0 {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        let lastIndex: Int = myOverlappingNumbers.count - 1
-        
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for index in 0...lastIndex {
-            if index == lastIndex {
-                print("\(myOverlappingNumbers[index]) 입니다!")
-            } else {
-                print("\(myOverlappingNumbers[index])", terminator: ", ")
-            }
+func showRoundResult(winningNumbers: [Int], round: Int) {
+    print("\(round)회차 로또 당첨 번호는 ", terminator: "")
+    for index in 0...5 {
+        if index == 5 {
+            print("\(winningNumbers[index]) 입니다.")
+        } else {
+            print("\(winningNumbers[index])", terminator: ", ")
         }
     }
 }
 
-func playLotto() {
-    let winningNumbers = generateWinningNumbers()
-    let myLottoNumbers: [Int] = [4, 5, 10, 14, 6, 7]
-    let myOverlappingNumbers: [Int] = checkOverlappingNumbers(winningNumbers: winningNumbers, myLottoNumbers: myLottoNumbers)
+func showLottoHistory(round: Int) {
+    let lottoHistory: [String: [Int]] = generateLottoHistory(rounds: 5)
+    let roundResult: [Int]? = lottoHistory["\(round)회차"]
     
-    showLottoResult(myOverlappingNumbers: myOverlappingNumbers)
+    switch roundResult {
+    case .none:
+            print("\(round)회차에 대한 정보가 없습니다.")
+    case .some(let winningNumbers):
+        showRoundResult(winningNumbers: winningNumbers, round: round)
+    }
 }
 
-playLotto()
+showLottoHistory(round: 2)
 
