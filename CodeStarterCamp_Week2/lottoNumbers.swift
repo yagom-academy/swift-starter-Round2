@@ -24,8 +24,13 @@ func checkLottoNumbers() {
     if matchLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        let lottoNumbers = matchLottoNumbers.map{String($0)}.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(lottoNumbers)입니다!")
+        //let lottoNumbers = matchLottoNumbers.map{String($0)}.joined(separator: ", ")
+        var lottoNumbers: Set<String> = Set<String>()
+        for number in matchLottoNumbers {
+            lottoNumbers.insert(String(number))
+        }
+        let totalLottoNumbers: String = lottoNumbers.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(totalLottoNumbers) 입니다!")
     }
 }
 
