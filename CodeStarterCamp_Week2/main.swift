@@ -21,14 +21,15 @@ func generateWinningNumbers() -> [Int] {
 func checkOverlappingNumbers(winningNumbers: [Int], myLottoNumbers: [Int]) -> [Int] {
     var myOverlappingNumbers: [Int] = []
     
-    if !winningNumbers.elementsEqual(myLottoNumbers) {
-        for myLottoNumber in myLottoNumbers {
-            for winningNumber in winningNumbers {
-                if myLottoNumber == winningNumber {
-                    myOverlappingNumbers.append(myLottoNumber)
-                }
+    for myLottoNumber in myLottoNumbers {
+        for winningNumber in winningNumbers {
+            if myLottoNumber == winningNumber {
+                myOverlappingNumbers.append(myLottoNumber)
+                
             }
+            
         }
+        
     }
     return myOverlappingNumbers
 }
