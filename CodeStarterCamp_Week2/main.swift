@@ -15,11 +15,11 @@ func compareNumbers(chooseNumbers: Set<Int>, winningNumbers: Set<Int>) -> Set<In
     return sameNumbers
 }
 
-func changeStringType(integerNumbers: Set<Int>) -> Set<String> {
+func changeLiteral(integerNumbers: Set<Int>) -> Set<String> {
     var literalNumbers: Set<String> = Set<String>()
     
-    for member in integerNumbers {
-        literalNumbers.insert(String(member))
+    for number in integerNumbers {
+        literalNumbers.insert(String(number))
     }
     
     return literalNumbers
@@ -30,7 +30,7 @@ func printIntersectionNumber(intersectionNumber: Set<String>) {
 }
 
 func printLottoResult(of sameNumbers: Set<Int>) {
-    let sameLiteralNumbers = changeStringType(integerNumbers: sameNumbers)
+    let sameLiteralNumbers = changeLiteral(integerNumbers: sameNumbers)
     
     if sameLiteralNumbers.isEmpty != true {
         printIntersectionNumber(intersectionNumber: literalNumber)
