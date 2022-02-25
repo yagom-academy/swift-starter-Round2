@@ -27,9 +27,9 @@ func checkLottoWinnerByRound(searchRound: Int = round, myNumberSet: Set<Int>) {
     }
     
     let winningNumbers = numbersForSearchRound.intersection(myNumberSet)
-    
+
     if winningNumbers.count > 0 {
-        print("축하합니다! \(searchRound)회차 결과와 겹치는 번호는 \(convertingIntSetToStringArray(winningNumbers).joined(separator: ", ")) 입니다!")
+        print("축하합니다! \(searchRound)회차 결과와 겹치는 번호는 \(convertingNumbersForPrint(winningNumbers)) 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }

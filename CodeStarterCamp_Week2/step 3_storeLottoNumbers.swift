@@ -14,7 +14,7 @@ func storeWinningNumbersByRounds(roundNumber: Int, winningNumbers: Set<Int>) {
     round = round + 1
     numbersByRounds.updateValue(winningNumbers, forKey: round)
 }
-
+    
 func printWinningNumbersByRounds(roundNumber: Int) {
     
     guard let a = numbersByRounds[roundNumber] else {
@@ -22,18 +22,19 @@ func printWinningNumbersByRounds(roundNumber: Int) {
         return
     }
     
-    print("\(roundNumber)회차의 로또 당첨 번호는 \(convertingIntSetToStringArray(a).joined(separator: ", ")) 입니다.")
+    print("\(roundNumber)회차의 로또 당첨 번호는 \(convertingNumbersForPrint(a)) 입니다.")
 }
 
-func convertingIntSetToStringArray(_ intSet: Set<Int>) -> Array<String> {
-    let intArray = Array(intSet).sorted()
-    var stringArray: Array<String> = []
+func convertingNumbersForPrint(_ intSet: Set<Int>) -> String {
+    let sortedNumbers = Array(intSet).sorted()
+    var numbersToJoin: Array<String> = []
     
-    for index in 0...intArray.count - 1 {
-        stringArray.append("\(intArray[index])")
+    for index in 0...sortedNumbers.count - 1 {
+        numbersToJoin.append("\(sortedNumbers[index])")
     }
     
-    return stringArray
+    let numbersForPrint = numbersToJoin.joined(separator: ", ")
+    return numbersForPrint
 }
 
 func printUnvalidRoundMessage(inputRound: Int) {
