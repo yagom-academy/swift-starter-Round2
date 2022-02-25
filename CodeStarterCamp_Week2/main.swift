@@ -18,14 +18,15 @@ func generateWinningNumbers() -> [Int] {
     return winningNumbers
 }
 
-func generateLottoHistory(lastRound: Int, rounds: Int) -> [String: [Int]] {
-    var lottoHistory: [String: [Int]] = [:]
+func generateLottoHistory(lottoHistory oldLottoHistory: [String: [Int]] , rounds: Int) -> [String: [Int]] {
+    var newlottoHistory: [String: [Int]] = oldLottoHistory
+    let lastRound = newlottoHistory.count
     
     for round in 1...rounds {
         let winningNumbers: [Int] = generateWinningNumbers()
-        lottoHistory["\(lastRound + round)회차"] = winningNumbers
+        newlottoHistory["\(lastRound + round)회차"] = winningNumbers
     }
-    return lottoHistory
+    return newlottoHistory
 }
 
 func showRoundResult(winningNumbers: [Int], round: Int) {
@@ -51,9 +52,11 @@ func showLottoHistory(round: Int, lottoHistory: [String: [Int]]) {
 }
 
 func manageLottoHistory() {
-    let lottoHistory = generateLottoHistory(lastRound: 0, rounds: 5)
+    var lottoHistory: [String: [Int]] = [:]
     
-    showLottoHistory(round: 2, lottoHistory: lottoHistory)
+    lottoHistory = generateLottoHistory(lottoHistory: lottoHistory, rounds: 5)
+    lottoHistory = generateLottoHistory(lottoHistory: lottoHistory, rounds: 6)
+    showLottoHistory(round: 11, lottoHistory: lottoHistory)
 }
 
 manageLottoHistory()
