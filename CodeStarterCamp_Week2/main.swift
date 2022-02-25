@@ -39,8 +39,7 @@ func showRoundResult(winningNumbers: [Int], round: Int) {
     }
 }
 
-func showLottoHistory(round: Int) {
-    let lottoHistory: [String: [Int]] = generateLottoHistory(rounds: 5)
+func showLottoHistory(round: Int, lottoHistory: [String: [Int]]) {
     let roundResult: [Int]? = lottoHistory["\(round)회차"]
     
     switch roundResult {
@@ -51,5 +50,10 @@ func showLottoHistory(round: Int) {
     }
 }
 
-showLottoHistory(round: 2)
+func manageLottoHistory() {
+    let lottoHistory = generateLottoHistory(rounds: 5)
+    
+    showLottoHistory(round: 2, lottoHistory: lottoHistory)
+}
 
+manageLottoHistory()
