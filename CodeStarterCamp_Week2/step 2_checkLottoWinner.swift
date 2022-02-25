@@ -19,12 +19,18 @@ func generateLottoNumbers(maxRange: Int, maxNumber: Int) -> Set<Int> {
     return generatedNumbers
 }
 
-
-func checkLottoWinner(lottoNumberSet: Set<Int>, myNumberSet: Set<Int>) {
-    let winningNumbers = lottoNumberSet.intersection(myNumberSet)
+// 내가 원하는 거 : 각 라운드별로.. lottoNumberSet 필요한가?
+func checkLottoWinnerByRound(searchRound: Int = round, myNumberSet: Set<Int>) {
+    
+    guard let numbersForSearchRound = numbersByRounds[searchRound] else {
+        printUnvalidRoundMessage(inputRound: searchRound)
+        return
+    }
+    
+    let winningNumbers = numbersForSearchRound.intersection(myNumberSet)
     
     if winningNumbers.count > 0 {
-        print("축하합니다! 겹치는 번호는 \(convertingIntSetToStringArray(winningNumbers).joined(separator: ", ")) 입니다!")
+        print("축하합니다! \(searchRound)회차 결과와 겹치는 번호는 \(convertingIntSetToStringArray(winningNumbers).joined(separator: ", ")) 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }

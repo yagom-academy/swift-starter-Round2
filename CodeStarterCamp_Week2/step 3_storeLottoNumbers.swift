@@ -8,11 +8,11 @@
 import Foundation
 
 var numbersByRounds : [Int: Set<Int>] = [:]
-var round = 1
+var round = 0
 
 func storeWinningNumbersByRounds(roundNumber: Int, winningNumbers: Set<Int>) {
-    numbersByRounds.updateValue(winningNumbers, forKey: round)
     round = round + 1
+    numbersByRounds.updateValue(winningNumbers, forKey: round)
 }
 
 func printWinningNumbersByRounds(roundNumber: Int) {
@@ -34,22 +34,6 @@ func convertingIntSetToStringArray(_ intSet: Set<Int>) -> Array<String> {
     }
     
     return stringArray
-}
-
-func checkLottoWinningByRound(round: Int, myNumberSet: Set<Int>) {
-    
-    guard let temp = numbersByRounds[round] else {
-        printUnvalidRoundMessage(inputRound: round)
-        return
-    }
-    
-    let winningNumbers = temp.intersection(myNumberSet)
-    
-    if winningNumbers.count > 0 {
-        print("축하합니다! \(round)회차 결과와 겹치는 번호는 \(convertingIntSetToStringArray(winningNumbers).joined(separator: ", ")) 입니다!")
-    } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    }
 }
 
 func printUnvalidRoundMessage(inputRound: Int) {
