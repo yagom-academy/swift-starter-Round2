@@ -42,10 +42,7 @@ func printLottoResult(of sameNumbers: Set<Int>) {
 
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 var winnigLottoNumbers = makeLottoNumbers()
-
-// 번호를 체크하자
 let sameNumbers = compareNumbers(chooseNumbers: myLottoNumbers, winningNumbers: winnigLottoNumbers)
-// 당첨여부를 출력하자
 printLottoResult(of: sameNumbers)
 
 
