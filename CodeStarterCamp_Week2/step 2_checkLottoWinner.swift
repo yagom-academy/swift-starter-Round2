@@ -19,7 +19,6 @@ func generateLottoNumbers(maxRange: Int, maxNumber: Int) -> Set<Int> {
     return generatedNumbers
 }
 
-// 내가 원하는 거 : 각 라운드별로.. lottoNumberSet 필요한가?
 func checkLottoWinnerByRound(searchRound: Int = round, myNumberSet: Set<Int>) {
     
     guard let numbersForSearchRound = numbersByRounds[searchRound] else {
