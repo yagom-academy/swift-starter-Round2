@@ -9,6 +9,12 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
+func compareNumbers(chooseNumbers: Set<Int>, winningNumbers: Set<Int>) -> Set<Int> {
+    let sameNumbers = chooseNumbers.intersection(winningNumbers)
+    
+    return sameNumbers
+}
+
 func changeStringType(integerNumbers: Set<Int>) -> Set<String> {
     var literalNumbers: Set<String> = Set<String>()
     
@@ -21,21 +27,6 @@ func changeStringType(integerNumbers: Set<Int>) -> Set<String> {
 
 func printIntersectionNumber(intersectionNumber: Set<String>) {
     print("축하합니다! 겹치는 번호는 " + intersectionNumber.sorted().joined(separator: ", ") + " 입니다!")
-}
-
-func compareNumbers(chooseNumbers: Set<Int>, winningNumbers: Set<Int>) -> Set<Int> {
-    let sameNumbers = chooseNumbers.intersection(winningNumbers)
-    
-    return sameNumbers
-    /*
-    let literalNumber = changeLiteral(integerNumber: intersectionNumber)
-    
-    if literalNumber.isEmpty != true {
-        printIntersectionNumber(intersectionNumber: literalNumber)
-    } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-     */
 }
 
 func printLottoResult(of sameNumbers: Set<Int>) {
