@@ -9,14 +9,14 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func changeLiteral(integerNumber: Set<Int>) -> Set<String> {
-    var literalNumber: Set<String> = Set<String>()
+func changeStringType(integerNumbers: Set<Int>) -> Set<String> {
+    var literalNumbers: Set<String> = Set<String>()
     
-    for member in integerNumber {
-        literalNumber.insert(String(member))
+    for member in integerNumbers {
+        literalNumbers.insert(String(member))
     }
     
-    return literalNumber
+    return literalNumbers
 }
 
 func printIntersectionNumber(intersectionNumber: Set<String>) {
@@ -38,16 +38,24 @@ func compareNumbers(chooseNumbers: Set<Int>, winningNumbers: Set<Int>) -> Set<In
      */
 }
 
-func printLottoResult(
+func printLottoResult(of sameNumbers: Set<Int>) {
+    let sameLiteralNumbers = changeStringType(integerNumbers: sameNumbers)
+    
+    if sameLiteralNumbers.isEmpty != true {
+        printIntersectionNumber(intersectionNumber: literalNumber)
+    } else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+}
 
 
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 var winnigLottoNumbers = makeLottoNumbers()
 
 // 번호를 체크하자
-compareNumbers(chooseNumbers: myLottoNumbers, winningNumbers: winnigLottoNumbers)
+let sameNumbers = compareNumbers(chooseNumbers: myLottoNumbers, winningNumbers: winnigLottoNumbers)
 // 당첨여부를 출력하자
-printLottoResult
+printLottoResult(of: sameNumbers)
 
 
 
