@@ -17,12 +17,12 @@ func storeWinningNumbersByRounds(roundNumber: Int, winningNumbers: Set<Int>) {
     
 func printWinningNumbersByRounds(roundNumber: Int) {
     
-    guard let a = numbersByRounds[roundNumber] else {
+    guard let numberByRound = numbersByRounds[roundNumber] else {
         printUnvalidRoundMessage(inputRound: roundNumber)
         return
     }
     
-    print("\(roundNumber)회차의 로또 당첨 번호는 \(convertingNumbersForPrint(a)) 입니다.")
+    print("\(roundNumber)회차의 로또 당첨 번호는 \(convertingNumbersForPrint(numberByRound)) 입니다.")
 }
 
 func convertingNumbersForPrint(_ intSet: Set<Int>) -> String {
