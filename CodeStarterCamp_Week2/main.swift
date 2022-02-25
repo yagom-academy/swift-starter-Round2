@@ -25,15 +25,15 @@ func changeLiteral(integerNumbers: Set<Int>) -> Set<String> {
     return literalNumbers
 }
 
-func printIntersectionNumber(intersectionNumber: Set<String>) {
-    print("축하합니다! 겹치는 번호는 " + intersectionNumber.sorted().joined(separator: ", ") + " 입니다!")
+func printSameNumbers(_ sameNumbers: Set<String>) {
+    print("축하합니다! 겹치는 번호는 " + sameNumbers.sorted().joined(separator: ", ") + " 입니다!")
 }
 
 func printLottoResult(of sameNumbers: Set<Int>) {
     let sameLiteralNumbers = changeLiteral(integerNumbers: sameNumbers)
     
     if sameLiteralNumbers.isEmpty != true {
-        printIntersectionNumber(intersectionNumber: literalNumber)
+        printSameNumbers(sameLiteralNumbers)
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
