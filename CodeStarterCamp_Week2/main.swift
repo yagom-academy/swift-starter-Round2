@@ -9,5 +9,14 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
+func storeLottoRoundAndNumbers(in storage: inout [String: Set<Int>], _ round: Int, _ numbers: Set<Int>) {
+    
+    let roundCount = "\(round)회차"
+    storage[roundCount] = numbers
+}
 
 var storageOfLottoRoundAndNumbers: [String: Set<Int>] = [:]
+
+for round in 1...5 {
+storeLottoRoundAndNumbers(in: &storageOfLottoRoundAndNumbers, round, makeLottoNumbers())
+}
