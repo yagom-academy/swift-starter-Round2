@@ -15,6 +15,13 @@ func storeLottoRoundAndNumbers(in storage: inout [String: Set<Int>], _ round: In
     storage[roundCount] = numbers
 }
 
+func findLottoNumbers(by round: String, in storage: [String: Set<Int>]) -> Set<Int>? {
+    guard let lottoNumbers = storage[round] else {
+        return nil
+    }
+    return lottoNumbers
+}
+
 var storageOfLottoRoundAndNumbers: [String: Set<Int>] = [:]
 
 for round in 1...5 {
