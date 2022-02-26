@@ -22,6 +22,16 @@ func findLottoNumbers(by round: String, in storage: [String: Set<Int>]) -> Set<I
     return lottoNumbers
 }
 
+func changeLiterals(of integerNumbers: Set<Int>) -> Set<String> {
+    var literalNumbers: Set<String> = Set<String>()
+    
+    for number in integerNumbers {
+        literalNumbers.insert(String(number))
+    }
+    
+    return literalNumbers
+}
+
 var storageOfLottoRoundAndNumbers: [String: Set<Int>] = [:]
 
 for round in 1...5 {
