@@ -33,7 +33,7 @@ func changeLiterals(of integerNumbers: [Int]) -> [String] {
     return literalNumbers
 }
 
-func printLottoNumbers(by round: String, in storage: [String: Set<Int>]) {
+func printLottoResult(by round: String, in storage: [String: Set<Int>]) {
     guard let lottoNumbers = findLottoNumbers(by: round, in: storage) else {
         print("해당 회차에 로또번호가 없습니다!")
         return
@@ -50,4 +50,4 @@ var storageOfLottoRoundAndNumbers: [String: Set<Int>] = [:]
 for round in 1...5 {
 storeLottoRoundAndNumbers(in: &storageOfLottoRoundAndNumbers, round, makeLottoNumbers())
 }
-printLottoNumbers(by: "2회차", in: storageOfLottoRoundAndNumbers)
+printLottoResult(by: "2회차", in: storageOfLottoRoundAndNumbers)
