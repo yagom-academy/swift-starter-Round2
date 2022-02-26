@@ -19,17 +19,30 @@ func findLottoNumbers(by round: String, in storage: [String: Set<Int>]) -> Set<I
     guard let lottoNumbers = storage[round] else {
         return nil
     }
+    
     return lottoNumbers
 }
 
-func changeLiterals(of integerNumbers: Set<Int>) -> Set<String> {
-    var literalNumbers: Set<String> = Set<String>()
+func changeLiterals(of integerNumbers: [Int]) -> [String] {
+    var literalNumbers: [String] = []
     
     for number in integerNumbers {
-        literalNumbers.insert(String(number))
+        literalNumbers.append(String(number))
     }
     
     return literalNumbers
+}
+
+func printLottoNumbers(by round: String, in storage: [String: Set<Int>]) {
+    guard let lottoNumbers = findLottoNumbers(by: round, in: storage) else {
+        print("해당 회차에 로또번호가 없습니다!")
+        return
+    }
+    
+    let sortedLottoNumbers = lottoNumbers.sorted()
+    let resultLottoNumbers = changeLiterals(of: sortedLottoNumbers).joined(separator: ", ")
+    
+    print(round + "의 로또 당첨 번호는 " + resultLottoNumbers + " 입니다.")
 }
 
 var storageOfLottoRoundAndNumbers: [String: Set<Int>] = [:]
@@ -37,3 +50,4 @@ var storageOfLottoRoundAndNumbers: [String: Set<Int>] = [:]
 for round in 1...5 {
 storeLottoRoundAndNumbers(in: &storageOfLottoRoundAndNumbers, round, makeLottoNumbers())
 }
+printLottoNumbers(by: "2회차", in: storageOfLottoRoundAndNumbers)
