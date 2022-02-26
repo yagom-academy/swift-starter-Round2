@@ -32,12 +32,12 @@ for _ in 0...4 {
 if let round2LottoNumbers = lottoHistory["2회차"] {
     print("2회차의 로또 당첨 번호는", terminator: " ")
     for round2LottoNumber in round2LottoNumbers {
-                if round2LottoNumber == round2LottoNumbers.last {
-                    print("\(round2LottoNumber) 입니다.")
-                } else {
-                    print(round2LottoNumber, terminator: ", ")
-                }
-            }
+        if round2LottoNumber == round2LottoNumbers.last {
+            print("\(round2LottoNumber) 입니다.")
+        } else {
+            print(round2LottoNumber, terminator: ", ")
+        }
+    }
 } else {
     print("오류")
 }
