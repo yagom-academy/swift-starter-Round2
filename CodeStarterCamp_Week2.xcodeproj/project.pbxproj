@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
+		FD0B858A27C6543500089C9D /* step 3_storeLottoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0B858927C6543500089C9D /* step 3_storeLottoNumbers.swift */; };
 		FD14182D27C2716C00732E15 /* step 2_checkLottoWinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14182C27C2716C00732E15 /* step 2_checkLottoWinner.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FD0B858927C6543500089C9D /* step 3_storeLottoNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "step 3_storeLottoNumbers.swift"; sourceTree = "<group>"; };
 		FD14182C27C2716C00732E15 /* step 2_checkLottoWinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "step 2_checkLottoWinner.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 			children = (
 				34811DC1274B93D800A1E994 /* main.swift */,
 				FD14182C27C2716C00732E15 /* step 2_checkLottoWinner.swift */,
+				FD0B858927C6543500089C9D /* step 3_storeLottoNumbers.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -122,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD0B858A27C6543500089C9D /* step 3_storeLottoNumbers.swift in Sources */,
 				FD14182D27C2716C00732E15 /* step 2_checkLottoWinner.swift in Sources */,
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
 			);

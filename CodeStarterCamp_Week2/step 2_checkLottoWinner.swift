@@ -8,22 +8,28 @@
 import Foundation
 
 func generateLottoNumbers(maxRange: Int, maxNumber: Int) -> Set<Int> {
-    var lottoNumberSet: Set<Int> = []
-    while lottoNumberSet.count < maxNumber {
-        lottoNumberSet.insert(Int.random(in: 1...maxRange))
+    var generatedNumbers: Set<Int> = []
+    
+    while generatedNumbers.count < maxNumber {
+        generatedNumbers.insert(Int.random(in: 1...maxRange))
     }
-    return lottoNumberSet
+    
+    storeWinningNumbersByRounds(roundNumber: round, winningNumbers: generatedNumbers)
+    
+    return generatedNumbers
 }
 
-func checkLottoWinner(lottoNumberSet: Set<Int>, myNumberSet: Set<Int>) {
-    let winningNumbers = lottoNumberSet.intersection(myNumberSet)
+func checkLottoWinnerByRound(searchRound: Int = round, myNumberSet: Set<Int>) {
+    
+    guard let numbersForSearchRound = numbersByRounds[searchRound] else {
+        printUnvalidRoundMessage(inputRound: searchRound)
+        return
+    }
+    
+    let winningNumbers = numbersForSearchRound.intersection(myNumberSet)
+
     if winningNumbers.count > 0 {
-        let winningNumbersIntArray = Array(winningNumbers).sorted()
-        var winningNumbersStringArray: Array<String> = []
-        for index in 0...winningNumbersIntArray.count - 1 {
-            winningNumbersStringArray.append("\(winningNumbersIntArray[index])")
-        }
-        print("축하합니다! 겹치는 번호는 \(winningNumbersStringArray.joined(separator: ", ")) 입니다!")
+        print("축하합니다! \(searchRound)회차 결과와 겹치는 번호는 \(convertingNumbersForPrint(winningNumbers)) 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
