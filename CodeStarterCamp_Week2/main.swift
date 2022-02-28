@@ -26,18 +26,23 @@ func makeLottoHistory() {
     lottoHistory["\(lottoRound)회차"] = makeLottoNumbers()
 }
 
+
+func printLottoNumbers(lottoNumbers: [Int]) {
+    for lottoNumber in lottoNumbers {
+        if lottoNumber == lottoNumbers.last {
+            print("\(lottoNumber) 입니다.")
+        } else {
+            print(lottoNumber, terminator: ", ")
+        }
+    }
+}
+
 for _ in 0...4 {
     makeLottoHistory()
 }
 if let round2LottoNumbers = lottoHistory["2회차"] {
     print("2회차의 로또 당첨 번호는", terminator: " ")
-    for round2LottoNumber in round2LottoNumbers {
-        if round2LottoNumber == round2LottoNumbers.last {
-            print("\(round2LottoNumber) 입니다.")
-        } else {
-            print(round2LottoNumber, terminator: ", ")
-        }
-    }
+    printLottoNumbers(lottoNumbers: round2LottoNumbers)
 } else {
-    print("오류")
+    print("2회차의 로또 당첨 번호가 존재하지않습니다.")
 }
