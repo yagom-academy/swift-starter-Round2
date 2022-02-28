@@ -13,6 +13,7 @@ func makeLottoNumber() -> Set<Int> {
     while lottoNumber.count < 6 {
         lottoNumber.insert(Int.random(in: 1...45))
     }
+    recordlottoNumber(lottoNumber.sorted())
     return lottoNumber
 } // 6개의 랜덤값을 set 컬렉션에 넣고 리턴하는 함수
 
@@ -31,3 +32,11 @@ func compareLottoNumber(_ myNumber: [Int], with lottoNumber: Set<Int>) {
         print("축하합니다! 겹치는 번호는 \(mergeSameNumber) 입니다.")
     }
 } // 내가 선택한 번호와 당첨 번호를 비교해서 출력해주는 함수
+
+//MARK: - Step3
+func recordlottoNumber(_ lottoNumber: Array<Int>) {
+        lottoDrawCount += 1
+        lottoResults[String(lottoDrawCount) + "회차"] = lottoNumber
+}
+var lottoResults: [String: [Int]] = [:]
+var lottoDrawCount = 0
