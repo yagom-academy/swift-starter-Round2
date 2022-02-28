@@ -8,29 +8,14 @@
 import Foundation
 
 
-var randomLottoNumbers: Set<Int> = Set<Int>()
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var lottoDictionary: [Int: Set<Int>] = [Int: Set<Int>]()
+var lottoNumbers: Set<String> = Set<String>()
+var roundNumber = Int()
 
 func generateLottoNumbers() -> Set<Int> {
-    while randomLottoNumbers.count<6 {
-        let number = Int.random(in: 1...45)
-        randomLottoNumbers.insert(number)
+    var randomLottoNumbers: Set<Int> = Set<Int>()
+    while randomLottoNumbers.count < 6 {
+        randomLottoNumbers.insert(Int.random(in: 1...45))
     }
     return randomLottoNumbers
 }
-
-func checkLottoNumbers() {
-    let matchLottoNumbers: Set<Int> = generateLottoNumbers().intersection(myLottoNumbers)
-    if matchLottoNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        //let lottoNumbers = matchLottoNumbers.map{String($0)}.joined(separator: ", ")
-        var lottoNumbers: Set<String> = Set<String>()
-        for number in matchLottoNumbers {
-            lottoNumbers.insert(String(number))
-        }
-        let totalLottoNumbers: String = lottoNumbers.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(totalLottoNumbers) 입니다!")
-    }
-}
-
