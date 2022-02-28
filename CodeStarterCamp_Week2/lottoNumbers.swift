@@ -25,3 +25,12 @@ func saveRoundAndLottoNumbers(round: Int) {
         lottoDictionary.updateValue(generateLottoNumbers(), forKey: index)
     }
 }
+
+func findRoundAndLottoNumbers(round: Int) {
+    if let lotto = lottoDictionary[round] {
+        for number in lotto {
+            lottoNumbers.insert(String(number))
+        }
+    }
+    roundNumber = round
+}
