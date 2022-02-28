@@ -19,3 +19,9 @@ func generateLottoNumbers() -> Set<Int> {
     }
     return randomLottoNumbers
 }
+
+func saveRoundAndLottoNumbers(round: Int) {
+    for index in 1...round {
+        lottoDictionary.updateValue(generateLottoNumbers(), forKey: index)
+    }
+}
