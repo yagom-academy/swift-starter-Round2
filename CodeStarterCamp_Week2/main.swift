@@ -9,6 +9,8 @@
 import Foundation
 
 
-randomLottoNumbers = generateLottoNumbers()
+printRoundAndLottoNumbers()
 
-checkLottoNumbers()
+for (key, value) in lottoDictionary {
+    print(" \(key): \(value)")
+}
