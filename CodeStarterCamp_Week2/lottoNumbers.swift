@@ -34,3 +34,11 @@ func findRoundAndLottoNumbers(round: Int) {
     }
     roundNumber = round
 }
+
+func printRoundAndLottoNumbers() {
+    saveRoundAndLottoNumbers(round: 5)
+    findRoundAndLottoNumbers(round: 2)
+    
+    let lottoNumbers: String = lottoNumbers.joined(separator: ", ")
+    print("\(roundNumber)회차의 로또 당첨 번호는 \(lottoNumbers) 입니다.")
+}
