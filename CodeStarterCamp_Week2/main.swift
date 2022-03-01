@@ -8,28 +8,28 @@
 
 import Foundation
 
-var lottoNumbers: Set<Int> = Set<Int>()
-
-func makeLottoNumbers() {
-    let random = Int.random(in: 1...45)
-    lottoNumbers.insert(random)
+func makeLottoNumbers() -> Set<Int> {
+    var lottoNumbers: Set<Int> = Set<Int>()
+    while lottoNumbers.count < 6 {
+        let random = Int.random(in: 1...45)
+        lottoNumbers.insert(random)
+    }
+    return lottoNumbers
 }
 
-@discardableResult
-func saveLottoNumbers() -> Set<Int> {
-    while lottoNumbers.count < 6 {
-        makeLottoNumbers()
-    }
+func saveLottoNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
+    makeLottoNumbers()
     return lottoNumbers
 }
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-func checkLottoNumbers() {
+func checkLottoNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
     let winningLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
+    return winningLottoNumbers
 }
 
-func printLottoResult() {
+func printLottoResult(winningLottoNumbers: Set<Int>) {
     if winningLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
@@ -38,10 +38,10 @@ func printLottoResult() {
     }
 }
 
-func playLotto() {
-    saveLottoNumbers()
-    checkLottoNumbers()
-    printLottoResult()
+func playLotto(lottoNumbers: Set<Int>, winningLottoNumbers: Set<Int>) {
+    saveLottoNumbers(lottoNumbers: lottoNumbers)
+    checkLottoNumbers(lottoNumbers: lottoNumbers)
+    printLottoResult(winningLottoNumbers: winningLottoNumbers)
 }
 
-playLotto()
+playLotto(lottoNumbers: , winningLottoNumbers: )
