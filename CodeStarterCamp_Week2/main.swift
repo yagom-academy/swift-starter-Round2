@@ -32,9 +32,8 @@ func printLottoResult(winningLottoNumbers: Set<Int> = checkLottoNumbers()) {
     }
 }
 
-func playLotto(lottoNumbers: Set<Int>, winningLottoNumbers: Set<Int>) {
-    checkLottoNumbers(lottoNumbers: lottoNumbers)
-    printLottoResult(winningLottoNumbers: winningLottoNumbers)
+func playLotto() {
+    printLottoResult(winningLottoNumbers: checkLottoNumbers())
 }
 
-playLotto(lottoNumbers: , winningLottoNumbers: )
+playLotto()
