@@ -17,11 +17,6 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func saveLottoNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
-    makeLottoNumbers()
-    return lottoNumbers
-}
-
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
 func checkLottoNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
@@ -39,7 +34,6 @@ func printLottoResult(winningLottoNumbers: Set<Int>) {
 }
 
 func playLotto(lottoNumbers: Set<Int>, winningLottoNumbers: Set<Int>) {
-    saveLottoNumbers(lottoNumbers: lottoNumbers)
     checkLottoNumbers(lottoNumbers: lottoNumbers)
     printLottoResult(winningLottoNumbers: winningLottoNumbers)
 }
