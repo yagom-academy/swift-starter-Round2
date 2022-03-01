@@ -9,41 +9,45 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func compareNumbers(chooseNumbers: Set<Int>, winningNumbers: Set<Int>) -> Set<Int> {
-    let sameNumbers = chooseNumbers.intersection(winningNumbers)
+func storeLottoRoundAndNumbers(in storage: inout [String: Set<Int>], _ round: Int, _ numbers: Set<Int>) {
     
-    return sameNumbers
+    let roundCount = "\(round)회차"
+    storage[roundCount] = numbers
 }
 
-func changeLiteral(of integerNumbers: Set<Int>) -> Set<String> {
-    var literalNumbers: Set<String> = Set<String>()
+func findLottoNumbers(by round: String, in storage: [String: Set<Int>]) -> Set<Int>? {
+    guard let lottoNumbers = storage[round] else {
+        return nil
+    }
+    
+    return lottoNumbers
+}
+
+func changeLiterals(of integerNumbers: [Int]) -> [String] {
+    var literalNumbers: [String] = []
     
     for number in integerNumbers {
-        literalNumbers.insert(String(number))
+        literalNumbers.append(String(number))
     }
     
     return literalNumbers
 }
 
-func printSameNumbers(_ sameNumbers: Set<String>) {
-    print("축하합니다! 겹치는 번호는 " + sameNumbers.sorted().joined(separator: ", ") + " 입니다!")
-}
-
-func printLottoResult(_ sameNumbers: Set<Int>) {
-    let sameLiteralNumbers = changeLiteral(of: sameNumbers)
-    
-    if sameLiteralNumbers.isEmpty != true {
-        printSameNumbers(sameLiteralNumbers)
-    } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+func printLottoResult(by round: String, in storage: [String: Set<Int>]) {
+    guard let lottoNumbers = findLottoNumbers(by: round, in: storage) else {
+        print("해당 회차에 로또번호가 없습니다!")
+        return
     }
+    
+    let sortedLottoNumbers = lottoNumbers.sorted()
+    let resultLottoNumbers = changeLiterals(of: sortedLottoNumbers).joined(separator: ", ")
+    
+    print(round + "의 로또 당첨 번호는 " + resultLottoNumbers + " 입니다.")
 }
 
+var storageOfLottoRoundAndNumbers: [String: Set<Int>] = [:]
 
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-var winnigLottoNumbers = makeLottoNumbers()
-let sameNumbers = compareNumbers(chooseNumbers: myLottoNumbers, winningNumbers: winnigLottoNumbers)
-printLottoResult(sameNumbers)
-
-
-
+for round in 1...5 {
+storeLottoRoundAndNumbers(in: &storageOfLottoRoundAndNumbers, round, makeLottoNumbers())
+}
+printLottoResult(by: "2회차", in: storageOfLottoRoundAndNumbers)
