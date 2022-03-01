@@ -23,7 +23,7 @@ func checkLottoNumbers(lottoNumbers: Set<Int> = makeLottoNumbers()) -> Set<Int> 
     return winningLottoNumbers
 }
 
-func printLottoResult(winningLottoNumbers: Set<Int>) {
+func printLottoResult(winningLottoNumbers: Set<Int> = checkLottoNumbers()) {
     if winningLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
