@@ -17,9 +17,8 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-
 func checkLottoNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
+    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
     let winningLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
     return winningLottoNumbers
 }
