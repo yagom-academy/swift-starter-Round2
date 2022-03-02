@@ -25,17 +25,19 @@ func chooseAllNumbers() {
     lottoNumbers = chooseNumbers()
 }
 
-
-func compareNumbers() -> Set<Int> {
+func compare(mine: Set<Int>, thisWeek: Set<Int>) -> Set<Int> {
     let intersection: Set<Int> = myLottoNumbers.intersection(lottoNumbers)
     return intersection
 }
 
-switch compareNumbers().count {
-case 0:
-    print("아쉽지만 겹치는 번호가 없습니다.")
-case 1...6:
-    print("축하합니다! 겹치는 번호는 \(compareNumbers) 입니다!")
-default:
-    print("unknown")
+func confirmTheWin(mine: Set<Int>, thisWeek: Set<Int>) {
+    switch compare(mine: mine, thisWeek: thisWeek).isEmpty {
+    case true:
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    case false:
+        print("축하합니다! 겹치는 번호는 \(compare(mine: mine, thisWeek: thisWeek)) 입니다!")
+    }
 }
+
+chooseAllNumbers()
+confirmTheWin(mine: myLottoNumbers, thisWeek: lottoNumbers)
