@@ -11,19 +11,13 @@ import Foundation
 var myLottoNumbers: [Int] = []
 var lottoNumbers: [Int] = []
 
-func chooseNumbers() {
-    while lottoNumbers.count < 6 {
-        var randomNumber: Int = Int.random(in: 1...45)
-        if !lottoNumbers.contains(randomNumber) {
-            lottoNumbers.append(randomNumber)
-        }
+func chooseNumbers() -> Set<Int> {
+    var randomSixNumbers: Set<Int> = Set<Int>()
+    while randomSixNumbers.count < 6 {
+        let randomNumber: Int = Int.random(in: 1...45)
+        randomSixNumbers.insert(randomNumber)
     }
-    while myLottoNumbers.count < 6 {
-        var randomNumber: Int = Int.random(in: 1...45)
-        if !myLottoNumbers.contains(randomNumber) {
-            myLottoNumbers.append(randomNumber)
-        }
-    }
+    return randomSixNumbers
 }
 
 var correctNumbers: Set<Int> = Set<Int>()
