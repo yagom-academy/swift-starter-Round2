@@ -8,8 +8,8 @@
 
 import Foundation
 
-var myLottoNumbers: [Int] = []
-var lottoNumbers: [Int] = []
+var myLottoNumbers: Set<Int> = Set<Int>()
+var lottoNumbers: Set<Int> = Set<Int>()
 
 func chooseNumbers() -> Set<Int> {
     var randomSixNumbers: Set<Int> = Set<Int>()
@@ -18,6 +18,11 @@ func chooseNumbers() -> Set<Int> {
         randomSixNumbers.insert(randomNumber)
     }
     return randomSixNumbers
+}
+
+func chooseAllNumbers() {
+    myLottoNumbers = chooseNumbers()
+    lottoNumbers = chooseNumbers()
 }
 
 var correctNumbers: Set<Int> = Set<Int>()
@@ -30,8 +35,6 @@ func compareNumbers() {
     }
 }
 
-chooseNumbers()
-compareNumbers()
 switch correctNumbers.count {
 case 0:
     print("아쉽지만 겹치는 번호가 없습니다.")
