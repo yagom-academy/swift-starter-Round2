@@ -30,12 +30,20 @@ func compare(mine: Set<Int>, thisWeek: Set<Int>) -> Set<Int> {
     return intersection
 }
 
+func separateNumbers(mine: Set<Int>, thisWeek: Set<Int>) {
+    for compare in compare(mine: mine, thisWeek: thisWeek) {
+        print(compare, terminator: " ")
+    }
+}
+
 func confirmTheWin(mine: Set<Int>, thisWeek: Set<Int>) {
     switch compare(mine: mine, thisWeek: thisWeek).isEmpty {
     case true:
         print("아쉽지만 겹치는 번호가 없습니다.")
     case false:
-        print("축하합니다! 겹치는 번호는 \(compare(mine: mine, thisWeek: thisWeek)) 입니다!")
+        print("축하합니다! 겹치는 번호는", terminator: " ")
+        separateNumbers(mine: mine, thisWeek: thisWeek)
+        print("입니다!")
     }
 }
 
