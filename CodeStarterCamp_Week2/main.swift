@@ -17,7 +17,7 @@ func makeLottoNumbers() -> Set<Int> {
         let random = Int.random(in: 1...45)
         lottoNumbers.insert(random)
     }
-    print("\(lottoNumbers) 이건로또넘버")
+    //print("\(lottoNumbers) 이건로또넘버")
     lottoCount = lottoCount + 1
     lottoNumbersList["\(lottoCount)회차"] = lottoNumbers
     return lottoNumbers
@@ -27,8 +27,8 @@ func checkLottoNumbers() -> Set<Int> {
     let lottoNumbers = makeLottoNumbers()
     let myLottoNumbers = [23, 15, 25, 42, 5, 37]
     let winningLottoNumbers = lottoNumbers.intersection(myLottoNumbers)
-    print("\(myLottoNumbers) 이건마이넘버")
-    print("\(winningLottoNumbers) 이건 같은숫자")
+    //print("\(myLottoNumbers) 이건마이넘버")
+    //print("\(winningLottoNumbers) 이건 같은숫자")
     return winningLottoNumbers
 }
 
