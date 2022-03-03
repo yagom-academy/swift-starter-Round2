@@ -1,4 +1,13 @@
+//
+//  main.swift
+//  CodeStarterCamp_Week2
+//
+//  Created by yagom.
+//  Copyright © yagom academy. All rights reserved.
+//
+
 import Foundation
+
 var lotterySet: Set<Int> = Set<Int>()
 func makeLotterySet(){
     repeat {
