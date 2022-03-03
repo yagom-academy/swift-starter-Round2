@@ -18,7 +18,14 @@ func makeLotterySet(){
 makeLotterySet()
 print(lotterySet)
 
-let myLottoNumbers: [Int] = [3, 5, 11, 14, 20, 26]
+var myLottoNumbers: Set<Int> = Set<Int>()
+func makeMyAutoLottoNumbers(){
+    repeat {
+        let randomInt = Int.random(in: 1...45)
+        myLottoNumbers.insert(randomInt)
+    } while myLottoNumbers.count < 6
+}
+makeMyAutoLottoNumbers()
 print(myLottoNumbers)
 
 let intersection: Set<Int> = lotterySet.intersection(myLottoNumbers)
