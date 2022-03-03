@@ -1,12 +1,10 @@
-//
-//  main.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
-//
-
 import Foundation
-
-print("Hello, World!")
-
+var lotterySet: Set<Int> = Set<Int>()
+func makeLotterySet(){
+    repeat {
+        let randomInt = Int.random(in: 1...45)
+        lotterySet.insert(randomInt)
+    } while lotterySet.count < 6
+}
+makeLotterySet()
+print(lotterySet)
