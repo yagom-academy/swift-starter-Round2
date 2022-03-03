@@ -26,7 +26,10 @@ func compareNumbers() {
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다")
     } else {
-        print("축하합니다! 겹치는 번호는 \(sameNumbers)입니다!")
+	// 집합안의 값이 1개 이상일 떄, index의첫 값 바로 뒤에 오게 하려면 어떻게 해야 할까요? 
+        for index in sameNumbers {
+            print("축하합니다! 겹치는 번호는 \(index)입니다!")
+        }
     }
     
 }
