@@ -10,8 +10,6 @@ import Foundation
 
 let myNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 var historyLotto = [String: Set<Int>]()
-var round: Int = historyLotto.count
-var roundString = historyLotto["\(round)"]
 
 func makeLottoNumbers() -> Set<Int> {
     var sixLottoNumbers = Set<Int>()
@@ -19,12 +17,14 @@ func makeLottoNumbers() -> Set<Int> {
     while sixLottoNumbers.count < 6 {
         sixLottoNumbers.insert(Int.random(in: 1...45))
     }
+    
+    var round = historyLotto.count
+    round += 1
+    historyLotto["\(round)회차"] = sixLottoNumbers
+    
     return sixLottoNumbers
 }
 
-func lottoNumberSaved(count: Int) {
-    historyLotto["\(count)회차"] = makeLottoNumbers()
-}
 
 func quantityOFLotto(quantity: Int) {
     for count in 1...quantity {
@@ -58,13 +58,13 @@ func showResultLotto(overlapNumbers: Set<Int>) {
 }
 
 func buyLotto() {
-    round += 1
     let lottoNumbers = makeLottoNumbers()
     let overlapNumbers = resultLottoNumbers(lottoNumbers: lottoNumbers)
-    historyLotto["\(round)회차"] = lottoNumbers
+    historyLotto["\(historyLotto.count)회차"] = lottoNumbers
     showResultLotto(overlapNumbers: overlapNumbers)
     
 }
 
-findLottoNumbers(count: 2)
+makeLottoNumbers()
+lottoNumberSaved(count: 1)
 print(historyLotto)
