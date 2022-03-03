@@ -25,22 +25,6 @@ func makeLottoNumbers() -> Set<Int> {
     return sixLottoNumbers
 }
 
-
-func playLottoGame(quantity: Int) {
-    for _ in 1...quantity {
-        buyLotto()
-    }
-}
-
-func findLottoNumbers(round: Int) {
-    if let lottoData = historyLotto["\(round)회차"] {
-        let printLottoData = lottoData.map { String($0) }.joined(separator: ", ")
-        print("\(round)회차의 로또 당첨 번호는 \(printLottoData) 입니다.")
-    } else {
-        print("No data")
-    }
-}
-
 func resultLottoNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
     var overlapNumbers = Set<Int>()
     overlapNumbers = lottoNumbers.intersection(myNumbers)
@@ -58,7 +42,7 @@ func showResultLotto(overlapNumbers: Set<Int>) {
     }
 }
 
-func buyLotto() {
+func generateLottoResult() {
     let lottoNumbers = makeLottoNumbers()
     let overlapNumbers = resultLottoNumbers(lottoNumbers: lottoNumbers)
     historyLotto["\(historyLotto.count)회차"] = lottoNumbers
@@ -66,6 +50,22 @@ func buyLotto() {
     
 }
 
-makeLottoNumbers()
-lottoNumberSaved(count: 1)
+func findLottoNumbers(round: Int) {
+    if let lottoData = historyLotto["\(round)회차"] {
+        let printLottoData = lottoData.map { String($0) }.joined(separator: ", ")
+        print("\(round)회차의 로또 당첨 번호는 \(printLottoData) 입니다.")
+    } else {
+        print("No data")
+    }
+}
+
+func playLottoGame(quantity: Int) {
+    for _ in 1...quantity {
+        generateLottoResult()
+    }
+}
+
+playLottoGame(quantity: 5)
+playLottoGame(quantity: 5)
+findLottoNumbers(round: 7)
 print(historyLotto)
