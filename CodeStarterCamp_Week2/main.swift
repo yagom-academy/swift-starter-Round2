@@ -26,7 +26,7 @@ print(intersection)
 func verifyLottoResult(){
     if intersection.count != 0 {
         print("축하합니다! 겹치는 번호는 \(intersection) 입니다 !")
-    }        else {
+    } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
