@@ -8,16 +8,6 @@ func generateNumber() {
     }
 }
 
-func checkNumber() {
-    let intersection: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
-    if intersection.count == 0 {
-            print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-    else {
-        print("축하합니다! 겹치는 번호는",intersection,terminator: "입니다!\n")
-    }
-}
-
 func storeNumber(count: Int, printCount: Int) {
     lottoDictionary["\(count)회차"] = lottoNumbers
     if printCount == count {
