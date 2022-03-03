@@ -17,9 +17,9 @@ func storeNumber(count: Int, printCount: Int) {
     }
 }
 
-func operateFunction() {
+func operateFunction(lottoCount: Int) {
     var count: Int = 0
-    for _ in 1...6 {
+    for _ in 1...lottoCount {
         count += 1
         generateNumber()
         storeNumber(count: count, printCount: 2)
@@ -29,4 +29,4 @@ func operateFunction() {
 var lottoNumbers: Set<Int> = Set<Int>()
 let myLottoNumbers: [Int] = [12,24,32,41,5,16]
 var lottoDictionary: Dictionary<String, Set<Int>> = [String: Set<Int>]()
-operateFunction()
+operateFunction(lottoCount: 6)
