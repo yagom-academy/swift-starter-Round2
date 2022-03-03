@@ -6,7 +6,7 @@ func generateNumber() -> Set<Int> {
         let randomNumber = Int.random(in: 1...45)
             lottoNumbers.insert(randomNumber)
     }
-    returb lottoNumbers
+    return lottoNumbers
 }
 
 func storeNumber(count: Int, printCount: Int) {
