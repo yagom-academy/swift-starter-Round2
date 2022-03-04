@@ -6,4 +6,6 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-checkLottoNumber(drawLotto: 5, checkRound: 2)
+
+drawLotto(number: 5) // 5번 로또추첨
+checkLottoNumber(checkRound: 2) // 2화차 번호 확인
