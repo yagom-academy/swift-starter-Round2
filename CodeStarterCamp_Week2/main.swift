@@ -6,5 +6,6 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-let myNumber: [Int] = [14, 25, 12, 15, 2, 6] // 내가 선택한 6개의 당첨번호
-compareLottoNumber(myNumber, with: makeLottoNumber()) //로또 추첨
+
+drawLotto(number: 5) // 5번 로또추첨
+checkLottoNumber(checkRound: 2) // 2화차 번호 확인
