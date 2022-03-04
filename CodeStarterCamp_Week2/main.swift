@@ -49,15 +49,14 @@ playLotto()
 playLotto()
 playLotto()
 
-//func printLottoNumbersList(lottoCount: Int) {
-//    if let list = lottoNumbersList["\(lottoCount)회차"] {
-//        //let arrayList = [Int](list).sorted().map{String($0)}
-//        print("\(lottoCount)회차의 로또 당첨 번호는 \(list) 입니다.")
-//    }
-//    else {
-//        print("\(lottoCount)회차는 아직 추첨하지 않았습니다.")
-//    }
-//}
-//
-//printLottoNumbersList(lottoCount: 2)
-//printLottoNumbersList(lottoCount: 7)
+func printLottoNumbersList(lottoCount: Int) {
+    guard let list = lottoNumbersList["\(lottoCount)회차"] else {
+        print("\(lottoCount)회차는 아직 추첨하지 않았습니다.")
+        return
+    }
+    let arrayList = [Int](list).sorted().map{String($0)}
+    print("\(lottoCount)회차의 로또 당첨 번호는 \(arrayList.joined(separator: ", ")) 입니다.")
+}
+
+printLottoNumbersList(lottoCount: 2)
+printLottoNumbersList(lottoCount: 7)
