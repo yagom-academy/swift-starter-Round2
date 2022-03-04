@@ -31,13 +31,12 @@ func checkLottoNumbers() -> Set<Int> {
 
 func printLottoResult() {
     let winningLottoNumbers = checkLottoNumbers()
-    if winningLottoNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-    else {
+    guard winningLottoNumbers.isEmpty else {
         let arrayNumbers = [Int](winningLottoNumbers).sorted().map{String($0)}
-        print("축하합니다! 겹치는 번호는 \(arrayNumbers.joined(separator: ", ")) 입니다!")
+        print("축하합니다! 일치하는 번호는 \(arrayNumbers.joined(separator: ", ")) 입니다!")
+        return
     }
+    print("아쉽지만 일치하는 번호가 없습니다.")
 }
 
 func playLotto() {
@@ -50,4 +49,15 @@ playLotto()
 playLotto()
 playLotto()
 
-print(lottoNumbersList["\(2)회차"])
+//func printLottoNumbersList(lottoCount: Int) {
+//    if let list = lottoNumbersList["\(lottoCount)회차"] {
+//        //let arrayList = [Int](list).sorted().map{String($0)}
+//        print("\(lottoCount)회차의 로또 당첨 번호는 \(list) 입니다.")
+//    }
+//    else {
+//        print("\(lottoCount)회차는 아직 추첨하지 않았습니다.")
+//    }
+//}
+//
+//printLottoNumbersList(lottoCount: 2)
+//printLottoNumbersList(lottoCount: 7)
