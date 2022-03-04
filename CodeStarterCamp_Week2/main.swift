@@ -9,11 +9,11 @@
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var resultLottoNumbers: [String] = []
 
-func lottoPrinter() -> Array<Int> {
+func returnGeneratorLotteNumber() -> Array<Int> {
 
-    var randomNumbers: [Int : Int] = [:]
+    var randomNumbers: [Int: Int] = [:]
     var randomLottoNumbers: [Int] = []
-    for numbers in 1...45{
+    for numbers in 1...45 {
         randomNumbers[numbers] = numbers
     }
 
@@ -22,25 +22,28 @@ func lottoPrinter() -> Array<Int> {
         if let lottoNumber = lottoNumber {
             randomLottoNumbers.append(lottoNumber.key)
             randomNumbers.removeValue(forKey: lottoNumber.key)
-        }else {
+        } else {
             print("error")
         }
     }
     return randomLottoNumbers
 }
 
-let lottoWinningNumbers: [Int] = lottoPrinter()
-for myLottoNumber in myLottoNumbers {
-    let checkLottoNumber = lottoWinningNumbers.contains(myLottoNumber)
-    if checkLottoNumber == true {
-        resultLottoNumbers.append(String(myLottoNumber))
+func checkOverlappingNumbers(_ overlappingNumber: Array<Int>) {
+    let lottoWinningNumbers: [Int] = overlappingNumber
+    for myLottoNumber in myLottoNumbers {
+        let checkLottoNumber = lottoWinningNumbers.contains(myLottoNumber)
+        if checkLottoNumber == true {
+            resultLottoNumbers.append(String(myLottoNumber))
+        }
     }
 }
 
+checkOverlappingNumbers(returnGeneratorLotteNumber())
 
 if resultLottoNumbers.isEmpty {
     print("아쉽지만 겹치는 번호가 없습니다.")
-}else {
+} else {
     let printNumbers = resultLottoNumbers.joined(separator: ", ")
     print("축하합니다! 겹치는 번호는 \(printNumbers) 입니다!")
 }
