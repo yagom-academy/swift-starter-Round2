@@ -11,7 +11,7 @@ import Foundation
 var myLottoNumbers: Set<Int> = Set<Int>()
 var lottoNumbers: Set<Int> = Set<Int>()
 
-func chooseNumbers() -> Set<Int> {
+func makeLottoNumbers() -> Set<Int> {
     var randomSixNumbers: Set<Int> = Set<Int>()
     while randomSixNumbers.count < 6 {
         let randomNumber: Int = Int.random(in: 1...45)
@@ -21,8 +21,8 @@ func chooseNumbers() -> Set<Int> {
 }
 
 func chooseAllNumbers() {
-    myLottoNumbers = chooseNumbers()
-    lottoNumbers = chooseNumbers()
+    myLottoNumbers = makeLottoNumbers()
+    lottoNumbers = makeLottoNumbers()
 }
 
 func compare(mine: Set<Int>, thisWeek: Set<Int>) -> Set<Int> {
@@ -30,7 +30,7 @@ func compare(mine: Set<Int>, thisWeek: Set<Int>) -> Set<Int> {
     return intersection
 }
 
-func separateNumbers(mine: Set<Int>, thisWeek: Set<Int>) {
+func showSeparatedNumbers(mine: Set<Int>, thisWeek: Set<Int>) {
     for compare in compare(mine: mine, thisWeek: thisWeek) {
         print(compare, terminator: " ")
     }
