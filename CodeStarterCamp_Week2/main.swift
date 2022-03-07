@@ -62,3 +62,15 @@ func generateLottoNumbersFiveTimes(mine: Set<Int>, thieWeek: Set<Int>) {
         lottoIndicator[round] = lottoNumbers
     }
 }
+
+func showSecondRound() {
+    var secondRound: [Int: Set<Int>]? = nil
+    if let secondRound = lottoIndicator[2] {
+        print("2회차의 로또 당첨 번호는", terminator: " ")
+        removeBrackets(of: lottoNumbers)
+        print("입니다.")
+    }
+}
+
+generateLottoNumbersFiveTimes(mine: myLottoNumbers, thieWeek: lottoNumbers)
+showSecondRound()
