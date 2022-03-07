@@ -48,9 +48,17 @@ func confirmTheWin(mine: Set<Int>, thisWeek: Set<Int>) {
 }
 
 var round: Int = 0
+var lottoIndicator: [Int: Set<Int>] = [:]
 
 func generateLottoNumbers(mine: Set<Int>, thisWeek: Set<Int>) {
     chooseAllNumbers()
     confirmTheWin(mine: mine, thisWeek: thisWeek)
     round = round + 1
+}
+
+func generateLottoNumbersFiveTimes(mine: Set<Int>, thieWeek: Set<Int>) {
+    for _ in 1...5 {
+        generateLottoNumbers(mine: mine, thisWeek: thieWeek)
+        lottoIndicator[round] = lottoNumbers
+    }
 }
