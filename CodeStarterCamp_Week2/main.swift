@@ -1,33 +1,29 @@
-//
-//  main.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
-//
-
 import Foundation
 
-func generateNumber(){
+func generateNumber() -> Set<Int> {
+    var lottoNumbers: Set<Int> = Set<Int>()
     while lottoNumbers.count < 6 {
         let randomNumber = Int.random(in: 1...45)
             lottoNumbers.insert(randomNumber)
     }
+    return lottoNumbers
 }
 
-func checkNumber(){
-    let intersection: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
-    if intersection.count == 0 {
-            print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-    else {
-        print("축하합니다! 겹치는 번호는",intersection,terminator: "입니다!\n")
+func storeNumber(count: Int, printCount: Int) {
+    lottoDictionary["\(count+1)회차"] = lottoNumbers
+    if printCount == count+1 {
+        if let lotto = lottoDictionary["\(printCount)회차"] {
+            print("\(printCount)회차의 로또 당첨 번호는",lotto,terminator: "입니다.\n")
+        }
     }
 }
 
-var lottoNumbers: Set<Int> = Set<Int>()
-generateNumber()
-print("<당첨번호>\n", lottoNumbers)
+func operateFunction(lottoCount: Int) {
+    for count in 0...lottoCount-1 {
+        storeNumber(count: count, printCount: 2)
+    }
+}
+
 let myLottoNumbers: [Int] = [12,24,32,41,5,16]
-checkNumber()
-
+var lottoDictionary: Dictionary<String, Set<Int>> = [String: Set<Int>]()
+operateFunction(lottoCount: 6)
