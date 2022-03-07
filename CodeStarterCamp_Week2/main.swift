@@ -30,9 +30,9 @@ func compare(mine: Set<Int>, thisWeek: Set<Int>) -> Set<Int> {
     return intersection
 }
 
-func removeBrackets(mine: Set<Int>, thisWeek: Set<Int>) {
-    for compare in compare(mine: mine, thisWeek: thisWeek) {
-        print(compare, terminator: " ")
+func removeBrackets(of someSet: Set<Int>) {
+    for someSet in someSet {
+        print(someSet, terminator: " ")
     }
 }
 
@@ -42,7 +42,7 @@ func confirmTheWin(mine: Set<Int>, thisWeek: Set<Int>) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     case false:
         print("축하합니다! 겹치는 번호는", terminator: " ")
-        removeBrackets(mine: mine, thisWeek: thisWeek)
+        removeBrackets(of: compare(mine: mine, thisWeek: thisWeek))
         print("입니다!")
     }
 }
