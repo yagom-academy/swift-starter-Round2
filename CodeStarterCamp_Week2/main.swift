@@ -47,5 +47,10 @@ func confirmTheWin(mine: Set<Int>, thisWeek: Set<Int>) {
     }
 }
 
-chooseAllNumbers()
-confirmTheWin(mine: myLottoNumbers, thisWeek: lottoNumbers)
+var round: Int = 0
+
+func generateLottoNumbers(mine: Set<Int>, thisWeek: Set<Int>) {
+    chooseAllNumbers()
+    confirmTheWin(mine: mine, thisWeek: thisWeek)
+    round = round + 1
+}
