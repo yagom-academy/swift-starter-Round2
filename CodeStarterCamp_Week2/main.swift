@@ -53,12 +53,12 @@ var lottoIndicator: [Int: Set<Int>] = [:]
 func generateLottoNumbers(mine: Set<Int>, thisWeek: Set<Int>) {
     chooseAllNumbers()
     confirmTheWin(mine: mine, thisWeek: thisWeek)
-    round = round + 1
+    round += 1
 }
 
-func generateLottoNumbersFiveTimes(mine: Set<Int>, thieWeek: Set<Int>) {
+func generateLottoNumbersFiveTimes(mine: Set<Int>, thisWeek: Set<Int>) {
     for _ in 1...5 {
-        generateLottoNumbers(mine: mine, thisWeek: thieWeek)
+        generateLottoNumbers(mine: mine, thisWeek: thisWeek)
         lottoIndicator[round] = lottoNumbers
     }
 }
@@ -72,5 +72,5 @@ func showSecondRound() {
     }
 }
 
-generateLottoNumbersFiveTimes(mine: myLottoNumbers, thieWeek: lottoNumbers)
+generateLottoNumbersFiveTimes(mine: myLottoNumbers, thisWeek: lottoNumbers)
 showSecondRound()
