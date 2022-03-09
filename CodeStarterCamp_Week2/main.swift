@@ -30,7 +30,7 @@ func compare(mine: Set<Int>, thisWeek: Set<Int>) -> Set<Int> {
     return intersection
 }
 
-func removeBrackets(of someSet: Set<Int>) {
+func printNumbersWithoutBrackets(of someSet: Set<Int>) {
     for someSet in someSet {
         print(someSet, terminator: " ")
     }
@@ -42,7 +42,7 @@ func confirmTheWin(mine: Set<Int>, thisWeek: Set<Int>) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     case false:
         print("축하합니다! 겹치는 번호는", terminator: " ")
-        removeBrackets(of: compare(mine: mine, thisWeek: thisWeek))
+        printNumbersWithoutBrackets(of: compare(mine: mine, thisWeek: thisWeek))
         print("입니다!")
     }
 }
@@ -67,7 +67,7 @@ func showSecondRound() {
     var secondRound: [Int: Set<Int>]? = nil
     if let secondRound = lottoIndicator[2] {
         print("2회차의 로또 당첨 번호는", terminator: " ")
-        removeBrackets(of: lottoNumbers)
+        printNumbersWithoutBrackets(of: lottoNumbers)
         print("입니다.")
     }
 }
