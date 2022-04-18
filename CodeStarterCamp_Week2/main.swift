@@ -1,12 +1,18 @@
-//
-//  main.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
-//
-
 import Foundation
 
-print("Hello, World!")
+func lottoNumberGenerator () -> [Int] {
+    var numbers: [Int] = []
+    
+    
+    while numbers.count < 6 {
+        let number = Int.random(in: 1...45)
+        print("\(number)")
+        if numbers.contains(number) == false {
+            numbers.append(number)
+        }
+    }
+    
+    return numbers
+}
 
+//print(lottoNumberGenerator())
