@@ -8,4 +8,33 @@
 
 import Foundation
 
+let lottoCountLimit = 6
+let lottoNumberLimit = 45
+let lottoNumberRange = 1...lottoNumberLimit
 
+func randomNumberGenerator() -> Int{
+    return Int.random(in: lottoNumberRange)
+}
+
+func lottoGenerator() -> [Int]{
+    var index = 0
+    var lotto: [Int] = [Int](repeating: 0, count: lottoCountLimit)
+    var isUseNumber: [Bool] = [Bool](repeating: false, count: lottoNumberLimit)
+    
+    while index < lottoCountLimit {
+        let generatedNumber = randomNumberGenerator()
+        if isUseNumber[generatedNumber] == false {
+            isUseNumber[generatedNumber] = true
+            lotto[index] = generatedNumber
+            index += 1
+        }
+    }
+    
+    return lotto
+}
+
+func main() {
+    let lotto = lottoGenerator()
+}
+
+main()
