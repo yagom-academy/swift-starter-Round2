@@ -1,19 +1,13 @@
 import Foundation
 
-func lottoNumberGenerator() -> [Int] {
-    var numbers: [Int] = []
-    
-    while numbers.count < 6 {
-        let number = Int.random(in: 1...45)
-        if numbers.contains(number) == false {
-            numbers.append(number)
-        }
-    }
-    //print(numbers)
-    return numbers
+func generateLottoNumber() -> [Int] {
+    let shuffledNumbers: [Int] = (1...45).shuffled()
+    let lottoNumber: [Int] = Array(shuffledNumbers[0...5])
+        
+    return lottoNumber
 }
 
-func lottoNumberChecker(compare lottoNumber: [Int], with myLottoNumber: [Int]) {
+func checkLottoNumber(compare lottoNumber: [Int], with myLottoNumber: [Int]) {
     var hitNumbers: [String] = []
     
     for number in myLottoNumber {
@@ -26,17 +20,15 @@ func lottoNumberChecker(compare lottoNumber: [Int], with myLottoNumber: [Int]) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
     else {
-        print("축하합니다! 겹치는 번호는 \(hitNumbers.joined(separator: " ,")) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(hitNumbers.joined(separator: ", ")) 입니다!")
     }
-
             
 }
 
-let lottoNumber = lottoNumberGenerator()
-let myLottoNumber: [Int] = [1, 2, 3, 4, 5, 6]
 
-lottoNumberChecker(compare: lottoNumber, with: myLottoNumber)
+print(generateLottoNumber())
 
-
-
-
+//let lottoNumber = generateLottoNumber()
+//let myLottoNumber: [Int] = [1, 2, 3, 4, 5, 6]
+//
+//checkLottoNumber(compare: lottoNumber, with: myLottoNumber)
