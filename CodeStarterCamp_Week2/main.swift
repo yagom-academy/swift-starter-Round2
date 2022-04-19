@@ -15,3 +15,22 @@ let lottoNumberRange = 1...lottoNumberLimit
 func generateRandomNumber() -> Int{
     return Int.random(in: lottoNumberRange)
 }
+
+func generateLotto() -> [Int]{
+    var index = 0
+    var lotto: [Int] = [Int](repeating: 0, count: lottoCountLimit)
+    var isUseNumber: [Bool] = [Bool](repeating: false, count: lottoNumberLimit)
+
+    while index < lottoCountLimit {
+        let generatedNumber = generateRandomNumber()
+        if isUseNumber[generatedNumber] == false {
+            isUseNumber[generatedNumber] = true
+            lotto[index] = generatedNumber
+            index += 1
+        }
+    }
+
+    return lotto
+}
+
+
