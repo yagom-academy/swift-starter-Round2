@@ -8,12 +8,12 @@
 
 import Foundation
 
-func createLotteryNumbers() -> Array<Int> {
-    var lotteryNumbers: Set<Int> = Set<Int>()
-    while lotteryNumbers.count < 6 {
-        lotteryNumbers.insert(Int.random(in: 1...45))
+func createWinningLotteryNumbers() -> Array<Int> {
+    var winninglotteryNumbers: Set<Int> = Set<Int>()
+    while winninglotteryNumbers.count < 6 {
+        winninglotteryNumbers.insert(Int.random(in: 1...45))
     }
-    return lotteryNumbers.sorted()
+    return winninglotteryNumbers.sorted()
 }
 
 func checkLotteryNumbers(on winningLotteryNumbers: Array<Int>, at myLotteryNumbers: Array<Int>) -> Array<Int> {
@@ -33,6 +33,6 @@ func getWinningMessage(on myWinningLotteryNumbers: [Int]) -> String {
 }
 
 let myLotteryNumbers: [Int] = [3, 5, 7, 11, 18, 27]
-let winningLotteryNumbers = createLotteryNumbers()
+let winningLotteryNumbers = createWinningLotteryNumbers()
 let myWinningLotteryNumbers = checkLotteryNumbers(on: winningLotteryNumbers, at: myLotteryNumbers)
 print(getWinningMessage(on: myWinningLotteryNumbers))
