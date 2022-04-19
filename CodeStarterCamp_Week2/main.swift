@@ -31,7 +31,6 @@ func confirmLottoNumbers(_ myLottoNumbers:[Int], _ createdLottoNumbers:[Int]) ->
     } else {
         return "아쉽지만 겹치는 번호가 없습니다."
     }
-
 }
 
 let myLottoNumbers: [Int] = [1,2,3,4,5,6]
