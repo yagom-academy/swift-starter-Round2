@@ -47,3 +47,20 @@ func getWinningNumbers() -> [Int] {
     
     return winningNumbers
 }
+
+func getMyLottoResult() -> String {
+    let winningNumbers = getWinningNumbers()
+    
+    if winningNumbers.count == 0 {
+        return "아쉽지만 겹치는 번호가 없습니다."
+    }
+    let result = winningNumbers
+                .map { number in
+                    String(number)
+                }
+                .joined(separator: ", ")
+    
+    return "축하합니다! 겹치는 번호는 \(result) 입니다!"
+}
+
+print(getMyLottoResult())
