@@ -8,5 +8,10 @@
 
 import Foundation
 
-print("Hello, World!")
+let lottoCountLimit = 6
+let lottoNumberLimit = 45
+let lottoNumberRange = 1...lottoNumberLimit
 
+func generateRandomNumber() -> Int{
+    return Int.random(in: lottoNumberRange)
+}
