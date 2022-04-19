@@ -9,11 +9,11 @@
 import Foundation
 
 func createWinningLotteryNumbers() -> Array<Int> {
-    var winninglotteryNumbers: Set<Int> = Set<Int>()
-    while winninglotteryNumbers.count < 6 {
-        winninglotteryNumbers.insert(Int.random(in: 1...45))
+    var winningLotteryNumbers: Set<Int> = Set<Int>()
+    while winningLotteryNumbers.count < 6 {
+        winningLotteryNumbers.insert(Int.random(in: 1...45))
     }
-    return winninglotteryNumbers.sorted()
+    return winningLotteryNumbers.sorted()
 }
 
 func checkLotteryNumbers(on winningLotteryNumbers: Array<Int>, at myLotteryNumbers: Array<Int>) -> Array<Int> {
