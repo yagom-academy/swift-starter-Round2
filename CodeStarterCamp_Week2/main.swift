@@ -16,4 +16,7 @@ func createLotteryNumber() -> Array<Int> {
     return lotteryNumber.sorted()
 }
 
+let myLotteryNumber = [3, 5, 7, 11, 18, 27]
+
+print(myLotteryNumber)
 print(createLotteryNumber())
