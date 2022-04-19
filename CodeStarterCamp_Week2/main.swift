@@ -26,6 +26,13 @@ func checkLotteryNumbers(on winningLotteryNumbers: Array<Int>, at myLotteryNumbe
     return myWinningLotteryNumbers
 }
 
+func getWinningMessage(on myWinningLotteryNumbers: [Int]) -> String {
+    let winningMessage = "축하합니다! 겹치는 번호는 \(myWinningLotteryNumbers) 입니다!"
+    let losingMessage = "아쉽지만 겹치는 번호가 없습니다."
+    return myWinningLotteryNumbers.isEmpty ? losingMessage : winningMessage
+}
+
 let myLotteryNumbers: [Int] = [3, 5, 7, 11, 18, 27]
 let winningLotteryNumbers = createLotteryNumbers()
 let myWinningLotteryNumbers = checkLotteryNumbers(on: winningLotteryNumbers, at: myLotteryNumbers)
+print(getWinningMessage(on: myWinningLotteryNumbers))
