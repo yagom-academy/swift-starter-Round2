@@ -8,15 +8,24 @@
 
 import Foundation
 
-func createLotteryNumber() -> Array<Int> {
-    var lotteryNumber: Set<Int> = Set<Int>()
-    while lotteryNumber.count < 6 {
-        lotteryNumber.insert(Int.random(in: 1...45))
+func createLotteryNumbers() -> Array<Int> {
+    var lotteryNumbers: Set<Int> = Set<Int>()
+    while lotteryNumbers.count < 6 {
+        lotteryNumbers.insert(Int.random(in: 1...45))
     }
-    return lotteryNumber.sorted()
+    return lotteryNumbers.sorted()
 }
 
-let myLotteryNumber = [3, 5, 7, 11, 18, 27]
+func checkLotteryNumbers(on winningLotteryNumbers: Array<Int>, at myLotteryNumbers: Array<Int>) -> Array<Int> {
+    var myWinningLotteryNumbers = [Int]()
+    for myLotteryNumber in myLotteryNumbers {
+        if winningLotteryNumbers.contains(myLotteryNumber) {
+            myWinningLotteryNumbers.append(myLotteryNumber)
+        }
+    }
+    return myWinningLotteryNumbers
+}
 
-print(myLotteryNumber)
-print(createLotteryNumber())
+let myLotteryNumbers: [Int] = [3, 5, 7, 11, 18, 27]
+let winningLotteryNumbers = createLotteryNumbers()
+let myWinningLotteryNumbers = checkLotteryNumbers(on: winningLotteryNumbers, at: myLotteryNumbers)
