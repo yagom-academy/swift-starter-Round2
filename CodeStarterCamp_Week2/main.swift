@@ -33,4 +33,17 @@ func generateLotto() -> [Int]{
     return lotto
 }
 
+func getWinningNumbers() -> [Int] {
+    let lottoNumbers = generateLotto()
+    let myLottoNumbers = [1, 2, 3, 4, 5, 6]
 
+    var winningNumbers: [Int] = []
+    
+    for number in myLottoNumbers {
+        if lottoNumbers.contains(number) {
+            winningNumbers.append(number)
+        }
+    }
+    
+    return winningNumbers
+}
