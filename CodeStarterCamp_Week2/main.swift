@@ -19,7 +19,7 @@ func generateRandomNumber() -> Int{
 func generateLotto() -> [Int]{
     var index = 0
     var lotto: [Int] = [Int](repeating: 0, count: lottoCountLimit)
-    var isUseNumber: [Bool] = [Bool](repeating: false, count: lottoNumberLimit)
+    var isUseNumber: [Bool] = [Bool](repeating: false, count: lottoNumberLimit + 1)
 
     while index < lottoCountLimit {
         let generatedNumber = generateRandomNumber()
