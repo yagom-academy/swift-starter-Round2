@@ -21,11 +21,34 @@ func createLottoNumbers(_ lottoSize:Int) -> [Int] {
     return lottoNumbers
 }
 
-func confirmLottoNumbers(_ myLottoNumbers:[Int], _ createdLottoNumbers:[Int]) -> String {
-    let winNumbers: [Int] = myLottoNumbers.filter{ createdLottoNumbers.contains($0) }
+func confirmLottoNumbers(myNumbers myLottoNumbers:[Int], lottoNumbers createdLottoNumbers:[Int]) -> String {
+//    고차함수 이용 구현
+//    let winNumbers: [Int] = myLottoNumbers.filter{ createdLottoNumbers.contains($0) }
+//
+//    if winNumbers.count > 0 {
+//        return "축하합니다. 겹치는 번호는 \(winNumbers.map{ String($0) }.joined(separator: ", ")) 입니다"
+//    } else {
+//        return "아쉽지만 겹치는 번호가 없습니다."
+//    }
     
-    if winNumbers.count > 0 {
-        return "축하합니다. 겹치는 번호는 \(winNumbers.map{ String($0) }.joined(separator: ", ")) 입니다"
+    var resultNumbers: [Int] = []
+    
+    for i in myLottoNumbers {
+        if createdLottoNumbers.contains(i) {
+            resultNumbers.append(i)
+        }
+    }
+    
+    if resultNumbers.count > 0 {
+        var resultStr: String = ""
+        for i in resultNumbers {
+            if resultNumbers.first == i  {
+                resultStr.append("\(i)")
+            } else {
+                resultStr.append(", \(i)")
+            }
+        }
+        return "축하합니다. 겹치는 번호는 \(resultStr) 입니다"
     } else {
         return "아쉽지만 겹치는 번호가 없습니다."
     }
@@ -33,5 +56,5 @@ func confirmLottoNumbers(_ myLottoNumbers:[Int], _ createdLottoNumbers:[Int]) ->
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-print(confirmLottoNumbers(myLottoNumbers, createLottoNumbers(6)))
+print(confirmLottoNumbers(myNumbers: myLottoNumbers, lottoNumbers: createLottoNumbers(6)))
 
