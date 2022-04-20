@@ -8,18 +8,15 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var lottoNumbers = Set<Int>()
-
-@discardableResult
 func createLottoNumbers() -> Set<Int> {
+    var lottoNumbers = Set<Int>()
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
     return lottoNumbers
 }
 
-func checkWinning(with lottoNumbers: Set<Int>, and myNumbers: [Int]) {
+func checkWinning(with lottoNumbers: Set<Int>, and myNumbers: [Int]) -> [String] {
     let sortedLottoNumbers = lottoNumbers.sorted()
     var sameNumbers: [String] = []
     
@@ -28,7 +25,10 @@ func checkWinning(with lottoNumbers: Set<Int>, and myNumbers: [Int]) {
             sameNumbers.append(String(lottoNumber))
         }
     }
-    
+    return sameNumbers
+}
+
+func showResult(use sameNumbers: [String]) {
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
@@ -36,5 +36,8 @@ func checkWinning(with lottoNumbers: Set<Int>, and myNumbers: [Int]) {
     }
 }
 
-createLottoNumbers()
-checkWinning(with: lottoNumbers, and: myLottoNumbers)
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let createdLottoNumbers = createLottoNumbers()
+let sameNumbers = checkWinning(with: createdLottoNumbers, and: myLottoNumbers)
+
+showResult(use: sameNumbers)
