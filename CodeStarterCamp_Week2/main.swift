@@ -17,13 +17,13 @@ func generateWinningLottery() -> Array<Int> {
     return sortedWinningLottery
 }
 
-func getLotteryResults(compare winningLottery: Array<Int>, with myLottery: Array<Int>) -> Array<Int> {
+func checkLotteryResults(of winningLottery: Array<Int>, with myLottery: Array<Int>) -> Array<Int> {
     var myLotteryResults = [Int]()
     myLotteryResults = Set(myLottery).intersection(winningLottery).sorted()
     return myLotteryResults
 }
 
-func getWinningMessage(by myLotteryResults: [Int]) -> String {
+func receiveWinningMessage(to myLotteryResults: [Int]) -> String {
     let lotteryNumbersToString = changeIntArrayToString(target: myLotteryResults)
     let winningMessage = "축하합니다! 겹치는 번호는 \(lotteryNumbersToString) 입니다!"
     let losingMessage = "아쉽지만 겹치는 번호가 없습니다."
@@ -44,5 +44,5 @@ func changeIntArrayToString(target array: [Int]) -> String {
 
 let myLottery: [Int] = [3, 5, 7, 11, 18, 27]
 let winningLottery = generateWinningLottery()
-let myLotteryResults = getLotteryResults(compare: winningLottery, with: myLottery)
-print(getWinningMessage(by: myLotteryResults))
+let myLotteryResults = checkLotteryResults(of: winningLottery, with: myLottery)
+print(receiveWinningMessage(to: myLotteryResults))
