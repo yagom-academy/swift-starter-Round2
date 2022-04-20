@@ -19,17 +19,13 @@ func generateWinningLottery() -> Array<Int> {
 
 func getLotteryResults(compare winningLottery: Array<Int>, with myLottery: Array<Int>) -> Array<Int> {
     var myLotteryResults = [Int]()
-    for myLotteryNumber in myLottery {
-        if winningLottery.contains(myLotteryNumber) {
-            myLotteryResults.append(myLotteryNumber)
-        }
-    }
+    myLotteryResults = Set(myLottery).intersection(winningLottery).sorted()
     return myLotteryResults
 }
 
 func getWinningMessage(by myLotteryResults: [Int]) -> String {
-    let arrayToString = changeIntArrayToString(target: myLotteryResults)
-    let winningMessage = "축하합니다! 겹치는 번호는 " + arrayToString + " 입니다!"
+    let lotteryNumbersToString = changeIntArrayToString(target: myLotteryResults)
+    let winningMessage = "축하합니다! 겹치는 번호는 \(lotteryNumbersToString) 입니다!"
     let losingMessage = "아쉽지만 겹치는 번호가 없습니다."
     return myLotteryResults.isEmpty ? losingMessage : winningMessage
 }
