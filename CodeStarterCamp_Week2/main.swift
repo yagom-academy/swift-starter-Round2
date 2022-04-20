@@ -7,16 +7,14 @@
 //
 import Foundation
 
-func createLottoNumbers() -> [Int] {
+func createLottoNumbers(_ lottoSize:Int) -> [Int] {
     var lottoNumbers: [Int] = []
-    var index: Int = 0
 
-    while index < 6 {
-        let randNum: Int = Int(arc4random_uniform(45)) + 1
+    while lottoNumbers.count != lottoSize {
+        let randNumber: Int = Int(arc4random_uniform(45)) + 1
 
-        if lottoNumbers.firstIndex(of: randNum) == nil {
-            lottoNumbers.append(randNum)
-            index = index + 1
+        if lottoNumbers.firstIndex(of: randNumber) == nil {
+            lottoNumbers.append(randNumber)
         }
     }
 
@@ -35,5 +33,5 @@ func confirmLottoNumbers(_ myLottoNumbers:[Int], _ createdLottoNumbers:[Int]) ->
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-print(confirmLottoNumbers(myLottoNumbers, createLottoNumbers()))
+print(confirmLottoNumbers(myLottoNumbers, createLottoNumbers(6)))
 
