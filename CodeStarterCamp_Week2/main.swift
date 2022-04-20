@@ -1,12 +1,14 @@
+
 //
-//  main.swift
+//  lotto6:45.swift
 //  CodeStarterCamp_Week2
 //
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
+//  Created by 수염 on 2022/04/19.
 //
 
 import Foundation
 
-print("Hello, World!")
 
+lottoNumberSix()
+print(intersection)
+winningResult()
