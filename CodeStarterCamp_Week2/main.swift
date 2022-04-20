@@ -33,19 +33,19 @@ func confirmLottoNumbers(myNumbers myLottoNumbers:[Int], lottoNumbers createdLot
     
     var resultNumbers: [Int] = []
     
-    for i in myLottoNumbers {
-        if createdLottoNumbers.contains(i) {
-            resultNumbers.append(i)
+    for value in myLottoNumbers {
+        if createdLottoNumbers.contains(value) {
+            resultNumbers.append(value)
         }
     }
     
     if resultNumbers.count > 0 {
         var resultStr: String = ""
-        for i in resultNumbers {
-            if resultNumbers.first == i  {
-                resultStr.append("\(i)")
+        for value in resultNumbers {
+            if resultNumbers.first == value  {
+                resultStr.append("\(value)")
             } else {
-                resultStr.append(", \(i)")
+                resultStr.append(", \(value)")
             }
         }
         return "축하합니다. 겹치는 번호는 \(resultStr) 입니다"
