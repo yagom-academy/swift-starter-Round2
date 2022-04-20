@@ -13,7 +13,8 @@ func generateWinningLottery() -> Array<Int> {
     while winningLottery.count < 6 {
         winningLottery.insert(Int.random(in: 1...45))
     }
-    return winningLottery.sorted()
+    let sortedWinningLottery = winningLottery.sorted()
+    return sortedWinningLottery
 }
 
 func getLotteryResults(compare winningLottery: Array<Int>, with myLottery: Array<Int>) -> Array<Int> {
