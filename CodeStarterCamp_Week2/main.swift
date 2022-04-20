@@ -24,7 +24,7 @@ func createLottoNumbers() -> [Int] {
 }
 
 func confirmLottoNumbers(_ myLottoNumbers:[Int], _ createdLottoNumbers:[Int]) -> String {
-    let winNumbers: [Int] = myLottoNumbers.filter{createdLottoNumbers.contains($0)}
+    let winNumbers: [Int] = myLottoNumbers.filter{ createdLottoNumbers.contains($0) }
     
     if winNumbers.count > 0 {
         return "축하합니다. 겹치는 번호는 \(winNumbers.map{String($0)}.joined(separator: ", ")) 입니다"
