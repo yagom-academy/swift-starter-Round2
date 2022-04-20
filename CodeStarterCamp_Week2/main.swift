@@ -33,7 +33,7 @@ func confirmLottoNumbers(_ myLottoNumbers:[Int], _ createdLottoNumbers:[Int]) ->
     }
 }
 
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
 print(confirmLottoNumbers(myLottoNumbers, createLottoNumbers()))
 
