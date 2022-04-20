@@ -42,7 +42,7 @@ func getWinningNumbers() -> [Int] {
     return winningNumbers
 }
 
-func getMyLottoResult() -> String {
+func printMyLottoResult() -> String {
     let winningNumbers = getWinningNumbers()
 
     if winningNumbers.count == 0 {
