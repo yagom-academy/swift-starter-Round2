@@ -9,10 +9,8 @@
 import Foundation
 
 
-let number: Set<Int> = Set<Int>(1...45)
+
 var lottoNumber: Set<Int> = Set<Int>()
-
-
 
 func lottoNumberSix() {
     while lottoNumber.count < 6 {
@@ -23,10 +21,7 @@ func lottoNumberSix() {
 
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 let lottoNumber001: Set<Int> = Set<Int>(lottoNumber)
-
 let intersection: Set<Int> = lottoNumber001.intersection(myLottoNumbers)
-
-
 
 func winningResult() {
     if intersection.count >= 1 {
