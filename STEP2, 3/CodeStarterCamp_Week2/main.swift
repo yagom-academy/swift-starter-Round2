@@ -9,7 +9,7 @@
 import Foundation
 
 func generateLottoBox() -> Array<Int> {
-    var lottoBox: Set<Int> = Set<Int>()
+    var lottoBox = Set<Int>()
     
     while lottoBox.count < 6 {
         let randomNum: Int = Int.random(in: 1...45)
@@ -31,5 +31,3 @@ func matchLotto(with lottoBox: () -> Array<Int>) {
         print("축하합니다! 겹치는 번호는 \(winningLottoNumbers) 입니다!")
     }
 }
-
-matchLotto(with: generateLottoBox)
