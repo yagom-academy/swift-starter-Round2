@@ -7,7 +7,7 @@
 //
 import Foundation
 
-func createLottoNumbers(_ lottoSize:Int) -> [Int] {
+func createLottoNumbers(_ lottoSize: Int) -> [Int] {
     var lottoNumbers: [Int] = []
 
     while lottoNumbers.count != lottoSize {
@@ -40,15 +40,15 @@ func confirmLottoNumbers(myNumbers myLottoNumbers:[Int], lottoNumbers createdLot
     }
     
     if resultNumbers.count > 0 {
-        var resultStr: String = ""
+        var resultString: String = ""
         for value in resultNumbers {
             if resultNumbers.first == value  {
-                resultStr.append("\(value)")
+                resultString.append("\(value)")
             } else {
-                resultStr.append(", \(value)")
+                resultString.append(", \(value)")
             }
         }
-        return "축하합니다. 겹치는 번호는 \(resultStr) 입니다"
+        return "축하합니다. 겹치는 번호는 \(resultString) 입니다"
     } else {
         return "아쉽지만 겹치는 번호가 없습니다."
     }
