@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+func getWinningLottoNumberAllRound() -> [String: [Int]] {
+    let lottoRound = 1...5
+    let roundMessage = "회차"
+    
+    var winningNumberAllRound: [String: [Int]] = [:]
+    
+    for round in lottoRound {
+        let NthRoundMessage = "\(round)" + roundMessage
+        winningNumberAllRound[NthRoundMessage] = generateLotto()
+    }
+    
+    return winningNumberAllRound
+}
