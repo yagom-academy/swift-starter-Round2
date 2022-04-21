@@ -23,30 +23,21 @@ func pickRandomNumber(in endNum: Int) -> Int {
 }
 
 func checkMyLottoNumbers(from myNumbers: Array<Int>, to winNumbers: Set<Int>) {
-    var hittedNumbers: Array<Int> = []
+    let hittedNumbers = getIntersection(of: myNumbers, and: winNumbers)
+    printWinningComent(array: hittedNumbers)
+}
 
-    for number in myNumbers {
-        if winNumbers.contains(number) {
-            hittedNumbers.append(number)
-        }
-    }
+func getIntersection(of myNumbers: Array<Int>, and winNumbers: Set<Int>) -> Array<String> {
+    return winNumbers.intersection(myNumbers).map { String($0) }.sorted(by: <)
+}
 
-    if hittedNumbers.count != 0 {
-        var hitNumsStr = ""
-
-        for number in hittedNumbers {
-            let separator = ", "
-
-            hitNumsStr += "\(number)"
-            if number != hittedNumbers.last {
-                hitNumsStr += separator
-            }
-        }
-
-        print("축하합니다! 겹치는 번호는",hitNumsStr,"입니다!")
+func printWinningComent(array hittedNumbers: Array<String>) {
+    if hittedNumbers.isEmpty {
+        print("아쉽지만 겹치는 번호가 없습니다.")
     }
     else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+        let hittedNumsStr = hittedNumbers.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(hittedNumsStr) 입니다!")
     }
 }
 
