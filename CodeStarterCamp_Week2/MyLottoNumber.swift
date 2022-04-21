@@ -7,12 +7,12 @@
 
 import Foundation
 
-let lottoCountLimit = 6
-let lottoNumberLimit = 45
-let lottoNumberRange = 1...lottoNumberLimit
-let lottoNumberSet = [Int](1...45)
-
 func generateLotto() -> [Int]{
+    let lottoCountLimit = 6
+    let lottoNumberLimit = 45
+    let lottoNumberRange = 1...lottoNumberLimit
+    let lottoNumberSet = [Int](lottoNumberRange)
+    
     var index = 0
     var lotto: [Int] = [Int](repeating: 0, count: lottoCountLimit)
     
