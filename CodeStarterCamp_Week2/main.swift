@@ -8,13 +8,21 @@
 
 import Foundation
 
-func generateWinningLottery() -> Array<Int> {
+func generateWinningLottery(times: Int, appendTo pastWinningLotteries: inout [String: [Int]]) -> Array<Int> {
     var winningLottery = Set<Int>()
-    while winningLottery.count < 6 {
-        winningLottery.insert(Int.random(in: 1...45))
+    var sortedWinningLottery = [Int]()
+    for _ in 1...times {
+        while winningLottery.count < 6 {
+            winningLottery.insert(Int.random(in: 1...45))
+        }
+        sortedWinningLottery = winningLottery.sorted()
+        appendWinngLottery(to: &pastWinningLotteries, by: "\(pastWinningLotteries.count+1)회차", and: sortedWinningLottery)
     }
-    let sortedWinningLottery = winningLottery.sorted()
     return sortedWinningLottery
+}
+
+func appendWinngLottery(to pastWinningLotteries: inout [String: [Int]], by key: String, and value: [Int]) {
+    pastWinningLotteries[key] = value
 }
 
 func checkLotteryResults(of winningLottery: [Int], with myLottery: [Int]) -> Array<Int> {
@@ -43,6 +51,6 @@ func changeIntArrayToString(target array: [Int]) -> String {
 
 let myLottery = [3, 5, 7, 11, 18, 27]
 var pastWinningLotteries = [String: [Int]]()
-var winningLottery = generateWinningLottery()
+let winningLottery = generateWinningLottery(times: 5, appendTo: &pastWinningLotteries)
 let myLotteryResults = checkLotteryResults(of: winningLottery, with: myLottery)
 print(receiveWinningMessage(to: myLotteryResults))
