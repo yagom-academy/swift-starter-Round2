@@ -19,7 +19,7 @@ func generateLottoNumbers() -> Set<Int> {
     return lottoTray
 }
 
-func checkMyLottoNumbers(from myNumbers: [Int], to winNumbers: Set<Int>) {
+func checkMyLottoNumbers(from myNumbers: Array<Int>, to winNumbers: Set<Int>) {
     var hittedNumbers: Array<Int> = []
     
     for number in myNumbers {
@@ -47,7 +47,7 @@ func checkMyLottoNumbers(from myNumbers: [Int], to winNumbers: Set<Int>) {
     }
 }
 
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
+let myLottoNumbers: Array<Int> = [1,2,3,4,5,6]
 let winningNumbers = generateLottoNumbers()
 
 checkMyLottoNumbers(from: myLottoNumbers, to: winningNumbers)
