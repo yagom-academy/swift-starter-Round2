@@ -20,3 +20,15 @@ func makingNumbers() {
     }
 }
 
+//번호 확인
+func checkingNumber() {
+    var correctNums : [Int] = [Int]()
+    makingNumbers()
+    
+    for i in myLottoNumbers {
+        if randomNums.contains(i) {
+            correctNums.append(i)
+        }
+    }
+}
+
