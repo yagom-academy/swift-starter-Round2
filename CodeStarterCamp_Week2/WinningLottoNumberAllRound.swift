@@ -31,3 +31,12 @@ func extractNRoundLottoNumbers(round: Int) -> [Int] {
     
     return lottoNumbers
 }
+
+func printNRoundLottoNumber(round: Int) {
+    let roundLottoNumber = extractNRoundLottoNumbers(round: round).map{ number in
+                                String(number)
+                        }.joined(separator: ", ")
+    
+    print("\(round)회차의 로또 당첨 번호는 " + roundLottoNumber + " 입니다.")
+}
+
