@@ -6,7 +6,6 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-import Foundation
-
-print("Hello, World!")
-
+for _ in 1..<3 {
+    print(Int.random(in:1..<45))
+}
