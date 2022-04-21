@@ -20,3 +20,14 @@ func getWinningLottoNumberAllRound() -> [String: [Int]] {
     
     return winningNumberAllRound
 }
+
+func extractNRoundLottoNumbers(round: Int) -> [Int] {
+    let roundMessage = "\(round)회차"
+    let winningNumberAllRound = getWinningLottoNumberAllRound()
+    
+    guard let lottoNumbers = winningNumberAllRound[roundMessage] else {
+        return []
+    }
+    
+    return lottoNumbers
+}
