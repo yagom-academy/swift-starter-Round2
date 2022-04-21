@@ -41,7 +41,7 @@ func printWinningComent(array hittedNumbers: Array<String>) {
     }
 }
 
-let myLottoNumbers: Array<Int> = [1,2,3,4,5,6]
+let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
 let winningNumbers = generateLottoNumbers()
 
 checkMyLottoNumbers(from: myLottoNumbers, to: winningNumbers)
