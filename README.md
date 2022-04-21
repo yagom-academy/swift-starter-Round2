@@ -1,1 +1,3 @@
-코드 스타터 캠프 2주차 미션을 위한 저장소입니다.
+# STEP 1
+## 순서도
+![week2 STEP1](https://user-images.githubusercontent.com/96626361/164428928-c10085be-8e3e-430c-8945-bfbb47d03c33.png)
