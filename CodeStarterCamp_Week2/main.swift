@@ -54,3 +54,8 @@ var pastWinningLotteries = [String: [Int]]()
 let winningLottery = generateWinningLottery(times: 5, appendTo: &pastWinningLotteries)
 let myLotteryResults = checkLotteryResults(of: winningLottery, with: myLottery)
 print(receiveWinningMessage(to: myLotteryResults))
+if let lotteryNumbers = pastWinningLotteries["2회차"] {
+    print("2회차의 로또 당첨 번호는 \(changeIntArrayToString(target: lotteryNumbers)) 입니다.")
+} else {
+    print("해당 회차는 아직 추첨되지 않았습니다.")
+}
