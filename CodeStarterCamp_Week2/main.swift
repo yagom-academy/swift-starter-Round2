@@ -8,5 +8,14 @@
 
 import Foundation
 
-print("Hello, World!")
+func generateLottoNumbers() -> Set<Int> {
+    var lottoTray = Set<Int>()
+    
+    repeat {
+        let pickedRandomNumber = Int.random(in: 1...45)
+        lottoTray.insert(pickedRandomNumber)
+    } while lottoTray.count < 6
+    return lottoTray
+}
 
+print(generateLottoNumbers())
