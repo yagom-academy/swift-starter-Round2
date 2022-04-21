@@ -23,7 +23,6 @@ func makingNumbers() {
 
 //번호 확인
 func checkingNumber() {
-    
     makingNumbers()
     for i in myLottoNumbers {
         if randomNums.contains(i) {
@@ -32,3 +31,14 @@ func checkingNumber() {
     }
 }
 
+//함수 출력
+func runningLotto() {
+    checkingNumber()
+    if correctNums.count == 0 {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 \(correctNums) 입니다!")
+    }
+}
+
+runningLotto()
