@@ -20,13 +20,13 @@ func generateLottoNumbers() -> Set<Int> {
     return lottoTray
 }
 
+func pickRandomNumber(in endNum: Int) -> Int {
+    Int.random(in: 1...endNum)
+}
+
 func saveToArchive(_ lottoTray: Set<Int>) {
     lottoArchive["\(roundOfLotto)회차"] = lottoTray.sorted()
     roundOfLotto += 1
-}
-
-func pickRandomNumber(in endNum: Int) -> Int {
-    Int.random(in: 1...endNum)
 }
 
 func checkMyLottoNumbers(from myNumbers: Array<Int>, to winNumbers: Set<Int>) {
