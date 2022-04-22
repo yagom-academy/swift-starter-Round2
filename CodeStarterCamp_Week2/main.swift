@@ -19,7 +19,7 @@ func generateLottoNumbers() -> Set<Int> {
 }
 
 func pickRandomNumber(in endNum: Int) -> Int {
-    return Int.random(in: 1...endNum)
+    Int.random(in: 1...endNum)
 }
 
 func checkMyLottoNumbers(from myNumbers: Array<Int>, to winNumbers: Set<Int>) {
@@ -28,7 +28,7 @@ func checkMyLottoNumbers(from myNumbers: Array<Int>, to winNumbers: Set<Int>) {
 }
 
 func getIntersection(of myNumbers: Array<Int>, and winNumbers: Set<Int>) -> Array<String> {
-    return winNumbers.intersection(myNumbers).map { String($0) }.sorted(by: <)
+    winNumbers.intersection(myNumbers).map { String($0) }.sorted()
 }
 
 func printWinningComent(array hittedNumbers: Array<String>) {
@@ -45,4 +45,3 @@ let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
 let winningNumbers = generateLottoNumbers()
 
 checkMyLottoNumbers(from: myLottoNumbers, to: winningNumbers)
-
