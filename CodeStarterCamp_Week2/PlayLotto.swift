@@ -41,20 +41,19 @@ func matchNumber(_ myLottoNumbers: [Int], lottoNumbers: [Int]) {
 }
 
 //matchedNumbers를 String타입으로 변환하는 과정
-func convertArray(from array: [Int]) -> [String] {
-    let convertArray = array.map({ (number: Int) -> String in return "\(number)"
-        return "\(number)"
-    })
-    return convertArray
+func convertToString(from array: [Int]) -> String {
+    let numberAsString = array.sorted().map { $0.description }
+    let joinedMessage = numberAsString.joined(separator: ", ")
+    return joinedMessage
 }
 
-let matchedNumbersToString = convertArray(from: matchedNumbers)
 
 //결과 출력
 func comfirmNumbers() {
     if matchedNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(matchedNumbersToString.joined(separator: ",")) 입니다!")
+        let message = convertToString(from: matchedNumbers)
+        print("축하합니다! 겹치는 번호는 \(message) 입니다!")
     }
 }
