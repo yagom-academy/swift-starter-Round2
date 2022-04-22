@@ -14,7 +14,7 @@ func getAllRoundLottoNumbers() -> [String: [Int]] {
     
     for round in lottoRound {
         let roundMessage = "\(round)회차"
-        winningNumberAllRound[roundMessage] = generateLotto()
+        winningNumberAllRound[roundMessage] = generateLottoNumbers()
     }
     
     return winningNumberAllRound
