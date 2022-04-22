@@ -54,4 +54,15 @@ func savingLottoNumbers() {
     saveLottos[countRound] = randomNums
 }
 
+//5번 실행
+runningLotto()
+runningLotto()
+runningLotto()
+runningLotto()
+runningLotto()
 
+if let xx = saveLottos[2] {
+    print("2회차의 로또 당첨 번호는 \(xx) 입니다.")
+}else{
+    print("nil")
+}
