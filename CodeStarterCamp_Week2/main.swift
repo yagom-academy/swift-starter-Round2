@@ -48,9 +48,25 @@ func printWinningComent(array hittedNumbers: Array<String>) {
     }
 }
 
+func printLastLottoTray(round: Int){
+    if let existTray = lottoArchive["\(round)회차"] {
+        let winningNumbers = existTray.map{ String($0) }.joined(separator: ", ")
+        print("\(round)회차의 로또 당첨 번호는 \(winningNumbers) 입니다.")
+    }
+    else {
+        print("NO EXIST TRAY ROUND \(round)!")
+    }
+}
+
 var roundOfLotto = 1
 var lottoArchive: Dictionary<String, Array<Int>> = [:]
 let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
-let winningNumbers = generateLottoNumbers()
 
-checkMyLottoNumbers(from: myLottoNumbers, to: winningNumbers)
+let winningNumbersRound1 = generateLottoNumbers()
+let winningNumbersRound2 = generateLottoNumbers()
+let winningNumbersRound3 = generateLottoNumbers()
+let winningNumbersRound4 = generateLottoNumbers()
+let winningNumbersRound5 = generateLottoNumbers()
+
+printLastLottoTray(round: 2)
+//checkMyLottoNumbers(from: myLottoNumbers, to: winningNumbers)
