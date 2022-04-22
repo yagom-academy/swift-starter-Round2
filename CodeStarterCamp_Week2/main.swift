@@ -12,7 +12,7 @@ let myLottoNumbers = [1, 2, 3, 4, 5, 6]      //선택 번호 생성
 var randomNums : Set<Int> = Set<Int>()
 var correctNums : [Int] = [Int]()
 var countRound : Int = 0
-var saveLottos = [Int: Set<Int>]()  // 회차 입력할 딕셔너리 생성
+var dataLottos = [Int: Set<Int>]()  // 회차 입력할 딕셔너리 생성
 
 func makingNumbers() {
     while randomNums.count <= 6 {
@@ -45,14 +45,14 @@ func runningLotto() {
 
 
 func savingLottoNumbers() {
-    saveLottos[countRound] = randomNums
+    dataLottos[countRound] = randomNums
 }
 
 for _ in 1...5 {
     runningLotto()
 }
 
-if let lottoNum = saveLottos[2] {
+if let lottoNum = dataLottos[2] {
     var printLotto = ""
     for elementLotto in Array(lottoNum).sorted() {
          printLotto += "\(elementLotto) "
