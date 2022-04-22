@@ -14,8 +14,15 @@ func generateLottoNumbers() -> Set<Int> {
     repeat {
         lottoTray.insert(pickRandomNumber(in: 45))
     } while lottoTray.count < 6
-
+    
+    saveToArchive(lottoTray)
+    
     return lottoTray
+}
+
+func saveToArchive(_ lottoTray: Set<Int>) {
+    lottoArchive["\(roundOfLotto)회차"] = lottoTray.sorted()
+    roundOfLotto += 1
 }
 
 func pickRandomNumber(in endNum: Int) -> Int {
@@ -41,6 +48,8 @@ func printWinningComent(array hittedNumbers: Array<String>) {
     }
 }
 
+var roundOfLotto = 1
+var lottoArchive: Dictionary<String, Array<Int>> = [:]
 let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
 let winningNumbers = generateLottoNumbers()
 
