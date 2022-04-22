@@ -56,8 +56,10 @@ for winningLottery in generateWinningLottery(times: 5) {
 guard let resentWinningLottery = pastWinningLotteries["\(pastWinningLotteries.count)회차"] else { throw LotteryError.isEmpty }
 let myLotteryResults = checkLotteryResults(of: resentWinningLottery, with: myLottery)
 print(receiveWinningMessage(to: myLotteryResults))
+var messageWithExtractedNumbers = String()
 if let lotteryNumbers = pastWinningLotteries["2회차"] {
-    print("2회차의 로또 당첨 번호는 \(changeIntArrayToString(target: lotteryNumbers)) 입니다.")
+    messageWithExtractedNumbers = "2회차의 로또 당첨 번호는 \(changeIntArrayToString(target: lotteryNumbers)) 입니다."
 } else {
-    print("해당 회차는 아직 추첨되지 않았습니다.")
+    messageWithExtractedNumbers = "해당 회차는 아직 추첨되지 않았습니다."
 }
+print(messageWithExtractedNumbers)
