@@ -24,11 +24,7 @@ func generateWinningLottery(times: Int) -> [[Int]] {
     return winningLotteries
 }
 
-func appendWinngLottery(to pastWinningLotteries: inout [String: [Int]], by key: String, and value: [Int]) {
-    pastWinningLotteries[key] = value
-}
-
-func checkLotteryResults(of winningLottery: [Int], with myLottery: [Int]) -> Array<Int> {
+func checkLotteryResults(of winningLottery: [Int], with myLottery: [Int]) -> [Int] {
     let myLotteryResults = Set(myLottery).intersection(winningLottery).sorted()
     return myLotteryResults
 }
