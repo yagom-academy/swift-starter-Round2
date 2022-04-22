@@ -7,15 +7,14 @@
 
 import Foundation
 
-func getWinningLottoNumberAllRound() -> [String: [Int]] {
+func getAllRoundLottoNumbers() -> [String: [Int]] {
     let lottoRound = 1...5
-    let roundMessage = "회차"
     
     var winningNumberAllRound: [String: [Int]] = [:]
     
     for round in lottoRound {
-        let NthRoundMessage = "\(round)" + roundMessage
-        winningNumberAllRound[NthRoundMessage] = generateLotto()
+        let roundMessage = "\(round)회차"
+        winningNumberAllRound[roundMessage] = generateLotto()
     }
     
     return winningNumberAllRound
@@ -23,7 +22,7 @@ func getWinningLottoNumberAllRound() -> [String: [Int]] {
 
 func extractNRoundLottoNumbers(round: Int) -> [Int] {
     let roundMessage = "\(round)회차"
-    let winningNumberAllRound = getWinningLottoNumberAllRound()
+    let winningNumberAllRound = getAllRoundLottoNumbers()
     
     guard let lottoNumbers = winningNumberAllRound[roundMessage] else {
         return []
