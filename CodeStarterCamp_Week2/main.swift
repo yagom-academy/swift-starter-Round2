@@ -52,8 +52,10 @@ for _ in 1...5 {
     runningLotto()
 }
 
-if let xx = saveLottos[2] {
-    print("2회차의 로또 당첨 번호는 \(Array(xx).sorted()) 입니다.") // set 를 array로 담아 로또 번호를 순서대로 변경.
-}else{
-    print("nil")
+if let lottoNum = saveLottos[2] {
+    var printLotto = ""
+    for elementLotto in Array(lottoNum).sorted() {
+         printLotto += "\(elementLotto) "
+    }
+    print("2회차의 로또 당첨 번호는 \(printLotto)입니다.")
 }
