@@ -9,9 +9,9 @@
 import Foundation
 
 func generateWinningLottery(times: Int, appendTo pastWinningLotteries: inout [String: [Int]]) -> Array<Int> {
-    var winningLottery = Set<Int>()
     var sortedWinningLottery = [Int]()
     for _ in 1...times {
+        var winningLottery = Set<Int>()
         while winningLottery.count < 6 {
             winningLottery.insert(Int.random(in: 1...45))
         }
