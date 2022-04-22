@@ -9,8 +9,8 @@
 import Foundation
 
 let myLottoNumbers = [1, 2, 3, 4, 5, 6]      //선택 번호 생성
-var randomNums : Set<Int> = Set<Int>()
-var correctNums : [Int] = [Int]()
+var randomNums = Set<Int>()
+var correctNums = [Int]()
 var countRound : Int = 0
 var dataLottos = [Int: Set<Int>]()  // 회차 입력할 딕셔너리 생성
 
