@@ -8,17 +8,20 @@
 
 import Foundation
 
-func generateWinningLottery(times: Int, appendTo pastWinningLotteries: inout [String: [Int]]) -> Array<Int> {
-    var sortedWinningLottery = [Int]()
+enum LotteryError: Error {
+    case isEmpty
+}
+
+func generateWinningLottery(times: Int) -> [[Int]] {
+    var winningLotteries = [[Int]]()
     for _ in 1...times {
         var winningLottery = Set<Int>()
         while winningLottery.count < 6 {
             winningLottery.insert(Int.random(in: 1...45))
         }
-        sortedWinningLottery = winningLottery.sorted()
-        appendWinngLottery(to: &pastWinningLotteries, by: "\(pastWinningLotteries.count+1)회차", and: sortedWinningLottery)
+        winningLotteries.append(winningLottery.sorted())
     }
-    return sortedWinningLottery
+    return winningLotteries
 }
 
 func appendWinngLottery(to pastWinningLotteries: inout [String: [Int]], by key: String, and value: [Int]) {
@@ -51,8 +54,11 @@ func changeIntArrayToString(target array: [Int]) -> String {
 
 let myLottery = [3, 5, 7, 11, 18, 27]
 var pastWinningLotteries = [String: [Int]]()
-let winningLottery = generateWinningLottery(times: 5, appendTo: &pastWinningLotteries)
-let myLotteryResults = checkLotteryResults(of: winningLottery, with: myLottery)
+for winningLottery in generateWinningLottery(times: 5) {
+    pastWinningLotteries["\(pastWinningLotteries.count+1)회차"] = winningLottery
+}
+guard let resentWinningLottery = pastWinningLotteries["\(pastWinningLotteries.count)회차"] else { throw LotteryError.isEmpty }
+let myLotteryResults = checkLotteryResults(of: resentWinningLottery, with: myLottery)
 print(receiveWinningMessage(to: myLotteryResults))
 if let lotteryNumbers = pastWinningLotteries["2회차"] {
     print("2회차의 로또 당첨 번호는 \(changeIntArrayToString(target: lotteryNumbers)) 입니다.")
