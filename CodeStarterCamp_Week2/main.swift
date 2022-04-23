@@ -9,9 +9,9 @@
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoSet: Set<Int> = Set<Int> ()
 
-func lottoGenerator () {
+func generateLotto () {
     while lottoSet.count < 6 {
-        lottoSet.insert(Int.random(in: 1..<45))
+        lottoSet.insert(Int.random(in: 1..<46))
     }
 }
 
@@ -40,5 +40,5 @@ func checkLotto () {
     print(" 입니다!")
 }
 
-lottoGenerator()
+generateLotto()
 checkLotto()
