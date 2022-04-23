@@ -8,28 +8,48 @@
 
 import Foundation
 
-func generateLottoBox() -> Array<Int> {
-    var lottoBox: Set<Int> = Set<Int>()
+func generateLotto() -> Array<Int> {
+    var lottoNumberSet = Set<Int>()
     
-    while lottoBox.count < 6 {
-        let randomNum: Int = Int.random(in: 1...45)
-        
-        lottoBox.insert(randomNum)
+    while lottoNumberSet.count < 6 {
+        let randomLottoNum: Int = Int.random(in: 1...45)
+
+        lottoNumberSet.insert(randomLottoNum)
     }
-    return Array(lottoBox)
+    return Array(lottoNumberSet)
 }
 
 
-func matchLotto(with lottoBox: () -> Array<Int>) {
+func matchLotto(with lotto: () -> Array<Int>) -> (notice: String, winningLottoNumberList: [Int]) {
+    let lottoNumbers = lotto()
     let myLottoNumbers: [Int] = [1,2,3,4,5,6]
-    let winningLottoNumbersBox: Array<Int> = myLottoNumbers.filter { lottoBox().contains($0) }
-    let winningLottoNumbers: String = winningLottoNumbersBox.map { String($0) }.joined(separator: ", ")
-
-    if winningLottoNumbersBox.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+    let winningLottoNumArray: Array<Int> = myLottoNumbers.filter { lottoNumbers.contains($0) }
+    let winningLottoNumList: String = winningLottoNumArray.map { String($0) }.joined(separator: ", ")
+    var notice: String = ""
+    
+    if winningLottoNumArray.isEmpty {
+        notice = "아쉽지만 겹치는 번호가 없습니다."
     } else {
-        print("축하합니다! 겹치는 번호는 \(winningLottoNumbers) 입니다!")
+        notice = "축하합니다! 겹치는 번호는 \(winningLottoNumList) 입니다!"
     }
+    return (notice, lottoNumbers)
 }
 
-matchLotto(with: generateLottoBox)
+
+func saveAndCheckWinningNumByRound(lottoRound: Int, checkRound: String) {
+    var winningLottoDictByRound = [String: Array<Int>]()
+    
+    for round in 1...lottoRound {
+        let function = matchLotto(with: generateLotto)
+        winningLottoDictByRound["\(round)회차"] = function.winningLottoNumberList
+    }
+    
+    if let winningLottoNum = winningLottoDictByRound[checkRound] {
+        let winningLottoNumList = winningLottoNum.map { String($0) }.joined(separator: ", ")
+        print("\(checkRound)의 로또 당첨 번호는 \( winningLottoNumList) 입니다.")
+    } else { return }
+}
+
+
+// MARK: - 함수 실행부
+saveAndCheckWinningNumByRound(lottoRound: 5, checkRound: "2회차")
