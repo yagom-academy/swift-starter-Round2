@@ -14,14 +14,14 @@ var correctNums = [Int]()
 var countRound : Int = 0
 var dataLottos = [Int : Set<Int>]()  // 회차 입력할 딕셔너리 생성
 
-func makingNumbers() {
+func makeNumbers() {
     while randomNums.count <= 6 {
         randomNums.insert(Int.random(in: 1...45))
     }
 }
 
-func checkingNumber() {
-    makingNumbers()
+func checkNumber() {
+    makeNumbers()
     for searchNum in myLottoNumbers {
         if randomNums.contains(searchNum) {
             correctNums.append(searchNum)
@@ -30,24 +30,24 @@ func checkingNumber() {
     countRound += 1 //매 회차 시 카운트up
 }
 
-func runningLotto() {
-    checkingNumber()
+func runLotto() {
+    checkNumber()
     if correctNums.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는 \(correctNums) 입니다!")
     }
-    savingLottoNumbers()
+    saveLottoNumbers()
     correctNums = []
     randomNums = Set<Int>()
 }
 
-func savingLottoNumbers() {
+func saveLottoNumbers() {
     dataLottos[countRound] = randomNums
 }
 
 for _ in 1...5 {
-    runningLotto()
+    runLotto()
 }
 
 if let lottoNum = dataLottos[2] {
