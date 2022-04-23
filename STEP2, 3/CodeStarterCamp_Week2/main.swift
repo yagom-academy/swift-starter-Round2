@@ -40,8 +40,8 @@ func saveAndCheckLottoNumByRound(lottoRound: Int, checkRound: String) {
     var winningLottoDictByRound = [String: Array<Int>]()
     
     for round in 1...lottoRound {
-        let function = matchLotto(with: generateLotto)
-        winningLottoDictByRound["\(round)회차"] = function.winningLottoNumberList
+        let lottoInfo = matchLotto(with: generateLotto)
+        winningLottoDictByRound["\(round)회차"] = lottoInfo.winningLottoNumberList
     }
     
     if let winningLottoNum = winningLottoDictByRound[checkRound] {
