@@ -7,6 +7,8 @@
 //
 import Foundation
 
+
+@discardableResult
 func createLottoNumbers(_ lottoSize: Int) -> [Int] {
     var lottoNumbers: [Int] = []
 
