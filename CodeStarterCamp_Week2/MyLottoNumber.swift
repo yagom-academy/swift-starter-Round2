@@ -7,7 +7,7 @@
 
 import Foundation
 
-func generateLotto() -> [Int]{
+func generateLottoNumbers() -> [Int]{
     let lottoCountLimit = 6
     let lottoNumberLimit = 45
     let lottoNumberRange = 1...lottoNumberLimit
@@ -28,7 +28,7 @@ func generateLotto() -> [Int]{
 }
 
 func getWinningNumbers() -> [Int] {
-    let lottoNumbers = generateLotto()
+    let lottoNumbers = generateLottoNumbers()
     let myLottoNumbers = [1, 2, 3, 4, 5, 6]
 
     var winningNumbers: [Int] = []
