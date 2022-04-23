@@ -36,7 +36,7 @@ func matchLotto(with lotto: () -> Array<Int>) -> (notice: String, winningLottoNu
 }
 
 
-func saveAndCheckWinningNumByRound(lottoRound: Int, checkRound: String) {
+func saveAndCheckLottoNumByRound(lottoRound: Int, checkRound: String) {
     var winningLottoDictByRound = [String: Array<Int>]()
     
     for round in 1...lottoRound {
@@ -52,4 +52,4 @@ func saveAndCheckWinningNumByRound(lottoRound: Int, checkRound: String) {
 
 
 // MARK: - 함수 실행부
-saveAndCheckWinningNumByRound(lottoRound: 5, checkRound: "2회차")
+saveAndCheckLottoNumByRound(lottoRound: 5, checkRound: "2회차")
