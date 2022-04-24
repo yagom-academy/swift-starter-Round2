@@ -1,12 +1,13 @@
 //
-//  main.swift
-//  CodeStarterCamp_Week2
+//  Method.swift
+//  CodeStarterCamp_Week1
 //
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
+//  Created by 장경빈 on 2022/04/18.
 //
-
 import Foundation
 
-print("Hello, World!")
+let myLottoNumbers: [Int] = [1,2,3,4,5,6]
+let correctNumbers = compareToMachine(user: myLottoNumbers, machine: createLotto())
+
+printLottoResult()
 
