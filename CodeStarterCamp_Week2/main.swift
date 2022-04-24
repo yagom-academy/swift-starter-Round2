@@ -1,13 +1,13 @@
 import Foundation
 
-func generateNumberOfLotto() -> Array<Int>.SubSequence {
-	let lottoNumbers = Array(1...45).shuffled().prefix(6)
+func generateNumberOfLotto() -> Set<Int> {
+	let lottoNumbers = Set(Array(1...45).shuffled().prefix(6))
 	return lottoNumbers
 }
 
 func matchOfNumbers(_ myLottoNumbers:[Int]) {
 	let generatedNumberOfLotto = generateNumberOfLotto()
-	let matchOfNumbers: Set<Int> = Set(generatedNumberOfLotto).intersection(myLottoNumbers)
+	let matchOfNumbers: Set<Int> = generatedNumberOfLotto.intersection(myLottoNumbers)
 	let mappedNumbers = matchOfNumbers.map{ String($0) }.joined(separator: ", ")
 	var resultMessage: String = ""
 	if matchOfNumbers.isEmpty {
