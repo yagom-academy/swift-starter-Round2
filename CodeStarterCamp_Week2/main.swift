@@ -6,8 +6,8 @@
 //
 import Foundation
 
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
-let correctNumbers = compareToMachine(user: myLottoNumbers, machine: createLotto())
+var lottoDictionary = ["1회차": [1,2,3,4,5,6]]
+var count = 1
 
-printLottoResult()
-
+addLotto(number: 4)
+findLotto(number: 2)
