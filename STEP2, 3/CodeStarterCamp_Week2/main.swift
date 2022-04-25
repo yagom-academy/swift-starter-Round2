@@ -43,11 +43,16 @@ func saveAndCheckLottoNumByRound(lottoRound: Int, checkRound: String) {
         let lottoInfo = matchLotto(with: generateLotto)
         winningLottoDictByRound["\(round)회차"] = lottoInfo.winningLottoNumberList
     }
+    // 
+    // if let winningLottoNum = winningLottoDictByRound[checkRound] {
+    //     let winningLottoNumList = winningLottoNum.map { String($0) }.joined(separator: ", ")
+    //     print("\(checkRound)의 로또 당첨 번호는 \(winningLottoNumList) 입니다.")
+    // } else { return }
+    // 
+    guard let winningLottoNum = winningLottoDictByRound[checkRound] else { return }
+    let winningLottoNumList = winningLottoNum.map { String($0) }.joined(separator: ", ")
+    print("\(checkRound)의 로또 당첨 번호는 \(winningLottoNumList) 입니다.")
     
-    if let winningLottoNum = winningLottoDictByRound[checkRound] {
-        let winningLottoNumList = winningLottoNum.map { String($0) }.joined(separator: ", ")
-        print("\(checkRound)의 로또 당첨 번호는 \( winningLottoNumList) 입니다.")
-    } else { return }
 }
 
 
