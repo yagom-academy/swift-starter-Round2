@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+// Week2Step2
+getLottoSet()
+
 
