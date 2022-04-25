@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum LotteryError: Error {
-    case isEmpty
-}
-
 func generateWinningLottery(times: Int) -> [[Int]] {
     var winningLotteries = [[Int]]()
     for _ in 1...times {
@@ -24,12 +20,30 @@ func generateWinningLottery(times: Int) -> [[Int]] {
     return winningLotteries
 }
 
-func checkLotteryResults(of winningLottery: [Int], with myLottery: [Int]) -> [Int] {
+func attachWinningLotteries(_ winningLotteries: [[Int]], to pastWinningLotteries: [String: [Int]]) -> [String: [Int]] {
+    var pastWinningLotteries = pastWinningLotteries
+    for winningNumbers in winningLotteries {
+        pastWinningLotteries["\(pastWinningLotteries.count+1)회차"] = winningNumbers
+    }
+    return pastWinningLotteries
+}
+
+func checkMyWinningResults(by myLottery: [Int], at pastWinningLotteries: [String: [Int]]) -> String {
+    let presentRound = "\(pastWinningLotteries.count)회차"
+    if let prensenWinningLottery = pastWinningLotteries[presentRound] {
+        let myLotteryResults = checkLotteryResults(of: prensenWinningLottery, by: myLottery)
+        return receiveWinningMessage(for: myLotteryResults)
+    } else {
+        return "현재 추첨된 복권이 없습니다."
+    }
+}
+
+func checkLotteryResults(of winningLottery: [Int], by myLottery: [Int]) -> [Int] {
     let myLotteryResults = Set(myLottery).intersection(winningLottery).sorted()
     return myLotteryResults
 }
 
-func receiveWinningMessage(to myLotteryResults: [Int]) -> String {
+func receiveWinningMessage(for myLotteryResults: [Int]) -> String {
     let lotteryNumbersToString = changeIntArrayToString(target: myLotteryResults)
     let winningMessage = "축하합니다! 겹치는 번호는 \(lotteryNumbersToString) 입니다!"
     let losingMessage = "아쉽지만 겹치는 번호가 없습니다."
@@ -48,18 +62,17 @@ func changeIntArrayToString(target array: [Int]) -> String {
     return resultString
 }
 
+func receiveMessage(for targetRound: String, of pastWinningLotteries: [String: [Int]]) -> String {
+    if let lotteryNumbers = pastWinningLotteries[targetRound] {
+        return "\(targetRound)의 로또 당첨 번호는 \(changeIntArrayToString(target: lotteryNumbers)) 입니다."
+    } else {
+        return "해당 회차는 아직 추첨되지 않았습니다."
+    }
+}
+
 let myLottery = [3, 5, 7, 11, 18, 27]
 var pastWinningLotteries = [String: [Int]]()
-for winningLottery in generateWinningLottery(times: 5) {
-    pastWinningLotteries["\(pastWinningLotteries.count+1)회차"] = winningLottery
-}
-guard let resentWinningLottery = pastWinningLotteries["\(pastWinningLotteries.count)회차"] else { throw LotteryError.isEmpty }
-let myLotteryResults = checkLotteryResults(of: resentWinningLottery, with: myLottery)
-print(receiveWinningMessage(to: myLotteryResults))
-var messageWithExtractedNumbers = String()
-if let lotteryNumbers = pastWinningLotteries["2회차"] {
-    messageWithExtractedNumbers = "2회차의 로또 당첨 번호는 \(changeIntArrayToString(target: lotteryNumbers)) 입니다."
-} else {
-    messageWithExtractedNumbers = "해당 회차는 아직 추첨되지 않았습니다."
-}
-print(messageWithExtractedNumbers)
+pastWinningLotteries = attachWinningLotteries(generateWinningLottery(times: 5), to: pastWinningLotteries)
+print(checkMyWinningResults(by: myLottery, at: pastWinningLotteries))
+let targetRound = "2회차"
+print(receiveMessage(for: targetRound, of: pastWinningLotteries))
