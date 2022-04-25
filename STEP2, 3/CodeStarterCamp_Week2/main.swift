@@ -20,11 +20,18 @@ func generateLotto() -> Array<Int> {
 }
 
 
+func convertToSequenceOfString(with array: Array<Int>) -> String {
+    let result = array.map { String($0) }.joined(separator: ", ")
+    
+    return result
+}
+
+
 func matchLotto(with lotto: () -> Array<Int>) -> (notice: String, winningLottoNumberList: [Int]) {
     let lottoNumbers = lotto()
     let myLottoNumbers: [Int] = [1,2,3,4,5,6]
     let winningLottoNumArray: Array<Int> = myLottoNumbers.filter { lottoNumbers.contains($0) }
-    let winningLottoNumList: String = winningLottoNumArray.map { String($0) }.joined(separator: ", ")
+    let winningLottoNumList: String = convertToSequenceOfString(with: winningLottoNumArray)
     var notice: String = ""
     
     if winningLottoNumArray.isEmpty {
@@ -43,11 +50,15 @@ func saveAndCheckLottoNumByRound(lottoRound: Int, checkRound: String) {
         let lottoInfo = matchLotto(with: generateLotto)
         winningLottoDictByRound["\(round)회차"] = lottoInfo.winningLottoNumberList
     }
-    
-    if let winningLottoNum = winningLottoDictByRound[checkRound] {
-        let winningLottoNumList = winningLottoNum.map { String($0) }.joined(separator: ", ")
-        print("\(checkRound)의 로또 당첨 번호는 \( winningLottoNumList) 입니다.")
-    } else { return }
+    //
+    // if let winningLottoNum = winningLottoDictByRound[checkRound] {
+    //     let winningLottoNumList = winningLottoNum.map { String($0) }.joined(separator: ", ")
+    //     print("\(checkRound)의 로또 당첨 번호는 \(winningLottoNumList) 입니다.")
+    // } else { return }
+    //
+    guard let winningLottoNum = winningLottoDictByRound[checkRound] else { return }
+    let winningLottoNumList = convertToSequenceOfString(with: winningLottoNum)
+    print("\(checkRound)의 로또 당첨 번호는 \(winningLottoNumList) 입니다.")
 }
 
 
