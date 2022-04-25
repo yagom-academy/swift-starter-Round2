@@ -6,7 +6,7 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-let myLottoNumbers: [Int] = [4,8,23,27,44,32]
+let myLottoNumbers: [Int] = [4, 8, 23, 27, 44, 32]
 var lottoSet: Set<Int> = Set<Int> ()
 
 func generateLotto () {
