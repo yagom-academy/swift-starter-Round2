@@ -15,7 +15,7 @@ func makeWinnerNumber() -> Set<Int> {
     return winnerNumber
 }
 
-func checkLotto(whatNumber playerNumbers: Array<Int>) {
+func checkLottoWhat(number playerNumbers: Array<Int>) {
     let winnerNumbers: Set<Int> = makeWinnerNumber()
     let setPlayerNumbers: Set<Int> = Set<Int>(playerNumbers)
     let comparedNumbers: Set<Int> = winnerNumbers.intersection(setPlayerNumbers)
