@@ -41,19 +41,17 @@ func getIntersection(of myNumbers: Array<Int>, and winNumbers: Set<Int>) -> Arra
 func printWinningComent(array hittedNumbers: Array<String>) {
     if hittedNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-    else {
+    } else {
         let hittedNumsStr = hittedNumbers.joined(separator: ", ")
         print("축하합니다! 겹치는 번호는 \(hittedNumsStr) 입니다!")
     }
 }
 
-func printLastLottoTray(round: Int){
+func printPastLottoTray(round: Int) {
     if let existTray = lottoArchive["\(round)회차"] {
         let winningNumbers = existTray.map{ String($0) }.joined(separator: ", ")
         print("\(round)회차의 로또 당첨 번호는 \(winningNumbers) 입니다.")
-    }
-    else {
+    } else {
         print("NO EXIST TRAY ROUND \(round)!")
     }
 }
@@ -68,5 +66,5 @@ let winningNumbersRound3 = generateLottoNumbers()
 let winningNumbersRound4 = generateLottoNumbers()
 let winningNumbersRound5 = generateLottoNumbers()
 
-printLastLottoTray(round: 2)
+printPastLottoTray(round: 2)
 //checkMyLottoNumbers(from: myLottoNumbers, to: winningNumbers)
