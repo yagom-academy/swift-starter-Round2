@@ -24,20 +24,20 @@ func convertArray(from array: [Int]) -> [String] {
    }
 
 func checkLotto () {
-    var coincidence: Array<Int> = Array<Int>()
+    var matchedNumbers: Array<Int> = Array<Int>()
     for toFind in myLottoNumbers {
         for lottoNumber in lottoSet {
             if toFind == lottoNumber {
-                coincidence.append(toFind)
+                matchedNumbers.append(toFind)
             }
         }
     }
-    if coincidence.count == 0 {
+    if matchedNumbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
         return
     }
     print("축하합니다! 겹치는 번호는 ",terminator: "")
-    let printingArray = convertArray(from: coincidence)
+    let printingArray = convertArray(from: matchedNumbers)
     print("\(printingArray.joined(separator: ", ")) 입니다!")
 }
 
