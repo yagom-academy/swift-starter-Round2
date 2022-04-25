@@ -10,4 +10,5 @@ import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-matchLottoNumber(what: myLottoNumbers)
+checkLotto(whatNumber: myLottoNumbers)
+
