@@ -30,9 +30,9 @@ func checkLotto () {
         return
     }
     print("축하합니다! 겹치는 번호는 ",terminator: "")
-    for number in coincidence {
+    for accordNumber in coincidence {
         printedCount += 1
-        print("\(number)",terminator: "")
+        print("\(accordNumber)",terminator: "")
         if printedCount != coincidence.count {
             print(", ",terminator:"")
         }
