@@ -15,13 +15,20 @@ func generateLotto () {
     }
 }
 
+func convertArray(from array: [Int]) -> [String] {
+     var convertedArray: [String] = []
+     for numbers in array {
+       convertedArray.append(String(numbers))
+     }
+     return convertedArray
+   }
+
 func checkLotto () {
-    var coincidence: Set<Int> = Set<Int> ()
-    var printedCount: Int = 0
+    var coincidence: Array<Int> = Array<Int>()
     for toFind in myLottoNumbers {
         for lottoNumber in lottoSet {
             if toFind == lottoNumber {
-                coincidence.insert(toFind)
+                coincidence.append(toFind)
             }
         }
     }
@@ -30,14 +37,8 @@ func checkLotto () {
         return
     }
     print("축하합니다! 겹치는 번호는 ",terminator: "")
-    for accordNumber in coincidence {
-        printedCount += 1
-        print("\(accordNumber)",terminator: "")
-        if printedCount != coincidence.count {
-            print(", ",terminator:"")
-        }
-    }
-    print(" 입니다!")
+    let printingArray = convertArray(from: coincidence)
+    print("\(printingArray.joined(separator: ", ")) 입니다!")
 }
 
 
