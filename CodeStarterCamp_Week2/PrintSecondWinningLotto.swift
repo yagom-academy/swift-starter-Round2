@@ -10,10 +10,11 @@ import Foundation
 //찾은 2회차의 로또 당첨 번호를 출력하는 함수
 @discardableResult
 func printSecondWinningLotto(from round: Int) -> String {
-    let secondWinningLottoNumbersAsString = findSecondWinningLotto(round: round).map{ number in String(number) }.joined(separator: ", ")
-    let message = "\(round)회차의 로또 당첨 번호는 " + secondWinningLottoNumbersAsString + " 입니다."
+    let secondWinningLottoNumbersAsString = findSecondWinningLotto(round: round).sorted().map{ $0.description }
+    let joinedNumbers = secondWinningLottoNumbersAsString.joined(separator: ", ")
+    let message = "\(round)회차의 로또 당첨 번호는 " + joinedNumbers + " 입니다."
     print(message)
-    return secondWinningLottoNumbersAsString
+    return joinedNumbers
 }
 
 //5번 생성한 로또 당첨번호를 딕셔너리에 저장하는 함수
