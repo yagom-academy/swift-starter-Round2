@@ -25,10 +25,10 @@ func convertArray(from array: [Int]) -> [String] {
 
 func checkLotto () {
     var matchedNumbers: Array<Int> = Array<Int>()
-    for toFind in myLottoNumbers {
+    for compareNumber in myLottoNumbers {
         for lottoNumber in lottoSet {
-            if toFind == lottoNumber {
-                matchedNumbers.append(toFind)
+            if compareNumber == lottoNumber {
+                matchedNumbers.append(compareNumber)
             }
         }
     }
