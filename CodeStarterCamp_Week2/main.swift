@@ -46,22 +46,19 @@ func storeLottoNumberList(using round: Int, and lottoNumbers: Set<Int>) {
     lottoWinningNumberList["\(round)회차"] = lottoNumbers.sorted()
 }
 
-func findLottoNumberList(of round: Int) {
+func findLottoNumberList(at round: Int) {
     if let winningNumbers = lottoWinningNumberList["\(round)회차"] {
-        let stringWinningNumbers = winningNumbers.map { String($0) }
-        print("\(round)회차의 로또 당첨 번호는 \(stringWinningNumbers.joined(separator: ", ")) 입니다.")
+        print("\(round)회차의 로또 당첨 번호는 \(winningNumbers.map{ String($0) }.joined(separator: ", ")) 입니다.")
     } else {
         print("\(round)회차의 로또가 아직 진행되지 않았습니다.")
     }
 }
 
-func repeatCreatingLotto(for times: Int) {
+func runLottoCreation(for times: Int) {
     for _ in 1...times {
-        let createdLottoNumbers = createLottoNumbers()
-        let sameNumbers = checkWinning(with: createdLottoNumbers, and: myLottoNumbers)
-        showResult(use: sameNumbers)
+         let _ = createLottoNumbers()
     }
 }
 
-repeatCreatingLotto(for: 5)
-findLottoNumberList(of: 2)
+runLottoCreation(for: 5)
+findLottoNumberList(at: 2)
