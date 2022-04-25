@@ -13,6 +13,15 @@ func createRandomLottoSet() -> Set<Int> {
         let lottoNumber: Int = Int.random(in: 1...45)
         setOfLottoNumber.insert(lottoNumber)
     }
-    print("\(setOfLottoNumber)")
     return setOfLottoNumber
+}
+
+func checkNumber(lottoSet: Set<Int>) -> Set<Int> {
+    let randomLottoNumbers = lottoSet
+    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+    
+    let intersectionSet = randomLottoNumbers.intersection(Set(myLottoNumbers))
+    print("랜덤으로 생성된 숫자 : \(randomLottoNumbers)")
+    print("내가 고른 숫자 : \(myLottoNumbers)")
+    return intersectionSet
 }

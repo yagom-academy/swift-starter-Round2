@@ -9,6 +9,6 @@
 import Foundation
 
 // Week2Step2
-getLottoSet()
-
+createRandomLottoSet()
+checkNumber(lottoSet: createRandomLottoSet())
 
