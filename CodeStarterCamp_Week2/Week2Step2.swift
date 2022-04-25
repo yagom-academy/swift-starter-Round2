@@ -25,3 +25,13 @@ func checkNumber(lottoSet: Set<Int>) -> Set<Int> {
     print("내가 고른 숫자 : \(myLottoNumbers)")
     return intersectionSet
 }
+
+func showIntersectionNumbers() {
+    let randomNumbers = createRandomLottoSet()
+    let intersectionNumbers = checkNumber(lottoSet: randomNumbers)
+    if intersectionNumbers.isEmpty {
+        print("아쉽게도 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 \(intersectionNumbers) 입니다!")
+    }
+}

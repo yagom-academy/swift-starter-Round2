@@ -9,6 +9,5 @@
 import Foundation
 
 // Week2Step2
-createRandomLottoSet()
-checkNumber(lottoSet: createRandomLottoSet())
+showIntersectionNumbers()
 
