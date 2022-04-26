@@ -21,10 +21,9 @@ func checkInterserctionNumbers(lottoNumbers: Set<Int>, myLottoNumbers: Array<Int
     return intersectionSet
 }
 
-func showIntersectionNumbers() {
+func showIntersectionNumbers(intersectionNumbers: Set<Int>) {
     print("랜덤으로 생성된 숫자 : \(randomNumbers)")
     print("내가 고른 숫자 : \(myLottoNumbers)")
-    let intersectionNumbers = checkInterserctionNumbers(lottoNumbers: randomNumbers, myLottoNumbers: myLottoNumbers)
     if intersectionNumbers.isEmpty {
         print("아쉽게도 겹치는 번호가 없습니다.")
     } else {
@@ -33,6 +32,5 @@ func showIntersectionNumbers() {
             print("\(intersectionNumber)", terminator: " ")
         }
         print("입니다!")
-        
     }
 }
