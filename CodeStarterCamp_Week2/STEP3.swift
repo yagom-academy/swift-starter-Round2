@@ -32,9 +32,9 @@ func convertArray(array: [Int]) -> [String] {
 }
 
 func printLottoRound (round: Int) {
-    let lottoDict : Dictionary<Int,Array<Int>> = generateLottoDictionary()
-    if let sample = lottoDict[round] {
-        let printArray = convertArray(array: sample)
+    let totalRoundLotto : Dictionary<Int,Array<Int>> = generateLottoDictionary()
+    if let chosenRound = totalRoundLotto[round] {
+        let printArray = convertArray(array: chosenRound)
         print("\(round)회차의 로또 당첨 번호는 \(printArray.joined(separator: ", ")) 입니다.")
     }
 }
