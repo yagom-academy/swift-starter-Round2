@@ -9,19 +9,19 @@ import Foundation
 
 var lottoNumbers: Set<Int> = Set<Int>()
 
-var i: Int = 1
 
-func createLottoNumbers(i: Int) {
-    while i < 46 {
+func createLottoNumbers() {
+    for i in 1...45 {
         lottoNumbers.insert(i)
     }
 }
 
-var winNumbers: Set<Int> = Set<Int>()
 
-var j: Int = 0
-func createWinNumbers(j: Int) {
-    while j < 6 {
-        winNumbers.insert(lottoNumbers[j])
+var winNumbers: Set<Int> = Set<Int>()
+//var indices = [lottoNumbers<Int>.Index]()
+
+func createWinNumbers() {
+    for j in 0...5 {
+        winNumbers.insert(lottoNumbers[lottoNumbers.index(lottoNumbers.startIndex, offsetBy: j)])
     }
 }
