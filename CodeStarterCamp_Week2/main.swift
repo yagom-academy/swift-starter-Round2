@@ -43,4 +43,14 @@ let lottoNumbers = pickLottoNumbers()
 
 compare(myLottoNumbers, with: lottoNumbers)
 
-var lottoNumbersDictionary: [String: [Int]] = ["1회차": [1, 2, 3, 4, 5, 6]]
+func makeLottoNumbersFor(times numbers: Int) -> [String: [Int]] {
+    var lottoNumbersDictionary: [String: [Int]] = [: ]
+    for number in 1...numbers {
+        var newLottoNumbers: [Int] = []
+        newLottoNumbers = pickLottoNumbers()
+        lottoNumbersDictionary["\(number)회차"] = newLottoNumbers
+    }
+
+    return lottoNumbersDictionary
+}
+print(makeLottoNumbersFor(times: 5))
