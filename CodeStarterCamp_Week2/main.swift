@@ -74,6 +74,5 @@ let myLottery = [3, 5, 7, 11, 18, 27]
 var pastWinningLotteries = [String: [Int]]()
 pastWinningLotteries = attachWinningLotteries(generateWinningLottery(times: 5), to: pastWinningLotteries)
 print(checkMyWinningResults(by: myLottery, at: pastWinningLotteries))
-print(pastWinningLotteries)
 let targetRound = "2회차"
 print(receiveMessage(for: targetRound, of: pastWinningLotteries))
