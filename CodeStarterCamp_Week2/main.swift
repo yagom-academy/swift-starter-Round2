@@ -9,6 +9,7 @@
 import Foundation
 
 var lotteryWinningNumber: Set<Int> = Set<Int>()
+@discardableResult //아래 함수의 리턴값이 사용되지 않아도 에러를 띄우지 않음.
 // 당첨로또넘버 배열에 1~45 사이의 무작위 수 6개를 추가.
 func addPickedLottery() -> Set<Int> {
     while lotteryWinningNumber.count < 6 {
