@@ -30,8 +30,8 @@ func attachWinningLotteries(_ winningLotteries: [[Int]], to pastWinningLotteries
 
 func checkMyWinningResults(by myLottery: [Int], at pastWinningLotteries: [String: [Int]]) -> String {
     let presentRound = "\(pastWinningLotteries.count)회차"
-    if let prensenWinningLottery = pastWinningLotteries[presentRound] {
-        let myLotteryResults = checkLotteryResults(of: prensenWinningLottery, by: myLottery)
+    if let presentWinningLottery = pastWinningLotteries[presentRound] {
+        let myLotteryResults = checkLotteryResults(of: presentWinningLottery, by: myLottery)
         return receiveWinningMessage(for: myLotteryResults)
     } else {
         return "현재 추첨된 복권이 없습니다."
@@ -74,5 +74,6 @@ let myLottery = [3, 5, 7, 11, 18, 27]
 var pastWinningLotteries = [String: [Int]]()
 pastWinningLotteries = attachWinningLotteries(generateWinningLottery(times: 5), to: pastWinningLotteries)
 print(checkMyWinningResults(by: myLottery, at: pastWinningLotteries))
+print(pastWinningLotteries)
 let targetRound = "2회차"
 print(receiveMessage(for: targetRound, of: pastWinningLotteries))
