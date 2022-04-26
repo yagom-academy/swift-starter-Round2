@@ -20,13 +20,14 @@ let myLottoNumbers: [Int] = [4, 13, 24, 36, 38, 45]
 var lottoNumbers: [Int] = []
 
 //로또 번호 랜덤 뽑기
-func pickLottoNumbers() {
+func pickLottoNumbers() -> [Int] {
     while lottoNumbers.count < 6 {
         let number = Int.random(in: 1...45)
         if lottoNumbers.contains(number) == false {
             lottoNumbers.append(number)
         }
     }
+    return lottoNumbers
 }
 
 //찍은 번호와 로또 번호가 일치하면 들어가는 배열
