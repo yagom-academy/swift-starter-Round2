@@ -36,23 +36,22 @@ func checkLottoNumbers(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) {
     }
 }
 
-func saveLotto(lottoRound: Int) -> () {
-    //var arrayLottoNumbers: Array<Int> = [Int]()
+func saveLottoformation(lottoRound: Int) -> () {
     for number in 1...lottoRound {
         lottoInformation["\(number)회차"] = generateLottoNumbers()
     }
 }
 
 func findLottoRound(round: String) {
-    if let printLotto = lottoInformation["\(round)"] {
-        let printLottoToStringValue = printLotto.sorted().map{ String($0)}.joined(separator: ", ")
-        print("\(round)의 로또 당첨 번호는 \(printLottoToStringValue) 입니다.")
+    if let printLottoNumbers = lottoInformation["\(round)"] {
+        let printLottoNumbersToStringValue = printLottoNumbers.sorted().map{ String($0)}.joined(separator: ", ")
+        print("\(round)의 로또 당첨 번호는 \(printLottoNumbersToStringValue) 입니다.")
     } else {
         print("회차 정보를 올바르게 입력해주세요")
     }
 }
 
-saveLotto(lottoRound: 5)
+saveLottoformation(lottoRound: 5)
 findLottoRound(round: "2회차")
 //generateLottoNumbers()
 //checkLottoNumbers(lottoNumbers: generateLottoNumbers(), myLottoNumbers: myLottoNumbers)
