@@ -22,3 +22,11 @@ func generateLottoDictionary () -> Dictionary<Int, Array<Int>> {
     }
     return lottoDictionary
 }
+
+func convertArray(array: [Int]) -> [String] {
+     var convertedArray: [String] = []
+     for numbers in array {
+       convertedArray.append(String(numbers))
+     }
+     return convertedArray
+}
