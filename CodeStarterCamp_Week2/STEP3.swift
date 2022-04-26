@@ -7,7 +7,7 @@
 
 import Foundation
 
-func generateLottoArray () -> Array<Int> {
+func generateLottoArray() -> Array<Int> {
     var lottoSet: Set<Int> = Set<Int> ()
     while lottoSet.count < 6 {
         lottoSet.insert(Int.random(in: 1..<46))
@@ -15,10 +15,10 @@ func generateLottoArray () -> Array<Int> {
     return Array<Int>(lottoSet)
 }
 
-func generateLottoDictionary () -> Dictionary<Int, Array<Int>> {
-    var lottoDictionary: Dictionary<Int, Array> = [Int: Array<Int>]()
+func generateLottoDictionary() -> Dictionary<String, Array<Int>> {
+    var lottoDictionary: Dictionary<String, Array> = [String: Array<Int>]()
     for lottoRound in 1...5 {
-        lottoDictionary[lottoRound] = generateLottoArray()
+        lottoDictionary["\(lottoRound)회차"] = generateLottoArray()
     }
     return lottoDictionary
 }
@@ -31,9 +31,9 @@ func convertArray(array: [Int]) -> [String] {
      return convertedArray
 }
 
-func printLottoRound (round: Int) {
-    let totalRoundLotto : Dictionary<Int,Array<Int>> = generateLottoDictionary()
-    if let chosenRound = totalRoundLotto[round] {
+func printLottoRound(round: Int) {
+    let totalRoundLotto : Dictionary<String,Array<Int>> = generateLottoDictionary()
+    if let chosenRound = totalRoundLotto["\(round)회차"] {
         let printArray = convertArray(array: chosenRound)
         print("\(round)회차의 로또 당첨 번호는 \(printArray.joined(separator: ", ")) 입니다.")
     }
