@@ -2,3 +2,4 @@
 
 * Step1의 FlowChart추가.
 * Step2의 기능 구현
+* Step3의 기능 구현
