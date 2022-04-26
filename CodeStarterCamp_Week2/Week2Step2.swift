@@ -7,7 +7,7 @@
 
 import Foundation
 
-func createRandomLottoSet() -> Set<Int> {
+func createRandomLottoNumbers() -> Set<Int> {
     var setOfLottoNumber: Set<Int> = Set<Int>()
     while setOfLottoNumber.count < 6 {
         let lottoNumber: Int = Int.random(in: 1...45)
@@ -16,10 +16,9 @@ func createRandomLottoSet() -> Set<Int> {
     return setOfLottoNumber
 }
 
-func checkNumber(lottoSet: Set<Int>) -> Set<Int> {
-    let randomLottoNumbers = lottoSet
+func checkInterserctionNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
+    let randomLottoNumbers = lottoNumbers
     let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    
     let intersectionSet = randomLottoNumbers.intersection(Set(myLottoNumbers))
     print("랜덤으로 생성된 숫자 : \(randomLottoNumbers)")
     print("내가 고른 숫자 : \(myLottoNumbers)")
@@ -27,8 +26,8 @@ func checkNumber(lottoSet: Set<Int>) -> Set<Int> {
 }
 
 func showIntersectionNumbers() {
-    let randomNumbers = createRandomLottoSet()
-    let intersectionNumbers = checkNumber(lottoSet: randomNumbers)
+    let randomNumbers = createRandomLottoNumbers()
+    let intersectionNumbers = checkInterserctionNumbers(lottoNumbers: randomNumbers)
     if intersectionNumbers.isEmpty {
         print("아쉽게도 겹치는 번호가 없습니다.")
     } else {
