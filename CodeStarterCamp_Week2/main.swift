@@ -8,8 +8,8 @@
 
 import Foundation
 
-//Step2: 내 번호와 맞추어보기!
-playLotto()
-
 //Step 3: 로또 당첨 번호를 회차별로 저장하고, 확인하자!
-printSecondWinningLotto(from: 2)
+showLottoTicket(round: 2, totalCount: 5)
+
+//에러 처리 확인
+showLottoTicket(round: 6, totalCount: 4)

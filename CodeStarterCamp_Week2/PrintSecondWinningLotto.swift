@@ -7,35 +7,24 @@
 
 import Foundation
 
-//찾은 2회차의 로또 당첨 번호를 출력하는 함수
-@discardableResult
-func printSecondWinningLotto(from round: Int) -> String {
-    let secondWinningLottoNumbersAsString = findSecondWinningLotto(round: round).sorted().map{ $0.description }
-    let joinedNumbers = secondWinningLottoNumbersAsString.joined(separator: ", ")
-    let message = "\(round)회차의 로또 당첨 번호는 " + joinedNumbers + " 입니다."
-    print(message)
-    return joinedNumbers
-}
-
 //5번 생성한 로또 당첨번호를 딕셔너리에 저장하는 함수
-func saveWinningLottoNumbers() -> [String:Array<Int>] {
-    let playLottoRound = 5
-    let showRound = "회차"
+func buyLottoTicket(count: Int) -> [String: [Int]] {
+    var lottoTickets = [String: [Int]]()
     
-    var winningLottoData: [String:Array<Int>] = [:]
-    
-    for round in 1...playLottoRound {
-        let winningLottoDataMessage = "\(round)" + showRound
-        winningLottoData[winningLottoDataMessage] = lottoNumbers
+    for round in 1...count {
+        lottoTickets.updateValue(pickLottoNumbers(), forKey: "\(round)회차")
     }
-    return winningLottoData
+    return lottoTickets
 }
 
-//2회차의 로또 당첨 번호를 찾는 함수
-func findSecondWinningLotto(round: Int) -> [Int] {
-    let roundMessage = "\(round)회차"
-    let winningLottoData = saveWinningLottoNumbers()
+//해당 회차의 로또 당첨 번호를 찾고 출력해주는 함수
+func showLottoTicket(round: Int, totalCount: Int) {
+    let lottoTickets = buyLottoTicket(count: totalCount)
     
-    guard let secondWinningLottoNumbers = winningLottoData[roundMessage] else { return [] }
-    return secondWinningLottoNumbers
+    guard let ticketToShow = lottoTickets["\(round)회차"] else {
+        print("해당 회차의 로또 당첨 번호를 찾을 수 없습니다.")
+        return
+    }
+    
+    print("\(round)회차의 로또 당첨 번호는 \(convertToString(from: ticketToShow)) 입니다.")
 }
