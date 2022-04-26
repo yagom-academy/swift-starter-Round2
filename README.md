@@ -1,22 +1,12 @@
-Step2에서 사용하던 createLotto() 함수와 convertToString() 함수는 그대로 사용하였습니다.
-다만 출력시 깔끔함을 위해서 createLotto()함수의 return 값에 .sorted()를 붙여주었습니다.
-
-
-main 파일     
-       
-10 - count는 현재 lottoDictionary에서 key값의 갯수를 나타냅니다.      
-12 - addLotto(number: Int) 함수를 통해 number의 수만큼 lottoDictionary의 값을 추가합니다.     
-13 - findLotto(number: Int) 함수를 통해 n회차(number) 로또의 숫자를 출력합니다.       
-      
-method 파일     
- - findLotto 함수         
-  5 - numberToString의 값은 lottoDictionary의 Key 값인 "~회차"로 해주기 위해서 convertToString()함수를 사용합니다.     
-     이 때 converToString()함수의 인자는 배열이어야 하므로 number에 괄호를 씌어줍니다.     
-  7 - Dictionary 타입에서 값을 출력할 때는 옵셔널이므로 if let 구문을 통해 출력합니다.     
-         
- - addLotto 함수                  
-  count = 1인 상태이므로 count += 1을 윗줄에 써서 key값을 "2회차"부터 만듭니다.
-  인자인 number만큼 반복문을 통해 lottoDictionary에 값을 추가합니다. 
+제가 var lottoDictionary를 전역변수로 선언했던 이유는     
      
-count를 굳이 전역변수로 만든 이유는 로또를 꼭 5번을 만들지 않더라도 사용자가 원하는 갯수만큼 만들어보고 싶어서 전역변수로 선언하였습니다.
- 
+회차와 Lotto번호들을 저장하는 Dictionary 타입의 변수를 생성합니다.     
+"1회차": [1, 2, 3, 4, 5, 6] 와 같은 Key와 Value를 가집니다.     
+Step 2의 로또 당첨 번호 생성 함수를 호출할 때마다, 회차와 로또 번호를 Dictionary에 저장하고자 합니다.    
+       
+라는 조건이 있어서 '1회차의 key와 value값은 저렇게 잡고 이후에 추가해달라는 뜻이구나'라고 생각해서 전역변수로
+선언했었습니다.                
+
+그리고 함수의 이름과 프로퍼티의 이름에서 ticket이 없이 만들어도 무리가 없다는 생각에 과감히 뺐습니다.               
+22 - 기준의 createLotto() 함수를 곰곰히 생각해보니 로또를 만든다 -> 회차까지 같이 만든다는건가?    
+라는 생각을 할 수도 있어서 아예 로또 숫자만 생성해준다는 의미로 createLottoNumbers()라고 변경했습니다.  

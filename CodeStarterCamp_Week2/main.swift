@@ -6,8 +6,6 @@
 //
 import Foundation
 
-var lottoDictionary = ["1회차": [1,2,3,4,5,6]]
-var count = 1
+let lottoDict = buyLotto(count: 5)
 
-addLotto(number: 4)
-findLotto(number: 2)
+showLotto(number: 7, in: lottoDict)

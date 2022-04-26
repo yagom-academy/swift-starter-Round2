@@ -1,22 +1,25 @@
 
 import Foundation
 
-func findLotto(number: Int) {
-    let numberToString = convertToString([number]) + "회차"
+func showLotto(number: Int, in lotto: [String: [Int]]) {
+    if let lottonumbers = lotto["\(number)회차"] {
+        print("\(number)회차의 로또 당첨 번호는 \(convertToString(lottonumbers)) 입니다.")
+    } else {
+        print("해당 회차의 로또 당첨 번호는 없습니다.")
+    }
+}
+
+
+func buyLotto(count: Int) -> [String: [Int]] {
+    var lottos = [String: [Int]]()
     
-    if let lottoNumbers = lottoDictionary[numberToString]{
-        print("\(numberToString)의 로또 당첨 번호는 \(convertToString(lottoNumbers)) 입니다.")
+    for number in 1...count {
+        lottos.updateValue(createLottoNumbers(), forKey: "\(number)회차")
     }
+    return lottos
 }
 
-func addLotto(number: Int){         // 로또를 추가하고 싶은 갯수
-    for _ in 1...number{
-        count += 1
-        lottoDictionary.updateValue(createLotto(), forKey: "\(convertToString([count]))회차")
-    }
-}
-
-func createLotto() -> [Int] {
+func createLottoNumbers() -> [Int] {
     var lottoNumbers = [Int]()
     
     while lottoNumbers.count < 6 {
