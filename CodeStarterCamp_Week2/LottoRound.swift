@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  
 //  CodeStarterCamp_Week2
 //
 //  Created by yagom.
@@ -8,18 +8,15 @@
 
 import Foundation
 
-
-
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var storgedLottoInfo: Dictionary<Int, Set<Int>> = [Int: Set<Int>]()
+var lottoInformation: Dictionary<String, [Int]> = [String: [Int]]()
 
-
-func generateLottoNumbers() -> Set<Int> {
+func generateLottoNumbers() -> Array<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
-    return lottoNumbers
+    return Array(lottoNumbers)
 }
 
 func checkLottoNumbers(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) {
@@ -31,7 +28,6 @@ func checkLottoNumbers(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) {
             winnedLottoNumbers.append(myLottoNumbers[number])
         }
     }
-    
     if winnedLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
@@ -40,30 +36,24 @@ func checkLottoNumbers(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) {
     }
 }
 
-func storgedLotto(lottoRound: Int) -> [Int: Set<Int>] {
+func saveLotto(lottoRound: Int) -> () {
+    //var arrayLottoNumbers: Array<Int> = [Int]()
     for number in 1...lottoRound {
-        let round = number
-        storgedLottoInfo[round] = generateLottoNumbers()
+        lottoInformation["\(number)회차"] = generateLottoNumbers()
     }
-    
-    let sortedStorgedLottoInfo = storgedLottoInfo.sorted{ $0.0 < $1.0 }
-    return storgedLottoInfo
 }
 
-func findLottoRound(findRound: Int) {
-    if let printLottoInfo = storgedLottoInfo[findRound] {
-        let printLottoInfoToStringValue = printLottoInfo.map { String($0) }.joined(separator: ",")
-        print("\(findRound)회차의 로또 당첨 번호는 \(printLottoInfoToStringValue) 입니다.")
-        
+func findLottoRound(round: String) {
+    if let printLotto = lottoInformation["\(round)"] {
+        let printLottoToStringValue = printLotto.sorted().map{ String($0)}.joined(separator: ", ")
+        print("\(round)의 로또 당첨 번호는 \(printLottoToStringValue) 입니다.")
     } else {
         print("회차 정보를 올바르게 입력해주세요")
     }
 }
 
-
-
-storgedLotto(lottoRound: 5)
-findLottoRound(findRound: 2)
+saveLotto(lottoRound: 5)
+findLottoRound(round: "2회차")
 //generateLottoNumbers()
 //checkLottoNumbers(lottoNumbers: generateLottoNumbers(), myLottoNumbers: myLottoNumbers)
 
