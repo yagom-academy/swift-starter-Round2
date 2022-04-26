@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
 		AE3B5C1628129D0900A35E31 /* PlayLotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3B5C1528129D0900A35E31 /* PlayLotto.swift */; };
-		AE93C0B928164E0300DC1EA3 /* PrintSecondWinningLotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93C0B828164E0300DC1EA3 /* PrintSecondWinningLotto.swift */; };
+		AE93C0B928164E0300DC1EA3 /* showLottoTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93C0B828164E0300DC1EA3 /* showLottoTicket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +28,7 @@
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		AE3B5C1528129D0900A35E31 /* PlayLotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayLotto.swift; sourceTree = "<group>"; };
-		AE93C0B828164E0300DC1EA3 /* PrintSecondWinningLotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintSecondWinningLotto.swift; sourceTree = "<group>"; };
+		AE93C0B828164E0300DC1EA3 /* showLottoTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showLottoTicket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 			children = (
 				34811DC1274B93D800A1E994 /* main.swift */,
 				AE3B5C1528129D0900A35E31 /* PlayLotto.swift */,
-				AE93C0B828164E0300DC1EA3 /* PrintSecondWinningLotto.swift */,
+				AE93C0B828164E0300DC1EA3 /* showLottoTicket.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -125,7 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE93C0B928164E0300DC1EA3 /* PrintSecondWinningLotto.swift in Sources */,
+				AE93C0B928164E0300DC1EA3 /* showLottoTicket.swift in Sources */,
 				AE3B5C1628129D0900A35E31 /* PlayLotto.swift in Sources */,
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
 			);
