@@ -7,21 +7,28 @@
 
 import Foundation
 
-var lottoNumbers: Set<Int> = Set<Int>()
+var winNumbers: Set<Int> = Set<Int>()
 
-
-func createLottoNumbers() {
-    for i in 1...45 {
-        lottoNumbers.insert(i)
+func createWinNumbers() {
+    while winNumbers.count < 6 {
+        winNumbers.insert(Int.random(in: 1...45))
     }
 }
 
+var myLottoNumbers: Set<Int> = Set<Int>()
 
-var winNumbers: Set<Int> = Set<Int>()
-//var indices = [lottoNumbers<Int>.Index]()
+func createMyLottoNumbers() {
+    while myLottoNumbers.count < 6 {
+        myLottoNumbers.insert(Int.random(in: 1...45))
+    }
+}
 
-func createWinNumbers() {
-    for j in 0...5 {
-        winNumbers.insert(lottoNumbers[lottoNumbers.index(lottoNumbers.startIndex, offsetBy: j)])
+func checkNumbers() {
+    var result: Set<Int> = Set<Int>()
+    result = winNumbers.intersection(myLottoNumbers)
+    if (result.count == 0) {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 \(result)입니다!")
     }
 }
