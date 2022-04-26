@@ -1,26 +1,30 @@
 import Foundation
 
 func makeLottoNumbersFor(times numbers: Int) {
-    for number in 1...numbers {
-        var newLottoNumbers: [Int] = []
-        newLottoNumbers = pickLottoNumbers()
-        lottoNumbersDictionary["\(number)회차"] = newLottoNumbers
+    if numbers >= 1 {
+        for number in 1...numbers {
+            var newLottoNumbers: [Int] = []
+            newLottoNumbers = pickLottoNumbers()
+            lottoNumbersDictionary["\(number)회차"] = newLottoNumbers
+        }
+    } else {
+        print("생성하고자 하는 로또 당첨 횟수는 1보다 크거나 같아야합니다.")
     }
 }
 
 func showLottoNumbersAt(order number: Int) {
-    var arrayForShowingNumbers: [Int] = [ ]
     if number >= 1 && number <= lottoNumbersDictionary.count {
         if let numbers = lottoNumbersDictionary["\(number)회차"] {
+            var arrayForShowingNumbers: [Int] = [ ]
             arrayForShowingNumbers = numbers
+            let findingNumbersStringArray = convertStringArray(from: arrayForShowingNumbers)
+            print("\(number)회차의 로또 당첨 번호는 \(findingNumbersStringArray.joined(separator: ", ")) 입니다.")
         } else {
             print("해당 회차의 로또번호를 찾을 수 없습니다.")
         }
     } else {
         print("해당 회차의 로또번호는 없거나, 찾고자 하는 회차 숫자가 양수가 아닙니다.")
     }
-    let findingNumbersStringArray = convertStringArray(from: arrayForShowingNumbers)
-    print("\(number)회차의 로또 당첨 번호는 \(findingNumbersStringArray.joined(separator: ", ")) 입니다.")
 }
 
 func pickLottoNumbers() -> [Int] {
