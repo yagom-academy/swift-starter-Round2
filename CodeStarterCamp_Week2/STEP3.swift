@@ -14,3 +14,11 @@ func generateLottoArray () -> Array<Int> {
     }
     return Array<Int>(lottoSet)
 }
+
+func generateLottoDictionary () -> Dictionary<Int, Array<Int>> {
+    var lottoDictionary: Dictionary<Int, Array> = [Int: Array<Int>]()
+    for lottoRound in 1...5 {
+        lottoDictionary[lottoRound] = generateLottoArray()
+    }
+    return lottoDictionary
+}
