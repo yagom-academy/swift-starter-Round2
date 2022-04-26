@@ -6,5 +6,4 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-generateLotto()
-checkLotto()
+printLottoRound(round:2)
