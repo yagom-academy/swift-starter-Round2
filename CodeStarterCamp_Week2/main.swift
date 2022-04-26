@@ -1,16 +1,17 @@
 import Foundation
 
-var lottoNumbers: [Int] = []
 
-func pickLottoNumbers() {
+func pickLottoNumbers() -> [Int] {
+
+  var lottoNumbers: [Int] = []
   var totalLottoNumbers: [Int] = Array(1...45)
+
   totalLottoNumbers.shuffle()
   totalLottoNumbers.removeSubrange(6...(totalLottoNumbers.count-1))
   lottoNumbers = totalLottoNumbers
-  print(lottoNumbers)
-}
 
-pickLottoNumbers()
+  return lottoNumbers
+}
 
 func compare(_ myLottoNumber: [Int], with lottoNumbers: [Int]) {
 
@@ -22,22 +23,31 @@ func compare(_ myLottoNumber: [Int], with lottoNumbers: [Int]) {
     }
   }
 
-  func convertStringArray(from array: [Int]) -> [String] {
-    var convertedStringArray: [String] = []
-    for num in array {
-      convertedStringArray.append(String(num))
-    }
-    return convertedStringArray
+  let containNumbersWithString = convertStringArray(from: containNumbers)
+  printContainNumbers(in: containNumbersWithString)
+}
+
+func convertStringArray(from array: [Int]) -> [String] {
+
+  var convertedStringArray: [String] = []
+
+  for num in array {
+    convertedStringArray.append(String(num))
   }
 
-  let containNumbersWithString = convertStringArray(from: containNumbers)
+  return convertedStringArray
+}
 
-  if containNumbersWithString.isEmpty {
+func printContainNumbers(in array: [String]) {
+
+  if array.isEmpty {
     print("아쉽지만 겹치는 번호가 없습니다.")
   } else {
-    print("축하합니다! 겹치는 번호는 \(containNumbersWithString.joined(separator: ", ")) 입니다!")
+    print("축하합니다! 겹치는 번호는 \(array.joined(separator: ", ")) 입니다!")
   }
 }
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let lottoNumbers = pickLottoNumbers()
+
 compare(myLottoNumbers, with: lottoNumbers)
