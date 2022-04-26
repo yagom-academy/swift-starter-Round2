@@ -16,18 +16,15 @@ func createRandomLottoNumbers() -> Set<Int> {
     return setOfLottoNumber
 }
 
-func checkInterserctionNumbers(lottoNumbers: Set<Int>) -> Set<Int> {
-    let randomLottoNumbers = lottoNumbers
-    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    let intersectionSet = randomLottoNumbers.intersection(Set(myLottoNumbers))
-    print("랜덤으로 생성된 숫자 : \(randomLottoNumbers)")
+func checkInterserctionNumbers(lottoNumbers: Set<Int>, myLottoNumbers: Array<Int>) -> Set<Int> {
+    let intersectionSet = lottoNumbers.intersection(Set(myLottoNumbers))
+    print("랜덤으로 생성된 숫자 : \(lottoNumbers)")
     print("내가 고른 숫자 : \(myLottoNumbers)")
     return intersectionSet
 }
 
 func showIntersectionNumbers() {
-    let randomNumbers = createRandomLottoNumbers()
-    let intersectionNumbers = checkInterserctionNumbers(lottoNumbers: randomNumbers)
+    let intersectionNumbers = checkInterserctionNumbers(lottoNumbers: randomNumbers, myLottoNumbers: myLottoNumbers)
     if intersectionNumbers.isEmpty {
         print("아쉽게도 겹치는 번호가 없습니다.")
     } else {

@@ -9,5 +9,7 @@
 import Foundation
 
 // Week2Step2
+let randomNumbers = createRandomLottoNumbers()
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 showIntersectionNumbers()
 
