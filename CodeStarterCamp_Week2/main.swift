@@ -6,4 +6,4 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-getLottoRound(round:2)
+printLottoRound(round:2)

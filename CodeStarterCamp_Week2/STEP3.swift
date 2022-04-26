@@ -31,7 +31,7 @@ func convertArray(array: [Int]) -> [String] {
      return convertedArray
 }
 
-func getLottoRound (round: Int) {
+func printLottoRound (round: Int) {
     let lottoDict : Dictionary<Int,Array<Int>> = generateLottoDictionary()
     if let sample = lottoDict[round] {
         let printArray = convertArray(array: sample)
