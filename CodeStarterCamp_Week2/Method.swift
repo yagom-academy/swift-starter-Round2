@@ -1,15 +1,25 @@
 
 import Foundation
 
-func printLottoResult(){
-    if correctNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+func showLotto(number: Int, in lotto: [String: [Int]]) {
+    if let lottonumbers = lotto["\(number)회차"] {
+        print("\(number)회차의 로또 당첨 번호는 \(convertToString(lottonumbers)) 입니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(convertToString(correctNumbers)) 입니다! ")
+        print("해당 회차의 로또 당첨 번호는 없습니다.")
     }
 }
 
-func createLotto() -> [Int] {
+
+func buyLotto(count: Int) -> [String: [Int]] {
+    var lottos = [String: [Int]]()
+    
+    for number in 1...count {
+        lottos.updateValue(createLottoNumbers(), forKey: "\(number)회차")
+    }
+    return lottos
+}
+
+func createLottoNumbers() -> [Int] {
     var lottoNumbers = [Int]()
     
     while lottoNumbers.count < 6 {
@@ -22,13 +32,7 @@ func createLotto() -> [Int] {
         }
     }
     
-    return lottoNumbers
-}
-
-func compareToMachine(user: [Int], machine: [Int]) -> [Int] {
-    let correctNumbers = user.filter { machine.contains($0) }
-    
-    return correctNumbers
+    return lottoNumbers.sorted()
 }
 
 func convertToString(_ array: [Int]) -> String {

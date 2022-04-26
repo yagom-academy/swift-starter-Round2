@@ -6,8 +6,6 @@
 //
 import Foundation
 
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
-let correctNumbers = compareToMachine(user: myLottoNumbers, machine: createLotto())
+let lottoDict = buyLotto(count: 5)
 
-printLottoResult()
-
+showLotto(number: 7, in: lottoDict)
