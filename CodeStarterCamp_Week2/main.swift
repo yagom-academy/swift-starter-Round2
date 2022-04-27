@@ -18,4 +18,21 @@ func matchOfNumbers(_ myLottoNumbers:[Int]) {
 	print(resultMessage)
 }
 
+func operateInLottos(turnLotto: Int, getNumber: Int) {
+	let generatedNumberOfLotto = generateNumberOfLotto()
+	let saveNumbers = generatedNumberOfLotto.map{ String($0) }.joined(separator: ", ")
+	var archiveOfLotto = [Int: String]()
+	for round in 1...turnLotto {
+		archiveOfLotto[round] = saveNumbers
+	}
+
+	if let getNumbers: String = archiveOfLotto[getNumber] {
+		print("\(getNumber)회차의 로또 당첨 번호는 \(getNumbers) 입니다.")
+	}
+}
+
 matchOfNumbers([1,2,3,4,5,6])
+
+operateInLottos(turnLotto: 5, getNumber: 1)
+operateInLottos(turnLotto: 5, getNumber: 2)
+operateInLottos(turnLotto: 5, getNumber: 6)
