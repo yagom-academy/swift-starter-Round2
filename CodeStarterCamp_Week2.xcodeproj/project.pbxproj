@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
-		E3A18C3D28129B75008D287F /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A18C3C28129B75008D287F /* Lottery.swift */; };
+		E33146E22819B09E005FAD4F /* Step 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33146E12819B09E005FAD4F /* Step 3.swift */; };
+		E3A18C3D28129B75008D287F /* Step 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A18C3C28129B75008D287F /* Step 2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +27,8 @@
 /* Begin PBXFileReference section */
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E3A18C3C28129B75008D287F /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
+		E33146E12819B09E005FAD4F /* Step 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 3.swift"; sourceTree = "<group>"; };
+		E3A18C3C28129B75008D287F /* Step 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 2.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				34811DC1274B93D800A1E994 /* main.swift */,
-				E3A18C3C28129B75008D287F /* Lottery.swift */,
+				E3A18C3C28129B75008D287F /* Step 2.swift */,
+				E33146E12819B09E005FAD4F /* Step 3.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -123,7 +126,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
-				E3A18C3D28129B75008D287F /* Lottery.swift in Sources */,
+				E33146E22819B09E005FAD4F /* Step 3.swift in Sources */,
+				E3A18C3D28129B75008D287F /* Step 2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

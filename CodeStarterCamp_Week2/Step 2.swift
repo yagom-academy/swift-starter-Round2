@@ -15,12 +15,11 @@ func makeWinnerNumber() -> Set<Int> {
     return winnerNumber
 }
 
-func checkLottoWhat(number playerNumbers: Array<Int>) {
+func checkLotto(numbers: Array<Int>) {
     let winnerNumbers: Set<Int> = makeWinnerNumber()
-    let setPlayerNumbers: Set<Int> = Set<Int>(playerNumbers)
+    let setPlayerNumbers: Set<Int> = Set<Int>(numbers)
     let comparedNumbers: Set<Int> = winnerNumbers.intersection(setPlayerNumbers)
     print("이번 당첨 번호는 \(winnerNumbers.sorted()) 입니다.")
-    
     if comparedNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
