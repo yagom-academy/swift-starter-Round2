@@ -1,6 +1,23 @@
 import Foundation
 
-func makeLottoNumbersFor(times numbers: Int) {
+func showLottoNumbers(at number: Int, outOf times: Int) {
+    let lottoNumbersDictionary = makeLottoNumbersFor(times: times)
+    if number >= 1 && number <= lottoNumbersDictionary.count {
+        if let numbers = lottoNumbersDictionary["\(number)회차"] {
+            var arrayForShowingNumbers: [Int] = []
+            arrayForShowingNumbers = numbers
+            let showingNumbersStringArray = convertStringArray(from: arrayForShowingNumbers)
+            print("\(number)회차의 로또 당첨 번호는 \(showingNumbersStringArray.joined(separator: ", ")) 입니다.")
+        } else {
+            print("해당 회차의 로또번호를 찾을 수 없습니다.")
+        }
+    } else {
+        print("해당 회차의 로또번호는 없거나, 찾고자 하는 회차 숫자가 양수가 아닙니다.")
+    }
+}
+
+func makeLottoNumbersFor(times numbers: Int) -> [String: [Int]] {
+    var lottoNumbersDictionary: [String: [Int]] = [: ]
     if numbers >= 1 {
         for number in 1...numbers {
             var newLottoNumbers: [Int] = []
@@ -10,21 +27,8 @@ func makeLottoNumbersFor(times numbers: Int) {
     } else {
         print("생성하고자 하는 로또 당첨 횟수는 1보다 크거나 같아야합니다.")
     }
-}
 
-func showLottoNumbersAt(order number: Int) {
-    if number >= 1 && number <= lottoNumbersDictionary.count {
-        if let numbers = lottoNumbersDictionary["\(number)회차"] {
-            var arrayForShowingNumbers: [Int] = [ ]
-            arrayForShowingNumbers = numbers
-            let findingNumbersStringArray = convertStringArray(from: arrayForShowingNumbers)
-            print("\(number)회차의 로또 당첨 번호는 \(findingNumbersStringArray.joined(separator: ", ")) 입니다.")
-        } else {
-            print("해당 회차의 로또번호를 찾을 수 없습니다.")
-        }
-    } else {
-        print("해당 회차의 로또번호는 없거나, 찾고자 하는 회차 숫자가 양수가 아닙니다.")
-    }
+    return lottoNumbersDictionary
 }
 
 func pickLottoNumbers() -> [Int] {
@@ -46,7 +50,4 @@ func convertStringArray(from array: [Int]) -> [String] {
     return convertedStringArray
 }
 
-var lottoNumbersDictionary: [String: [Int]] = [: ]
-
-makeLottoNumbersFor(times: 5)
-showLottoNumbersAt(order: 2)
+showLottoNumbers(at: 2, outOf: 0)
