@@ -7,17 +7,13 @@
 
 import Foundation
 
-func makeWinnerNumbers(time: Int){
+func makeWinnerNumbers(time: Int) {
     for timeCounter in 1...time {
-        var winnerNumbers: Set<Int> = []
-        while winnerNumbers.count != 6 {
-            winnerNumbers.insert(Int.random(in: 1...45))
-        }
-        winnerNumbersStorage["\(timeCounter)회차"] = winnerNumbers.sorted()
+        winnerNumbersStorage["\(timeCounter)회차"] = makeWinnerNumber().sorted()
     }
 }
 
-func checkWinnerNumbers(round: Int) {
+func printWinnerNumbers(round: Int) {
     if var winnerNumbers = winnerNumbersStorage["\(round)회차"] {
         print("\(round)회차의 로또 당첨 번호는", terminator: " ")
         while winnerNumbers.count > 1 {
@@ -27,5 +23,14 @@ func checkWinnerNumbers(round: Int) {
         print(winnerNumbers[0], "입니다.", separator: " ")
     } else {
         print("해당 회차는 아직 추첨을 진행하지 않았습니다.")
+    }
+}
+
+func checkWinnerNumbers(round: Int, myNumbers: Array<Int> = []) {
+    if myNumbers.isEmpty {
+        printWinnerNumbers(round: round)
+    } else {
+        printWinnerNumbers(round: round)
+        checkLotto(round: round, numbers: myNumbers)
     }
 }
