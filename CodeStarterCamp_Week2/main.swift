@@ -50,4 +50,4 @@ func convertStringArray(from array: [Int]) -> [String] {
     return convertedStringArray
 }
 
-showLottoNumbers(at: 2, outOf: 0)
+showLottoNumbers(at: 2, outOf: 5)
