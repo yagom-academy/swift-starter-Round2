@@ -20,4 +20,13 @@ func saveRoundLottoNumbers() -> Dictionary<String, Array<Int>> {
     return roundLottoNumbers
 }
 
+func printRoundLottoNumbers(round: Int, lottoNumbers: Dictionary<String, Array<Int>>) {
+    if let chooseRound = lottoNumbers["\(round)회차"]{
+        let printArray = chooseRound.map { String($0) }.joined(separator: ", ")
+        print("\(round)회차의 당첨번호는 \(printArray) 입니다!")
+    } else {
+        print("회차를 확인해주세요!")
+    }
+}
+
 

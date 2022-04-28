@@ -17,4 +17,4 @@ showIntersectionNumbers(intersectionNumbers: intersectionNumbers)
 // Week2Step3
 print("-----------------------------------------")
 let roundLottoNumbers = saveRoundLottoNumbers()
-
+printRoundLottoNumbers(round: 2, lottoNumbers: roundLottoNumbers)
