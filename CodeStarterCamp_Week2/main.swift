@@ -18,14 +18,14 @@ func matchNumbers(_ myLottoNumbers:[Int]) {
 	print(resultMessage)
 }
 
-func operateLottos(turnLotto: Int, getNumber: Int) {
+func operateLottos(repetitionLotto: Int, relationNumbers: Int) {
 	let generatedNumberOfLotto = generateNumberOfLotto()
 	let saveNumbers = generatedNumberOfLotto.map{ Int($0) }
 	var archiveOfLotto = [String: [Int]]()
-	for round in 1...turnLotto {
+	for round in 1...repetitionLotto {
 		archiveOfLotto["\(round)회차"] = saveNumbers
 	}
-	let getRound: String = "\(getNumber)회차"
+	let getRound: String = "\(relationNumbers)회차"
 	if let getNumbers = archiveOfLotto[getRound] {
 		let getLottoNumbers = getNumbers.map{ String($0) }.joined(separator: ", ")
 		print("\(getRound)의 로또 당첨 번호는 \(getLottoNumbers) 입니다.")
@@ -34,6 +34,6 @@ func operateLottos(turnLotto: Int, getNumber: Int) {
 
 matchNumbers([1,2,3,4,5,6])
 
-operateLottos(turnLotto: 5, getNumber: 1)
-operateLottos(turnLotto: 5, getNumber: 2)
-operateLottos(turnLotto: 5, getNumber: 6)
+operateLottos(repetitionLotto: 5, relationNumbers: 1)
+operateLottos(repetitionLotto: 5, relationNumbers: 2)
+operateLottos(repetitionLotto: 5, relationNumbers: 6)
