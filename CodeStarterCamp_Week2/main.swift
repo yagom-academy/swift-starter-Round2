@@ -8,9 +8,9 @@
 
 import Foundation
 
-var lottoNumbers: Set<Int> = Set<Int>()
-
 func pickLottoNumbers() -> Set<Int> {
+    var lottoNumbers: Set<Int> = Set<Int>()
+    
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 0...46))
     }
@@ -25,7 +25,7 @@ func compareNumbers() -> Set<Int> {
         myNumbers.insert(myLottoNumbers[index])
     }
     
-    let overlapping: Set<Int> = myNumbers.intersection(lottoNumbers)
+    let overlapping: Set<Int> = myNumbers.intersection(pickLottoNumbers())
     
     return overlapping
 }
