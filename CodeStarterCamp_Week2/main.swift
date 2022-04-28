@@ -5,7 +5,7 @@ func generateNumberOfLotto() -> Set<Int> {
 	return lottoNumbers
 }
 
-func matchOfNumbers(_ myLottoNumbers:[Int]) {
+func matchNumbers(_ myLottoNumbers:[Int]) {
 	let generatedNumberOfLotto = generateNumberOfLotto()
 	let matchOfNumbers: Set<Int> = generatedNumberOfLotto.intersection(myLottoNumbers)
 	let mappedNumbers = matchOfNumbers.map{ String($0) }.joined(separator: ", ")
@@ -31,7 +31,7 @@ func operateInLottos(turnLotto: Int, getNumber: Int) {
 	}
 }
 
-matchOfNumbers([1,2,3,4,5,6])
+matchNumbers([1,2,3,4,5,6])
 
 operateInLottos(turnLotto: 5, getNumber: 1)
 operateInLottos(turnLotto: 5, getNumber: 2)
