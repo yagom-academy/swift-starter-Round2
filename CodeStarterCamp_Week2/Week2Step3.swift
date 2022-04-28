@@ -12,5 +12,12 @@ func stackLottoNumbers() -> Array<Int> {
     return Array(newLottoNumbers)
 }
 
+func saveRoundLottoNumbers() -> Dictionary<String, Array<Int>> {
+    var roundLottoNumbers: Dictionary<String, Array<Int>> = [:]
+    for roundString in 1...5 {
+        roundLottoNumbers["\(roundString)회차"] = stackLottoNumbers()
+    }
+    return roundLottoNumbers
+}
 
 

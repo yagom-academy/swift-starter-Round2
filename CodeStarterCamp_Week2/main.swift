@@ -15,4 +15,6 @@ let intersectionNumbers = checkInterserctionNumbers(lottoNumbers: randomNumbers,
 showIntersectionNumbers(intersectionNumbers: intersectionNumbers)
 
 // Week2Step3
+print("-----------------------------------------")
+let roundLottoNumbers = saveRoundLottoNumbers()
 
