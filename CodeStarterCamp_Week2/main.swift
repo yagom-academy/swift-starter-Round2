@@ -17,6 +17,31 @@ func pickLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
+var savedNumbers: [String: Set<String>] = [:]
+
+func saveLottoNumbers(index: Int, pickLottoNumbers: Set<Int>) -> [String : Set<String>] {
+    var lottoNumbers: Set<String> = Set<String>()
+    
+    for num in pickLottoNumbers {
+        lottoNumbers.insert(String(num))
+    }
+    
+    savedNumbers["\(index)회차"] = lottoNumbers
+    return savedNumbers
+}
+
+for index in 1...5 {
+    saveLottoNumbers(index: index, pickLottoNumbers: pickLottoNumbers())
+}
+
+if let secondLottoNumber = savedNumbers["2회차"] {
+    let joinedNumbers = secondLottoNumber.joined(separator: ", ")
+    
+    print("2회차의 로또 당첨 번호는 \(joinedNumbers) 입니다.")
+}
+
+// MARK: - STEP2 미션 코드입니다 👇
+/*
 func compareNumbers() -> Set<Int> {
     let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
     var myNumbers: Set<Int> = Set<Int>()
@@ -44,3 +69,4 @@ if compareNumbers().isEmpty {
     let joinedNumbers = overlappingNumbers.joined(separator: ", ")
     print("축하합니다! 겹치는 번호는 \(joinedNumbers) 입니다!")
 }
+*/
