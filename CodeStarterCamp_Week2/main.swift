@@ -22,17 +22,14 @@ func makeLottoSet() {
     }
 }
 
-func checkLotto(lottoNum: Set<Int>, myNum: Set<Int>) {
+func checkLotto(lottoNum: Set<Int>, myNum: Array<Int>) {
     let intersection: Set<Int> = lottoNum.intersection(myNum)
     if intersection == [] {
-        print("일치하는 번호 없음")
+        print("아쉽지만 일치하는 번호가 없습니다.")
     }
     else {
-        print(intersection, "가 일치합니다.")
+        print("축하합니다!", intersection, "가 일치합니다.")
     }
 }
-
 makeLottoSet()
-print(lottoSet)
 checkLotto(lottoNum: lottoSet, myNum: myLottoNumbers)
-
