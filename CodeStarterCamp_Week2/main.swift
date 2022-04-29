@@ -8,8 +8,4 @@
 
 import Foundation
 
-createLottoNumbers()
-print(lottoNumbers)
-
-createWinNumbers()
-print(winNumbers)
+printResult(number: 6)
