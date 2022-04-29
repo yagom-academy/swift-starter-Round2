@@ -8,16 +8,15 @@
 import Foundation
 
 //MARK: - 로또번호 생성
-func makeLottoNumberCollection() -> Set<Int> {
-    var drawLottoNumbers: Set<Int> = Set<Int>()
+func  makeLottoNumberCollection(_ number: Int) -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
-    for _ in 1...6 {
-        drawLottoNumbers.insert(Int.random(in:1...45))
+    for _ in 1...number {
+        lottoNumbers.insert(Int.random(in:1...45))
     }
     
-    if drawLottoNumbers.count == 6 {
-        lottoNumbers = drawLottoNumbers
+    if lottoNumbers.count == number {
+        return lottoNumbers
     }
     
     return lottoNumbers
@@ -26,29 +25,22 @@ func makeLottoNumberCollection() -> Set<Int> {
 //MARK: - 로또 번호 매칭
 func matchMyLottoNumbers() -> Array<String> {
     let myLottoNumbers: [Int] = [5, 1, 44, 35, 29, 10]
-    let makeLottoNumberCollection = makeLottoNumberCollection()
-    let winNumbers = makeLottoNumberCollection.intersection(Set(myLottoNumbers)).sorted().map{String($0)}
+    let makeLottoNumberCollection = makeLottoNumberCollection(6)
+    let winNumbers = makeLottoNumberCollection.intersection(Set(myLottoNumbers)).map{String($0)}
     
     return winNumbers
 }
 
 //MARK: - 당첨유무 멘트
-func sayWinningStatus(){
+func sayResultofWin(){
     let match = matchMyLottoNumbers()
     let matchjoin = match.joined(separator: ", ")
     
     if match.count > 0 {
-        
-        func extractWinningNumbers() {
-            for i in match {
-                print(i, terminator: ", ")
-            }
-        }
         print("축하합니다! 겹치는 번호는 \(matchjoin) 입니다.")
     } else {
         print("아쉽지만 겹치는 숫자가 없습니다.")
     }
 }
 
-
-sayWinningStatus()
+sayResultofWin()
