@@ -10,3 +10,8 @@ import Foundation
 
 print("Hello, World!")
 
+var integerSet: Set<Int> = Set<Int>()
+var rand = Int.random(in: 1 ... 45)
+
+print(rand)
+
