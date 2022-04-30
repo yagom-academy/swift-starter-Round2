@@ -13,7 +13,6 @@ func createLottoGame(drawNumber: Int, totalGameNumber: Int) -> Dictionary<String
     for i in 1...totalGameNumber {
         lottoGames["\(i)회차"] = Array(createWinNumbers(number: drawNumber)).sorted()
     }
-    print(lottoGames)
     return(lottoGames)
 }
 
@@ -22,7 +21,6 @@ func showEachGame(totalGameNumber:Int, gameNumber:Int) -> String{
     if let chosenGame = lottoGames["\(gameNumber)회차"] {
         winNumberToString = chosenGame.map {String($0)}.joined(separator: ", ")
     }
-    print(winNumberToString)
     return winNumberToString
 }
 
