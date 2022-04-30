@@ -34,6 +34,8 @@ func matchLottoNumbers() {
 }
 
 func printLottoResult() {
+    let lastIndex = matchedNumbers.index(before: matchedNumbers.endIndex)
+    
     switch matchedNumbers.count {
     case 0:
         print("아쉽지만 겹치는 번호가 없습니다.")
@@ -42,8 +44,7 @@ func printLottoResult() {
     case 2...winningNumbers.count:
         print("축하합니다! 겹치는 번호는 ", terminator: "")
         for index in 0..<matchedNumbers.count {
-            // 결과 출력시 마지막 숫자 뒤에는 구분자가 없어야 하므로 마지막 인덱스일 경우, terminator: ""
-            if index == matchedNumbers.index(before: matchedNumbers.endIndex) {
+            if index == lastIndex {
                 print(matchedNumbers[index], terminator: "")
             } else {
                 print(matchedNumbers[index], terminator: ", ")
