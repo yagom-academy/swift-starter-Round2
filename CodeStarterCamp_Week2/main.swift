@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+// Step2 로또
+let step2Lotto = Step2CheckLotto()
+step2Lotto.checkMyLotto()
 
