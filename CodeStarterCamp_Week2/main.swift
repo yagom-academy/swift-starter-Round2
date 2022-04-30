@@ -22,5 +22,16 @@ func makeNewLottoNumber() {
     print(newLottoNum)
 }
 
-makeNewLottoNumber()
+func matchingLottoNumber() {
+    let convertMyNumArrayToSet = Set(myLottoNumbers)
+    let matchedLottoNumber = newLottoNum.intersection(convertMyNumArrayToSet)
+    
+    if matchedLottoNumber.count >= 1 {
+        print("축하합니다! 겹치는 번호는 \(matchedLottoNumber)입니다.")
+    } else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+}
 
+makeNewLottoNumber()
+matchingLottoNumber()
