@@ -7,10 +7,10 @@
 
 import Foundation
 
-var winNumbers: Set<Int> = Set<Int>()
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
 func createWinNumbers(number: Int) -> Set<Int> {
+    var winNumbers: Set<Int> = Set<Int>()
     while winNumbers.count < number {
         winNumbers.insert(Int.random(in: 1...45))
     }
@@ -18,7 +18,7 @@ func createWinNumbers(number: Int) -> Set<Int> {
 }
 
 func checkResult(number:Int) -> (Array<Int>, String) {
-    winNumbers = createWinNumbers(number: number)
+    let winNumbers = createWinNumbers(number: number)
     let result: Set<Int> = winNumbers.intersection(myLottoNumbers)
     let sortedResult: [Int] = result.sorted()
     
