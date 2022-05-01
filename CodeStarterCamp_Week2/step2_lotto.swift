@@ -22,8 +22,8 @@ func checkResult() {
     let lottoNumbers = generateLotto()
     let sameNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
     var winNumbers: String = String("\(sameNumbers.sorted())")
-        winNumbers.removeLast()
-        winNumbers.removeFirst()
+    winNumbers.removeLast()
+    winNumbers.removeFirst()
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
