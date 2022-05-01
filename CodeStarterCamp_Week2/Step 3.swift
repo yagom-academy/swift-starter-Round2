@@ -7,9 +7,9 @@
 
 import Foundation
 
-func makeWinnerNumbers(time: Int) {
+func makeSeveralWinnerNumbers(time: Int) {
     for timeCounter in 1...time {
-        winnerNumbersStorage["\(timeCounter)회차"] = makeWinnerNumber().sorted()
+        winnerNumbersStorage["\(timeCounter)회차"] = makeWinnerNumberOnce().sorted()
     }
 }
 
@@ -27,10 +27,8 @@ func printWinnerNumbers(round: Int) {
 }
 
 func checkWinnerNumbers(round: Int, myNumbers: Array<Int> = []) {
-    if myNumbers.isEmpty {
-        printWinnerNumbers(round: round)
-    } else {
-        printWinnerNumbers(round: round)
+    printWinnerNumbers(round: round)
+    if !myNumbers.isEmpty {
         checkLotto(round: round, numbers: myNumbers)
     }
 }
