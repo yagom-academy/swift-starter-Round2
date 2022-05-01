@@ -34,3 +34,29 @@ let winTheLotteryNumbers = createLottoNumbers()
 let myLottoNumbers = createLottoNumbers()
 
 checkLottoNumbers(winTheLottery: winTheLotteryNumbers, myLotto: myLottoNumbers)
+
+// MARK: Step3
+var winTheLotteryNumbersList: Dictionary = [String : Set<Int>]()
+var roundWinTheLotteryNumbers = 0
+
+func addWinThelotteryNumbers() {
+    roundWinTheLotteryNumbers += 1
+    let winTheLotteryNumbers = createLottoNumbers()
+    winTheLotteryNumbersList.updateValue(winTheLotteryNumbers, forKey: "\(roundWinTheLotteryNumbers)회차")
+}
+
+while roundWinTheLotteryNumbers < 5 {
+    addWinThelotteryNumbers()
+}
+
+func printSecoundWinTheLotteryNumbers(){
+    guard let secondWinTheLotteryNumbers = winTheLotteryNumbersList["2회차"] else{
+        return
+    }
+    
+    let arrayIntersectionNumbers = secondWinTheLotteryNumbers.map { String($0) }
+    
+    print("2회차의 로또 당첨 번호는 \(arrayIntersectionNumbers.joined(separator: ", ")) 입니다.")
+}
+
+printSecoundWinTheLotteryNumbers()
