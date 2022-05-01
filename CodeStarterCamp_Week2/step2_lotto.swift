@@ -11,9 +11,9 @@ import Foundation
 //MARK: - 로또 번호 생성
 func generateLotto() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
-    repeat {
+    while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
-    } while lottoNumbers.count < 6
+    }
     return lottoNumbers
 }
 
