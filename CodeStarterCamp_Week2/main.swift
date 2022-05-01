@@ -27,8 +27,9 @@ func matchingLottoNumber() {
     let matchedLottoNumber = newLottoNum.intersection(convertMyNumArrayToSet)
     
     if matchedLottoNumber.count > 0 {
-        let winlottoNumber = Array(matchedLottoNumber)
-        let printWinNumber = winlottoNumber.map { Int($0) }
+        let winLottoNumber = Array(matchedLottoNumber)
+        let convertIntToString = winLottoNumber.map { String($0)}
+        let printWinNumber = convertIntToString.joined(separator: ", ")
         
         print("축하합니다! 겹치는 번호는 \(printWinNumber)입니다.")
     } else {
