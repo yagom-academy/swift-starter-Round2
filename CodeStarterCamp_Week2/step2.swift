@@ -18,7 +18,7 @@ func pickLottoNumber() {
 }
 
 func lottoCompareResult() {
-//    pickLottoNumber()
+    pickLottoNumber()
     let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
     let lottoNumberList: Set<Int> = Set<Int>(lottoNumber)
     let intersection: Set<Int> = lottoNumberList.intersection(myLottoNumbers)

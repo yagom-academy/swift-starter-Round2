@@ -8,9 +8,9 @@
 import Foundation
 
 func pickLottoNumber() -> Array<Int> {
-    var lottoNumber: Set<Int> = Set<Int> ()
+    var lottoNumber: Set<Int> = Set<Int>()
     while lottoNumber.count < 6 {
-        lottoNumber.insert(Int.random(in: 1..<46))
+            lottoNumber.insert(Int.random(in: 1...6))
     }
     return Array<Int>(lottoNumber)
 }
@@ -23,10 +23,9 @@ func archiveLottoNumber() -> Dictionary<Int, Array<Int>> {
     return archiveNumber
 }
 
-func callLottoNumber(round: Int) {
-    let lottoDic : Dictionary<Int, Array<Int>> = archiveLottoNumber()
-    if let pickLottoNumber = lottoDic[round] {
-//        let printArray = convertArray(array: sample)
+func checkLottoHistory(round: Int) {
+    let lottoHistory : Dictionary<Int, Array<Int>> = archiveLottoNumber()
+    if let pickLottoNumber = lottoHistory[round] {
         print("\(round)회차의 로또 당첨 번호는 \(pickLottoNumber) 입니다.")
     }
 }

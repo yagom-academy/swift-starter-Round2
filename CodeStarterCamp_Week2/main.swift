@@ -9,7 +9,8 @@
 import Foundation
 
 
-
+//step2
 //lottoCompareResult()
 
-callLottoNumber(round: 2)
+//step3
+checkLottoHistory(round: 2)
