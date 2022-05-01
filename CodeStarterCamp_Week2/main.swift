@@ -8,32 +8,29 @@
 
 import Foundation
 
-func pickedLottoNumbers() -> Set<Int>{
+func createLottoNumbers() -> Set<Int>{
     var lottoNumbers = Set<Int>()
 
     while lottoNumbers.count < 6 {
-        let num = Int.random(in: 1...45)
-        lottoNumbers.insert(num)
+        let number = Int.random(in: 1...45)
+        lottoNumbers.insert(number)
     }
 
     return lottoNumbers
 }
 
-func checkLottoNumbers(winTheLotteryNumbers: Set<Int>, myLottoNumbers: Set<Int>) {
+func checkLottoNumbers(winTheLottery: Set<Int>, myLotto: Set<Int>) {
     let intersectionNumbers = winTheLotteryNumbers.intersection(myLottoNumbers)
     let arrayIntersectionNumbers = intersectionNumbers.map { String($0) }
-    var resultOfLotto = String()
     
     if arrayIntersectionNumbers.count > 0 {
-        resultOfLotto = "축하합니다! 겹치는 번호는 \(arrayIntersectionNumbers.joined(separator: ", ")) 입니다!"
+        print("축하합니다! 겹치는 번호는 \(arrayIntersectionNumbers.joined(separator: ", ")) 입니다!")
     } else {
-        resultOfLotto = "아쉽지만 겹치는 번호가 없습니다."
+        print("아쉽지만 겹치는 번호가 없습니다.")
     }
-    
-    print(resultOfLotto)
 }
 
-let winTheLotteryNumbers = pickedLottoNumbers()
-let myLottoNumbers = pickedLottoNumbers()
+let winTheLotteryNumbers = createLottoNumbers()
+let myLottoNumbers = createLottoNumbers()
 
-checkLottoNumbers(winTheLotteryNumbers: winTheLotteryNumbers, myLottoNumbers: myLottoNumbers)
+checkLottoNumbers(winTheLottery: winTheLotteryNumbers, myLotto: myLottoNumbers)
