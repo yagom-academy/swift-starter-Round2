@@ -12,4 +12,4 @@ import Foundation
 let myLottoNumbers = [3, 18, 25, 4, 10, 11]
 
 //MARK: - 함수 호출
-checkResult()
+tellResult()
