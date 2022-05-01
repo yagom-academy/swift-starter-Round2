@@ -26,14 +26,10 @@ func checkResult() -> Array<Int> {
 
 //MARK: - 당첨 여부를 알림
 func tellResult() {
-    let sameNumbers = checkResult()
-    let sameNumber = sameNumbers.map {
-      (numbers: Int) -> String in
-      return String(numbers)
-    }
+    let sameNumbers = checkResult().map(String.init)
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(sameNumber.joined(separator: ", ")) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(sameNumbers.joined(separator: ", ")) 입니다!")
     }
 }
