@@ -45,18 +45,26 @@ func addWinThelotteryNumbers() {
     winTheLotteryNumbersList.updateValue(winTheLotteryNumbers, forKey: "\(roundWinTheLotteryNumbers)회차")
 }
 
-while roundWinTheLotteryNumbers < 5 {
-    addWinThelotteryNumbers()
-}
-
-func printSecoundWinTheLotteryNumbers(){
-    guard let secondWinTheLotteryNumbers = winTheLotteryNumbersList["2회차"] else{
-        return
+func createWinTheLottery(number: Int) {
+    while roundWinTheLotteryNumbers < number {
+        addWinThelotteryNumbers()
     }
-    
-    let arrayIntersectionNumbers = secondWinTheLotteryNumbers.map { String($0) }
-    
-    print("2회차의 로또 당첨 번호는 \(arrayIntersectionNumbers.joined(separator: ", ")) 입니다.")
 }
 
-printSecoundWinTheLotteryNumbers()
+func printWinTheLotteryNumbers(number: Int) {
+    if number < roundWinTheLotteryNumbers {
+        guard let wantedLotteryNumbers = winTheLotteryNumbersList["\(number)회차"] else {
+            return
+        }
+        
+        let arrayIntersectionNumbers = wantedLotteryNumbers.map { String($0) }
+        
+        print("\(number)회차의 로또 당첨 번호는 \(arrayIntersectionNumbers.joined(separator: ", ")) 입니다.")
+    } else {
+        print("없는 회차 번호입니다")
+    }
+}
+
+createWinTheLottery(number: 5)
+printWinTheLotteryNumbers(number: 4)
+printWinTheLotteryNumbers(number: 6)
