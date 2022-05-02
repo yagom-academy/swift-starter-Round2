@@ -6,17 +6,12 @@
 //
 
 import Foundation
-
-//MARK: - 로또번호 생성
+//MARK: - 로또 번호 생성
 func  makeLottoNumberCollection(_ number: Int) -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
-    for _ in 1...number {
+    while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in:1...45))
-    }
-    
-    if lottoNumbers.count == number {
-        return lottoNumbers
     }
     
     return lottoNumbers
@@ -32,7 +27,7 @@ func matchMyLottoNumbers() -> Array<String> {
 }
 
 //MARK: - 당첨유무 멘트
-func sayResultofWin(){
+func sayResultOfWin() {
     let match = matchMyLottoNumbers()
     let matchjoin = match.joined(separator: ", ")
     
@@ -43,4 +38,4 @@ func sayResultofWin(){
     }
 }
 
-sayResultofWin()
+sayResultOfWin()
