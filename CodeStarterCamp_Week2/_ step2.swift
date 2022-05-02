@@ -11,8 +11,9 @@ func pickLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
     while lottoNumbers.count < 6 {
-        lottoNumbers.insert(Int.random(in: 0...46))
+        lottoNumbers.insert(Int.random(in: 1...45))
     }
+    print(lottoNumbers)
     return lottoNumbers
 }
 
@@ -23,13 +24,10 @@ func compareNumbers() -> Set<Int> {
     for index in 0..<myLottoNumbers.count {
         myNumbers.insert(myLottoNumbers[index])
     }
-    
     let overlapping: Set<Int> = myNumbers.intersection(pickLottoNumbers())
     
     return overlapping
 }
-
-pickLottoNumbers()
 
 var overlappingNumbers: Set<String> = Set<String>()
 
@@ -37,7 +35,7 @@ for num in compareNumbers() {
     overlappingNumbers.insert(String(num))
 }
 
-if compareNumbers().isEmpty {
+if overlappingNumbers.isEmpty {
     print("아쉽지만 겹치는 번호가 없습니다.")
 } else {
     let joinedNumbers = overlappingNumbers.joined(separator: ", ")
