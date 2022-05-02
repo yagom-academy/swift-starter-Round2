@@ -17,7 +17,7 @@ func makeLottoNumbers(number: Int) -> Set<Int> {
     return lottoNumbers
 }
 
-func comparison(number:Int) -> Set<Int> {
+func comparison(number: Int) -> Set<Int> {
     lottoNumbers = makeLottoNumbers(number: number)
     let matchingNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
     
