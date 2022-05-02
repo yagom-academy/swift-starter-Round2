@@ -8,5 +8,4 @@
 
 import Foundation
 
-print("Hello, World!")
-
+printNumbers(number: 6)
