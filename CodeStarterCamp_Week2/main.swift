@@ -44,3 +44,15 @@ func makeLottoInformation(roundOfLotto: Int) {
     }
     print(lottoRoundAndWinNumbers)
 }
+
+func checkRoundAndWinLottoNumbers(checkround: Int) {
+    makeLottoInformation(roundOfLotto: 5)
+    if let checkRoundsNumbers = lottoRoundAndWinNumbers["\(checkround)회차"] {
+        let convertRound2NumbersToArray = Array(checkRoundsNumbers)
+        let convertRound2IntToString = convertRound2NumbersToArray.map { String($0) }
+        let printedRound = convertRound2IntToString.joined(separator: ", ")
+        print("\(checkround)회차의 로또 당첨 번호는 \(printedRound) 입니다.")
+    }
+}
+
+checkRoundAndWinLottoNumbers(checkround: 3)
