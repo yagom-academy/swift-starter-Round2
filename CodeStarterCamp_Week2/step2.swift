@@ -17,11 +17,12 @@ func pickLottoNumber() {
     print(lottoNumber)
 }
 
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-let lottoNumberList: Set<Int> = Set<Int>(lottoNumber)
-let intersection: Set<Int> = lottoNumberList.intersection(myLottoNumbers)
-
 func lottoCompareResult() {
+    pickLottoNumber()
+    let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+    let lottoNumberList: Set<Int> = Set<Int>(lottoNumber)
+    let intersection: Set<Int> = lottoNumberList.intersection(myLottoNumbers)
+    print(intersection)
     if intersection.count >= 1 {
         print("축하합니다! 겹치는 번호는 \(intersection) 입니다!")
     }

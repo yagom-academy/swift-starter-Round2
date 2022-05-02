@@ -9,6 +9,8 @@
 import Foundation
 
 
-pickLottoNumber()
-print(intersection)
-lottoCompareResult()
+//step2
+//lottoCompareResult()
+
+//step3
+checkLottoHistory(round: 2)
