@@ -9,6 +9,8 @@ import Foundation
 
 var newLottoNumbers = Set<Int>()
 let myLottoNumbers = [1, 2, 3, 4, 5, 6]
+var lottoRound: Int = 0
+var lottoRoundAndWinNumbers = [String: [Int]]()
 
 func makeNewLottoNumber() {
     while newLottoNumbers.count != 6 {
@@ -31,4 +33,14 @@ func matchingLottoNumber() {
     }
 }
 
-matchingLottoNumber()
+func makeLottoInformation(roundOfLotto: Int) {
+    if roundOfLotto > 0 {
+        for lottoRound in 1...roundOfLotto {
+            makeNewLottoNumber()
+            let newLottoNumberToArray = Array(newLottoNumbers)
+            lottoRoundAndWinNumbers["\(lottoRound)회차"] = Array(newLottoNumberToArray)
+            newLottoNumbers.removeAll()
+        }
+    }
+    print(lottoRoundAndWinNumbers)
+}
