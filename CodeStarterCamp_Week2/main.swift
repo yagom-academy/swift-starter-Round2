@@ -38,5 +38,22 @@ func sayResultOfWin() {
     }
 }
 
-sayResultOfWin()
+//MARK: - 로또번호 회차별로 저장
+func saveEverySessionLottoNumbers(_ session: String) {
+    let value = makeLottoNumberCollection(6).map{String($0)}
+    let valueJoined = value.joined(separator: ", ")
+    var eachSessionLottoNumbers = [String: String]()
+    var times : Int = 1
+    
+    while times <= 5 {
+        eachSessionLottoNumbers["\(times)회차"] = "\(times)회차의 로또 당첨 번호는 \(valueJoined) 입니다."
+        times += 1
+    }
+    
+    if let lottoNumber = eachSessionLottoNumbers[session] {
+        print(lottoNumber)
+    }
+}
+
+saveEverySessionLottoNumbers("2회차")
 
