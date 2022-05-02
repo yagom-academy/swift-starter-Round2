@@ -28,14 +28,15 @@ func matchMyLottoNumbers() -> Array<String> {
 
 //MARK: - 당첨유무 멘트
 func sayResultOfWin() {
-    let match = matchMyLottoNumbers()
-    let matchjoin = match.joined(separator: ", ")
+    let sameNumber = matchMyLottoNumbers()
+    let sameNumberJoined = sameNumber.joined(separator: ", ")
     
-    if match.count > 0 {
-        print("축하합니다! 겹치는 번호는 \(matchjoin) 입니다.")
+    if sameNumber.count > 0 {
+        print("축하합니다! 겹치는 번호는 \(sameNumberJoined) 입니다.")
     } else {
         print("아쉽지만 겹치는 숫자가 없습니다.")
     }
 }
 
 sayResultOfWin()
+
