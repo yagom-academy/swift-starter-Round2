@@ -8,6 +8,9 @@
 
 import Foundation
 
+//MARK: - 내 번호 찍기
+let myLottoNumbers = [3, 18, 25, 4, 10, 11]
+
 //MARK: - 로또 번호 생성
 func generateLotto() -> Array<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
