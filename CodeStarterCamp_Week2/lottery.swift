@@ -24,8 +24,7 @@ func comparison(number: Int) -> Set<Int> {
     return matchingNumbers
 }
 
-func printNumbers(number: Int) {
-    let lottoNumbers = makeLottoNumbers(number: number)
+func checkMatchingNumbers(number: Int) {
     let matchingNumbers = comparison(number: number)
     
     if matchingNumbers.isEmpty {

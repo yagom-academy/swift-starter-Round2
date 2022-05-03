@@ -8,4 +8,4 @@
 
 import Foundation
 
-printNumbers(number: 6)
+checkMatchingNumbers(number: 6)
