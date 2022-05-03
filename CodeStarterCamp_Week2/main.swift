@@ -9,7 +9,7 @@ import Foundation
 
 var newLottoNumbers = Set<Int>()
 let myLottoNumbers = [1, 2, 3, 4, 5, 6]
-var lottoRound: Int = 0
+var lottoFinalRound: Int = 0
 var lottoRoundAndWinNumbers = [String: [Int]]()
 
 func makeNewLottoNumber() {
@@ -33,26 +33,30 @@ func matchingLottoNumber() {
     }
 }
 
-func makeLottoInformation(roundOfLotto: Int) {
-    if roundOfLotto > 0 {
-        for lottoRound in 1...roundOfLotto {
+func makeLottoInformation(ofRound: Int) {
+    if ofRound > 0 {
+        
+        for lottoRound in 1...ofRound {
             makeNewLottoNumber()
+            lottoFinalRound = lottoFinalRound + 1
             let newLottoNumberToArray = Array(newLottoNumbers)
-            lottoRoundAndWinNumbers["\(lottoRound)회차"] = Array(newLottoNumberToArray)
+            lottoRoundAndWinNumbers["\(lottoRound)회차"] = Array(newLottoNumberToArray).sorted()
             newLottoNumbers.removeAll()
         }
     }
-    print(lottoRoundAndWinNumbers)
 }
 
-func checkRoundAndWinLottoNumbers(playedRound: Int,round: Int) {
-    makeLottoInformation(roundOfLotto: playedRound)
+func checkWinLottoNumbers(round: Int) {
     if let checkRoundsNumbers = lottoRoundAndWinNumbers["\(round)회차"] {
-        let convertRound2NumbersToArray = Array(checkRoundsNumbers)
-        let convertRound2IntToString = convertRound2NumbersToArray.map { String($0) }
-        let printedRound = convertRound2IntToString.joined(separator: ", ")
+        let convertRoundNumbersToArray = Array(checkRoundsNumbers)
+        let convertRoundIntToString = convertRoundNumbersToArray.map { String($0) }
+        let printedRound = convertRoundIntToString.joined(separator: ", ")
         print("\(round)회차의 로또 당첨 번호는 \(printedRound) 입니다.")
+    }
+    if round > lottoFinalRound {
+        print("해당 회차의 정보가 없습니다.")
     }
 }
 
-checkRoundAndWinLottoNumbers(playedRound: 7, round: 4)
+makeLottoInformation(ofRound: 8)
+checkWinLottoNumbers(round: 9)
