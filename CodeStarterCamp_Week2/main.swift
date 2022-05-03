@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Step2 로또
-let step2Lotto = Step2CheckLotto()
-step2Lotto.checkMyLotto()
+let step3Lotto = Step3makeLotto()
+
+step3Lotto.callSpecificLotto(number: 3)
 
