@@ -7,7 +7,7 @@
 
 import Foundation
 //MARK: - 로또 번호 생성
-func  makeLottoNumberCollection(_ number: Int) -> Set<Int> {
+func makeLottoNumberCollection(_ number: Int) -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
     while lottoNumbers.count < 6 {
@@ -38,5 +38,25 @@ func sayResultOfWin() {
     }
 }
 
-sayResultOfWin()
+//MARK: - 로또번호 회차별로 저장
+func saveEverySessionLottoNumbers(in session: String) {
+    let value = makeLottoNumberCollection(6).map{ (number: Int) -> String in
+        return "\(number)"
+    }
+    
+    let valueJoined = value.joined(separator: ", ")
+    var eachSessionLottoNumbers = [String: String]()
+    var times : Int = 1
+    
+    while times <= 5 {
+        eachSessionLottoNumbers["\(times)회차"] = "\(valueJoined)"
+        times += 1
+    }
+    
+    if let lottoNumber = eachSessionLottoNumbers[session] {
+        print("\(session)의 로또 당첨 번호는 \(lottoNumber) 입니다.")
+    }
+}
+
+saveEverySessionLottoNumbers(in: "2회차")
 
