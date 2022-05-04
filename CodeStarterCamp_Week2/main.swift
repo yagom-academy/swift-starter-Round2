@@ -8,5 +8,4 @@
 
 import Foundation
 
-print("Hello, World!")
-
+checkMatchingNumbers(number: 6)
