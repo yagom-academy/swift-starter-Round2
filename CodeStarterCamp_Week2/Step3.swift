@@ -10,35 +10,29 @@ import Foundation
 
 class Step3makeLotto {
     let step2Lotto = Step2CheckLotto()
+    var lotteries = [String: String]()
     
-    var count : Int = 0
-    var lottoDictionary = [String: String]()
-    
-    func makeAndSaveLotto() {
-        count = count + 1
-        var number : String = ""
-        number = "\(count)회차"
-        let lotteryWinningNumber = step2Lotto.addPickedLotto()
-        let lotterySetSorted = lotteryWinningNumber.sorted()
-        let lotteryArray = lotterySetSorted.map { String($0) }
-        let setToStringLotterry = lotteryArray.joined(separator: ", ")
-        var lotto: String = ""
-        lotto = setToStringLotterry + lotto
-        lottoDictionary["\(number)"] = lotto
+    func makeAndSaveLotto(count: Int) {
+        let number : String = "\(count)회차"
+        let lottoWinningNumber = step2Lotto.addPickedLotto()
+        let lottoSorted = lottoWinningNumber.sorted()
+        let lotto = lottoSorted.map { String($0) }
+        let completedLotto = lotto.joined(separator: ", ")
+        lotteries[number] = completedLotto
     }
     
-    func makeLotto() {
+    func make5Lotteries(count: Int) {
+        var count: Int = count
         for _ in 1...5 {
-            makeAndSaveLotto()
+            makeAndSaveLotto(count: count)
+            count = count + 1
         }
     }
     
     func callSpecificLotto(number: Int) {
-        makeLotto()
-        let numbers: String
-        numbers = "\(number)회차"
-        var ment: String = ""
-        ment = "\(numbers)의 로또 당첨 번호는 \(lottoDictionary[numbers]!) 입니다."
+        make5Lotteries(count: 1)
+        let numbers: String = "\(number)회차"
+        let ment: String = "\(numbers)의 로또 당첨 번호는 \(lotteries[numbers]!) 입니다."
         print(ment)
     }
 }
