@@ -8,7 +8,8 @@
 
 import Foundation
 
-generateLottoNumbers()
-matchLottoNumbers()
-printLottoResult()
+for _ in 1...5 {
+    generateLottoNumbers()
+}
 
+printLottoHistory(round: 2)

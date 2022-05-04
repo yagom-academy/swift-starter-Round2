@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26436B40281AD235006A294F /* generateLottoNumber.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26436B3F281AD235006A294F /* generateLottoNumber.swift.swift */; };
+		26436B40281AD235006A294F /* generateLottoNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26436B3F281AD235006A294F /* generateLottoNumber.swift */; };
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26436B3F281AD235006A294F /* generateLottoNumber.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateLottoNumber.swift.swift; sourceTree = "<group>"; };
+		26436B3F281AD235006A294F /* generateLottoNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateLottoNumber.swift; sourceTree = "<group>"; };
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,7 +59,7 @@
 		34811DC0274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {
 			isa = PBXGroup;
 			children = (
-				26436B3F281AD235006A294F /* generateLottoNumber.swift.swift */,
+				26436B3F281AD235006A294F /* generateLottoNumber.swift */,
 				34811DC1274B93D800A1E994 /* main.swift */,
 			);
 			path = CodeStarterCamp_Week2;
@@ -123,7 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
-				26436B40281AD235006A294F /* generateLottoNumber.swift.swift in Sources */,
+				26436B40281AD235006A294F /* generateLottoNumber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

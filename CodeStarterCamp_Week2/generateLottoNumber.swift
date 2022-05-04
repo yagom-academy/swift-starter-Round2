@@ -7,18 +7,42 @@
 
 import Foundation
 
-var allNumber: [Int] = []
-var winningNumbers: Set<Int> = Set<Int>()
+var winningNumbers: [Int] = []
 
 func generateLottoNumbers(numberOfWinningNumbers: Int = 6) {
-    for number in 1...45 {
-        allNumber.append(number)
-    }
+    winningNumbers.removeAll()
     
     while winningNumbers.count < numberOfWinningNumbers {
-        if let randomNumber = allNumber.randomElement() {
-            winningNumbers.insert(randomNumber)
+        let randomNumber = Int.random(in: 1...45)
+        
+        if winningNumbers.contains(randomNumber) == false {
+            winningNumbers.append(randomNumber)
         }
+    }
+    
+    saveLottoResult(winningNumbers: winningNumbers)
+}
+
+var lottoHistory: [String: [Int]] = [:]
+
+func saveLottoResult(winningNumbers: [Int]) {
+    let round = lottoHistory.count + 1
+    lottoHistory["\(round)회차"] = winningNumbers
+}
+
+func printLottoHistory(round: Int) {
+    if let value: [Int] = lottoHistory["\(round)회차"] {
+        let lastIndex: Int = value.index(before: value.endIndex)
+        
+        print("\(round)회차의 로또 당첨 번호는 ", terminator: "")
+        for index in 0...lastIndex {
+            if index == lastIndex {
+                print(value[index], terminator: "")
+            } else {
+                print(value[index], terminator: ", ")
+            }
+        }
+        print(" 입니다.")
     }
 }
 
