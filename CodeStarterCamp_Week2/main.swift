@@ -12,8 +12,8 @@ let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoSet: Set<Int> = Set<Int>()
 
 func makeNumber() -> Int {
-    let rand = Int.random(in: 1 ... 45)
-    return rand
+    let random = Int.random(in: 1 ... 45)
+    return random
 }
 
 func makeLottoSet() {
@@ -28,7 +28,11 @@ func checkLotto(lottoNum: Set<Int>, myNum: Array<Int>) {
         print("아쉽지만 일치하는 번호가 없습니다.")
     }
     else {
-        print("축하합니다!", intersection, "가 일치합니다.")
+        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        for count in intersection {
+            print(count, terminator: " ")
+        }
+        print("입니다.")
     }
 }
 makeLottoSet()
