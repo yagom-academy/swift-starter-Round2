@@ -24,17 +24,17 @@ func generateLottoNumber() -> Set<Int> {
 
 func matchLottoNumber(_ myLottoNumbers: [Int], with winnerNumber: Set<Int>) {
     let sameNumber = winnerNumber.intersection(myLottoNumbers).sorted()
-    var mergeSameNumber: String
+    var castSameNumber: String
     if sameNumber.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        mergeSameNumber = String(sameNumber[0])
+        castSameNumber = String(sameNumber[0])
         if sameNumber.count > 1 {
             for i in 1..<sameNumber.count {
-                mergeSameNumber += ", " + String(sameNumber[i])
+                castSameNumber += ", " + String(sameNumber[i])
             }
         }
-        print("축하합니다! 겹치는 번호는 \(mergeSameNumber) 입니다.")
+        print("축하합니다! 겹치는 번호는 \(castSameNumber) 입니다.")
     }
 }
 
