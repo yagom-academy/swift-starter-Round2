@@ -5,26 +5,24 @@
 //  Created by 손신우 on 2022/05/04.
 //
 
-import Foundation
-
-let myRottoNumbers : [Int] = [1,2,3,4,5,6]
-var rottoNumbers : [Int] = []
+let myRottoNumbers : Set<Int> = [1,2,3,4,5,6]
+var rottoNumbers : Set<Int> = []
 while rottoNumbers.count < 6 {
     let randomNumber = Int.random(in: 1 ... 45 )
-    if !rottoNumbers.contains(randomNumber) {
-        rottoNumbers.append(randomNumber)
-    }
+    rottoNumbers.insert(randomNumber)
 }
 
 func checkDuplicatedNumber() {
-    let myRottoNumber_set : Set<Int> = Set(myRottoNumbers)
-    let rottoNumber_set : Set<Int> = Set(rottoNumbers)
-    let intersectionSet = myRottoNumber_set.intersection(rottoNumber_set)
-    if intersectionSet.count > 0 {
-        print("축하합니다! 곂치는 번호는 \(intersectionSet) 입니다!")
+    let intersectionSet = myRottoNumbers.intersection(rottoNumbers)
+    let intersectionArray = Array(intersectionSet)
+    if !intersectionSet.isEmpty {
+        print("축하합니다! 당첨번호는 ", terminator: "")
+        for index in 0 ... intersectionArray.count-1 {
+            print("\(intersectionArray[index])",terminator: ", ")
+        }
+        print("입니다!")
     } else {
         print("아쉽지만 당첨 번호가 없습니다")
     }
 }
 
-checkDuplicatedNumber()
