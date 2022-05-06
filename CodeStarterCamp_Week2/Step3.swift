@@ -22,17 +22,18 @@ class Step3makeLotto {
     }
     
     func make5Lotteries(count: Int) {
-        var count: Int = count
-        for _ in 1...5 {
+        for count in 1...count {
             makeAndSaveLotto(count: count)
-            count = count + 1
         }
     }
     
     func callSpecificLotto(number: Int) {
-        make5Lotteries(count: 1)
+        make5Lotteries(count: 5)
         let numbers: String = "\(number)회차"
         let ment: String = "\(numbers)의 로또 당첨 번호는 \(lotteries[numbers]!) 입니다."
-        print(ment)
-    }
+        let lotto = lotteries
+        if (lotto[numbers] != nil) {
+            print(ment)}
+            else {print("Error")}
+        }
 }

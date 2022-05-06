@@ -10,5 +10,5 @@ import Foundation
 
 let step3Lotto = Step3makeLotto()
 
-step3Lotto.callSpecificLotto(number: 3)
+step3Lotto.callSpecificLotto(number: 4)
 
