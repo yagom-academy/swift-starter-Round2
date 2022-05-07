@@ -8,4 +8,4 @@
 
 import Foundation
 
-checkMatchingNumbers(number: 6)
+printWinningNumbers(count: 2)

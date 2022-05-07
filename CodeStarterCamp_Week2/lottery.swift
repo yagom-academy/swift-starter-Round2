@@ -7,30 +7,27 @@
 
 import Foundation
 
-var lottoNumbers: Set<Int> = Set<Int>()
-let myLottoNumbers: [Int] = [4, 6, 8, 24, 27, 34]
-
 func makeLottoNumbers(number: Int) -> Set<Int> {
+    var lottoNumbers: Set<Int> = Set<Int>()
     while lottoNumbers.count < number {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
     return lottoNumbers
 }
 
-func comparison(number: Int) -> Set<Int> {
-    lottoNumbers = makeLottoNumbers(number: number)
-    let matchingNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
-    
-    return matchingNumbers
+func saveLottoSeries(count: Int) -> Dictionary<String, Set<Int>> {
+    var lottoSeries: Dictionary<String, Set<Int>> = [String: Set<Int>]()
+    for i in 1...count {
+        lottoSeries["\(i)회차"] = makeLottoNumbers(number: 6)
+    }
+    return lottoSeries
 }
 
-func checkMatchingNumbers(number: Int) {
-    let matchingNumbers = comparison(number: number)
-    
-    if matchingNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+func printWinningNumbers(count: Int) {
+    let winningNumbers: [String: Set<Int>] = saveLottoSeries(count: 6)
+    if let winningNumbers = winningNumbers["\(count)회차"] {
+        print("\(count)회차의 번호는 :\(winningNumbers)입니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(matchingNumbers) 입니다!")
+        print("값이 없습니다.")
     }
 }
-
