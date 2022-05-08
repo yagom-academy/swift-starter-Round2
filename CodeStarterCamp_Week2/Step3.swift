@@ -30,7 +30,11 @@ class Step3makeLotto {
     func callSpecificLotto(number: Int) {
         make5Lotteries(count: 5)
         let numbers: String = "\(number)회차"
-        let ment: String = "\(numbers)의 로또 당첨 번호는 \(lotteries[numbers]!) 입니다."
+        guard let lottoNumbers = lotteries[numbers]
+        else {
+            return
+        }
+        let ment: String = "\(numbers)의 로또 당첨 번호는 \(lottoNumbers) 입니다."
         let lotto = lotteries
         if (lotto[numbers] != nil) {
             print(ment)}
