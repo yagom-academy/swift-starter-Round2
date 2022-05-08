@@ -10,16 +10,20 @@ import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoSet: Set<Int> = Set<Int>()
+var lottoDictionary = [String: Set<Int>]()
 
 func makeNumber() -> Int {
     let random = Int.random(in: 1 ... 45)
     return random
 }
 
-func makeLottoSet() {
+func makeLottoSet(){
     while lottoSet.count < 6 {
         lottoSet.insert(makeNumber())
     }
+    let count: Int = lottoDictionary.count
+    lottoDictionary["\(count + 1)회차"] = lottoSet
+    lottoSet = []
 }
 
 func checkLotto(lottoNum: Set<Int>, myNum: Array<Int>) {
@@ -35,5 +39,20 @@ func checkLotto(lottoNum: Set<Int>, myNum: Array<Int>) {
         print("입니다.")
     }
 }
+
+func findLottoRound(round: Int) {
+    for (key, value) in lottoDictionary {
+        print("\(key) : \(value)")
+    }
+}
+
 makeLottoSet()
-checkLotto(lottoNum: lottoSet, myNum: myLottoNumbers)
+makeLottoSet()
+makeLottoSet()
+makeLottoSet()
+makeLottoSet()
+findLottoRound(round: 2)
+
+
+// checkLotto(lottoNum: lottoSet, myNum: myLottoNumbers)
+// print(lottoDictionary)
