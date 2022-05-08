@@ -10,7 +10,7 @@ import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoSet: Set<Int> = Set<Int>()
-var lottoDictionary = [String: Set<Int>]()
+var lottoDictionary = [String: Any]()
 
 func makeNumber() -> Int {
     let random = Int.random(in: 1 ... 45)
