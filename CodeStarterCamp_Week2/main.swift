@@ -40,9 +40,11 @@ func checkLotto(lottoNum: Set<Int>, myNum: Array<Int>) {
     }
 }
 
-func findLottoRound(round: Int) {
+func printLottoRound(round: Int) {
     for (key, value) in lottoDictionary {
-        print("\(key) : \(value)")
+        if key == "\(round)회차"{
+            print("\(key)의 로또 당첨 번호는 \(value) 입니다.")
+        }
     }
 }
 
@@ -51,7 +53,8 @@ makeLottoSet()
 makeLottoSet()
 makeLottoSet()
 makeLottoSet()
-findLottoRound(round: 2)
+
+printLottoRound(round: 2)
 
 
 // checkLotto(lottoNum: lottoSet, myNum: myLottoNumbers)
