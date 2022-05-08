@@ -9,10 +9,20 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var winLottoNumbers: [Int] = makeLottoNumbers()
-var myWinLottoNumbers: [Int] = checkLottoNumbers(winLottoNumbers: winLottoNumbers, myLottoNumbers: myLottoNumbers)
-printLottoNumbers(winNumber: myWinLottoNumbers)
+var allLottoNumbers: [String: [Int]] = [:]
 
+//로또번호 생성 시작
+makeLottoNumber(howMany: 5)
+checkSecondLottoNumbers()
+
+func makeLottoNumber(howMany count: Int) {
+    for _ in 1...count {
+        let winLottoNumbers: [Int] = makeLottoNumbers()
+        makeAllLottoNumbers(with: winLottoNumbers)
+    }
+}
+
+//한 회차의 로또번호 생성
 func makeLottoNumbers() -> [Int] {
     var winNumbers: [Int] = []
     
@@ -25,7 +35,23 @@ func makeLottoNumbers() -> [Int] {
     return winNumbers
 }
 
-func checkLottoNumbers(winLottoNumbers: [Int], myLottoNumbers: [Int]) -> [Int] {
+//회차 key값을 가진 로또번호 생성
+func makeAllLottoNumbers(with winLottoNumbers: [Int]) {
+    allLottoNumbers["\(allLottoNumbers.count)회차"] = winLottoNumbers
+}
+
+// 2회차 로또번호 확인
+func checkSecondLottoNumbers() {
+    if let allLottoNumbers = allLottoNumbers["2회차"] {
+        let mySecondWinLottoNumbers: [Int] = compareLottoNumbers(by: allLottoNumbers , with: myLottoNumbers)
+        printWinLottoNumbers(by: mySecondWinLottoNumbers, round: 2)
+    } else {
+        print("2회차 로또번호를 찾을 수 없습니다.")
+    }
+}
+
+// 내 로또번호와 비교
+func compareLottoNumbers(by winLottoNumbers: [Int], with myLottoNumbers: [Int]) -> [Int] {
     var myWinNumber: [Int] = []
     
     for number in winLottoNumbers {
@@ -36,18 +62,12 @@ func checkLottoNumbers(winLottoNumbers: [Int], myLottoNumbers: [Int]) -> [Int] {
     return myWinNumber
 }
 
-func printLottoNumbers(winNumber: [Int]) {
+// 당첨번호 출력
+func printWinLottoNumbers(by winNumbers: [Int], round: Int) {
     var resultString: String = ""
-    if myWinLottoNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        for result in myWinLottoNumbers {
-            if myWinLottoNumbers.first == result {
-                resultString.append("\(result)")
-            } else {
-                resultString.append(", \(result)")
-            }
-        }
-        print("축하합니다! 겹치는 번호는 \(resultString) 입니다!")
+    
+    for winNumber in winNumbers {
+        winNumbers.first == winNumber ? resultString.append("\(winNumber)") : resultString.append(", \(winNumber)")
     }
+    winNumbers.isEmpty ? print("아쉽지만 겹치는 번호가 없습니다.") : print("\(round)회차의 로또 당첨 번호는 \(resultString) 입니다!")
 }
