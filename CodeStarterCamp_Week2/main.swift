@@ -18,10 +18,9 @@ func creatRandomNumbers() -> Set<Int> {
     return randomNumber
 }
 
-func creatWinningNumbers(lottoNumber: Set<Int>, myNumbers: [Int]) -> [Int] {
+func checkWinningNumbers(lottoNumber: Set<Int>, myNumbers: [Int]) -> [Int] {
     var sameNumbers: [Int] = []
-    let numbers = lottoNumber
-    for lottoNumber in numbers {
+    for lottoNumber in lottoNumber {
         if myLottoNumbers.contains(lottoNumber) {
             sameNumbers.append(Int(lottoNumber))
         }
@@ -29,14 +28,16 @@ func creatWinningNumbers(lottoNumber: Set<Int>, myNumbers: [Int]) -> [Int] {
     return sameNumbers
 }
 
-func printLottoNumbers(sameNumbers: [Int]) {
+func printWinningResultNumbers(sameNumbers: [Int]) {
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는 \(sameNumbers) 입니다!")
     }
 }
+// randomNumber 결과값 출력 [ 확인용 ]
 let randomNumber = creatRandomNumbers()
 print(randomNumber)
-let winningNumbers = creatWinningNumbers(lottoNumber: randomNumber, myNumbers: myLottoNumbers)
-printLottoNumbers(sameNumbers: winningNumbers)
+
+let winningNumbers = checkWinningNumbers(lottoNumber: randomNumber, myNumbers: myLottoNumbers)
+printWinningResultNumbers(sameNumbers: winningNumbers)
