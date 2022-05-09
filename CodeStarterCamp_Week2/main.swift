@@ -1,9 +1,8 @@
 //
 //  main.swift
-//  CodeStarterCamp_Week2
+//  week2
 //
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
+//  Created by 피우리 on 2022/05/03.
 //
 
 import Foundation
@@ -24,10 +23,14 @@ createWinnerNumbers()
 let myLottoNumbers: [Int] = [7, 12, 15, 22, 43, 44]
 func printLottoResult() {
     let arrayToSetConverter = Set(myLottoNumbers)
-    if arrayToSetConverter == winnerNumbers {
-        print("축하합니다! 겹치는 번호는 \(myLottoNumbers) 입니다!")
-    } else {
+    let intersectionLottoNumbers : Set<Int> = winnerNumbers.intersection(myLottoNumbers)
+    if intersectionLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 \(intersectionLottoNumbers) 입니다!")
     }
 }
 printLottoResult()
+
+
+
