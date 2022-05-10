@@ -8,26 +8,31 @@
 
 import Foundation
 
-
 func createLottoNumbers() {
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
 }
 
-func checkNumber(){
-    var winNumber = Set<Int> ()
-    winNumber = lottoNumbers.intersection(myLottoNumbers)
-    if (winNumber.count == 0) {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        print("축하합니다! 겹치는 번호는 \(winNumber)입니다!")
+func lottoSeries(number: Int) {
+    var number = 1
+    for _ in 1...number {
+        number += 1
     }
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+func printWinNumbers(round: Int) {
+    lottoDictionary["\(round)회차"] = lottoNumbers
+    if let lotto = lottoDictionary["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(lottoNumbers) 입니다.")
+    } else {
+        print("해당 회차의 당첨 번호를 찾을 수 없습니다.")
+    }
+}
+
+var lottoDictionary: Dictionary<String, Set<Int>> = [String: Set<Int>]()
 var lottoNumbers = Set<Int> ()
 
 createLottoNumbers()
-print(lottoNumbers)
-checkNumber()
+lottoSeries(number: 5)
+printWinNumbers(round: 2)
