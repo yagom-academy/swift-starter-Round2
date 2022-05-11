@@ -10,7 +10,6 @@ import Foundation
 let myLottoNumbers: [Int] = [1, 2, 13, 45, 5, 16]
 
 //MARK: - 로또번호 생성
-
 func generateLottoNumber() -> Set<Int> {
     var winnerNumber: Set<Int> = Set<Int>()
     while winnerNumber.count < 6 {
@@ -19,9 +18,7 @@ func generateLottoNumber() -> Set<Int> {
     return winnerNumber
 }
 
-
 //MARK: - 선택한 로또번호와 당첨번호를 비교해서 출력해주는 함수
-
 func matchLottoNumber(_ myLottoNumbers: [Int], with winnerNumber: Set<Int>) {
     let sameNumber = winnerNumber.intersection(myLottoNumbers).sorted()
     var castSameNumber: String
@@ -39,4 +36,3 @@ func matchLottoNumber(_ myLottoNumbers: [Int], with winnerNumber: Set<Int>) {
 }
 
 matchLottoNumber(myLottoNumbers, with: generateLottoNumber())
-
