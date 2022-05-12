@@ -12,4 +12,4 @@ import Foundation
 addLottos(of: 5)
 
 //MARK: - 2회차의 로또 당첨 번호를 조회
-searchLottoHistory(number: 2)
+searchLottoHistory(of: 2)

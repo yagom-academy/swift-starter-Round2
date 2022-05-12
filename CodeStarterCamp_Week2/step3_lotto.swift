@@ -26,7 +26,11 @@ func addLottos(of times: Int) {
     }
 }
 
-//MARK: - 함수 선언) 회차별 로또 목록 중 특정 회차를 조회(ver.2)
-func searchLottoHistory(number: Int) {
-    print("\(number)회차의 로또 당첨 번호는 \(lottoList["\(number)회차"]?.map(String.init).joined(separator: ", ") ?? "아직 존재하지 않는 값") 입니다." )
+//MARK: - 함수 선언) 회차별 로또 목록 중 특정 회차를 조회(ver.1)
+func searchLottoHistory(of index: Int) {
+    if let lottoListKeys = lottoList["\(index)회차"].map(String.init) {
+        print("\(index)회차의 로또 당첨 번호는 \(lottoListKeys.dropFirst().dropLast()) 입니다.")
+    } else {
+        print("검색 결과가 없습니다. 마지막 회차를 조회하시려면 \(round)를 입력하세요.")
+    }
 }
