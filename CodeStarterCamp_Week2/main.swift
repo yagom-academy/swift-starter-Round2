@@ -8,8 +8,8 @@
 
 import Foundation
 
-//MARK: - 내 번호 찍기
-let myLottoNumbers = [3, 18, 25, 4, 10, 11]
+//MARK: - 로또를 5회 생성 및 저장
+addLottos(of: 5)
 
-//MARK: - 함수 호출
-tellResult()
+//MARK: - 2회차의 로또 당첨 번호를 조회
+searchLottoHistory(of: 2)
