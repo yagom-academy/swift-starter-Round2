@@ -8,5 +8,16 @@
 
 import Foundation
 
-print("Hello, World!")
+var winningLottoNumber: [Int] = []
+var chosenWinningNum: Int = 0
 
+func castWinningLotto() {
+    while winningLottoNumber.count < 6 {
+        chosenWinningNum = Int.random(in : 1..<46)
+        if winningLottoNumber.contains(chosenWinningNum) {
+            continue
+        } else {
+            winningLottoNumber.append(chosenWinningNum)
+        }
+    }
+}
