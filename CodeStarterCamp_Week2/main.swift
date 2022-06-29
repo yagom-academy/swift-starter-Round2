@@ -12,7 +12,7 @@ var winningLottoNumber: [Int] = []
 var chosenWinningNum: Int = 0
 var sameLottoNumber: [Int] = []
 
-func castWinningLotto() {
+func chooseWinningLotto() {
     while winningLottoNumber.count < 6 {
         chosenWinningNum = Int.random(in : 1..<46)
         if winningLottoNumber.contains(chosenWinningNum) {
@@ -43,5 +43,5 @@ func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) 
 
 let myLottoNumber: [Int] = [13, 3, 37, 7, 11, 23]
 
-castWinningLotto()
+chooseWinningLotto()
 checkLottoNumber(with: winningLottoNumber, with: myLottoNumber)
