@@ -13,8 +13,9 @@ let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 // 로또 당첨 번호를 생성하는 함수
 func pickWinningNumber() -> Set<Int> {
     var winningNumber: Set<Int> = Set<Int>()
+    let numberRange: ClosedRange<Int> = 1...45
     while winningNumber.count < 6 {
-        winningNumber.insert(Int.random(in: 1...45))
+        winningNumber.insert(Int.random(in: numberRange))
     }
     return winningNumber
 }
