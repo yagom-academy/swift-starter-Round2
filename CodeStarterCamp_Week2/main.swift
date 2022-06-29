@@ -20,13 +20,14 @@ func pickWinningNumber() -> Set<Int> {
 }
 
 // 겹치는 숫자를 확인하는 함수
-func checkOverlap(win: Set<Int>) {
-    let overlapNumber: Set<Int> = win.intersection(myLottoNumbers)
+func checkOverlap(winningNumber: Set<Int>) {
+    let overlapNumber: Set<Int> = winningNumber.intersection(myLottoNumbers)
     guard overlapNumber.count > 0 else {
         print("아쉽지만 겹치는 번호가 없습니다.")
         return
     }
     print("축하합니다! 겹치는 번호는 \(overlapNumber)입니다!")
 }
+
 // 실행
-checkOverlap(win: pickWinningNumber())
+checkOverlap(winningNumber: pickWinningNumber())
