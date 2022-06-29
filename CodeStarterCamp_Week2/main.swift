@@ -9,7 +9,4 @@
 import Foundation
 
 createLotto()
-checkLotto()
-
-
-
+printLotto(sortedIntersection: checkLotto())

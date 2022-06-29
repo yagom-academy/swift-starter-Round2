@@ -17,10 +17,13 @@ func createLotto() {
         lottoSet.insert(lottoNumber)
     }
 }
-func checkLotto() {
+func checkLotto() -> Array<Int> {
     let intersection: Set<Int> = lottoSet.intersection(myLottoNumbers)
     let sortedIntersection: [Int] = intersection.sorted()
     
+    return sortedIntersection
+}
+func printLotto(sortedIntersection: Array<Int>) {
     if sortedIntersection.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
@@ -37,5 +40,4 @@ func checkLotto() {
         }
         print("입니다!")
     }
-    
 }
