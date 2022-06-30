@@ -24,10 +24,10 @@ func generateRandomLottoNumber() {
     }
 }
 
-func comparedNumbers(myNumbers: [Int]) -> [Int] {
+func comparedNumbers() -> [Int] {
     var matchedNumbers: [Int] = []
     
-    for myNumber in myNumbers {
+    for myNumber in myLottoNumbers {
         if winningLottoNumbers.contains(myNumber) {
             matchedNumbers.append(myNumber) // append vs. insert
         }
@@ -55,7 +55,7 @@ func printLottoResult(matchedNumbers: [Int]) {
         default:
             print("unknown error")
         }
-        //print("축하합니다! 겹치는 번호는 \(myMatchedNumbers) 입니다!")
+        //print("축하합니다! 겹치는 번호는 \(matchedNumbers) 입니다!")
     }
 }
 
@@ -66,7 +66,7 @@ func printInformation() {
 
 generateRandomLottoNumber()
 
-let myMatchedNumbers = comparedNumbers(myNumbers: myLottoNumbers)
+let myMatchedNumbers = comparedNumbers()
 
 printInformation()
 printLottoResult(matchedNumbers: myMatchedNumbers)
