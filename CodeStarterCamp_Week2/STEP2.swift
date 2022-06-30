@@ -1,9 +1,3 @@
-//
-//  STEP2.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by 한겨레 on 2022/06/29.
-//
 
 import Foundation
 
@@ -11,7 +5,7 @@ import Foundation
 func makeLottoNumbers() -> Set<Int> {
     
     var lottoNumbers: Set<Int> = Set<Int>()
-
+    
     while lottoNumbers.count<6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
@@ -20,19 +14,46 @@ func makeLottoNumbers() -> Set<Int> {
 
 //로또 당첨 여부 조회
 func compareLottoNumbers() {
-    let myLottoNumbers: [Int] = [1,3,4,5,34,31]
+    let myLottoNumbers = lottoNumberFunc(number: [1,2,3,4,5,6])
     
-    var sameLottoNumbers: Set<Int> = makeLottoNumbers().intersection(myLottoNumbers)
-  
+    let sameLottoNumbers: Set<Int> = makeLottoNumbers().intersection(myLottoNumbers)
+    
+    let arraySameLottoNumbers : String = arrangeNumber(numbers: sameLottoNumbers)
+    
     if sameLottoNumbers.isEmpty {
-        
         print("아쉽지만 겹치는 번호가 없습니다.")
-        
     }
     else {
-        let resultNumber = sameLottoNumbers.map{String($0)}.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(resultNumber) 입니다!")
-        
+        print("축하합니다! 겹치는 번호는 \(arraySameLottoNumbers) 입니다!")
+    }
+}
+
+func arrangeNumber(numbers : Set<Int>) -> String {
+    
+    var arraylottoNumbers : [String] = []
+    
+    for numbers in numbers {
+        arraylottoNumbers.append(String(numbers))
+    }
+    
+    let resultNumbers = arraylottoNumbers.joined(separator: ", ")
+    return resultNumbers
+    
+}
+
+
+
+struct lottoNumbersStruct {
+    var myLotto: [Int]
+    init(myLotto: [Int]) {
+        self.myLotto = myLotto
     }
     
 }
+
+func lottoNumberFunc(number: [Int]) -> [Int] {
+    let lottoNumberStructMyLotto: lottoNumbersStruct = lottoNumbersStruct(myLotto: number)
+    
+    return lottoNumberStructMyLotto.myLotto
+}
+
