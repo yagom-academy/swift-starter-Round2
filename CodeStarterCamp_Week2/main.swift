@@ -8,5 +8,6 @@
 
 import Foundation
 
-print("Hello, World!")
-
+let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+printDuplicateNumbers(findDuplicateNumbersInTwoLottoNumbers(
+    myLottoNumbers, makeLottoNumbers()))
