@@ -8,5 +8,4 @@
 
 import Foundation
 
-createLottoSet()
-printLotto(sortedIntersection: returnSortedIntersection())
+printLotto(sortedIntersection: returnSortedIntersection(lottoNumbers: createLottoNumbers()))
