@@ -10,7 +10,7 @@ import Foundation
 
 var winningLottoNumber: [Int] = []
 var chosenWinningNum: Int = 0
-var sameLottoNumber: [Int] = []
+var sameLottoNumber: [String] = []
 
 func chooseWinningLotto() {
     while winningLottoNumber.count < 6 {
@@ -28,7 +28,7 @@ func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) 
     for winningNumber in winningLotto {
         for myNumber in myLotto {
             if winningNumber == myNumber {
-                sameLottoNumber.append(myNumber)
+                sameLottoNumber.append(String(myNumber))
             }
         }
     }
@@ -37,7 +37,7 @@ func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) 
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
     else {
-        print("축하합니다! 겹치는 번호는 \(sameLottoNumber) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(sameLottoNumber.joined(separator: ", ")) 입니다!")
     }
 }
 
@@ -45,3 +45,4 @@ let myLottoNumber: [Int] = [13, 3, 37, 7, 11, 23]
 
 chooseWinningLotto()
 checkLottoNumber(with: winningLottoNumber, with: myLottoNumber)
+
