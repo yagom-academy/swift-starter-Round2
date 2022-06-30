@@ -16,17 +16,17 @@ func generateLottoNumber() -> Set<Int> {
 }
 
 func commpareLottoNumbers(myNumber: Array<Int>, thisWeekNumber: Set<Int>) {
-    let myLottoNumberSet = Set(myNumber)
-    let matchingNumberArray = myLottoNumberSet.intersection(thisWeekNumber).sorted()
-    let matchingNumberQuantity = matchingNumberArray.count
-    if(matchingNumberQuantity != 0) {
+    let matchingNumbers = Set(myNumber).intersection(thisWeekNumber).sorted()
+    let matchingNumberQuantity = matchingNumbers.count
+    
+    if let lastElement = matchingNumbers.last {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
         for index in 1...matchingNumberQuantity {
             if(index != matchingNumberQuantity) {
                 print(index, terminator: ", ")
             }
             else {
-                print(index, terminator: " 입니다!\n")
+                print(lastElement, terminator: " 입니다!\n")
             }
         }
     }
