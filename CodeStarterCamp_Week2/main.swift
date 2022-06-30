@@ -5,6 +5,7 @@
 //  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
 //
+
 import Foundation
 
 makeLottoNumbers(checkCount: 6)
