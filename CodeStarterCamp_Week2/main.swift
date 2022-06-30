@@ -32,3 +32,19 @@ func checkOverlap(winningNumber: Set<Int>) {
 
 // 실행
 checkOverlap(winningNumber: pickWinningNumber())
+
+// -------------------------------------------------------------------------------
+// STEP3
+var lottoList: [String: Set<Int>] = [:]
+var roundCount: Int = 1
+
+// 로또 당첨 번호를 생성, Dictionary에 저장하는 별도의 함수
+func pickAndAddWinningNumber() {
+    var winningNumber: Set<Int> = Set<Int>()
+    let numberRange: ClosedRange<Int> = 1...45
+    while winningNumber.count < 6 {
+        winningNumber.insert(Int.random(in: numberRange))
+    }
+    lottoList["\(roundCount)회차"] = winningNumber
+    roundCount += 1
+}
