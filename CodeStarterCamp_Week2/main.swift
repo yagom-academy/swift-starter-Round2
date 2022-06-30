@@ -48,3 +48,16 @@ func pickAndAddWinningNumber() {
     lottoList["\(roundCount)회차"] = winningNumber
     roundCount += 1
 }
+
+// 원하는 회차의 당첨번호를 알려주는 함수
+func roundWinningNumber(round: Int) {
+    if let winningNumber = lottoList["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(winningNumber) 입니다.")
+    }
+}
+
+// 실행
+for _ in 1...5 {
+    pickAndAddWinningNumber()
+}
+roundWinningNumber(round: 2)
