@@ -9,3 +9,9 @@
 import Foundation
 
 printLotto(sortedIntersection: returnSortedIntersection(lottoNumbers: createLottoNumbers()))
+
+for _ in 1...5 {
+    createRoundLottoNumbers()
+}
+
+printRoundLottoNumbers(roundNumber: 2)
