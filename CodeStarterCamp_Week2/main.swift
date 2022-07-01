@@ -14,10 +14,8 @@ var sameLottoNumber: [String] = []
 
 func chooseWinningLotto() {
     while winningLottoNumber.count < 6 {
-        chosenWinningNum = Int.random(in : 1..<46)
-        if winningLottoNumber.contains(chosenWinningNum) {
-            continue
-        } else {
+        chosenWinningNum = Int.random(in : 1...45)
+        if winningLottoNumber.contains(chosenWinningNum) == false {
             winningLottoNumber.append(chosenWinningNum)
         }
     }
