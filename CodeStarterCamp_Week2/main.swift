@@ -11,6 +11,9 @@ import Foundation
 var winningLottoNumber: [Int] = []
 var chosenWinningNum: Int = 0
 var sameLottoNumber: [String] = []
+var winningLottoHistory: [Int: [String]] = [:]
+var winningLottoHistoryValue: [String] = []
+var roundaboutCount: Int = 0
 
 func chooseWinningLotto() {
     while winningLottoNumber.count < 6 {
