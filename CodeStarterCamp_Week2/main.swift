@@ -24,10 +24,8 @@ func chooseWinningLotto() {
 func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) {
     
     for winningNumber in winningLotto {
-        for myNumber in myLotto {
-            if winningNumber == myNumber {
-                sameLottoNumber.append(String(myNumber))
-            }
+        if myLotto.contains(winningNumber) == true {
+            sameLottoNumber.append(String(winningNumber))
         }
     }
     
