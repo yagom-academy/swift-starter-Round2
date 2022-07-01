@@ -31,8 +31,7 @@ func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) 
     
     if sameLottoNumber.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-    else {
+    } else {
         print("축하합니다! 겹치는 번호는 \(sameLottoNumber.joined(separator: ", ")) 입니다!")
     }
 }
