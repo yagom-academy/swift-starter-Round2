@@ -52,6 +52,9 @@ func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) 
 
 let myLottoNumber: [Int] = [13, 3, 37, 7, 11, 23]
 
-chooseWinningLotto()
-checkLottoNumber(with: winningLottoNumber, with: myLottoNumber)
-
+for _ in 1...5 {
+    chooseWinningLotto()
+    checkLottoNumber(with: winningLottoNumber, with: myLottoNumber)
+    winningLottoNumber.removeAll()
+    sameLottoNumber.removeAll()
+}
