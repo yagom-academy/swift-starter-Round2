@@ -8,5 +8,5 @@
 
 import Foundation
 
-makeLottoNumbers(checkCount: 6)
+makeLottoNumbers(count: 6)
 checkSameNumber()
