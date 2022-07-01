@@ -31,14 +31,14 @@ func arrangeNumber(numbers : Set<Int>) -> String {
     let resultNumbers = arraylottoNumbers.joined(separator: ", ")
     return resultNumbers
 }
-struct lottoNumbersStruct {
+struct MyLottoNumbers {
     var myLotto: [Int]
     init(myLotto: [Int]) {
         self.myLotto = myLotto
     }
 }
 func lottoNumberFunc(number: [Int]) -> [Int] {
-    let lottoNumberStructMyLotto: lottoNumbersStruct = lottoNumbersStruct(myLotto: number)
+    let lottoNumberStructMyLotto: MyLottoNumbers = MyLottoNumbers(myLotto: number)
     
     return lottoNumberStructMyLotto.myLotto
 }
