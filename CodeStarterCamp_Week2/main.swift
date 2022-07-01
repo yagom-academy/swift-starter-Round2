@@ -15,6 +15,15 @@ var winningLottoHistory: [Int: [String]] = [:]
 var winningLottoHistoryValue: [String] = []
 var roundaboutCount: Int = 0
 
+func saveWinningLotto(with winningLottoNumber: [Int], with roundaboutCount: Int) {
+    winningLottoHistoryValue.removeAll()
+    for winningNumber in winningLottoNumber {
+        winningLottoHistoryValue.append(String(winningNumber))
+        winningLottoHistory[roundaboutCount] = winningLottoHistoryValue
+    }
+    
+}
+
 func chooseWinningLotto() {
     while winningLottoNumber.count < 6 {
         chosenWinningNum = Int.random(in : 1...45)
