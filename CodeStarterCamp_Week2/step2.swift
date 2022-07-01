@@ -15,6 +15,7 @@ func createLottoNumbers() ->Set<Int> {
         
         lottoNumbers.insert(lottoNumber)
     }
+    print(lottoNumbers)
     return lottoNumbers
 }
 
