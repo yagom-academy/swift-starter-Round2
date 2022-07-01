@@ -31,6 +31,8 @@ func chooseWinningLotto() {
             winningLottoNumber.append(chosenWinningNum)
         }
     }
+    roundaboutCount += 1
+    saveWinningLotto(with: winningLottoNumber, with: roundaboutCount)
 }
 
 func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) {
