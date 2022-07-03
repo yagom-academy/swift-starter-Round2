@@ -15,20 +15,23 @@
 
 import Foundation
 
-var winningLottoNumbers: Set<Int> = []
 let myLottoNumbers: [Int] = [1, 7, 15, 29, 36, 42]
 
-func generateRandomLottoNumber() {
+func generateRandomLottoNumber() -> [Int] {
+    var winningLottoNumbers: Set<Int> = []
+    
+    
     while winningLottoNumbers.count < 6 {
         winningLottoNumbers.insert(Int.random(in: 1...45))
     }
+    return Array(winningLottoNumbers)
 }
 
-func comparedNumbers() -> [Int] {
+func comparedNumbers(winnigNumbers: [Int]) -> [Int] {
     var matchedNumbers: [Int] = []
     
     for myNumber in myLottoNumbers {
-        if winningLottoNumbers.contains(myNumber) {
+        if winnigNumbers.contains(myNumber) {
             matchedNumbers.append(myNumber) // append vs. insert
         }
     }
@@ -36,37 +39,31 @@ func comparedNumbers() -> [Int] {
 }
 
 func printLottoResult(matchedNumbers: [Int]) {
+    
+    var intToStringNumbers = ""
+    for number in matchedNumbers {
+        if number == matchedNumbers.last {
+            intToStringNumbers.append(String(number))
+            //intToStringNumbers += String(number)
+        } else {
+            intToStringNumbers.append("\(String(number)), ")
+            //intToStringNumbers += "\(String(number)), "
+        }
+    }
+    
     if matchedNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        switch matchedNumbers.count {
-        case 1:
-            print("겹치는 번호는 \(matchedNumbers[0]) 입니다. 총 \(matchedNumbers.count)개가 겹쳤습니다!")
-        case 2:
-            print("겹치는 번호는 \(matchedNumbers[0]), \(matchedNumbers[1]) 입니다. 총 \(matchedNumbers.count)개가 겹쳤습니다!")
-        case 3: // 5등
-            print("축하합니다! 겹치는 번호는 \(matchedNumbers[0]), \(matchedNumbers[1]), \(matchedNumbers[2]) 입니다. 총 \(matchedNumbers.count)개가 겹쳤습니다!")
-        case 4: // 4등
-            print("축하합니다! 겹치는 번호는 \(matchedNumbers[0]), \(matchedNumbers[1]), \(matchedNumbers[2]), \(matchedNumbers[3]) 입니다. 총 \(matchedNumbers.count)개가 겹쳤습니다!")
-        case 5: // 2,3등?
-            print("축하합니다! 겹치는 번호는 \(matchedNumbers[0]), \(matchedNumbers[1]), \(matchedNumbers[2]), \(matchedNumbers[3]), \(matchedNumbers[4]) 입니다. 총 \(matchedNumbers.count)개가 겹쳤습니다!")
-        case 6: // 1등
-            print("축하합니다!! 겹치는 번호는 \(matchedNumbers[0]), \(matchedNumbers[1]), \(matchedNumbers[2]), \(matchedNumbers[3]), \(matchedNumbers[4]), \(matchedNumbers[5])입니다. 모든 번호가 겹쳤습니다!")
-        default:
-            print("unknown error")
-        }
-        //print("축하합니다! 겹치는 번호는 \(matchedNumbers) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(intToStringNumbers) 입니다. 총 \(matchedNumbers.count)개가 겹쳤습니다.")
     }
 }
 
 func printInformation() {
-    print("로또 당첨 번호: \(winningLottoNumbers.sorted())")
+    print("로또 당첨 번호: \(generateRandomLottoNumber().sorted())")
     print("내가 찍은 번호: \(myLottoNumbers.sorted())")
 }
 
-generateRandomLottoNumber()
-
-let myMatchedNumbers = comparedNumbers()
+let myMatchedNumbers = comparedNumbers(winnigNumbers: generateRandomLottoNumber())
 
 printInformation()
 printLottoResult(matchedNumbers: myMatchedNumbers)
