@@ -7,7 +7,7 @@
 
 import Foundation
 
-func createLottoNumbers() -> Set<Int> {
+func returnLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
     while lottoNumbers.count < 6 {
