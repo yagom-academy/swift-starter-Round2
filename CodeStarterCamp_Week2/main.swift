@@ -14,8 +14,7 @@ import Foundation
 //commpareLottoNumbers(myNumber: myLottoNumbers, thisWeekNumber: thisWeekLottoNumbers)
 
 //MARK: STEP 3
-for _ in 1...5 {
-    addLottoNumberToHistory(from: generateLottoNumber())
-}
-printLottoHistoryWithRound(resultSearch: searchLottoHistory(round: 3))
-printLottoHistoryWithRound(resultSearch: searchLottoHistory(round: 9))
+createLottoNumbers(gameRound: 5)
+
+printLottoHistory(ofRound: 3)
+printLottoHistory(ofRound: 9)
