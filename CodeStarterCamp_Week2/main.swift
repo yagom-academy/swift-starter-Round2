@@ -30,8 +30,6 @@ func chooseWinningLotto() {
             winningLottoNumber.append(chosenWinningNum)
         }
     }
-    roundaboutCount += 1
-    saveWinningLotto(with: winningLottoNumber, with: roundaboutCount)
 }
 
 func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) {
@@ -51,13 +49,15 @@ func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) 
 func runLotto5Times() {
     for _ in 1...5 {
         chooseWinningLotto()
-        checkLottoNumber(with: winningLottoNumber, with: myLottoNumber)
+        // checkLottoNumber(with: winningLottoNumber, with: myLottoNumber)
+        roundaboutCount += 1
+        saveWinningLotto(with: winningLottoNumber, with: roundaboutCount)
         winningLottoNumber.removeAll()
         sameLottoNumber.removeAll()
     }
 }
 
-func findRoundabout(_ roundabout: Int) {
+func findRoundAbout(_ roundabout: Int) {
     if winningLottoHistory[roundabout] != nil {
         print("\(roundabout)회차의 로또 당첨 번호는 \(winningLottoHistoryValue.joined(separator: ", ")) 입니다.")
     }
@@ -66,6 +66,6 @@ func findRoundabout(_ roundabout: Int) {
 let myLottoNumber: [Int] = [13, 3, 37, 7, 11, 23]
 
 runLotto5Times()
-findRoundabout(4)
+findRoundAbout(3)
 
 
