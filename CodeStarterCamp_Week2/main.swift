@@ -39,12 +39,16 @@ var lottoList: [String: Set<Int>] = [:]
 var roundCount: Int = 1
 
 // 로또 당첨 번호를 생성, Dictionary에 저장하는 별도의 함수
-func pickAndAddWinningNumber() {
-    var winningNumber: Set<Int> = Set<Int>()
-    let numberRange: ClosedRange<Int> = 1...45
-    while winningNumber.count < 6 {
-        winningNumber.insert(Int.random(in: numberRange))
-    }
+//func pickWinningNumber() -> Set<Int> {
+//    var winningNumber: Set<Int> = Set<Int>()
+//    let numberRange: ClosedRange<Int> = 1...45
+//    while winningNumber.count < 6 {
+//        winningNumber.insert(Int.random(in: numberRange))
+//    }
+//    return winningNumber
+//
+//}
+func addWinningNumber(winningNumber: Set<Int>) {
     lottoList["\(roundCount)회차"] = winningNumber
     roundCount += 1
 }
@@ -56,8 +60,11 @@ func roundWinningNumber(round: Int) {
     }
 }
 
-// 실행
-for _ in 1...5 {
-    pickAndAddWinningNumber()
+func lottoRounds(times round: Int) {
+    for _ in 1...round {
+        addWinningNumber(winningNumber: pickWinningNumber())
+    }
 }
+// 실행
+lottoRounds(times: 5)
 roundWinningNumber(round: 2)
