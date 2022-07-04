@@ -8,5 +8,5 @@
 
 import Foundation
 
-print("Hello, World!")
-
+makeLottoNumbers(count: 6)
+checkSameNumber()
