@@ -1,26 +1,19 @@
 
-func makemyLottoNumber() -> Set<Int> {
+func makeRandomLottoNumber() -> Set<Int> {
  var myLottoNumber: Set<Int> = Set<Int>()
     while myLottoNumber.count < 6 {
         myLottoNumber.insert(Int.random(in: 1...45))
     }
     return myLottoNumber
 }
-print(makemyLottoNumber())
 
-func makeRealLottoNumber() -> Set<Int> {
- var realLottoNumber: Set<Int> = Set<Int>()
-    while realLottoNumber.count < 6 {
-    realLottoNumber.insert(Int.random(in: 1...45))
-    }
-    return realLottoNumber
-}
-print(makeRealLottoNumber())
+let myLottoNumbers: Set<Int> = makeRandomLottoNumber()
+let realLottoNumbers: Set<Int> = makeRandomLottoNumber()
 
-//let myLottoNumbers: Set<Int> = [1, 2, 12, 9, 36, 35]
-//let realLottoNumbers: Set<Int> = [1, 12, 36, 6, 27, 7]
+print (myLottoNumbers)
+print (realLottoNumbers)
 
-let intersection: Set<Int> = makemyLottoNumber().intersection(makeRealLottoNumber())
+let intersection: Set<Int> = myLottoNumbers.intersection(realLottoNumbers)
 print(intersection)
 
 if intersection.count == 0 {
