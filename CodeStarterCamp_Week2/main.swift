@@ -35,7 +35,6 @@ func chooseWinningLotto() {
 }
 
 func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) {
-    
     for winningNumber in winningLotto {
         if myLotto.contains(winningNumber) == true {
             sameLottoNumber.append(String(winningNumber))
