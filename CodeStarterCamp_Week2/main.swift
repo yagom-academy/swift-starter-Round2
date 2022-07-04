@@ -58,8 +58,8 @@ func runLotto5Times() {
 }
 
 func findRoundAbout(_ roundabout: Int) {
-    if winningLottoHistory[roundabout] != nil {
-        print("\(roundabout)회차의 로또 당첨 번호는 \(winningLottoHistoryValue.joined(separator: ", ")) 입니다.")
+    if let chosenHistory = winningLottoHistory[roundabout] {
+        print("\(roundabout)회차의 로또 당첨 번호는 \(chosenHistory.joined(separator: ", ")) 입니다.")
     }
 }
 
