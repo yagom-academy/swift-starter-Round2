@@ -18,18 +18,17 @@ func makeLottoNumbers(count: Int){
 
 func checkSameNumber(){
     let myLottoNumbers: [Int] = [1,2,3,4,5,6]
-    var sameNumbers: [Int] = []
+    var sameNumbers: [String] = []
     for myLottoNumber in myLottoNumbers{
         for lottoNumber in lottoNumbers{
             if myLottoNumber == lottoNumber {
-                sameNumbers.append(myLottoNumber)
+                sameNumbers.append(String(myLottoNumber))
             }
         }
     }
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다")
     } else {
-        let stringNumbers: [String] = sameNumbers.map(String.init)
-        print("축하합니다! 겹치는 번호는 \(stringNumbers.joined(separator: "")) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(sameNumbers.joined(separator: ", ")) 입니다!")
     }
 }
