@@ -50,24 +50,24 @@ func checkLottoNumber(with winningLotto: Array<Int>, with myLotto: Array<Int> ) 
     }
 }
 
-let myLottoNumber: [Int] = [13, 3, 37, 7, 11, 23]
-
-for _ in 1...5 {
-    chooseWinningLotto()
-    checkLottoNumber(with: winningLottoNumber, with: myLottoNumber)
-    winningLottoNumber.removeAll()
-    sameLottoNumber.removeAll()
-}
-
-print("찾고 싶은 로또 추첨 회차를 입력해 주세요: ")
-if let historyAccess = readLine() {
-    if let roundaboutKey = Int(historyAccess) {
-        if let winningLottoValue = winningLottoHistory[roundaboutKey] {
-            print("\(roundaboutKey)회차의 로또 당첨 번호는 \(winningLottoValue.joined(separator: ", ")) 입니다.")
-        } else {
-            print("\(roundaboutKey)회차에 대한 당첨 번호가 존재하지 않습니다.")
-        }
-    } else {
-        print("원하시는 로또 추첨 회차를 찾고 싶다면 숫자만 입력해 주세요.")
+func runLotto5Times() {
+    for _ in 1...5 {
+        chooseWinningLotto()
+        checkLottoNumber(with: winningLottoNumber, with: myLottoNumber)
+        winningLottoNumber.removeAll()
+        sameLottoNumber.removeAll()
     }
 }
+
+func findRoundabout(_ roundabout: Int) {
+    if winningLottoHistory[roundabout] != nil {
+        print("\(roundabout)회차의 로또 당첨 번호는 \(winningLottoHistoryValue.joined(separator: ", ")) 입니다.")
+    }
+}
+
+let myLottoNumber: [Int] = [13, 3, 37, 7, 11, 23]
+
+runLotto5Times()
+findRoundabout(4)
+
+
