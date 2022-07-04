@@ -1,4 +1,4 @@
-func makeLottoNum() -> Array<Int>{
+func makeLottoNum() -> [Int]{
     var numbersSet: Set<Int> = Set<Int>()
     
     while numbersSet.count < 6{
