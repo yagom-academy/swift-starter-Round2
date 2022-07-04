@@ -14,6 +14,7 @@ func makeLottoNumbers(count: Int){
         let number: Int = Int.random(in: 1...45)
         lottoNumbers.insert(number)
     }
+    insertHistory()
 }
 
 func checkSameNumber(){
@@ -21,7 +22,7 @@ func checkSameNumber(){
     var sameNumbers: [String] = []
     for myLottoNumber in myLottoNumbers{
         for lottoNumber in lottoNumbers{
-            if myLottoNumber == lottoNumber {
+            if myLottoNumber == Int(lottoNumber) {
                 sameNumbers.append(String(myLottoNumber))
             }
         }
