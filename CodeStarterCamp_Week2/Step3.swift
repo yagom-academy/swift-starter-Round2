@@ -7,15 +7,27 @@
 
 import Foundation
 
-typealias lottoNumbersDict = [String: Set<Int>]
+typealias LottoNumbersDict = [String: Set<Int>]
 
-func addLottoNumbersToDictionary(lottoNumbers: Set<Int>,
-                                 lottoNumbersDict: inout lottoNumbersDict) {
-    lottoNumbersDict["\(lottoNumbersDict.count + 1)회차"] = lottoNumbers
+func makeLottoNumbersDictionaries(count: Int) -> LottoNumbersDict {
+    var lottoNumbersDictToMake: LottoNumbersDict = [:]
+    for _ in 1...count {
+        lottoNumbersDictToMake =
+        addLottoNumbersToDict(lottoNumbers: makeLottoNumbers(),
+                              lottoNumbersDict: lottoNumbersDictToMake)
+    }
+    return lottoNumbersDictToMake
 }
 
-func printLottoNumbersInDictionary(episodeNumber: Int,
-                                   lottoNumbersDict: lottoNumbersDict) {
+func addLottoNumbersToDict(lottoNumbers: Set<Int>,
+                           lottoNumbersDict: LottoNumbersDict) -> LottoNumbersDict {
+    var lottoNumbersDictToAdd: LottoNumbersDict = lottoNumbersDict
+    lottoNumbersDictToAdd["\(lottoNumbersDict.count + 1)회차"] = lottoNumbers
+    return lottoNumbersDictToAdd
+}
+
+func printLottoNumbersInDict(episodeNumber: Int,
+                             lottoNumbersDict: LottoNumbersDict) {
     if let lottoNumbers = lottoNumbersDict["\(episodeNumber)회차"] {
         print("\(episodeNumber)회차의 로또 당첨 번호는",
               "\(lottoNumbers.map { "\($0)" }.joined(separator: ", "))",
