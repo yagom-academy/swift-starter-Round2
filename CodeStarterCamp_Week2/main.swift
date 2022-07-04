@@ -21,7 +21,6 @@ func saveWinningLotto(with winningLottoNumber: [Int], with roundaboutCount: Int)
         winningLottoHistoryValue.append(String(winningNumber))
         winningLottoHistory[roundaboutCount] = winningLottoHistoryValue
     }
-    
 }
 
 func chooseWinningLotto() {
