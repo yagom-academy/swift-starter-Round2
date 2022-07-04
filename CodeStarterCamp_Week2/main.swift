@@ -6,11 +6,8 @@ import Foundation
 
 var lottoWinningNumbers: Set<Int> = []
 
-for _ in 1...12{
+while lottoWinningNumbers.count < 6 {
     lottoWinningNumbers.insert(Int.random(in: 1...45))
-    if lottoWinningNumbers.count == 6 {
-        break
-    }
 }
 
 let myLottoNumbers: [Int] = [2, 3, 5, 10, 21, 28]
