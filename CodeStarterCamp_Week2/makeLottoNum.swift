@@ -11,15 +11,3 @@ func makeLottoNum() -> [Int]{
     return numbersArray
 }
 
-func makeLottoNumString() -> [String]{
-    var numbersSet: Set<String> = Set<String>()
-    
-    while numbersSet.count < 6{
-        let num = String(Int.random(in: 1...45))
-        numbersSet.insert(num)
-    }
-    
-    let numbersArray = numbersSet.sorted()
-    
-    return numbersArray
-}
