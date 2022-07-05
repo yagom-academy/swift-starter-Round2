@@ -9,24 +9,26 @@ import Foundation
 
 var lottoNumbers: Set<Int> = Set<Int>()
 
-func makeLottoNumbers(count: Int){
-    while lottoNumbers.count < count{
+func makeLottoNumbers(count: Int) {
+    while lottoNumbers.count < count {
         let number: Int = Int.random(in: 1...45)
         lottoNumbers.insert(number)
     }
     insertHistory()
 }
 
-func checkSameNumber(){
-    let myLottoNumbers: [Int] = [1,2,3,4,5,6]
+func checkSameNumber() {
     var sameNumbers: [String] = []
-    for myLottoNumber in myLottoNumbers{
-        for lottoNumber in lottoNumbers{
+    let myLottoNumbers: [Int] = [1,2,3,4,5,6]
+    
+    for myLottoNumber in myLottoNumbers {
+        for lottoNumber in lottoNumbers {
             if myLottoNumber == Int(lottoNumber) {
                 sameNumbers.append(String(myLottoNumber))
             }
         }
     }
+    
     if sameNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다")
     } else {

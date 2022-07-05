@@ -8,25 +8,25 @@
 import Foundation
 
 var round: Int = 1
-var lottoHistory: Dictionary<String,[Int]> = [String:[Int]]()
+var lottoHistory: [String: [Int]] = [String: [Int]]()
 
-func insertHistory(){
+func insertHistory() {
     let intNumber: [Int] = [Int](lottoNumbers)
     lottoHistory["\(round)회차"] = intNumber
     round += 1
 }
 
-func printRoundOfHistory(round:String){
-    if let value:[Int] = lottoHistory[round]{
+func printRoundOfHistory(round:String) {
+    if let value: [Int] = lottoHistory[round] {
         var intNumbers: [Int] = []
         var stringNumbers: [String] = []
         
-        for num in value{
+        for num in value {
             intNumbers.append(num)
             intNumbers.sort()
         }
         
-        for num in intNumbers{
+        for num in intNumbers {
             stringNumbers.append(String(num))
         }
         
