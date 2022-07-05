@@ -35,11 +35,7 @@ func checkMyLottoNumbers() {
     }
 }
 
-
-        
-        
-
 drawLottoWinnigNumbers()
-print("이번주 당첨번호는 \(lottoWinningNumbers) 입니다")
-print("이번주 내번호는 \(myLottoNumbers) 입니다")
+print("이번주 당첨번호는 \(lottoWinningNumbers.sorted()) 입니다")
+print("이번주 내번호는 \(myLottoNumbers.sorted()) 입니다")
 checkMyLottoNumbers()
