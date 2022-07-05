@@ -5,9 +5,7 @@ import Foundation
 //Step 2: 내 번호와 맞추어보기!
 
 var lottoWinningNumbers: Set<Int> = []
-var myLottoNumbers: Set<Int> = []
-
-myLottoNumbers = [2, 3, 5, 10, 21, 28]
+var myLottoNumbers: Set<Int> = [2, 3, 5, 10, 21, 28]
 
 func drawLottoWinnigNumbers() {
     while lottoWinningNumbers.count < 6 {
@@ -16,22 +14,19 @@ func drawLottoWinnigNumbers() {
 }
 
 func checkMyLottoNumbers() {
-    let overlappingNumbers = lottoWinningNumbers.intersection(myLottoNumbers).sorted()
-    let ArrOverlappingNumbers = Array(overlappingNumbers)
-    let numberOfOverlappingNumbers = ArrOverlappingNumbers.count
+    let overlappingNumbers = lottoWinningNumbers.intersection(myLottoNumbers)
+    let numberOfOverlappingNumbers = lottoWinningNumbers.intersection(myLottoNumbers).count
     
     if numberOfOverlappingNumbers == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
-    else if numberOfOverlappingNumbers == 1 {
-        print("축하합니다! 겹치는 번호는 \(ArrOverlappingNumbers[0]) 입니다")
-    }
     else {
-        print("축하합니다! 겹치는 번호는", terminator: " ")
-        for number in 0...numberOfOverlappingNumbers-2{
-            print(ArrOverlappingNumbers[number], terminator: ", ")
+        var StringOverlappingNumbers: Array<String> = []
+        for number in overlappingNumbers {
+            StringOverlappingNumbers.append("\(number)")
         }
-        print(ArrOverlappingNumbers[numberOfOverlappingNumbers-1], terminator: " 입니다.")
+        print("축하합니다! 겹치는 번호는", terminator: " ")
+        print(StringOverlappingNumbers.joined(separator: ", "), "입니다.")
     }
 }
 
