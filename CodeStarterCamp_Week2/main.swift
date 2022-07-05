@@ -16,22 +16,22 @@ func drawLottoWinnigNumbers() {
 }
 
 func checkMyLottoNumbers() {
-    let overLappingNumbers = lottoWinningNumbers.intersection(myLottoNumbers).sorted()
-    let ArrOverLappingNumbers = Array(overLappingNumbers)
-    let numberOfOverLappingNumbers = ArrOverLappingNumbers.count
+    let overlappingNumbers = lottoWinningNumbers.intersection(myLottoNumbers).sorted()
+    let ArrOverlappingNumbers = Array(overlappingNumbers)
+    let numberOfOverlappingNumbers = ArrOverlappingNumbers.count
     
-    if numberOfOverLappingNumbers == 0 {
+    if numberOfOverlappingNumbers == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
-    else if numberOfOverLappingNumbers == 1 {
-        print("축하합니다! 겹치는 번호는 \(ArrOverLappingNumbers[0]) 입니다")
+    else if numberOfOverlappingNumbers == 1 {
+        print("축하합니다! 겹치는 번호는 \(ArrOverlappingNumbers[0]) 입니다")
     }
     else {
         print("축하합니다! 겹치는 번호는", terminator: " ")
-        for number in 0...numberOfOverLappingNumbers-2{
-            print(ArrOverLappingNumbers[number], terminator: ", ")
+        for number in 0...numberOfOverlappingNumbers-2{
+            print(ArrOverlappingNumbers[number], terminator: ", ")
         }
-        print(ArrOverLappingNumbers[numberOfOverLappingNumbers-1], terminator: " 입니다.")
+        print(ArrOverlappingNumbers[numberOfOverlappingNumbers-1], terminator: " 입니다.")
     }
 }
 
