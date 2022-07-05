@@ -6,7 +6,7 @@ func createLottoGames(totalRound: Int) -> Dictionary<String, Array<Int>> {
     for round in 1...totalRound {
         lottoGames["\(round)회차"] = Array(createLottoNumbers())
     }
-    return(lottoGames)
+    return lottoGames
 }
 
 func createLottoNumbers() -> Set<Int> {
@@ -21,7 +21,6 @@ func optinalGame(gameRound: Int) -> String {
     var resultLottoNumbers: String = ""
     if let chosenRound = lottoGames["\(gameRound)회차"] {
         resultLottoNumbers = arrangeNumber(numbers: chosenRound)
-        //resultLottoNumbers = chosenRound.map { String($0) }.joined(separator: ", ")
     }
     return resultLottoNumbers
 }
@@ -32,8 +31,8 @@ func showChosenGame(chosenRound: Int, totalRound: Int) {
     print("\(chosenRound)회차의 로또 당첨 번호는 \(resultLottoNumbers) 입니다.")
 }
 
-func arrangeNumber(numbers : Array<Int>) -> String {
-    var arraylottoNumbers : [String] = []
+func arrangeNumber(numbers: Array<Int>) -> String {
+    var arraylottoNumbers: [String] = []
     for numbers in numbers {
         arraylottoNumbers.append(String(numbers))
     }
