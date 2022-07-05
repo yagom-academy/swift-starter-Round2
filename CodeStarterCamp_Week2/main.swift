@@ -7,7 +7,5 @@
 //
 
 import Foundation
-
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-printDuplicateNumbers(findDuplicateNumbersInTwoLottoNumbers(
-    myLottoNumbers, makeLottoNumbers()))
+ 
+printRoundLottoNumber(roundNumber: 2, lottoNumbers: makeLottoNumbers(count: 5))
