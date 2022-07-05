@@ -7,13 +7,13 @@ func makeRandomLottoNumber() -> Set<Int> {
     return myLottoNumber
 }
 
-let myLottoNumbers: Set<Int> = makeRandomLottoNumber()
-let realLottoNumbers: Set<Int> = makeRandomLottoNumber()
+func checkTheNumber(){
+    let myLottoNumbers: Set<Int> = makeRandomLottoNumber()
+    let realLottoNumbers: Set<Int> = makeRandomLottoNumber()
+    print (myLottoNumbers)
+    print (realLottoNumbers)
 
-print (myLottoNumbers)
-print (realLottoNumbers)
-
-let intersection: Set<Int> = myLottoNumbers.intersection(realLottoNumbers)
+    let intersection: Set<Int> = myLottoNumbers.intersection(realLottoNumbers)
 print(intersection)
 
 if intersection.count == 0 {
@@ -29,3 +29,6 @@ if intersection.count == 0 {
     }
     print(" 입니다!", terminator: "")
 }
+}
+
+checkTheNumber()
