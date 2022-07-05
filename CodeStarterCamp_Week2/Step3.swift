@@ -7,30 +7,29 @@
 
 import Foundation
 
-typealias LottoNumbersDict = [String: Set<Int>]
+typealias LottoNumbers = [String: Set<Int>]
 
-func makeLottoNumbersDictionaries(count: Int) -> LottoNumbersDict {
-    var lottoNumbersDictToMake: LottoNumbersDict = [:]
+func makeLottoNumbers(count: Int) -> LottoNumbers {
+    var lottoNumbersToMake: LottoNumbers = [:]
     for _ in 1...count {
-        lottoNumbersDictToMake =
-        addLottoNumbersToDict(lottoNumbers: makeLottoNumbers(),
-                              lottoNumbersDict: lottoNumbersDictToMake)
+        lottoNumbersToMake = addLottoNumber(lottoNumber: makeLottoNumbers(),
+                                            to: lottoNumbersToMake)
     }
-    return lottoNumbersDictToMake
+    return lottoNumbersToMake
 }
 
-func addLottoNumbersToDict(lottoNumbers: Set<Int>,
-                           lottoNumbersDict: LottoNumbersDict) -> LottoNumbersDict {
-    var lottoNumbersDictToAdd: LottoNumbersDict = lottoNumbersDict
-    lottoNumbersDictToAdd["\(lottoNumbersDict.count + 1)회차"] = lottoNumbers
-    return lottoNumbersDictToAdd
+func addLottoNumber(lottoNumber: Set<Int>,
+                    to lottoNumbers: LottoNumbers) -> LottoNumbers {
+    var lottoNumbersToAdd: LottoNumbers = lottoNumbers
+    lottoNumbersToAdd["\(lottoNumbers.count + 1)회차"] = lottoNumber
+    return lottoNumbersToAdd
 }
 
-func printLottoNumbersInDict(episodeNumber: Int,
-                             lottoNumbersDict: LottoNumbersDict) {
-    if let lottoNumbers = lottoNumbersDict["\(episodeNumber)회차"] {
-        print("\(episodeNumber)회차의 로또 당첨 번호는",
-              "\(lottoNumbers.map { "\($0)" }.joined(separator: ", "))",
+func printRoundLottoNumber(roundNumber: Int,
+                           lottoNumbers: LottoNumbers) {
+    if let lottoNumber = lottoNumbers["\(roundNumber)회차"] {
+        print("\(roundNumber)회차의 로또 당첨 번호는",
+              "\(lottoNumber.map { "\($0)" }.joined(separator: ", "))",
               "입니다.")
     } else {
         print("저장된 로또 당첨 번호가 없습니다.")

@@ -8,5 +8,4 @@
 
 import Foundation
  
-printLottoNumbersInDict(episodeNumber: 3,
-                        lottoNumbersDict: makeLottoNumbersDictionaries(count: 5))
+printRoundLottoNumber(roundNumber: 2, lottoNumbers: makeLottoNumbers(count: 5))
