@@ -20,11 +20,11 @@ func checkMyLottoNumbers() {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
     else {
-        var StringOverlappingNumbers: Array<String> = []
+        var stringOverlappingNumbers: Array<String> = []
         for overlappingNumber in overlappingNumbers {
-            StringOverlappingNumbers.append(String(overlappingNumber))
+            stringOverlappingNumbers.append(String(overlappingNumber))
         }
-        print("축하합니다! 겹치는 번호는 \(StringOverlappingNumbers.joined(separator: ", ")) 입니다.")
+        print("축하합니다! 겹치는 번호는 \(stringOverlappingNumbers.joined(separator: ", ")) 입니다.")
     }
 }
 
