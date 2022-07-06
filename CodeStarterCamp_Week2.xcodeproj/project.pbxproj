@@ -10,6 +10,8 @@
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
 		C830BBC3286ED4030009A497 /* makeLottoNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830BBC2286ED4030009A497 /* makeLottoNum.swift */; };
 		C830BBC5286ED57C0009A497 /* checkLotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830BBC4286ED57C0009A497 /* checkLotto.swift */; };
+		C863B89D28755D6400BEC5B9 /* selectRoundPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863B89C28755D6400BEC5B9 /* selectRoundPrint.swift */; };
+		C863B89F28755DFC00BEC5B9 /* makeRounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863B89E28755DFC00BEC5B9 /* makeRounds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,8 @@
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C830BBC2286ED4030009A497 /* makeLottoNum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeLottoNum.swift; sourceTree = "<group>"; };
 		C830BBC4286ED57C0009A497 /* checkLotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkLotto.swift; sourceTree = "<group>"; };
+		C863B89C28755D6400BEC5B9 /* selectRoundPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectRoundPrint.swift; sourceTree = "<group>"; };
+		C863B89E28755DFC00BEC5B9 /* makeRounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeRounds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				34811DC1274B93D800A1E994 /* main.swift */,
 				C830BBC2286ED4030009A497 /* makeLottoNum.swift */,
 				C830BBC4286ED57C0009A497 /* checkLotto.swift */,
+				C863B89C28755D6400BEC5B9 /* selectRoundPrint.swift */,
+				C863B89E28755DFC00BEC5B9 /* makeRounds.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -125,8 +131,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C863B89F28755DFC00BEC5B9 /* makeRounds.swift in Sources */,
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
 				C830BBC3286ED4030009A497 /* makeLottoNum.swift in Sources */,
+				C863B89D28755D6400BEC5B9 /* selectRoundPrint.swift in Sources */,
 				C830BBC5286ED57C0009A497 /* checkLotto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
