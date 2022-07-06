@@ -1,9 +1,7 @@
-//
-//  main.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
-//
+
 import Foundation
-compareLottoNumbers()
+
+//STEP2
+//compareLottoNumbers()
+//STEP3
+showChosenGame(chosenRound: 4, totalRound: 5)

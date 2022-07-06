@@ -1,40 +1,48 @@
-//
-//  STEP3.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by 한겨레 on 2022/06/29.
-//
-
 import Foundation
 
-//로또 번호 추첨
-func makeLottoNumbers() -> Set<Int>{
-    
-    var lottoNumbers: Set<Int> = Set<Int>()
-    
-    while lottoNumbers.count<6 {
-        
-        lottoNumbers.insert(Int.random(in: 1...45))
-        
+var lottoGames = [String: Array<Int>]()
+
+func createLottoGames(totalRound: Int) -> Dictionary<String, Array<Int>> {
+    for round in 1...totalRound {
+        lottoGames["\(round)회차"] = Array(createLottoNumbers())
     }
-    
-    return lottoNumbers
+    return lottoGames
 }
 
-//로또 당첨 여부 조회
-func compareLottoNumbers() {
-    let myLottoNumbers: [Int] = [1,3,4,5,34,31]
-    
-    var sameLottoNumbers: Set<Int> = makeLottoNumbers().intersection(myLottoNumbers)
-  
-    if sameLottoNumbers.isEmpty {
-        
-        print("아쉽지만 탈락입니다.")
-        
+func createLottoNumbers() -> Set<Int> {
+    var lottoNumber: Set<Int> = Set<Int>()
+    while lottoNumber.count < 6 {
+        lottoNumber.insert(Int.random(in: 1...45))
+    }
+    return lottoNumber
+}
+
+func optinalGame(gameRound: Int) -> String {
+    var resultLottoNumbers: String = ""
+    guard let chosenRound = lottoGames["\(gameRound)회차"] else {
+        return "아직 진행되지 않았습니다."
     }
     
-    else {
-        let resultNumber = sameLottoNumbers.map{String($0)}.joined(separator: ", ")
-        print(resultNumber)
+    resultLottoNumbers = arrangeNumber(numbers: chosenRound)
+    return resultLottoNumbers
+}
+
+func showChosenGame(chosenRound: Int, totalRound: Int) {
+    let lottoGames = createLottoGames(totalRound: totalRound)
+    let resultLottoNumbers = optinalGame(gameRound: chosenRound)
+    if chosenRound>totalRound {
+        print("\(chosenRound)회차의 로또 당첨 번호는 \(resultLottoNumbers) ")
     }
+    else{
+        print("\(chosenRound)회차의 로또 당첨 번호는 \(resultLottoNumbers) 입니다.")
+    }
+}
+
+func arrangeNumber(numbers: Array<Int>) -> String {
+    var arraylottoNumbers: [String] = []
+    for numbers in numbers {
+        arraylottoNumbers.append(String(numbers))
+    }
+    let resultNumbers = arraylottoNumbers.joined(separator: ", ")
+    return resultNumbers
 }
