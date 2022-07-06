@@ -16,54 +16,67 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 7, 15, 29, 36, 42]
+var winningNumbersDB: Dictionary<String, Array<Int>> = [:]
+var lottoRound: Int = 0
+// var lottoRound: Dictionary<Int, Array<Int>> = [String, Array<Int>]() // 에러 나는 이유?
 
+
+@discardableResult
 func generateRandomLottoNumber() -> [Int] {
     var winningLottoNumbers: Set<Int> = []
-    
     
     while winningLottoNumbers.count < 6 {
         winningLottoNumbers.insert(Int.random(in: 1...45))
     }
+        
     return Array(winningLottoNumbers)
 }
 
-func comparedNumbers(winnigNumbers: [Int]) -> [Int] {
-    var matchedNumbers: [Int] = []
+
+func saveWinningNumbers(winningNumbers: [Int]) {
     
-    for myNumber in myLottoNumbers {
-        if winnigNumbers.contains(myNumber) {
-            matchedNumbers.append(myNumber) // append vs. insert
-        }
-    }
-    return matchedNumbers
+    lottoRound += 1
+    
+    let winningNumbersKey = "\(String(lottoRound))회차"
+    winningNumbersDB[winningNumbersKey] = winningNumbers
 }
 
-func printLottoResult(matchedNumbers: [Int]) {
-    
-    var intToStringNumbers = ""
-    for number in matchedNumbers {
-        if number == matchedNumbers.last {
-            intToStringNumbers.append(String(number))
-            //intToStringNumbers += String(number)
-        } else {
-            intToStringNumbers.append("\(String(number)), ")
-            //intToStringNumbers += "\(String(number)), "
-        }
-    }
-    
-    if matchedNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+
+func printSelectedLottoNumbers(roundNumber: Int) {
+    let round = "\(roundNumber)회차"
+    if let selectedWinningNumbers = winningNumbersDB[round] {
+        printingFormat(round: round, selectedRoundNumbers: selectedWinningNumbers.sorted())
     } else {
-        print("축하합니다! 겹치는 번호는 \(intToStringNumbers) 입니다. 총 \(matchedNumbers.count)개가 겹쳤습니다.")
+        print("해당하는 회차를 찾지못했습니다.")
     }
 }
 
-func printInformation() {
-    print("로또 당첨 번호: \(generateRandomLottoNumber().sorted())")
-    print("내가 찍은 번호: \(myLottoNumbers.sorted())")
+
+func intToStringNumbers(numbers: [Int]) -> [String] {
+    var intToStringArray = [String]()
+    
+    for number in numbers.sorted() {
+        intToStringArray.append(String(number))
+    }
+    
+    return intToStringArray
 }
 
-let myMatchedNumbers = comparedNumbers(winnigNumbers: generateRandomLottoNumber())
 
-printInformation()
-printLottoResult(matchedNumbers: myMatchedNumbers)
+func printingFormat(round: String, selectedRoundNumbers: [Int]) {
+    let numbers = intToStringNumbers(numbers: selectedRoundNumbers)
+    
+    print("\(round)의 로또 당첨 번호는 \(numbers.joined(separator: ", ")) 입니다.")
+}
+
+
+// ----------------------------------------------- //
+
+
+
+for _ in 1...5 {
+    saveWinningNumbers(winningNumbers: generateRandomLottoNumber())
+}
+
+printSelectedLottoNumbers(roundNumber: 4)
+//print(winningNumbersDB)
