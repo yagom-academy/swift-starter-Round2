@@ -1,12 +1,12 @@
-//
-//  main.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
-//
-
 import Foundation
 
-print("Hello, World!")
+var lottoNumber = Set<Int>()
 
+var numbers = Array<Int>(1...45)
+
+
+
+while lottoNumber.count < 6 {
+    lottoNumber.insert(numbers.randomElement()!)
+}
+print(lottoNumber)
