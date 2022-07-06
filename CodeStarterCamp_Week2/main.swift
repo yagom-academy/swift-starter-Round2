@@ -1,6 +1,7 @@
 
 import Foundation
 
-//STEP2 compareLottoNumbers()
+//STEP2
+//compareLottoNumbers()
 //STEP3
-showChosenGame(chosenRound: 3, totalRound: 5)
+showChosenGame(chosenRound: 4, totalRound: 5)

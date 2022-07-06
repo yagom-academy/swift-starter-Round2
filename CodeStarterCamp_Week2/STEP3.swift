@@ -19,16 +19,23 @@ func createLottoNumbers() -> Set<Int> {
 
 func optinalGame(gameRound: Int) -> String {
     var resultLottoNumbers: String = ""
-    if let chosenRound = lottoGames["\(gameRound)회차"] {
-        resultLottoNumbers = arrangeNumber(numbers: chosenRound)
+    guard let chosenRound = lottoGames["\(gameRound)회차"] else {
+        return "아직 진행되지 않았습니다."
     }
+    
+    resultLottoNumbers = arrangeNumber(numbers: chosenRound)
     return resultLottoNumbers
 }
 
 func showChosenGame(chosenRound: Int, totalRound: Int) {
     let lottoGames = createLottoGames(totalRound: totalRound)
     let resultLottoNumbers = optinalGame(gameRound: chosenRound)
-    print("\(chosenRound)회차의 로또 당첨 번호는 \(resultLottoNumbers) 입니다.")
+    if chosenRound>totalRound {
+        print("\(chosenRound)회차의 로또 당첨 번호는 \(resultLottoNumbers) ")
+    }
+    else{
+        print("\(chosenRound)회차의 로또 당첨 번호는 \(resultLottoNumbers) 입니다.")
+    }
 }
 
 func arrangeNumber(numbers: Array<Int>) -> String {
