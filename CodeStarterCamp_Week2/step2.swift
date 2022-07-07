@@ -43,16 +43,10 @@ func checkSameNumber() {
 
 func printRoundOfHistory(round:String) {
     if let historyNumbersOfRound: [Int] = lottoHistory[round] {
-        var forSortRoundNumbers: [Int] = []
         var sortedRoundNumbers: [String] = []
         
-        for historyNumberOfRound in historyNumbersOfRound {
-            forSortRoundNumbers.append(historyNumberOfRound)
-            forSortRoundNumbers.sort()
-        }
-        
-        for forSortRoundNumber in forSortRoundNumbers {
-            sortedRoundNumbers.append(String(forSortRoundNumber))
+        for historyNumberOfRound in historyNumbersOfRound.sorted() {
+            sortedRoundNumbers.append(String(historyNumberOfRound))
         }
         
         print("\(round)의 로또 당첨 번호는 \(sortedRoundNumbers.joined(separator: ", ")) 입니다.")
