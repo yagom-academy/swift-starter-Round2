@@ -1,9 +1,8 @@
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
-let lottoNumbers = makeLottoNum()
+var formerLottoNumbers = makeRounds()
+
+selectRoundPrint(selectedRound: 2, allRoundsDict: formerLottoNumbers)
 
 
-print("내가 찍은 번호 : \(myLottoNumbers)")
-print("당첨 번호 : \(lottoNumbers)")
 
-checkLotto(myNums: myLottoNumbers, lottoNums: lottoNumbers)
+
 

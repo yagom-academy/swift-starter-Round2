@@ -10,3 +10,4 @@ func makeLottoNum() -> [Int]{
     
     return numbersArray
 }
+
