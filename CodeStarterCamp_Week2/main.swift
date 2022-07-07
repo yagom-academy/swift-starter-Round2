@@ -1,12 +1,4 @@
-//
-//  main.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
-//
-
 import Foundation
 
-print("Hello, World!")
+print("리셋")
 
