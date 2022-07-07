@@ -8,5 +8,8 @@
 
 import Foundation
 
-makeLottoNumbers(count: 6)
-checkSameNumber()
+for _ in 1...5 {
+    makeLottoNumbers(count: 6)
+}
+
+printRoundOfHistory(round: "1회차")
