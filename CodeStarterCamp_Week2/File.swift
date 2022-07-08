@@ -7,17 +7,16 @@
 
 import Foundation
 
-var myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-
 func makeLottoNumber() -> Set<Int> {
-    var chosenNumberSet = Set<Int>()
-    while chosenNumberSet.count < 6 {
-        chosenNumberSet.insert(Int.random(in: 1...45))
+    var chosenNumber = Set<Int>()
+    while chosenNumber.count < 6 {
+        chosenNumber.insert(Int.random(in: 1...45))
     }
-    return chosenNumberSet
+    return chosenNumber
 }
 
 func checkNumberToLotto(lottoNumber: Set<Int>) {
+    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
     if lottoNumber.intersection(myLottoNumbers).count > 0 {
         print("축하합니다! 겹치는 번호는\(lottoNumber.intersection(myLottoNumbers))입니다!")
     } else {
