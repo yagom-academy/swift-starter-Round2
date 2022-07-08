@@ -9,13 +9,12 @@
 import Foundation
 
 func lotteryNumbers() -> Set<Int> {
-    var preLotteryNumbers: Set<Int> = Set<Int>()
+    var lotteryNumbers: Set<Int> = Set<Int>()
 
-    while preLotteryNumbers.count != 6 {
-        preLotteryNumbers.insert(Int.random(in: 1...45))
+    while lotteryNumbers.count != 6 {
+        lotteryNumbers.insert(Int.random(in: 1...45))
     }
-    let actualLotteryNumbers: Set<Int> = preLotteryNumbers
-    return actualLotteryNumbers
+    return lotteryNumbers
 }
 
 let pickedLotteryNumbers = lotteryNumbers()
