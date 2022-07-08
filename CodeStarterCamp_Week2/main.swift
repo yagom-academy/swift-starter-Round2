@@ -9,6 +9,8 @@
 import Foundation
 
 var myLottoNumbers: Set<Int> = []
+var winningNumbers: Set<Int> = []
+var winnerNumberByRound: [Int: Set<Int>] = [:]
 
 func insertLottoNumbers(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int) {
     myLottoNumbers.insert(a)
@@ -17,8 +19,10 @@ func insertLottoNumbers(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int) {
     myLottoNumbers.insert(d)
     myLottoNumbers.insert(e)
     myLottoNumbers.insert(f)
-    while myLottoNumbers.count < 6 {
+    if myLottoNumbers.count < 6 {
+        while myLottoNumbers.count < 6 {
             myLottoNumbers.insert(Int.random(in: 1...45))
+        }
     }
 }
 
@@ -31,12 +35,16 @@ func buyLotto(a: Int = Int.random(in: 1...45), b: Int = Int.random(in: 1...45), 
     }
 }
 
-var winningNumbers: Set<Int> = []
+func writeWinningNumbers() {
+    winnerNumberByRound[winnerNumberByRound.count+1] = winningNumbers
+}
 
 func drawLotto() {
+    winningNumbers.removeAll()
     while winningNumbers.count < 6 {
         winningNumbers.insert(Int.random(in: 1...45))
     }
+    writeWinningNumbers()
 }
 
 func compare(my numbers: Set<Int>, with lottoNumbers: Set<Int>) {
@@ -48,6 +56,19 @@ func compare(my numbers: Set<Int>, with lottoNumbers: Set<Int>) {
     }
 }
 
-drawLotto()
-buyLotto()
-compare(my: myLottoNumbers, with: winningNumbers)
+func searchForRounds(round: Int) {
+    if let winningNumbers = winnerNumberByRound[round] {
+        print("\(round)회차의 로또 당첨 번호는 \("\(winningNumbers.sorted())".trimmingCharacters(in: ["[","]"])) 입니다.")
+    } else {
+    }
+}
+
+for _ in 1...5 {
+    drawLotto()
+}
+
+searchForRounds(round: 1)
+
+for round in 2...winnerNumberByRound.count {
+    searchForRounds(round: round)
+}
