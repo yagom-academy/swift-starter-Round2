@@ -7,6 +7,7 @@ var lottoWinningNumbers: Set<Int> = []
 var myLottoNumbers: Set<Int> = [2, 3, 5, 10, 21, 28]
 
 func drawLottoWinnigNumbers() {
+    lottoWinningNumbers.removeAll()
     while lottoWinningNumbers.count < 6 {
         lottoWinningNumbers.insert(Int.random(in: 1...45))
     }
