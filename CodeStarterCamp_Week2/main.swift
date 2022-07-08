@@ -18,4 +18,8 @@ func lotteryNumbers() -> Set<Int> {
     return actualLotteryNumbers
 }
 
+let pickedLotteryNumbers = lotteryNumbers()
+print(pickedLotteryNumbers)
 
+var myLottoNumbers: Set<Int> = Set<Int>()
+myLottoNumbers = [1,2,3,4,5,6]
