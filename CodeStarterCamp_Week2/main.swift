@@ -2,11 +2,12 @@
 //  main.swift
 //  CodeStarterCamp_Week2
 //
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
+//  Created by ㅇㅇ on 2022/07/09.
 //
 
 import Foundation
 
-print("Hello, World!")
 
+print(makeLottoNUmber().sorted())
+
+checkNumber()
