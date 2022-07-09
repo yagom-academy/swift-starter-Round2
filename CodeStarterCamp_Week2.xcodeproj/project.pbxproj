@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4119E35E2877BF91008FD610 /* Week2-step3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119E35D2877BF91008FD610 /* Week2-step3.swift */; };
 		411F45BA28767BF7005D3B61 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F45B428767963005D3B61 /* main.swift */; };
-		411F45BC28767CF4005D3B61 /* Week2-Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F45BB28767CF4005D3B61 /* Week2-Step2.swift */; };
+		411F45BC28767CF4005D3B61 /* Week2 Step2&3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F45BB28767CF4005D3B61 /* Week2 Step2&3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +25,8 @@
 
 /* Begin PBXFileReference section */
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
-		4119E35D2877BF91008FD610 /* Week2-step3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Week2-step3.swift"; sourceTree = "<group>"; };
 		411F45B428767963005D3B61 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		411F45BB28767CF4005D3B61 /* Week2-Step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Week2-Step2.swift"; sourceTree = "<group>"; };
+		411F45BB28767CF4005D3B61 /* Week2 Step2&3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Week2 Step2&3.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				411F45B428767963005D3B61 /* main.swift */,
-				411F45BB28767CF4005D3B61 /* Week2-Step2.swift */,
-				4119E35D2877BF91008FD610 /* Week2-step3.swift */,
+				411F45BB28767CF4005D3B61 /* Week2 Step2&3.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -125,9 +122,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4119E35E2877BF91008FD610 /* Week2-step3.swift in Sources */,
 				411F45BA28767BF7005D3B61 /* main.swift in Sources */,
-				411F45BC28767CF4005D3B61 /* Week2-Step2.swift in Sources */,
+				411F45BC28767CF4005D3B61 /* Week2 Step2&3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
