@@ -45,7 +45,7 @@ func drawLotto() {
     writeWinningNumbers()
 }
 
-func compare(my numbers: Set<Int>, with lottoNumbers: Set<Int>) {
+func compare(my numbers: Set<Int> = myLottoNumbers, with lottoNumbers: Set<Int> = winningNumbers) {
     print("로또6/45 당첨번호\n\("\(lottoNumbers.sorted())".trimmingCharacters(in: ["[","]"]))\n내 번호\n\("\(numbers.sorted())".trimmingCharacters(in: ["[","]"]))")
     if numbers.intersection(lottoNumbers).isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
@@ -57,7 +57,6 @@ func compare(my numbers: Set<Int>, with lottoNumbers: Set<Int>) {
 func searchForRounds(round: Int) {
     if let winningNumbers = winnerNumberByRound[round] {
         print("\(round)회차의 로또 당첨 번호는 \("\(winningNumbers.sorted())".trimmingCharacters(in: ["[","]"])) 입니다.")
-    } else {
     }
 }
 
@@ -70,3 +69,7 @@ searchForRounds(round: 1)
 for round in 2...winnerNumberByRound.count {
     searchForRounds(round: round)
 }
+
+buyLotto()
+drawLotto()
+compare()
