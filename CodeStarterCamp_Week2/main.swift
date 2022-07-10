@@ -19,10 +19,8 @@ func insertLottoNumbers(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int) {
     myLottoNumbers.insert(d)
     myLottoNumbers.insert(e)
     myLottoNumbers.insert(f)
-    if myLottoNumbers.count < 6 {
-        while myLottoNumbers.count < 6 {
-            myLottoNumbers.insert(Int.random(in: 1...45))
-        }
+    while myLottoNumbers.count < 6 {
+        myLottoNumbers.insert(Int.random(in: 1...45))
     }
 }
 
