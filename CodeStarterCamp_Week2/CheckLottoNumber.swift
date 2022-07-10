@@ -17,15 +17,15 @@ func makeLottoNumber() -> Set<Int>{
     return numberSet
 }
 
-var myLottoNumbers : Set<Int> = [1, 2, 3, 4, 5, 6]
+var myLottoNumber : Set<Int> = [1, 2, 3, 4, 5, 6]
 
-var winningNumber = numberSet.intersection(myLottoNumbers)
+var winningNumber = numberSet.intersection(myLottoNumber)
 
-var winningNumberString = winningNumber.map { Int in
-    return String(Int)
+var winningNumberString = winningNumber.map { winningNumber in
+    return String(winningNumber)
 }
 
-func isEmptyWinningNumber(){
+func showResult(){
     if winningNumber.isEmpty{
         print("아쉽지만 겹치는 변호가 없습니다.")
     }else{

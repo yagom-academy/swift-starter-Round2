@@ -10,4 +10,4 @@ import Foundation
 
 print(makeLottoNumber().sorted())
 
-isEmptyWinningNumber()
+showResult()
