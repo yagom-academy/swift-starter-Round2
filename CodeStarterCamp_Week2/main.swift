@@ -8,6 +8,6 @@
 import Foundation
 
 
-print(makeLottoNUmber().sorted())
+print(makeLottoNumber().sorted())
 
-checkNumber()
+isEmptyWinningNumber()
