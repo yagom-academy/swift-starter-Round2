@@ -19,11 +19,10 @@ func createRandomNumbers() -> Set<Int> {
 }
 
 func raffleLotto(lottoNumbers: Set<Int>, RandomNubers: Set<Int>) {
-
     let intersectionNumbers: Set<Int> = RandomNubers.intersection(lottoNumbers)
 
     if intersectionNumbers.count == 6 {
-        print("축하합니다! 겹치는 번호는 1, 2, 3, 4, 5, 6 입니다!")
+        print("축하합니다! 겹치는 번호는 \("\(RandomNubers)".trimmingCharacters(in: ["[","]"])) 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
