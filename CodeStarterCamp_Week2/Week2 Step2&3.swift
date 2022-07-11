@@ -1,8 +1,6 @@
 
 import Foundation
 
-//Step 2: 내 번호와 맞추어보기
-
 var lottoWinningNumbers: Set<Int> = []
 var myLottoNumbers: Set<Int> = [2, 3, 5, 10, 21, 28]
 var lottoWinningNumbersHistory: Dictionary<String, Array<Int>> = [String: Array<Int>]()
@@ -17,7 +15,6 @@ func drawLottoWinnigNumbers() {
 
 func checkMyLottoNumbers() {
     let overlappingNumbers = lottoWinningNumbers.intersection(myLottoNumbers)
-    
     if overlappingNumbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
