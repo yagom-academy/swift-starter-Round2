@@ -8,5 +8,8 @@
 
 import Foundation
 
-print("Hello, World!")
+winningLottoNumbers()
+checkSameLottoNumbers()
+
+print(randomNumber)
 
