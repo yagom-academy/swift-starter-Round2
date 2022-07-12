@@ -7,7 +7,10 @@
 
 import Foundation
 
+// step2
+//print(makeLottoNumber().sorted())
+//showResult()
 
-print(makeLottoNumber().sorted())
-
-showResult()
+// step3
+makeRoundOfLotto(totalRound: 5)
+showResult(chooseRound: 3)
