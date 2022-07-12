@@ -7,12 +7,23 @@
 
 import Foundation
 
+var lottoNumberCollection: [String: Set<Int>] = [:]
+
 func makeLottoNumber() -> Set<Int> {
     var chosenNumber = Set<Int>()
     while chosenNumber.count < 6 {
         chosenNumber.insert(Int.random(in: 1...45))
     }
     return chosenNumber
+}
+
+func checkLottoRound() {
+    var lottoRound: Int = 1
+    while lottoRound < 6 {
+        lottoNumberCollection["\(lottoRound)회차"] = makeLottoNumber()
+        print("\(lottoRound)회차의 로또 당첨 번호는 \(lottoNumberCollection["\(lottoRound)회차"]!)")
+        lottoRound += 1
+    }
 }
 
 func checkNumberToLotto(lottoNumber: Set<Int>) {

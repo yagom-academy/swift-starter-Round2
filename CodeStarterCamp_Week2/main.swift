@@ -7,5 +7,5 @@
 //
 
 import Foundation
-
+checkLottoRound()
 checkNumberToLotto(lottoNumber: makeLottoNumber())
