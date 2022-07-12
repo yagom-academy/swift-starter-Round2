@@ -8,7 +8,6 @@
 
 import Foundation
 
-let winLottoNumbers: Set<Int> = createRandomNumbers()
-let myLottoNumbers: Set<Int> = createRandomNumbers()
+var lottoNumbersList: Dictionary<String, Set<Int>> = [String: Set<Int>]()
 
-raffleLotto(lottoNumbers: winLottoNumbers, RandomNumbers: myLottoNumbers)
+print(createLotto(count: 5, round: "1회차"))

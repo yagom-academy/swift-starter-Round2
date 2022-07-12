@@ -7,22 +7,29 @@
 
 import Foundation
 
-func createRandomNumbers() -> Set<Int> {
-    var randomNumbers: Set<Int> = Set<Int>()
+func createLottoNumbers() {
+    var lottoNumbers: Set<Int> = Set<Int>()
 
-    while randomNumbers.count < 6 {
-        randomNumbers.insert(Int.random(in: 1...45))
+    while lottoNumbers.count < 6 {
+        lottoNumbers.insert(Int.random(in: 1...45))
     }
-
-    return randomNumbers
+    
+    saveLottoNumbers(lottoNumbers: lottoNumbers)
 }
 
-func raffleLotto(lottoNumbers: Set<Int>, RandomNumbers: Set<Int>) {
-    let intersectionNumbers: Set<Int> = RandomNumbers.intersection(lottoNumbers)
+func saveLottoNumbers(lottoNumbers: Set<Int>) {
+    lottoNumbersList["\(lottoNumbersList.count+1)회차"] = lottoNumbers
+}
+
+
+func createLotto(count: Int, round: String) -> String{
+    for _ in 1...count {
+        createLottoNumbers()
+    }
     
-    if intersectionNumbers.count > 0 {
-        print("축하합니다! 겹치는 번호는 \("\(intersectionNumbers)".trimmingCharacters(in: ["[","]"])) 입니다!")
+    if let lottoNumbersList = lottoNumbersList[round] {
+        return "\(round)의 로또 당첨 번호는 \("\(lottoNumbersList)".trimmingCharacters(in: ["[","]"]))입니다."
     } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+        return "로또번호가 생성되지 않았습니다."
     }
 }
