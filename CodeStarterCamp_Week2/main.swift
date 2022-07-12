@@ -34,9 +34,7 @@ func comparingMyNumbers(from lotteryNumbers: Set<Int>,to myNumbers: Set<Int>) {
         for ArrangingInRow in commonNumbers {
             commonNuberInRows += String(ArrangingInRow) + ","
         }
-        if commonNuberInRows.last == "," {
-            commonNuberInRows.removeLast()
-        }
+        commonNuberInRows.removeLast()
         
         print(commonNuberInRows, terminator: "")
         print("입니다!")
