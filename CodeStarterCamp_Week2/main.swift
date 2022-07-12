@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+let winLottoNumbers: Set<Int> = createRandomNumbers()
+let myLottoNumbers: Set<Int> = createRandomNumbers()
 
+raffleLotto(lottoNumbers: winLottoNumbers, RandomNumbers: myLottoNumbers)
