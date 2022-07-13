@@ -23,8 +23,8 @@ func saveLottoNumbers(lottoNumbers: Set<Int>) {
     lottoNumbersList["\(lottoNumbersList.count+1)회차"] = lottoNumbers
 }
 
-func addLottoNumbers(roundcount: Int) {
-    for _ in 1...roundcount {
+func addLottoNumbers(roundCount: Int) {
+    for _ in 1...roundCount {
         createLottoNumbers()
     }
 }
@@ -37,8 +37,8 @@ func printLottoNumbers(round: String) -> String{
     }
 } 
 
-func createLotto(roundcount: Int, round: String) -> String{
-    addLottoNumbers(roundcount: roundcount)
+func createLotto(roundCount: Int, round: String) -> String{
+    addLottoNumbers(roundCount: roundCount)
     
     return printLottoNumbers(round: round)
 }
