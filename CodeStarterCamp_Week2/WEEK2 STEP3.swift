@@ -23,22 +23,22 @@ func saveLottoNumbers(lottoNumbers: Set<Int>) {
     lottoNumbersList["\(lottoNumbersList.count+1)회차"] = lottoNumbers
 }
 
-func addLottoNumbers(count: Int) {
-    for _ in 1...count {
+func addLottoNumbers(roundcount: Int) {
+    for _ in 1...roundcount {
         createLottoNumbers()
     }
 }
 
 func printLottoNumbers(round: String) -> String{
-    if let lottoNumbersList = lottoNumbersList[round] {
-        return "\(round)의 로또 당첨 번호는 \("\(lottoNumbersList)".trimmingCharacters(in: ["[","]"]))입니다."
+    if let roundLottoNumbers = lottoNumbersList[round] {
+        return "\(round)의 로또 당첨 번호는 \("\(roundLottoNumbers)".trimmingCharacters(in: ["[","]"]))입니다."
     } else {
         return "로또번호가 생성되지 않았습니다."
     }
-}
+} 
 
-func createLotto(count: Int, round: String) -> String{
-    addLottoNumbers(count: count)
+func createLotto(roundcount: Int, round: String) -> String{
+    addLottoNumbers(roundcount: roundcount)
     
     return printLottoNumbers(round: round)
 }

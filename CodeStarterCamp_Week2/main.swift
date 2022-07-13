@@ -8,4 +8,4 @@
 
 import Foundation
 
-print(createLotto(count: 5, round: "5회차"))
+print(createLotto(roundcount: 5, round: "5회차"))
