@@ -8,6 +8,4 @@
 
 import Foundation
 
-var lottoNumbersList: Dictionary<String, Set<Int>> = [String: Set<Int>]()
-
-print(createLotto(count: 5, round: "1회차"))
+print(createLotto(count: 5, round: "5회차"))
