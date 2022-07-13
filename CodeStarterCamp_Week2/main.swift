@@ -44,6 +44,4 @@ func comparingMyNumbers(from lotteryNumbers: Set<Int>,to myNumbers: Set<Int>) {
 comparingMyNumbers(from: pickedLotteryNumbers, to: myLottoNumbers)
 
 
-// print("축하합니다! 겹치는 번호는 \(commonNumbers.sorted())입니다!")
-
 
