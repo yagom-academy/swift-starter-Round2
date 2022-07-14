@@ -8,7 +8,4 @@
 
 import Foundation
 
-let winLottoNumbers: Set<Int> = createRandomNumbers()
-let myLottoNumbers: Set<Int> = createRandomNumbers()
-
-raffleLotto(lottoNumbers: winLottoNumbers, RandomNumbers: myLottoNumbers)
+print(createLotto(roundCount: 5, round: "5회차"))
