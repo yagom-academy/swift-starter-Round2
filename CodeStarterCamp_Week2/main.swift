@@ -28,7 +28,7 @@ func checkTheNumber(){
                 print(number, terminator: ",")
             }
         }
-        print(" 입니다!", terminator: "")
+        print(" 입니다!")
     }
 }
 
@@ -37,20 +37,33 @@ checkTheNumber()
 
 var lottoNumberCollection : Dictionary<String,Set<Int>> = [ : ]
 
-    for x in 1...5  {
-        lottoNumberCollection["\(x)회차"] =  makeRandomLottoNumber()
-    }
 
-if let lottoNumber5th : Set<Int> = lottoNumberCollection["5회차"]{
-    print("5회차의 로또 당첨 번호는")
-    for (index, number) in lottoNumber5th.enumerated() {
-        if index == lottoNumber5th.count - 1{
-            print(number, terminator: "")
-        } else{
-            print(number, terminator: ",")
-        }
-    }
-    print(" 입니다.", terminator: "")
-} else{
-    print("lottoNumberCollection == nill")
+func saveLottoNumberRound(){
+    lottoNumberCollection["\(lottoNumberCollection.count + 1)회차"] = makeRandomLottoNumber()
 }
+
+func repeatSaveLottoNumberRound(n:Int){
+    for _ in 1...n {
+        saveLottoNumberRound()
+    }
+}
+
+func checkRoundLottoNumber(round:Int){
+    if let roundLottoNumber : Set<Int> = lottoNumberCollection["\(round)회차"]{
+        print("\(round)회차의 로또 당첨 번호는")
+        for (index, number) in roundLottoNumber.enumerated() {
+            if index == roundLottoNumber.count - 1{
+                print(number, terminator: "")
+            } else{
+                print(number, terminator: ",")
+            }
+        }
+        print(" 입니다.", terminator: "")
+    } else{
+        print("lottoNumberCollection == nill")
+    }
+}
+
+
+repeatSaveLottoNumberRound(n:5)
+checkRoundLottoNumber(round: 3)
