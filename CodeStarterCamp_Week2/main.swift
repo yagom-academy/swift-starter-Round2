@@ -7,5 +7,4 @@
 //
 
 import Foundation
-checkLottoRound()
-checkNumberToLotto(lottoNumber: makeLottoNumber())
+checkNumber(winningNumber: makeWinnerNumbers(pickedRound: 2))
