@@ -8,7 +8,7 @@ func makeRandomLottoNumber() -> Set<Int> {
     return myLottoNumber
 }
 
-func checkTheNumber(){
+func checkTheNumber() {
     let myLottoNumbers: Set<Int> = makeRandomLottoNumber()
     let realLottoNumbers: Set<Int> = makeRandomLottoNumber()
     print (myLottoNumbers)
@@ -24,7 +24,7 @@ func checkTheNumber(){
         for (index, number) in intersection.enumerated() {
             if index == intersection.count - 1{
                 print(number, terminator: "")
-            } else{
+            } else {
                 print(number, terminator: ",")
             }
         }
@@ -42,28 +42,28 @@ func saveLottoNumberRound(){
     lottoNumberCollection["\(lottoNumberCollection.count + 1)회차"] = makeRandomLottoNumber()
 }
 
-func repeatSaveLottoNumberRound(n:Int){
-    for _ in 1...n {
+func repeatSaveLottoNumberRound(round: Int) {
+    for _ in 1...round{
         saveLottoNumberRound()
     }
 }
 
-func checkRoundLottoNumber(round:Int){
-    if let roundLottoNumber : Set<Int> = lottoNumberCollection["\(round)회차"]{
+func checkRoundLottoNumber(round: Int) {
+    if let roundLottoNumber : Set<Int> = lottoNumberCollection["\(round)회차"] {
         print("\(round)회차의 로또 당첨 번호는")
         for (index, number) in roundLottoNumber.enumerated() {
-            if index == roundLottoNumber.count - 1{
+            if index == roundLottoNumber.count - 1 {
                 print(number, terminator: "")
-            } else{
+            } else {
                 print(number, terminator: ",")
             }
         }
         print(" 입니다.", terminator: "")
-    } else{
+    } else {
         print("lottoNumberCollection == nill")
     }
 }
 
 
-repeatSaveLottoNumberRound(n:5)
+repeatSaveLottoNumberRound(round: 5)
 checkRoundLottoNumber(round: 3)
