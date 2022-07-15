@@ -16,7 +16,7 @@ func makeLottoNumber() -> Array<String>{
             numberArray.append(randomNumber)
         }
     }
-    return numberArray
+    return numberArray.sorted{ $0.count == $1.count ? $0 < $1 : $0.count < $1.count}
 }
 
 func makeRoundOfLotto(totalRound : Int){
