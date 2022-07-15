@@ -7,7 +7,5 @@
 
 import Foundation
 
-
-print(makeLottoNumber().sorted())
-
-showResult()
+makeRoundOfLotto(totalRound: 5)
+showRound(round: 3)
