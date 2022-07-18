@@ -12,41 +12,52 @@ func makeLottoNumber() -> Set<Int> {
     return lottoNumber
 }
 
-//세트값 스트링으로 변환시켜주는 함수
-func changeToStr(setNumber: (Set<Int>)) -> String {
-    var arraylottoNumbers: [String] = []
+//세트값 인트배열 변환시켜주는 함수
+func makeSetToArray(setNumbers: Set<Int>) -> [Int] {
+    var arraylottoNumbers: [Int] = []
     
 //Set값을 스트링으로 -> append해서 다시 array로 바꿔주는 반복문 (중요)
-    for setNumber in setNumber {
-        arraylottoNumbers.append(String(setNumber))
+    for setNumber in setNumbers {
+        arraylottoNumbers.append(setNumber)
     }
-    let numbersStr = arraylottoNumbers.joined(separator: ", ")
-    return numbersStr
+//    let numbersStr = arraylottoNumbers.joined(separator: ", ")
+    return arraylottoNumbers
 }
 
-//직전회차에 1더해서 딕셔너리 재생성
-func makeLottoDic(roundNumber: Int) -> Dictionary<Int,String>{
-    var lottoDictionary = [ Int : String ]()
+
+var lottoDictionary = Dictionary<String, [Int]>()
+
+func makeLottoDictionary(roundNumber: Int) -> Dictionary<String, [Int]> {
+    
     //라운드수만큼 딕셔너리 배열만들기
     for num in 1...roundNumber {
-        lottoDictionary[num] = changeToStr(setNumber: makeLottoNumber())
+        lottoDictionary["\(num)회차"] = makeSetToArray(setNumbers: makeLottoNumber())
     }
     return lottoDictionary
 }
 
-//5번실행하고 no.3번을 찾고싶음 playRoundNumber = 5 / findRoundNumber =3
-func findLototRound(playRoundNumber: Int , findRoundNumber: Int) {
-    
-    let findLottoDic: Dictionary =
-            makeLottoDic(roundNumber: playRoundNumber)
+//5번 로또번호를 생성하는 전역변수
+var resultLottoNumber: Dictionary = makeLottoDictionary(roundNumber: 5)
 
-    if let wantToFindDic = findLottoDic[findRoundNumber] {
-        print("\(findRoundNumber)회차: \(wantToFindDic)")
-    } else{
+func findLototRound(lottoRoundNumber: Int) {
+
+    //if let으로 옵셔널을 벗겨주는 동시에 if let 구문안에서 [Int] -> String 으로 바꿔주는 함수
+    if let haslottoNumber = resultLottoNumber["\(lottoRoundNumber)회차"] {
+    var arraylottoNumbers: [String] = []
+        for numbers in haslottoNumber {
+              arraylottoNumbers.append(String(numbers))
+          }
+    let finalNumbers = arraylottoNumbers.joined(separator: ", ")
+        
+        print("\(lottoRoundNumber)회차의 로또 당첨번호는 \(finalNumbers) 입니다.")
+    } else {
         print("값이없습니다")
     }
 }
 
-findLototRound(playRoundNumber: 5, findRoundNumber: 3)
-findLototRound(playRoundNumber: 5, findRoundNumber: 1)
-findLototRound(playRoundNumber: 5, findRoundNumber: 4)
+//5번실행하고 3회차 찾기
+findLototRound(lottoRoundNumber: 3)
+findLototRound(lottoRoundNumber: 3)
+findLototRound(lottoRoundNumber: 3)
+
+
