@@ -30,3 +30,4 @@ func checkWinningLottoNumbers() {
 }
 
 checkWinningLottoNumbers()
+
