@@ -7,6 +7,8 @@
 
 import Foundation
 
+let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+
 func makeWinningNumbers() -> Set<Int>{
     var lottoNumbersSet = Set<Int>()
     while lottoNumbersSet.count < 6 {
@@ -15,7 +17,7 @@ func makeWinningNumbers() -> Set<Int>{
     return lottoNumbersSet
 }
 
-func compareLottoNumbers(winning: Set<Int>, mine: Set<Int> = [1, 2, 3, 4 ,5 ,6]) -> Set<Int> {
+func compareLottoNumbers(winning: Set<Int>, mine: Set<Int>) -> Set<Int> {
     var sameLottoNumbers = Set<Int>()
     sameLottoNumbers = winning.intersection(mine)
     return sameLottoNumbers
@@ -38,9 +40,9 @@ func printResult(sameLottoNumbers: Set<Int>) {
 }
 
 func findOverlapLottoNumbers() {
-    let winningNumbers = makeWinningNumbers()
-    let overlapNumbers = compareLottoNumbers(winning: winningNumbers)
+    let winningLottoNumbers = makeWinningNumbers()
+    let overlapNumbers = compareLottoNumbers(winning: winningLottoNumbers, mine: myLottoNumbers)
     printResult(sameLottoNumbers: overlapNumbers)
 
-    print(winningNumbers.sorted())
+    print(winningLottoNumbers.sorted())
 }
