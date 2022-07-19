@@ -6,4 +6,6 @@
 //  Copyright © yagom academy. All rights reserved.
 
 
-compareLottoNumbers()
+findOverlapLottoNumbers()
+
+

@@ -7,25 +7,21 @@
 
 import Foundation
 
-import Foundation
-
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-var randomLottoNumber = Set<Int>()
-
-func makeLottoNumbers() {
-    while randomLottoNumber.count < 6 {
-        randomLottoNumber.insert(Int.random(in:1...45))
+func makeWinningNumbers() -> Set<Int>{
+    var lottoNumbersSet = Set<Int>()
+    while lottoNumbersSet.count < 6 {
+        lottoNumbersSet.insert(Int.random(in:1...45))
     }
+    return lottoNumbersSet
 }
 
-@discardableResult
-func checkSameLottoNumbers() -> Set<Int> {
+func compareLottoNumbers(winning: Set<Int>, mine: Set<Int> = [1, 2, 3, 4 ,5 ,6]) -> Set<Int> {
     var sameLottoNumbers = Set<Int>()
-    sameLottoNumbers = randomLottoNumber.intersection(myLottoNumbers)
+    sameLottoNumbers = winning.intersection(mine)
     return sameLottoNumbers
 }
 
-func resultLottoNumbers(sameLottoNumbers: Set<Int>) {
+func printResult(sameLottoNumbers: Set<Int>) {
     if sameLottoNumbers.count > 0 {
         print("축하합니다! 겹치는 번호는", terminator: " ")
         var sameLottoNumbersString = String()
@@ -33,7 +29,7 @@ func resultLottoNumbers(sameLottoNumbers: Set<Int>) {
             sameLottoNumbersString += String(stringArray) + ","
         }
         sameLottoNumbersString.removeLast()
-        
+
         print(sameLottoNumbersString, terminator: " ")
         print("입니다!")
     } else {
@@ -41,10 +37,10 @@ func resultLottoNumbers(sameLottoNumbers: Set<Int>) {
     }
 }
 
-func compareLottoNumbers() {
-    makeLottoNumbers()
-    checkSameLottoNumbers()
-    resultLottoNumbers(sameLottoNumbers: checkSameLottoNumbers())
+func findOverlapLottoNumbers() {
+    let winningNumbers = makeWinningNumbers()
+    let overlapNumbers = compareLottoNumbers(winning: winningNumbers)
+    printResult(sameLottoNumbers: overlapNumbers)
 
-    print(randomLottoNumber.sorted())
+    print(winningNumbers.sorted())
 }
