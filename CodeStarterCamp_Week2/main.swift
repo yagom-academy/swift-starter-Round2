@@ -19,11 +19,11 @@ func singleLotteryNumbers() -> Set<Int> {
 
 func lotteryNumberAllTimes(times: Int) -> [String : Set<Int>] {
     var count = 1
-    var lotteryNumberEachTime = ["\(count)회차": singleLotteryNumbers()]
+    var lotteryNumberEachTime = [String: Set<Int>]()
     
     while count != times + 1 {
         lotteryNumberEachTime.updateValue(singleLotteryNumbers(), forKey: "\(count)회차")
-        count+=1
+        count += 1
     }
     
     return lotteryNumberEachTime
