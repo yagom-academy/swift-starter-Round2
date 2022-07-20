@@ -28,3 +28,6 @@ func lotteryNumberAllTimes(times: Int) -> [String : Set<Int>] {
     
     return lotteryNumberEachTime
 }
+let actualLotteryNumbers: [String : Set<Int>]? = lotteryNumberAllTimes(times: 5)
+
+
