@@ -40,3 +40,4 @@ func checkingLotteryNumbers(round: Int) {
         print("\(round)회차의 로또 당첨 번호는 \(printedNumberInRow) 입니다.")
     }
 }
+checkingLotteryNumbers(round: 5)
