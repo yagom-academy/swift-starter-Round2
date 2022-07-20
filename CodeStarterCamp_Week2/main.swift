@@ -16,3 +16,15 @@ func singleLotteryNumbers() -> Set<Int> {
     }
     return lotteryNumbers
 }
+
+func lotteryNumberAllTimes(times: Int) -> [String : Set<Int>] {
+    var count = 1
+    var lotteryNumberEachTime = ["\(count)회차": singleLotteryNumbers()]
+    
+    while count != times + 1 {
+        lotteryNumberEachTime.updateValue(singleLotteryNumbers(), forKey: "\(count)회차")
+        count+=1
+    }
+    
+    return lotteryNumberEachTime
+}
