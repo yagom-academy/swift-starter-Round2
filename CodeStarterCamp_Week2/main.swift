@@ -34,7 +34,7 @@ func checkingLotteryNumbers(round: Int) {
     if let check = actualLotteryNumbers?["\(round)회차"] {
         var printedNumberInRow = ""
         for printing in check {
-            printedNumberInRow += String(printing) + ","
+            printedNumberInRow += String(printing) + ", "
         }
         printedNumberInRow.removeLast()
         print("\(round)회차의 로또 당첨 번호는 \(printedNumberInRow) 입니다.")
