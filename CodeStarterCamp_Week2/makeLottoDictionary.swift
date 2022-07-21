@@ -23,7 +23,7 @@ func makeLottoDictionary(round: Int) -> [String: Set<Int>] {
     return lottoDictionary
 }
 
-func printResult(roundLottoNumbers: [String: Set<Int>], roundNumber: Int) {
+func printRoundLottoNumbers(roundLottoNumbers: [String: Set<Int>], roundNumber: Int) {
     if let result = roundLottoNumbers["\(roundNumber)회차"] {
         print("\(roundNumber)회차의 로또 당첨 번호는", terminator: " ")
         var resultString = String()
@@ -39,7 +39,7 @@ func printResult(roundLottoNumbers: [String: Set<Int>], roundNumber: Int) {
     }
 }
 
-func roundLottoNumbers(round: Int) {
+func printResult(round: Int) {
     let roundLottoDictionary = makeLottoDictionary(round: 4)
-    printResult(roundLottoNumbers: roundLottoDictionary, roundNumber: round)
+    printRoundLottoNumbers(roundLottoNumbers: roundLottoDictionary, roundNumber: round)
 }
