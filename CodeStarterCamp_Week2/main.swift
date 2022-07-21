@@ -8,7 +8,4 @@
 
 //findOverlapLottoNumbers()
 
-
-var randomLotto = makeWinningNumbers()
-var result = lottoDictionary(lottoNumbers: randomLotto)
-print(result)
+roundLottoNumbers(roundNumber: 4)

@@ -15,25 +15,23 @@ func makeWinningNumbers() -> Set<Int>{
     return lottoNumbersSet
 }
 
-func lottoDictionary(lottoNumbers: Set<Int>) -> Dictionary<String, Set<Int>> {
+func repeatmakeLottoDictionary(repeatcount: Int) -> [String: Set<Int>] {
     var lottoDictionary = [String: Set<Int>]()
-    lottoDictionary["1회차"] = lottoNumbers
+    for i in 0...repeatcount{
+        lottoDictionary.updateValue(makeWinningNumbers(), forKey: "\(i + 1)회차")
+    }
     return lottoDictionary
 }
 
-//func 
-//func printResult(sameLottoNumbers: Set<Int>) {
-//    if sameLottoNumbers.count > 0 {
-//        print("축하합니다! 겹치는 번호는", terminator: " ")
-//        var sameLottoNumbersString = String()
-//        for stringArray in sameLottoNumbers {
-//            sameLottoNumbersString += String(stringArray) + ","
-//        }
-//        sameLottoNumbersString.removeLast()
-//
-//        print(sameLottoNumbersString, terminator: " ")
-//        print("입니다!")
-//    } else {
-//        print("아쉽지만 겹치는 번호가 없습니다.")
-//    }
-//}
+func printResult(winnerLottoNumbers: [String: Set<Int>], repeatNumber: Int) {
+    if let result = winnerLottoNumbers["\(repeatNumber)회차"] {
+        print("\(repeatNumber)회차의 로또 당첨 번호는 \(result)입니다.")
+    } else {
+        print("해당 차수에 로또번호는 생성되지 않았습니다.")
+    }
+}
+
+func roundLottoNumbers(roundNumber: Int) {
+    let roundLottoDictionary = repeatmakeLottoDictionary(repeatcount: 4)
+    printResult(winnerLottoNumbers: roundLottoDictionary, repeatNumber: roundNumber)
+}
