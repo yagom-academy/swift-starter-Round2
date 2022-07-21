@@ -6,6 +6,9 @@
 //  Copyright © yagom academy. All rights reserved.
 
 
-findOverlapLottoNumbers()
+//findOverlapLottoNumbers()
 
 
+var randomLotto = makeWinningNumbers()
+var result = lottoDictionary(lottoNumbers: randomLotto)
+print(result)
