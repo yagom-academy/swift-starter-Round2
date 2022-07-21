@@ -20,7 +20,6 @@ func lottoDictionary(lottoNumbers: Set<Int>) -> Dictionary<String, Set<Int>> {
     lottoDictionary["1회차"] = lottoNumbers
     return lottoDictionary
 }
-       
 
 //func 
 //func printResult(sameLottoNumbers: Set<Int>) {
