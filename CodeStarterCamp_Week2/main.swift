@@ -8,4 +8,4 @@
 
 //findOverlapLottoNumbers()
 
-roundLottoNumbers(roundNumber: 4)
+roundLottoNumbers(round: 2)
