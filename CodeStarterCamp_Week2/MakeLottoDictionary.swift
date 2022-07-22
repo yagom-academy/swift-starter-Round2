@@ -24,7 +24,7 @@ func printRoundLottoNumbers(roundLottoNumbers: [String: Set<Int>], roundNumber: 
         }
         resultString.removeLast()
         resultString.removeLast()
-        print("\(resultString) 입니다.", terminator: " ")
+        print("\(resultString) 입니다.")
     } else {
         print("해당 차수에 로또번호는 생성되지 않았습니다.")
     }
