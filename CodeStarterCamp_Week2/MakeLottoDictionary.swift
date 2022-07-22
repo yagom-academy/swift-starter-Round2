@@ -7,14 +7,6 @@
 
 import Foundation
 
-func makeWinningNumbers() -> Set<Int>{
-    var lottoNumbersSet = Set<Int>()
-    while lottoNumbersSet.count < 6 {
-        lottoNumbersSet.insert(Int.random(in:1...45))
-    }
-    return lottoNumbersSet
-}
-
 func makeLottoDictionary(round: Int) -> [String: Set<Int>] {
     var lottoDictionary = [String: Set<Int>]()
     for i in 0...round{
@@ -32,14 +24,13 @@ func printRoundLottoNumbers(roundLottoNumbers: [String: Set<Int>], roundNumber: 
         }
         resultString.removeLast()
         resultString.removeLast()
-        print(resultString, terminator: " ")
-        print("입니다.")
+        print("\(resultString) 입니다.", terminator: " ")
     } else {
         print("해당 차수에 로또번호는 생성되지 않았습니다.")
     }
 }
 
-func printResult(round: Int) {
+func findRoundLottoDictionary(round: Int) {
     let roundLottoDictionary = makeLottoDictionary(round: 4)
     printRoundLottoNumbers(roundLottoNumbers: roundLottoDictionary, roundNumber: round)
 }

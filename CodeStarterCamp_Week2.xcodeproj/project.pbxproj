@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
-		EB8418422889553000738757 /* makeLottoDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8418412889553000738757 /* makeLottoDictionary.swift */; };
-		EBEB7B99288573DF00AF59D2 /* compareLottoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB7B98288573DF00AF59D2 /* compareLottoNumbers.swift */; };
+		EB8418422889553000738757 /* MakeLottoDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8418412889553000738757 /* MakeLottoDictionary.swift */; };
+		EBEB7B99288573DF00AF59D2 /* CompareLottoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB7B98288573DF00AF59D2 /* CompareLottoNumbers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,8 +27,8 @@
 /* Begin PBXFileReference section */
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		EB8418412889553000738757 /* makeLottoDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeLottoDictionary.swift; sourceTree = "<group>"; };
-		EBEB7B98288573DF00AF59D2 /* compareLottoNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compareLottoNumbers.swift; sourceTree = "<group>"; };
+		EB8418412889553000738757 /* MakeLottoDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeLottoDictionary.swift; sourceTree = "<group>"; };
+		EBEB7B98288573DF00AF59D2 /* CompareLottoNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareLottoNumbers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				34811DC1274B93D800A1E994 /* main.swift */,
-				EBEB7B98288573DF00AF59D2 /* compareLottoNumbers.swift */,
-				EB8418412889553000738757 /* makeLottoDictionary.swift */,
+				EBEB7B98288573DF00AF59D2 /* CompareLottoNumbers.swift */,
+				EB8418412889553000738757 /* MakeLottoDictionary.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -126,8 +126,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
-				EB8418422889553000738757 /* makeLottoDictionary.swift in Sources */,
-				EBEB7B99288573DF00AF59D2 /* compareLottoNumbers.swift in Sources */,
+				EB8418422889553000738757 /* MakeLottoDictionary.swift in Sources */,
+				EBEB7B99288573DF00AF59D2 /* CompareLottoNumbers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
