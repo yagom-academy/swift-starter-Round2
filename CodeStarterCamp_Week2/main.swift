@@ -12,7 +12,7 @@ func generateLottoNumbers() -> Set<Int> {
     var lottoNumbersSet: Set<Int> = Set<Int>()
     
     while lottoNumbersSet.count < 6 {
-        var randomInt = Int.random(in: 1...45)
+        let randomInt = Int.random(in: 1...45)
         
         lottoNumbersSet.insert(randomInt)
     }
