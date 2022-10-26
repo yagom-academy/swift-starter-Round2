@@ -10,11 +10,10 @@ import Foundation
 
 // MARK: - 로또
 // MARK: 로또 추첨기
-var lotto: Set<Int> = []
 
+var lotto: Set<Int> = []
 while lotto.count < 6 {
     let lottoNumber = Int.random(in: 1...45)
-    //print(lottoNumber)
     lotto.insert(lottoNumber)
 }
 
@@ -23,13 +22,14 @@ print("이번 당첨 번호는 \(lotto)입니다.")
 
 // MARK: 내 번호와 맞추기
 
-//let myLottoNumbers: Set<Int> = [1, 4, 9, 17, 29, 33]
 let myLottoNumbers: [Int] = [1, 4, 9, 17, 29, 33]
 let intersection: Set<Int> = lotto.intersection(myLottoNumbers)
 let intersectionCount = intersection.count
 let intersectionSorted = intersection.sorted()
 
-let intToStr = intersectionSorted.map {(value : Int) -> String in return String(value)}
+let intToStr = intersectionSorted.map { (value : Int) -> String in
+    return String(value)
+}
 let setToStr = intToStr.joined(separator: ", ")
 
 
