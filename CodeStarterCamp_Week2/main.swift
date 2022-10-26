@@ -11,21 +11,30 @@ import Foundation
 let myLottoNumbers: [Int] = [3, 7, 15, 27, 37, 41]
 var winLottoNumbers: Set<Int> = []
 
-func callLottoNumbers() {
+func createLottoNumbers() {
     while winLottoNumbers.count < 6 {
         winLottoNumbers.insert(Int.random(in: 1...45))
     }
 }
 
 func checkOverlapNumbers() {
-    if winLottoNumbers.intersection(myLottoNumbers).count > 0 {
-        let overlapNumber: String = "축하합니다! 겹치는 번호는 \(winLottoNumbers.intersection(myLottoNumbers).sorted()) 입니다!"
-        print(overlapNumber.components(separatedBy: ["[","]"]).joined())
+    let overlapNumbers = Array(winLottoNumbers.intersection(myLottoNumbers).sorted())
+    
+    if overlapNumbers.count > 0 {
+        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        
+        for removeBracket in overlapNumbers {
+            if removeBracket != overlapNumbers[overlapNumbers.count - 1] {
+                print(removeBracket, terminator: ", ")
+            } else {
+                print(removeBracket, "입니다!")
+            }
+        }
+        
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
-callLottoNumbers()
+createLottoNumbers()
 checkOverlapNumbers()
-
