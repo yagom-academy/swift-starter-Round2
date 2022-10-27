@@ -8,19 +8,9 @@
 
 import Foundation
 
-// MARK: - STEP 2 사용 코드 주석 처리
-
-/*
-let lottoNumbers = createNewLottoNumbers() // 새로운 당첨 번호 생성
-let sameNumbers = checkSameLottoNumber(with: lottoNumbers) // 내 번호와 당첨번호 비교
-printLottoResult(with: sameNumbers)
-*/
-
-
-
 // MARK: - STEP 3
 
-var lottoNumberRecode = Dictionary<String, [Int]>() // 회차 별 로또 번호를 넣을 딕셔너리
+var lottoNumberRecode = [String: [Int]]() // 회차 별 로또 번호를 넣을 딕셔너리
 
 /// 회차별 로또 번호 생성 후 딕셔너리에 저장하는 함수
 /// - Parameter maxRound: 최대 회차 매개변수, 입력이 없으면 예시에 있던 5회차 만큼 저장
