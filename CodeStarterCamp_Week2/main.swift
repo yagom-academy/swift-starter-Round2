@@ -8,6 +8,8 @@
 
 import Foundation
 
+// STEP 2. 로또 번호 생성하여 내 번호와 맞춰보기
+
 func generateLottoNumbers() -> Set<Int> {
     var lottoNumbersSet = Set<Int>() // type inference 적용
     
@@ -59,3 +61,74 @@ checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
 
 // 로또 번호가 제대로 생성 됐는지 확인용!!
 print(lottoNumbers)
+
+
+// STEP 3. 로또 번호를 회차별로 저장하고 확인하기
+
+var lottoDictionary = [String : Set<Int>]()
+var lottoRound = 0
+
+func saveLottoDataToDict() {
+    var lottoNumbers = generateLottoNumbers()
+    lottoRound = lottoRound + 1
+    
+    lottoDictionary["\(lottoRound)회차"] = lottoNumbers
+}
+
+for _ in 1...5 {
+    saveLottoDataToDict()
+}
+
+var wantedLottoRound = "2회차"
+
+if let numbersOfRound = lottoDictionary[wantedLottoRound] {
+    print("\(wantedLottoRound)의 로또 당첨 번호는 ", terminator: "")
+    
+    var printedMember = 0
+    
+    for member in numbersOfRound {
+        if printedMember < numbersOfRound.count - 1 {
+            print(member, terminator: ", ")
+            
+            printedMember = printedMember + 1
+        } else {
+            print(member, terminator: " 입니다.\n")
+        }
+    }
+}
+
+wantedLottoRound = "5회차"
+
+if let numbersOfRound = lottoDictionary[wantedLottoRound] {
+    print("\(wantedLottoRound)의 로또 당첨 번호는 ", terminator: "")
+    
+    var printedMember = 0
+    
+    for member in numbersOfRound {
+        if printedMember < numbersOfRound.count - 1 {
+            print(member, terminator: ", ")
+            
+            printedMember = printedMember + 1
+        } else {
+            print(member, terminator: " 입니다.\n")
+        }
+    }
+}
+
+wantedLottoRound = "1회차"
+
+if let numbersOfRound = lottoDictionary[wantedLottoRound] {
+    print("\(wantedLottoRound)의 로또 당첨 번호는 ", terminator: "")
+    
+    var printedMember = 0
+    
+    for member in numbersOfRound {
+        if printedMember < numbersOfRound.count - 1 {
+            print(member, terminator: ", ")
+            
+            printedMember = printedMember + 1
+        } else {
+            print(member, terminator: " 입니다.\n")
+        }
+    }
+}
