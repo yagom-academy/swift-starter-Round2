@@ -95,6 +95,9 @@ if let numbersOfRound = lottoDictionary[wantedLottoRound] {
             print(member, terminator: " 입니다.\n")
         }
     }
+    
+    } else {
+        print("\(wantedLottoRound)는 아직 진행되지 않았습니다.")
 }
 
 wantedLottoRound = "5회차"
@@ -113,6 +116,9 @@ if let numbersOfRound = lottoDictionary[wantedLottoRound] {
             print(member, terminator: " 입니다.\n")
         }
     }
+    
+    } else {
+    print("\(wantedLottoRound)는 아직 진행되지 않았습니다.")
 }
 
 wantedLottoRound = "1회차"
@@ -131,4 +137,7 @@ if let numbersOfRound = lottoDictionary[wantedLottoRound] {
             print(member, terminator: " 입니다.\n")
         }
     }
+    
+    } else {
+print("\(wantedLottoRound)는 아직 진행되지 않았습니다.")
 }
