@@ -8,7 +8,7 @@
 
 import Foundation
 
-// STEP 2. 로또 번호 생성하여 내 번호와 맞춰보기
+//MARK: STEP 2. 로또 번호 생성하여 내 번호와 맞춰보기
 
 func generateLottoNumbers() -> Set<Int> {
     var lottoNumbersSet = Set<Int>() // type inference 적용
@@ -64,7 +64,7 @@ var lottoNumbers = Set<Int>() // type inference 적용
  print(lottoNumbers)
  */
 
-// STEP 3. 로또 번호를 회차별로 저장하고 확인하기
+//MARK: STEP 3. 로또 번호를 회차별로 저장하고 확인하기
 
 var lottoDictionary = [String : Set<Int>]()
 
