@@ -48,96 +48,60 @@ var myLottoNumbers: [Int] = [3, 9, 12, 43, 29, 24]
 
 var lottoNumbers = Set<Int>() // type inference 적용
 
-lottoNumbers = generateLottoNumbers()
-
-checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
-
-// 로또 번호가 제대로 생성 됐는지 확인!
-print(lottoNumbers)
-
-lottoNumbers = generateLottoNumbers()
-
-checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
-
-// 로또 번호가 제대로 생성 됐는지 확인용!!
-print(lottoNumbers)
-
+/*
+ lottoNumbers = generateLottoNumbers()
+ 
+ checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
+ 
+ 로또 번호가 제대로 생성 됐는지 확인!
+ print(lottoNumbers)
+ 
+ lottoNumbers = generateLottoNumbers()
+ 
+ checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
+ 
+ // 로또 번호가 제대로 생성 됐는지 확인용!!
+ print(lottoNumbers)
+ */
 
 // STEP 3. 로또 번호를 회차별로 저장하고 확인하기
 
 var lottoDictionary = [String : Set<Int>]()
-var lottoRound = 0
 
-func saveLottoDataToDict() {
-    var lottoNumbers = generateLottoNumbers()
-    lottoRound = lottoRound + 1
-    
-    lottoDictionary["\(lottoRound)회차"] = lottoNumbers
-}
-
-for _ in 1...5 {
-    saveLottoDataToDict()
-}
-
-var wantedLottoRound = "2회차"
-
-if let numbersOfRound = lottoDictionary[wantedLottoRound] {
-    print("\(wantedLottoRound)의 로또 당첨 번호는 ", terminator: "")
-    
-    var printedMember = 0
-    
-    for member in numbersOfRound {
-        if printedMember < numbersOfRound.count - 1 {
-            print(member, terminator: ", ")
-            
-            printedMember = printedMember + 1
-        } else {
-            print(member, terminator: " 입니다.\n")
-        }
+func saveLottoDataToDict(runTime: Int) {
+    for round in 1...runTime {
+        var savingRound = round
+        var lottoNumbers = generateLottoNumbers()
+        
+        lottoDictionary["\(savingRound)회차"] = lottoNumbers
     }
     
-    } else {
-        print("\(wantedLottoRound)는 아직 진행되지 않았습니다.")
 }
 
-wantedLottoRound = "5회차"
-
-if let numbersOfRound = lottoDictionary[wantedLottoRound] {
-    print("\(wantedLottoRound)의 로또 당첨 번호는 ", terminator: "")
-    
-    var printedMember = 0
-    
-    for member in numbersOfRound {
-        if printedMember < numbersOfRound.count - 1 {
-            print(member, terminator: ", ")
-            
-            printedMember = printedMember + 1
-        } else {
-            print(member, terminator: " 입니다.\n")
+func findLottoData(_ wantedLottoRound: String) {
+    if let numbersOfRound = lottoDictionary[wantedLottoRound] {
+        print("\(wantedLottoRound)의 로또 당첨 번호는 ", terminator: "")
+        
+        var printedMember = 0
+        
+        for member in numbersOfRound {
+            if printedMember < numbersOfRound.count - 1 {
+                print(member, terminator: ", ")
+                
+                printedMember = printedMember + 1
+            } else {
+                print(member, terminator: " 입니다.\n")
+            }
         }
-    }
-    
+        
     } else {
-        print("\(wantedLottoRound)는 아직 진행되지 않았습니다.")
+        print("\(wantedLottoRound)는 실행되지 않았습니다.")
+    }
 }
 
-wantedLottoRound = "1회차"
+saveLottoDataToDict(runTime: 5)
+findLottoData("2회차")
+findLottoData("5회차")
+findLottoData("3회차")
+findLottoData("7회차")
 
-if let numbersOfRound = lottoDictionary[wantedLottoRound] {
-    print("\(wantedLottoRound)의 로또 당첨 번호는 ", terminator: "")
-    
-    var printedMember = 0
-    
-    for member in numbersOfRound {
-        if printedMember < numbersOfRound.count - 1 {
-            print(member, terminator: ", ")
-            
-            printedMember = printedMember + 1
-        } else {
-            print(member, terminator: " 입니다.\n")
-        }
-    }
-    
-    } else {
-        print("\(wantedLottoRound)는 아직 진행되지 않았습니다.")
-}
