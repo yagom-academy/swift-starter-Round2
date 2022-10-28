@@ -34,3 +34,29 @@ func checkLottoNumbers() {
     }
 
 checkLottoNumbers()
+
+//optional ()! 사용
+let lottoNumberArray: Array<Int> = Array<Int>(1...45)
+var luckyNumber: Set<Int> = Set<Int>()
+
+func makeLottoNumber() -> Set<Int> {
+    while luckyNumber.count < 7 {
+        let randomNumber = lottoNumberArray.randomElement()!
+        luckyNumber.insert(randomNumber)
+    }
+    return luckyNumber
+}
+
+let winningNumbers2: Set<Int> = makeLottoNumber()
+var yourLottoNumbers: Set<Int> = [2, 18, 5, 28, 12, 8]
+
+func confirmLottoNumbers() {
+        let intersection: Set<Int> = winningNumbers2.intersection(yourLottoNumbers)
+    if intersection.count > 0 {
+        print("축하합니다! 겹치는 번호는 \(intersection) 입니다!")
+    }
+    else if intersection.count == 0 {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+        }
+    }
+confirmLottoNumbers()
