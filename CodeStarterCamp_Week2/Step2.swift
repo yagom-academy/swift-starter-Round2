@@ -1,10 +1,10 @@
 import Foundation
 
 var lottoSet = Set<Int>()
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
 // 로또번호를 만들어주는 함수
-func makeLottoSet()  {
+func makeLottoSet() {
     while lottoSet.count != 6 {
         let randomNumber = Int.random(in: 1...45)
         lottoSet.insert(randomNumber)
@@ -13,31 +13,26 @@ func makeLottoSet()  {
 }
 
 //로또번호 일치하는지 확인시켜주는 함수
-func checkLottoNumbers () {
-    var correctNumber = [Int]() // 일치하는 번호들을 넣기 위한 빈 배열
+func checkLottoNumbers() {
+    var correctNumber = [String]() // 일치하는 번호들을 넣기 위한 빈 배열
     
     for number in myLottoNumbers {
         if lottoSet.contains(number) {
-            correctNumber.append(number)
+            correctNumber.append(String(number))
         }
     }
-    
-    var printedNumberCount = 1
-    
+        
     if correctNumber.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는", terminator: " ")
         
-        for number in correctNumber {
-            
-            if printedNumberCount != correctNumber.count {
-                print("\(number)", terminator: ", ")
-                printedNumberCount += 1
-            } else {
-                print("\(number) 입니다!")
-            }
+        let joinedCorrectNumber = correctNumber.joined(separator: ", ")
+        
+        for i in joinedCorrectNumber {
+            print(i, terminator: "")
         }
+        print(" 입니다")
     }
 }
 
