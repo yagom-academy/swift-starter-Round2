@@ -8,6 +8,8 @@
 
 import Foundation
 
+//MARK: STEP 2. 로또 번호 생성하여 내 번호와 맞춰보기
+
 func generateLottoNumbers() -> Set<Int> {
     var lottoNumbersSet = Set<Int>() // type inference 적용
     
@@ -46,16 +48,59 @@ var myLottoNumbers: [Int] = [3, 9, 12, 43, 29, 24]
 
 var lottoNumbers = Set<Int>() // type inference 적용
 
-lottoNumbers = generateLottoNumbers()
+/*
+ lottoNumbers = generateLottoNumbers()
+ 
+ checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
+ 
+ 로또 번호가 제대로 생성 됐는지 확인!
+ print(lottoNumbers)
+ 
+ lottoNumbers = generateLottoNumbers()
+ 
+ checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
+ 
+ // 로또 번호가 제대로 생성 됐는지 확인용!!
+ print(lottoNumbers)
+ */
 
-checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
+//MARK: STEP 3. 로또 번호를 회차별로 저장하고 확인하기
 
-// 로또 번호가 제대로 생성 됐는지 확인!
-print(lottoNumbers)
+var lottoDictionary = [String : Set<Int>]()
 
-lottoNumbers = generateLottoNumbers()
+func saveLottoDataToDict(runTime: Int) {
+    for round in 1...runTime {
+        var lottoNumbers = generateLottoNumbers()
+        
+        lottoDictionary["\(round)회차"] = lottoNumbers
+    }
+    
+}
 
-checkLottoNumbers(lottoNumbers: lottoNumbers, myNumbers: myLottoNumbers)
+func findLottoData(_ wantedLottoRound: String) {
+    if let numbersOfRound = lottoDictionary[wantedLottoRound] {
+        print("\(wantedLottoRound)의 로또 당첨 번호는 ", terminator: "")
+        
+        var printedMember = 0
+        
+        for member in numbersOfRound {
+            if printedMember < numbersOfRound.count - 1 {
+                print(member, terminator: ", ")
+                
+                printedMember = printedMember + 1
+            } else {
+                print(member, terminator: " 입니다.\n")
+            }
+        }
+        
+    } else {
+        print("\(wantedLottoRound)는 실행되지 않았습니다.")
+    }
+}
 
-// 로또 번호가 제대로 생성 됐는지 확인용!!
-print(lottoNumbers)
+saveLottoDataToDict(runTime: 5)
+findLottoData("2회차")
+findLottoData("5회차")
+findLottoData("3회차")
+findLottoData("7회차")
+
