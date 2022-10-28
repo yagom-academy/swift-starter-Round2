@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - STEP2 함수 실행
-checkOverlapNumbers()
+// checkOverlapNumbers()
 
 
 // MARK: - STEP3 함수 실행
