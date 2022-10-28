@@ -70,10 +70,9 @@ var lottoDictionary = [String : Set<Int>]()
 
 func saveLottoDataToDict(runTime: Int) {
     for round in 1...runTime {
-        var savingRound = round
         var lottoNumbers = generateLottoNumbers()
         
-        lottoDictionary["\(savingRound)회차"] = lottoNumbers
+        lottoDictionary["\(round)회차"] = lottoNumbers
     }
     
 }
