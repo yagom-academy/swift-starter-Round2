@@ -6,6 +6,32 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
+
+func saveLotteryNumber(roundNumber: Int, pickedNumber: Int){
+    if pickedNumber < roundNumber {
+        print("로또를 추첨한 횟수가 원하는 로또 회차의 횟수보다 적습니다")
+    }
+    else{
+        let lotteryAllDictionary: Dictionary<Int, Set<Int>> = picktimes(times: pickedNumber)
+        if let unwrappedLotteryNumber = lotteryAllDictionary[roundNumber] {
+            let joinedUnwrapedLotteryNumber: String = returnJoinedLotteryResult(lotteryResult: unwrappedLotteryNumber)
+            print("\(roundNumber)회차의 로또 당첨 번호는 \(joinedUnwrapedLotteryNumber)입니다.")
+        }
+    }
+}
+
+func picktimes(times: Int) -> Dictionary<Int, Set<Int>> {
+    var lotteryNumberDictionary: Dictionary<Int, Set<Int>> = [Int: Set<Int>]()
+    for pickCounter in 1...times {
+        let lotteryNumberSet: Set<Int> = pickLotteryNumber()
+        lotteryNumberDictionary[pickCounter] = lotteryNumberSet
+    }
+    return lotteryNumberDictionary
+}
+
+saveLotteryNumber(roundNumber: 2, pickedNumber: 5)
+
+
 func pickLotteryNumber() -> Set<Int> {
     var lotteryNumberSet: Set<Int> = Set<Int>()
     while lotteryNumberSet.count < 6 {
@@ -30,13 +56,12 @@ func returnJoinedLotteryResult(lotteryResult: Set<Int>) -> String {
 func compareLotteryNumber(_ winningLottoNumbers: Set<Int>, with myLottoNumbers: Set<Int>) {
     let lotteryResult: Set<Int> = winningLottoNumbers.intersection(myLottoNumbers)
     if lotteryResult.count != 0 {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        print(returnJoinedLotteryResult(lotteryResult: lotteryResult), terminator: " ")
-        print("입니다!")
+        let sameLotteryNumber = returnJoinedLotteryResult(lotteryResult: lotteryResult)
+        print("축하합니다! 겹치는 번호는 \(sameLotteryNumber) 입니다!")
     }
     else{
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
-compareLotteryNumber(winningLottoNumbers, with: myLottoNumbers)
+
