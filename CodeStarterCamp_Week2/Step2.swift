@@ -9,7 +9,6 @@ func makeLottoSet() {
         let randomNumber = Int.random(in: 1...45)
         lottoSet.insert(randomNumber)
     }
-    print("당첨번호는 \(lottoSet)입니다.")
 }
 
 //로또번호 일치하는지 확인시켜주는 함수
