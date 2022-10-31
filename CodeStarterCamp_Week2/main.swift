@@ -9,32 +9,37 @@
 import Foundation
 
 /// 프로퍼티 선언부
-var randomNumber1to45: Set<Int> = Set<Int>()
-var selectedSixNumbers: Array<Int> = Array<Int>()
-var overlapedNumbers: Array<Int> = Array<Int>()
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var selectedSixNumbers = [Int]()
+let myLottoNumbers = [1, 2, 3, 4, 5, 6]
 
 /// 랜덤 로또 번호 6개를 추출하는 함수
 /// 집합 컬렉션에 랜덤한 순서의 번호 1~45 형성
 /// 랜덤한 6개의 숫자를 추출
 func choiceLottoNumbers() {
+    /// ⭐️ 해당 프로퍼티는 함수 내부에서만 사용되어 재선언
+    var randomNumber1to45 = Set<Int>()
     
-    for i in 1...45 {
-        randomNumber1to45.insert(i)
+    /// ⭐️ i 를 number로 이름을 바꾸어서 이름을 보다 명확하게 고쳐줌
+    for number in 1...45 {
+        randomNumber1to45.insert(number)
     }
     
-    for i in 0..<6 {
-        selectedSixNumbers.append(randomNumber1to45.popFirst()!)
-        randomNumber1to45.remove(selectedSixNumbers[i])
+    /// ⭐️ popFirst() 메서드 자체에 remove 기능이 포함되어 있어서 .remove() 삭제함
+    /// ⭐️ Nil이 들어올 경우는 없지만 보다 안전하게 Nil값이 들어올 경우 0을 넣어준다. 0은 번호에 포함되지 않아서 늘 당첨되지 않는 수로 생각할 수 있다.
+    for _ in 0..<6 {
+        selectedSixNumbers.append(randomNumber1to45.popFirst() ?? 0)
     }
 }
 
 /// 겹치는 번호를 확인하고 결과를 출력하는 함수
 func checkOverlapedNumbers() {
-
-    for i in 0..<6 {
-        if selectedSixNumbers.contains(myLottoNumbers[i]) {
-            overlapedNumbers.append(myLottoNumbers[i])
+    /// ⭐️ 해당 프로퍼티는 함수 내부에서만 사용되어 재선언
+    var overlapedNumbers = Array<Int>()
+    
+    /// ⭐️ for문 i를 index로 수정
+    for index in 0..<6 {
+        if selectedSixNumbers.contains(myLottoNumbers[index]) {
+            overlapedNumbers.append(myLottoNumbers[index])
         }
     }
     
@@ -42,11 +47,11 @@ func checkOverlapedNumbers() {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는", terminator: " ")
-        for i in 0..<overlapedNumbers.count {
-            if i == overlapedNumbers.count - 1 {
-                print("\(overlapedNumbers[i])", terminator: " ")
+        for index in 0..<overlapedNumbers.count {
+            if index == overlapedNumbers.count - 1 {
+                print("\(overlapedNumbers[index])", terminator: " ")
             } else {
-                print("\(overlapedNumbers[i])", terminator: ", ")
+                print("\(overlapedNumbers[index])", terminator: ", ")
             }
         }
         print("입니다.")
