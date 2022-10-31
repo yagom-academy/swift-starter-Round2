@@ -1,6 +1,6 @@
 import Foundation
 
-var lottoSeries = [Int : [String]]()
+var lottoSeries = [Int: [String]]()
 
 func makeLottoSeries() {
     for seriesNumber in 1...5 { // 5회차까지 생성
