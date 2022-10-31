@@ -58,5 +58,5 @@ choiceLottoNumbers()
 
 /// 생성값 확인 파트
 print("로또 번호는 \(selectedSixNumbers)입니다.")
-print("선택한 번호 \(myLottoNumbers)입니다.")
+print("선택한 번호는 \(myLottoNumbers)입니다.")
 checkOverlapedNumbers()
