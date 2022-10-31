@@ -25,18 +25,19 @@ func checkLottoNumbers() {
     if correctNumber.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는", terminator: " ")
-        
+//        print("축하합니다! 겹치는 번호는", terminator: " ")
+//
         let joinedCorrectNumber = correctNumber.joined(separator: ", ")
-        
-        for i in joinedCorrectNumber {
-            print(i, terminator: "")
-        }
-        print(" 입니다")
+//
+//        for i in joinedCorrectNumber {
+//            print(i, terminator: "")
+//        }
+//        print(" 입니다")
+        print("축하합니다! 겹치는 번호는 \(joinedCorrectNumber) 입니다")
     }
 }
 
-func result() {
+func resultStep2() {
     makeLottoSet()
     checkLottoNumbers()
 }

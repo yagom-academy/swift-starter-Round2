@@ -1,4 +1,4 @@
 
 import Foundation
 
-result()
+resultStep3()
