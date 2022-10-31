@@ -1,38 +1,30 @@
 import Foundation
 
-var lottoSeries = [Int : Set<Int>]()
+var lottoSeries = [Int : [String]]()
 
 func makeLottoSeries() {
     for seriesNumber in 1...5 { // 5회차까지 생성
-        var lottoSet = Set<Int>()
-        while lottoSet.count != 6 {
+        var lottoArr = [String]()
+        while lottoArr.count != 6 {
             let randomNumber = Int.random(in: 1...45)
-            lottoSet.insert(randomNumber)
+            lottoArr.append(String(randomNumber))
         }
-      lottoSeries[seriesNumber] = lottoSet
+      lottoSeries[seriesNumber] = lottoArr
     }
 }
 
 
 func selectLottoSeries() {
-    var printedNumberCount = 0
     
     print("몇 회차를 찾으십니까? :", terminator: " ") // 회차 입력값을 받음
     let number = Int(readLine()!)!
     
     if let safeLottoSeries = lottoSeries[number] {
-        print("\(number)회차의 로또 당첨 번호는 ", terminator: "")
+        let lottoSeriesNumber = safeLottoSeries.joined(separator: ", ")
+        print("\(number)회차의 로또 당첨 번호는 \(lottoSeriesNumber) 입니다", terminator: " ")
         
-        for lottoNumber in safeLottoSeries {
-            if printedNumberCount != lottoSeries.count {
-                print("\(lottoNumber),", terminator: " ")
-                printedNumberCount += 1
-            } else {
-                print("\(lottoNumber) 입니다.")
-            }
-        }
     } else {
-        print("nil")
+        print("찾으시는 회차는 없습니다.")
     }
 }
 
