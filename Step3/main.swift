@@ -24,7 +24,7 @@ let makeNewLottoNumbers = makeLottoNumbers().map{ String($0) }.joined(separator:
 
 var lottoDictionary: Dictionary<String, Any> = [String: Any]()
 
-func makeLottotByRounds() {
+func makeLottoByRounds() {
     for round in 1...5 {
         lottoDictionary["\(round)회차"] = makeNewLottoNumbers
     }
@@ -36,5 +36,5 @@ func findLottoRound(roundYouWant: String) {
         print ("원하는 회차가 없습니다.")
     }
 }
-makeLottotByRounds()
+makeLottoByRounds()
 findLottoRound(roundYouWant: "2회차")
