@@ -13,7 +13,8 @@ var myLottoNumbers: [Int] = [8, 10, 19, 21, 29, 37]
 var lottoNumbes: Set<Int> = []
 
 
-repeat { let randomInt = Int.random(in: 1...45)
+repeat {
+    let randomInt = Int.random(in: 1...45)
     lottoNumbes.insert(randomInt)
 } while lottoNumbes.count < 6
 
@@ -29,3 +30,5 @@ func checkOverlapNumbers() {
 }
 
 checkOverlapNumbers()
+
+
