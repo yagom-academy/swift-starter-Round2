@@ -20,40 +20,39 @@ func makeLotto() -> Set<Int> {
 }
 
 // MARK: 로또번호 저장
-func saveLottoNums() -> Dictionary<String, [Int]>{
-    var winNumsHistory: [String : [Int]] = [:]
-    for n in 1...5{
+func saveLottoNumbers() -> Dictionary<String, [Int]> {
+    var winNumbersHistory: [String : [Int]] = [:]
+    for n in 1...5 {
         let round = "\(n)회차"
         let lotto = makeLotto()
-        winNumsHistory[round] = lotto.sorted()
+        winNumbersHistory[round] = lotto.sorted()
     }
-
-    return winNumsHistory
+    return winNumbersHistory
 }
 
 // MARK: 로또번호 출력함수
-func printWinNums(array: [Int]) {
-    for i in array {
-        if i != array[array.count - 1] {
-            print(i, terminator: ", ")
+func printWinNumbers(array: [Int]) {
+    for number in array {
+        if number != array[array.count - 1] {
+            print(number, terminator: ", ")
         }else {
-            print(i, terminator: " ")
+            print(number, terminator: " ")
         }
     }
 }
 
 // MARK: 회차로 로또 당첨번호 찾기
-func searchWinNum(round: Int) {
-    let winNumsHistory: Dictionary<String, [Int]> = saveLottoNums()
+func searchWinNumber(round: Int) {
+    let winNumbersHistory: Dictionary<String, [Int]> = saveLottoNumbers()
     let round = "\(round)회차"
     
-    for item in winNumsHistory {
+    for item in winNumbersHistory {
         print(item)
     }
     
-    if let search = winNumsHistory[round] {
+    if let search = winNumbersHistory[round] {
         print("\(round)회차의 로또 당첨 번호는", terminator: " ")
-        printWinNums(array: search)
+        printWinNumbers(array: search)
         print("입니다")
     } else {
         print("\(round)회차가 진행되지 않았거나 저장된 당첨 번호가 없습니다")
@@ -62,5 +61,5 @@ func searchWinNum(round: Int) {
 
 
 // MARK: 출력
-saveLottoNums()
-searchWinNum(round: 3)
+saveLottoNumbers()
+searchWinNumber(round: 3)
