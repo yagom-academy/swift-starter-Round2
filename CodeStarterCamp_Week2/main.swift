@@ -17,10 +17,10 @@ func setLottoDictionary(prevLottoDictionary: Dictionary<String, [Int]>) -> Dicti
 }
 
 func printLottoDictionary(lottoDictionary: Dictionary<String, [Int]>, ordinalCount: Int) {
-    if let index = lottoDictionary.index(forKey: "\(ordinalCount)회차") {
-        print("\(lottoDictionary[index].key)의 로또 당첨 번호는 ", terminator: "")
-        for num in lottoDictionary[index].value {
-            if num == lottoDictionary[index].value[0] {
+    if let nums = lottoDictionary["\(ordinalCount)회차"] {
+        print("\(ordinalCount)회차의 로또 당첨 번호는 ", terminator: "")
+        for num in nums {
+            if num == nums[0] {
                 print("\(num)", terminator: "")
             } else {
                 print(", \(num)", terminator: "")
@@ -33,7 +33,7 @@ func printLottoDictionary(lottoDictionary: Dictionary<String, [Int]>, ordinalCou
 }
 
 func createLottoNumbers() -> Set<Int> {
-    var lottoNumbers: Set<Int> = Set<Int>()
+    var lottoNumbers: Set<Int> = []
     
     while(lottoNumbers.count < 6) {
         lottoNumbers.insert(Int.random(in: 1..<46))
@@ -43,12 +43,10 @@ func createLottoNumbers() -> Set<Int> {
 }
 
 var lottoDictionary: Dictionary<String, [Int]> = [String: [Int]]()
-lottoDictionary = setLottoDictionary(prevLottoDictionary: lottoDictionary)
-lottoDictionary = setLottoDictionary(prevLottoDictionary: lottoDictionary)
-lottoDictionary = setLottoDictionary(prevLottoDictionary: lottoDictionary)
-lottoDictionary = setLottoDictionary(prevLottoDictionary: lottoDictionary)
-lottoDictionary = setLottoDictionary(prevLottoDictionary: lottoDictionary)
 
+for _ in 1...5 {
+    lottoDictionary = setLottoDictionary(prevLottoDictionary: lottoDictionary)
+}
 for ordinalCount in 0...6 {
     printLottoDictionary(lottoDictionary: lottoDictionary, ordinalCount: ordinalCount)
 }
