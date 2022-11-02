@@ -32,22 +32,26 @@ func createSameNumbersArray(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) -> Ar
     return sameNumbers
 }
 
-// 변수 생성
+// 추첨 결과를 출력하는 함수
+func printLottoResult(sameNumbers: [Int]) {
+    if sameNumbers.isEmpty {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        for num in sameNumbers {
+            if num == sameNumbers[0] {
+                print("\(num)", terminator: "")
+            } else {
+                print(", \(num)", terminator: "")
+            }
+        }
+        print(" 입니다!")
+    }
+}
+
 let lottoNumbers: Set<Int> = createLottoNumbers()
 let myLottoNumbers: [Int] = [1,11,19,21,27,39]
 var sameNumbers: [Int] = createSameNumbersArray(lottoNumbers: lottoNumbers, myLottoNumbers: myLottoNumbers)
-            
-// 추첨 결과 출력
-if sameNumbers.isEmpty {
-    print("아쉽지만 겹치는 번호가 없습니다.")
-} else {
-    print("축하합니다! 겹치는 번호는 ", terminator: "")
-    for num in sameNumbers {
-        if num == sameNumbers[0] {
-            print("\(num)", terminator: "")
-        } else {
-            print(", \(num)", terminator: "")
-        }
-    }
-    print(" 입니다!")
-}
+sameNumbers = sameNumbers.sorted()
+
+printLottoResult(sameNumbers: sameNumbers)
