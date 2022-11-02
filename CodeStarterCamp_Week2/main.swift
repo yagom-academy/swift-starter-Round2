@@ -9,48 +9,62 @@
 import Foundation
 
 /// 프로퍼티 선언부
-var selectedSixNumbers = [Int]()
 let myLottoNumbers = [1, 2, 3, 4, 5, 6]
 var lottoHistory = [String: [Int]]()
 var countHistory = 0
 
-/// 랜덤 로또 번호 6개를 추출하는 함수
-/// 집합 컬렉션에 랜덤한 순서의 번호 1~45 형성
-/// 랜덤한 6개의 숫자를 추출
-func choiceLottoNumbers() {
+///로또 회차 생성 입력부
+print("로또를 몇 회차까지 생성하시겠습니까? (입력 예시: 5)", terminator: " -> ")
+let countRound = Int(readLine() ?? "0") ?? 0
+generateLottoRound(count: countRound)
+print(lottoHistory)
 
+///로또 확인 회차 입력부
+print("몇 회차의 로또 번호를 확인하시겠습니까? (입력 예시: 2)", terminator: " -> ")
+let selectedRound = Int(readLine() ?? "0") ?? 0
+printLottoHistory(round: selectedRound)
+
+/// 랜덤한 6개의 로또 번호를 생성하여 반환하는 함수
+func generateSixRandomNumber() -> [Int] {
+    
+    var selectedSixNumbers = [Int]()
     var randomNumber1to45 = [Int]()
     
     for number in 1...45 {
         randomNumber1to45.append(number)
     }
-
+    
     randomNumber1to45.shuffle()
     
     for index in 0..<6 {
         selectedSixNumbers.append(randomNumber1to45[index])
     }
     
-    countHistory += 1
-    lottoHistory["\(countHistory)회차"] = selectedSixNumbers
-    selectedSixNumbers.removeAll()
+    return selectedSixNumbers
+}
+
+/// 로또 번호를 딕셔너리 형태로 회차별로 저장하는 함수
+func saveLottoHistory(sixNumbers: [Int]) {
     
-    if let unwrappedSixNumbers = lottoHistory["\(countHistory)회차"] {
-        print("\(countHistory)회차의 로또 당첨번호는", terminator: " ")
-        for index in 0..<unwrappedSixNumbers.count {
-            if index == unwrappedSixNumbers.count - 1 {
-                print("\(unwrappedSixNumbers[index])", terminator: " ")
-            } else {
-                print("\(unwrappedSixNumbers[index])", terminator: ", ")
-            }
-        }
-        print("입니다.")
+    countHistory += 1
+    lottoHistory["\(countHistory)회차"] = sixNumbers
+    
+}
+
+/// 원하는 회차의 로또 번호를 출력하는 함수
+func printLottoHistory(round: Int) {
+    
+    if let unwrappedSixNumbers = lottoHistory["\(round)회차"] {
+        let stringArray = unwrappedSixNumbers.map { String($0) }
+        let unwrappedSixNumbersString = stringArray.joined(separator: ", ")
+        print("\(round)회차의 로또 당첨번호는 \(unwrappedSixNumbersString) 입니다.")
     }
+    
 }
 
 /// 겹치는 번호를 확인하고 결과를 출력하는 함수
 func checkOverlapedNumbers(round: Int) {
-
+    
     var overlapedNumbers = Array<Int>()
     
     if let unwrappedSixNumbers = lottoHistory["\(round)회차"] {
@@ -64,28 +78,24 @@ func checkOverlapedNumbers(round: Int) {
     if overlapedNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는", terminator: " ")
-        for index in 0..<overlapedNumbers.count {
-            if index == overlapedNumbers.count - 1 {
-                print("\(overlapedNumbers[index])", terminator: " ")
-            } else {
-                print("\(overlapedNumbers[index])", terminator: ", ")
-            }
-        }
-        print("입니다.")
+        let stringArray = overlapedNumbers.map { String($0) }
+        let overlapedNumbersString = stringArray.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(overlapedNumbersString) 입니다.")
     }
+    
 }
 
-/// 로또 당첨 번호를 5번 생성하고 해당 회차의 찍은 값을 당첨 번호와 확인한다.
-choiceLottoNumbers()
-checkOverlapedNumbers(round: 1)
-choiceLottoNumbers()
-checkOverlapedNumbers(round: 2)
-choiceLottoNumbers()
-checkOverlapedNumbers(round: 3)
-choiceLottoNumbers()
-checkOverlapedNumbers(round: 4)
-choiceLottoNumbers()
-checkOverlapedNumbers(round: 5)
+/// 입력 받은 회차 횟수에 따라서 로또 회차별 번호를 생성하는 함수
+func generateLottoRound(count: Int) {
+    
+    for _ in 1...count {
+        saveLottoHistory(sixNumbers: generateSixRandomNumber())
+    }
+    
+}
+
+
+
+
 
 
