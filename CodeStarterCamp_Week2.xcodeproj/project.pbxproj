@@ -7,11 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
+		FB782A21290F8B9E00C0FCB5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB782A20290F8B9E00C0FCB5 /* main.swift */; };
+		FB782A25290F8C2900C0FCB5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		34811DBC274B93D800A1E994 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		FB782A1C290F8B9E00C0FCB5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,10 +35,19 @@
 /* Begin PBXFileReference section */
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FB782A1E290F8B9E00C0FCB5 /* Step3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Step3; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB782A20290F8B9E00C0FCB5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		34811DBB274B93D800A1E994 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB782A1B290F8B9E00C0FCB5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				34811DC0274B93D800A1E994 /* CodeStarterCamp_Week2 */,
+				FB782A1F290F8B9E00C0FCB5 /* Step3 */,
 				34811DBF274B93D800A1E994 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */,
+				FB782A1E290F8B9E00C0FCB5 /* Step3 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +81,14 @@
 				34811DC1274B93D800A1E994 /* main.swift */,
 			);
 			path = CodeStarterCamp_Week2;
+			sourceTree = "<group>";
+		};
+		FB782A1F290F8B9E00C0FCB5 /* Step3 */ = {
+			isa = PBXGroup;
+			children = (
+				FB782A20290F8B9E00C0FCB5 /* main.swift */,
+			);
+			path = Step3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,17 +111,37 @@
 			productReference = 34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */;
 			productType = "com.apple.product-type.tool";
 		};
+		FB782A1D290F8B9E00C0FCB5 /* Step3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB782A24290F8B9E00C0FCB5 /* Build configuration list for PBXNativeTarget "Step3" */;
+			buildPhases = (
+				FB782A1A290F8B9E00C0FCB5 /* Sources */,
+				FB782A1B290F8B9E00C0FCB5 /* Frameworks */,
+				FB782A1C290F8B9E00C0FCB5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Step3;
+			productName = Step3;
+			productReference = FB782A1E290F8B9E00C0FCB5 /* Step3 */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		34811DB6274B93D800A1E994 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					34811DBD274B93D800A1E994 = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					FB782A1D290F8B9E00C0FCB5 = {
+						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
 			};
@@ -110,6 +159,7 @@
 			projectRoot = "";
 			targets = (
 				34811DBD274B93D800A1E994 /* CodeStarterCamp_Week2 */,
+				FB782A1D290F8B9E00C0FCB5 /* Step3 */,
 			);
 		};
 /* End PBXProject section */
@@ -119,7 +169,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34811DC2274B93D800A1E994 /* main.swift in Sources */,
+				FB782A25290F8C2900C0FCB5 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB782A1A290F8B9E00C0FCB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB782A21290F8B9E00C0FCB5 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +317,28 @@
 			};
 			name = Release;
 		};
+		FB782A22290F8B9E00C0FCB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FB782A23290F8B9E00C0FCB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -276,6 +356,15 @@
 			buildConfigurations = (
 				34811DC6274B93D800A1E994 /* Debug */,
 				34811DC7274B93D800A1E994 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB782A24290F8B9E00C0FCB5 /* Build configuration list for PBXNativeTarget "Step3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB782A22290F8B9E00C0FCB5 /* Debug */,
+				FB782A23290F8B9E00C0FCB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
