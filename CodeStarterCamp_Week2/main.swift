@@ -5,4 +5,7 @@
 //  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
 //
+
 makeLottoNumbers()
+printLottoNumbers()
+print(sameNumber)
