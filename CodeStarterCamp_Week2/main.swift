@@ -8,8 +8,32 @@
 
 import Foundation
 
+func setLottoDictionary(prevLottoDictionary: Dictionary<String, [Int]>) -> Dictionary<String, [Int]> {
+    var nextLottoDictionary = prevLottoDictionary
+    
+    nextLottoDictionary["\(prevLottoDictionary.count + 1)회차"] = createLottoNumbers().sorted()
+
+    return nextLottoDictionary
+}
+
+func printLottoDictionary(lottoDictionary: Dictionary<String, [Int]>, ordinalCount: Int) {
+    if let nums = lottoDictionary["\(ordinalCount)회차"] {
+        print("\(ordinalCount)회차의 로또 당첨 번호는 ", terminator: "")
+        for num in nums {
+            if num == nums[0] {
+                print("\(num)", terminator: "")
+            } else {
+                print(", \(num)", terminator: "")
+            }
+        }
+        print(" 입니다.")
+    } else {
+        print("\(ordinalCount)회차 정보가 없습니다.")
+    }
+}
+
 func createLottoNumbers() -> Set<Int> {
-    var lottoNumbers: Set<Int> = Set<Int>()
+    var lottoNumbers: Set<Int> = []
     
     while(lottoNumbers.count < 6) {
         lottoNumbers.insert(Int.random(in: 1..<46))
@@ -18,37 +42,11 @@ func createLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func createSameNumbersArray(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) -> Array<Int> {
-    var sameNumbers: [Int] = [Int]()
-    
-    for num in myLottoNumbers {
-        if lottoNumbers.contains(num){
-            sameNumbers.append(num)
-        }
-    }
-    
-    return sameNumbers
+var lottoDictionary: Dictionary<String, [Int]> = [String: [Int]]()
+
+for _ in 1...5 {
+    lottoDictionary = setLottoDictionary(prevLottoDictionary: lottoDictionary)
 }
-
-func printLottoResult(sameNumbers: [Int]) {
-    if sameNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for num in sameNumbers {
-            if num == sameNumbers[0] {
-                print("\(num)", terminator: "")
-            } else {
-                print(", \(num)", terminator: "")
-            }
-        }
-        print(" 입니다!")
-    }
+for ordinalCount in 0...6 {
+    printLottoDictionary(lottoDictionary: lottoDictionary, ordinalCount: ordinalCount)
 }
-
-let lottoNumbers = createLottoNumbers()
-let myLottoNumbers = [1,11,19,21,27,39]
-var sameNumbers = createSameNumbersArray(lottoNumbers: lottoNumbers, myLottoNumbers: myLottoNumbers)
-sameNumbers = sameNumbers.sorted()
-
-printLottoResult(sameNumbers: sameNumbers)
