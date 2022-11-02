@@ -35,7 +35,7 @@ var lottoResultList: Dictionary<String, [Int]> = [String: [Int]]()
 
 func saveLottoRounds(rounds: Int) {
     for round in 1...rounds {
-        lottoResultList["\(round)회차"] = [Int](generateLottoNumbers())
+        lottoResultList["\(round)회차"] = generateLottoNumbers().sorted()
     }
 }
 
