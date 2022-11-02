@@ -8,4 +8,4 @@
 
 makeLottoNumbers()
 printLottoNumbers()
-print(sameNumber)
+print(sameNumbers)

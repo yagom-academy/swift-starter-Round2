@@ -9,22 +9,23 @@ import Foundation
 
 var winningLottoNumbers = Set<Int>()
 let myLottoNumbers: [Int] = [1,2,3,4,5,6]
-var sameNumber = Array(winningLottoNumbers.intersection(myLottoNumbers))
+var sameNumbers = Array(winningLottoNumbers.intersection(myLottoNumbers))
 
 func makeLottoNumbers() {
     while winningLottoNumbers.count < 6 {
-        winningLottoNumbers.insert(Int(arc4random_uniform(44)) + 1)
+        winningLottoNumbers.insert(Int.random(in: 1...45))
+        //winningLottoNumbers.insert(Int(arc4random_uniform(45)) + 1)
     }
 }
 
 func printLottoNumbers() {
-    if sameNumber.count != 0 {
+    if sameNumbers.count != 0 {
         print("축하합니다! 겹치는 번호는", terminator: " ")
-        for i in sameNumber {
-            if i != sameNumber.last {
-                print(i, terminator: ",")
+        for num in sameNumbers {
+            if num != sameNumbers.last {
+                print(num, terminator: ",")
             } else {
-                print(i, terminator: " ")
+                print(num, terminator: " ")
             }
         }
             print("입니다!")
