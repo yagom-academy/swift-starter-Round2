@@ -30,4 +30,26 @@ func viewLottoResults() {
     }
 }
 
-viewLottoResults()
+
+var lottoResultList: Dictionary<String, [Int]> = [String: [Int]]()
+
+func saveLottoRounds(rounds: Int) {
+    for round in 1...rounds {
+        lottoResultList["\(round)회차"] = generateLottoNumbers().sorted()
+    }
+}
+
+func viewLottoRounds(_ findLottoRounds: String) {
+    if let lottoList = lottoResultList[findLottoRounds] {
+        print("\(findLottoRounds)의 로또 당첨 번호는",
+                lottoList.map { (lottoList: Int) -> String in
+                return String(lottoList)
+                }.joined(separator: ", "),
+                "입니다.")
+    } else {
+        print("해당 회차를 찾을 수 없습니다.")
+    }
+}
+
+saveLottoRounds(rounds: 5)
+viewLottoRounds("5회차")
