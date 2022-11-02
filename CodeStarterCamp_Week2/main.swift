@@ -8,5 +8,10 @@
 
 import Foundation
 
-print("Hello, World!")
+var integers = [1, 2, 3]
+let people = ["yagom": 10, "eric": 15, "mike": 12]
 
+repeat {
+    integers.removeLast()
+    print(integers)
+} while integers.count > 0
