@@ -17,24 +17,32 @@ func makeLottoNumbers() -> Set<Int> {
 }
 
 // Mark: 로또 번호를 저장하는 dictionary 타입의 함수
-var lottoDictionary: Dictionary<String, Set<Int>> = [String: Set<Int>]()
 
-func makeLottoByRounds(round: Int) {
-    for round in 1...round {
-        lottoDictionary["\(round)회차"] = makeLottoNumbers()
+func makeLottoByRounds() -> Dictionary<String, [Int]> {
+    var lottoDictionary: Dictionary<String, [Int]> = [String: [Int]]()
+    for round in 1...5 {
+        let makeLottoNumbersArray = Array(makeLottoNumbers())
+        let round = "\(round)회차"
+        lottoDictionary[round] = makeLottoNumbersArray
     }
+    return lottoDictionary
 }
 
+
 // Mark: 원하는 회차를 출력하는 함수
+let lottoDictionary = makeLottoByRounds()
 func findLottoRound(roundYouWant: String) {
-    if lottoDictionary[roundYouWant] != nil {
-        print("\(roundYouWant)의 로또 당첨 번호는 ", terminator: "\(makeLottoNumbers().map {String($0)}.joined(separator: ", ")) 입니다.")
+    print(lottoDictionary)
+    if let lottoList = lottoDictionary[roundYouWant] {
+        print("\(roundYouWant)의 로또 당첨 번호는 \((lottoList).map{ String($0) }.joined(separator: ", ")) 입니다.")
     } else {
         print ("원하는 회차가 없습니다.")
     }
 }
 
-makeLottoByRounds(round: 5)
 findLottoRound(roundYouWant: "2회차")
 findLottoRound(roundYouWant: "3회차")
 findLottoRound(roundYouWant: "6회차")
+
+
+
