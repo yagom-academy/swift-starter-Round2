@@ -48,41 +48,34 @@ func checkMyLottoNumber(myLottoNumbers: [Int]) {
     printCorrectNumber(correctNum: correctNumber)
 }
 
-func makeLottoDictonary(lotto: [String: Set<Int>]) -> [String :Set<Int>] {
-    var numbers = Set<Int>()
-    var lottoDictonary = lotto
-
-    while numbers.count < 6 {
-        numbers.insert(Int.random(in: 1...45))
-    }
+func makeLottoDictonary() -> [String: Set<Int>] {
+    var lottoDictonary: [String: Set<Int>] = [:]
     
-    if let round = Array(lottoDictonary.keys.sorted()).last {
-        if let beforeRound = Int(round.components(separatedBy: "회")[0]) {
-            lottoDictonary["\(beforeRound+1)회차"] = numbers
+    for _ in 1...5 {
+        if let round = Array(lottoDictonary.keys.sorted()).last {
+            if let beforeRound = Int(round.components(separatedBy: "회")[0]) {
+                lottoDictonary["\(beforeRound+1)회차"] = makeLottoNumber()
+            }
+        } else {
+            lottoDictonary["1회차"] = makeLottoNumber()
         }
-    } else {
-        lottoDictonary["1회차"] = numbers
     }
     
     return lottoDictonary
 }
 
-func printRoundCorrectNumber(round: Int, numbers: Set<Int>) {
-    let lottoNumbers = "\(numbers.sorted())".trimmingCharacters(in: ["[", "]"])
-    print("\(round)회차의 당첨번호는 \(lottoNumbers) 입니다")
+func printRoundCorrectNumber(round: Int, lottoDictonary: [String: Set<Int>]) {
+    if let roundLotto = lottoDictonary["\(round)회차"] {
+        let lottoNumbers = "\(roundLotto.sorted())".trimmingCharacters(in: ["[", "]"])
+        print("\(round)회차의 당첨번호는 \(lottoNumbers) 입니다")
+    } else {
+        print("\(round)회차의 당첨번호는 추첨 전 상태입니다.")
+    }
 }
 
 func checkRoundLottoNumber(round: Int) {
-    var lottoCorrectDictonary: [String: Set<Int>] = [:]
-    for _ in 1...5 {
-        lottoCorrectDictonary = makeLottoDictonary(lotto: lottoCorrectDictonary)
-    }
-    
-    if let roundLotto = lottoCorrectDictonary["\(round)회차"] {
-        printRoundCorrectNumber(round: round, numbers: roundLotto)
-    } else {
-        print("\(round)회차는 아직 나오지 않았습니다!!")
-    }
+    let lottoCorrectDictonary = makeLottoDictonary()
+    printRoundCorrectNumber(round: round, lottoDictonary: lottoCorrectDictonary)
 }
 
 checkRoundLottoNumber(round: 2)
