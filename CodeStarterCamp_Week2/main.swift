@@ -41,14 +41,41 @@ func printCorrectNumber(correctNum: [Int]) {
     }
 }
 
-func checkMyLottoNumber(myLottoNumber: [Int]) {
+func checkMyLottoNumber(myLottoNumbers: [Int]) {
     let randomLottoNumbers = makeLottoNumber()
     let correctNumber = checkCorrectNumber(myLottoNum: myLottoNumbers, lottoNum: randomLottoNumbers)
 
     printCorrectNumber(correctNum: correctNumber)
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+func makeLottoDictonary() -> [String: Set<Int>] {
+    var lottoDictonary: [String: Set<Int>] = [:]
+    
+    for _ in 1...5 {
+        if let round = Array(lottoDictonary.keys.sorted()).last {
+            if let beforeRound = Int(round.components(separatedBy: "회")[0]) {
+                lottoDictonary["\(beforeRound+1)회차"] = makeLottoNumber()
+            }
+        } else {
+            lottoDictonary["1회차"] = makeLottoNumber()
+        }
+    }
+    
+    return lottoDictonary
+}
 
-checkMyLottoNumber(myLottoNumber: myLottoNumbers)
+func printRoundCorrectNumber(round: Int, lottoDictonary: [String: Set<Int>]) {
+    if let roundLotto = lottoDictonary["\(round)회차"] {
+        let lottoNumbers = "\(roundLotto.sorted())".trimmingCharacters(in: ["[", "]"])
+        print("\(round)회차의 당첨번호는 \(lottoNumbers) 입니다")
+    } else {
+        print("\(round)회차의 당첨번호는 추첨 전 상태입니다.")
+    }
+}
 
+func checkRoundLottoNumber(round: Int) {
+    let lottoCorrectDictonary = makeLottoDictonary()
+    printRoundCorrectNumber(round: round, lottoDictonary: lottoCorrectDictonary)
+}
+
+checkRoundLottoNumber(round: 2)
