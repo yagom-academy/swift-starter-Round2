@@ -8,7 +8,8 @@
 
 import Foundation
 
-func creatRandomNumber() -> Set<Int> {
+//복수형으로 변경
+func creatRandomNumbers() -> Set<Int> {
     var result: Set<Int> = Set()
     while result.count < 6 {
         let value = Int.random(in: 1...45)
@@ -17,25 +18,29 @@ func creatRandomNumber() -> Set<Int> {
     return result
 }
 
-func checkLottoNumbers(_ myLottoNumbers: Set<Int>) {
+func checkLottoNumbers(_ myLottoNumbers: Set<Int>) -> Set<Int> {
     let lottoNumbers: Set<Int> = [2, 3, 6, 19, 36, 39]
-    var winningNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
+    let winningNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
     print(winningNumbers)
-    
-    var winningString = ""
-    if winningNumbers.count > 0 {
-        winningString += "축하합니다! 겹치는 번호는 "
-        for numberValue in winningNumbers {
-            winningString += "\(numberValue) "
-        }
-        winningString += "입니다!"
-    } else {
-        winningString = "아쉽지만 겹치는 번호가 없습니다."
-    }
-    
-    print(winningString)
+    return winningNumbers
 }
 
-let myLottoNumbers = creatRandomNumber()
+
+func getWinningAnswer(_ winningNumbers: Set<Int>) -> String {
+    var winningAnswer = ""
+    if winningNumbers.count > 0 {
+        winningAnswer += "축하합니다! 겹치는 번호는 "
+        for numberValue in winningNumbers {
+            winningAnswer += "\(numberValue) "
+        }
+        winningAnswer += "입니다!"
+    } else {
+        winningAnswer = "아쉽지만 겹치는 번호가 없습니다."
+    }
+    return winningAnswer
+}
+
+let myLottoNumbers = creatRandomNumbers()
 print(myLottoNumbers)
-checkLottoNumbers(myLottoNumbers)
+let winningNumbers = checkLottoNumbers(myLottoNumbers)
+print(getWinningAnswer(winningNumbers))
