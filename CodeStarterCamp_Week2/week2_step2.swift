@@ -4,9 +4,8 @@
 //
 //  Created by 정경우 on 2022/11/01.
 //
-
 import Foundation
-
+/*
 var winningLottoNumbers = Set<Int>()
 let myLottoNumbers: [Int] = [1,2,3,4,5,6]
 var sameNumbers = Array(winningLottoNumbers.intersection(myLottoNumbers))
@@ -14,7 +13,6 @@ var sameNumbers = Array(winningLottoNumbers.intersection(myLottoNumbers))
 func makeLottoNumbers() {
     while winningLottoNumbers.count < 6 {
         winningLottoNumbers.insert(Int.random(in: 1...45))
-        //winningLottoNumbers.insert(Int(arc4random_uniform(45)) + 1)
     }
 }
 
@@ -34,3 +32,4 @@ func printLottoNumbers() {
     }
 }
 
+*/
