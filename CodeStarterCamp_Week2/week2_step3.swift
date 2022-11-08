@@ -28,13 +28,16 @@ func chooseRound()  {
     if var number = inputNum {
         number = number + "회차"
         checkingRounds(number)
+        
     }
 }
 
 func checkingRounds(_ round: String) {
-    if let sortBeforeNum = roundWinningNumbers[round] {
+    if let sortBeforeNum: Set<Int> = roundWinningNumbers[round] {
         var sortAfterNum = "\(sortBeforeNum.sorted())"
         sortAfterNum = sortAfterNum.trimmingCharacters(in: ["[","]"])
         print("\(round)의 로또 당첨번호는 \(sortAfterNum)입니다.")
+    } else {
+        print("없는 회차입니다.")
     }
 }
