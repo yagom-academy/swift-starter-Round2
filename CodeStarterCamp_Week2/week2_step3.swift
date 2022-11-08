@@ -6,43 +6,35 @@
 //
 import Foundation
 
-var winningLottoNumbers = Set<Int>()
 var roundWinningNumbers: [String: Set<Int>] = [:]
-var repeatNumbers: Int = 0
-var round: String = ""
 
-func makeLottoNumbers() {
+func makeLottoNumbers() -> Set<Int> {
+    var winningLottoNumbers = Set<Int>()
     while winningLottoNumbers.count < 6 {
         winningLottoNumbers.insert(Int.random(in: 1...45))
     }
-    repeatNumbers += 1
+    return(winningLottoNumbers)
 }
 
-func saveNumbers() {
-    roundWinningNumbers["\(repeatNumbers)회차"] = winningLottoNumbers
-    winningLottoNumbers.removeAll()
-}
-
-func fiveTimes() {
-    for _ in 1...5{
-        makeLottoNumbers()
-        saveNumbers()
+func drawLottoFiveTimes() {
+    for round in 1...5 {
+        roundWinningNumbers["\(round)회차"] = makeLottoNumbers()
     }
 }
 
-func rounds() {
+func chooseRound()  {
     print("1~5중 원하는 숫자를 입력하세요:")
-    let num  = readLine()
-    if let number = num{
-        round = number
-        round += "회차"
+    let inputNum  = readLine()
+    if var number = inputNum {
+        number = number + "회차"
+        checkingRounds(number)
     }
 }
 
-func checkingRounds() {
-    if let intNum = roundWinningNumbers["\(round)"] {
-        var stringNum = "\(intNum.sorted())"
-        stringNum = stringNum.trimmingCharacters(in: ["[","]"])
-        print("\(round)의 로또 당첨번호는 \(stringNum)입니다.")
+func checkingRounds(_ round: String) {
+    if let sortBeforeNum = roundWinningNumbers[round] {
+        var sortAfterNum = "\(sortBeforeNum.sorted())"
+        sortAfterNum = sortAfterNum.trimmingCharacters(in: ["[","]"])
+        print("\(round)의 로또 당첨번호는 \(sortAfterNum)입니다.")
     }
 }

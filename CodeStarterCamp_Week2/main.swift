@@ -5,7 +5,5 @@
 //  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
 //
-fiveTimes()
-rounds()
-checkingRounds()
-
+drawLottoFiveTimes()
+chooseRound()
