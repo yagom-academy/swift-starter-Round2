@@ -17,7 +17,7 @@ func generateLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func checkLottoResult() {
+func checkLottoResult() -> Array<Int> {
     let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
     var resultNumbers: Array<Int> = []
 
@@ -27,12 +27,25 @@ func checkLottoResult() {
         }
     }
     
-    if resultNumbers.count == 0 {
+    return resultNumbers
+}
+
+func printLottoResult() {
+    let lottoResult = checkLottoResult()
+    
+    if lottoResult.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        let lottoResult = resultNumbers.map({ (value: Int) -> String in return String(value) }).joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(lottoResult) 입니다!")
+        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        for result in lottoResult {
+            if result != lottoResult[0] {
+                print(", \(result)", terminator: "")
+            } else {
+                print("\(result)", terminator: "")
+            }
+        }
+        print(" 입니다!")
     }
 }
 
-checkLottoResult()
+printLottoResult()
