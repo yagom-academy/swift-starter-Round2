@@ -8,22 +8,31 @@
 
 import Foundation
 
-var luckyNumbers: Set<Int> = Set<Int>()
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let lottoFailMessage: String = "아쉽지만 겹치는 번호가 없습니다."
 
-func generateLuckyNumbers() {
+var lottoHistory: [String: Set<Int>] = [:]
+
+func generateLuckyNumbers() -> Set<Int> {
+    var luckyNumbers: Set<Int> = Set<Int>()
     while luckyNumbers.count < 6 {
         luckyNumbers.insert(Int.random(in: 1...45))
     }
-}
-func checkLottoNumbers() {
-    let overlapNumbers: Set<Int> = luckyNumbers.intersection(myLottoNumbers)
-    guard overlapNumbers.count != 0 else { return print(lottoFailMessage) }
-    var outputNumbers = "\(overlapNumbers)"
-    outputNumbers = outputNumbers.trimmingCharacters(in: ["[","]"])
-    print("축하합니다! 겹치는 번호는 \(outputNumbers) 입니다!")
+    return luckyNumbers
 }
 
-generateLuckyNumbers()
-checkLottoNumbers()
+func generateLuckySet(lotto: Int) {
+    for historyNumber in 1...lotto {
+        lottoHistory["\(historyNumber)회차"] = generateLuckyNumbers()
+    }
+}
+
+func checkHistory(lotto: Int) {
+    guard let safeHistory: Set<Int> = lottoHistory["\(lotto)회차"] else {
+        return print("해당 회차가 없습니다.")
+    }
+    var outputHistory = "\(safeHistory.sorted())"
+    outputHistory = outputHistory.trimmingCharacters(in: ["[","]"])
+    print("2회차의 로또 당첨 번호는 \(outputHistory) 입니다.")
+}
+
+generateLuckySet(lotto: 5)
+checkHistory(lotto: 2)
