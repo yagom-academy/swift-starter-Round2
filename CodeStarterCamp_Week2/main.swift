@@ -8,7 +8,6 @@
 
 import Foundation
 
-//복수형으로 변경
 func creatRandomNumbers() -> Set<Int> {
     var result: Set<Int> = Set()
     while result.count < 6 {
@@ -21,7 +20,6 @@ func creatRandomNumbers() -> Set<Int> {
 func checkLottoNumbers(_ myLottoNumbers: Set<Int>) -> Set<Int> {
     let lottoNumbers: Set<Int> = [2, 3, 6, 19, 36, 39]
     let winningNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
-    print(winningNumbers)
     return winningNumbers
 }
 
@@ -41,6 +39,5 @@ func getWinningAnswer(_ winningNumbers: Set<Int>) -> String {
 }
 
 let myLottoNumbers = creatRandomNumbers()
-print(myLottoNumbers)
 let winningNumbers = checkLottoNumbers(myLottoNumbers)
 print(getWinningAnswer(winningNumbers))
