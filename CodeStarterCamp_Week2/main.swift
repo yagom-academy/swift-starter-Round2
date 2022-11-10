@@ -1,12 +1,19 @@
-//
-//  main.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
-//
-
 import Foundation
 
-print("Hello, World!")
+var lottoNumber: [Int] = []
 
+func createLotto() {
+    while true {
+        let randomNumber = Int.random(in: 1..<46)
+
+        if lottoNumber.count == 6 {
+            break
+        }
+        if lottoNumber.contains(randomNumber) == false {
+            lottoNumber.append(randomNumber)
+        }
+
+    }
+}
+createLotto()
+print(lottoNumber)
