@@ -1,12 +1,4 @@
-//
-//  main.swift
-//  CodeStarterCamp_Week2
-//
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
-//
-
-func generateLottoNumbers() -> Set<Int> {
+func generateLottoNumbers() -> Array<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
     while lottoNumbers.count < 6 {
@@ -14,38 +6,28 @@ func generateLottoNumbers() -> Set<Int> {
         lottoNumbers.insert(randomNumber)
     }
     
-    return lottoNumbers
+    return Array(lottoNumbers)
 }
 
-func checkLottoResult() -> Array<Int> {
-    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    var resultNumbers: Array<Int> = []
-
-    for number in generateLottoNumbers() {
-        if myLottoNumbers.contains(number) {
-            resultNumbers.append(number)
-        }
+func storeLottoNumbers() -> Dictionary<String, Array<Int>> {
+    var lottoDictionary: Dictionary<String, Array<Int>> = [:]
+    
+    for round in 1...5 {
+        lottoDictionary["\(round)회차"] = generateLottoNumbers()
     }
     
-    return resultNumbers
+    return lottoDictionary
 }
 
-func printLottoResult() {
-    let lottoResult = checkLottoResult()
+func printLottoNumbers(myRound: Int) {
+    let lottoDictionary = storeLottoNumbers()
     
-    if lottoResult.count == 0 {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+    if let myRoundLottoNumbers: Array<Int> = lottoDictionary["\(myRound)회차"] {
+        let myRoundJoinedLottoNumbers = myRoundLottoNumbers.map { String($0) }.joined(separator: ", ")
+        print("\(myRound)회차의 로또 당첨 번호는 \(myRoundJoinedLottoNumbers) 입니다")
     } else {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for result in lottoResult {
-            if result != lottoResult[0] {
-                print(", \(result)", terminator: "")
-            } else {
-                print("\(result)", terminator: "")
-            }
-        }
-        print(" 입니다!")
+        print("해당 회차가 없습니다")
     }
 }
 
-printLottoResult()
+printLottoNumbers(myRound: 2)
