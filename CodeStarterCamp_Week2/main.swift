@@ -13,7 +13,7 @@ func createLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     
     while lottoNumbers.count < 6 {
-        lottoNumbers.insert((Int.random(in: 1...10)))
+        lottoNumbers.insert((Int.random(in: 1...45)))
     }
     
     return lottoNumbers
@@ -28,9 +28,7 @@ func compareLottoNumbers(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) -> [Int]
 
 // Mark:- 출력함수
 func printLotto(compareNumbers: [Int]) {
-//
-    let numbers = compareNumbers
-    let stringArray = (numbers.map(String.init).joined())
+    let stringArray = (compareNumbers.map(String.init).joined(separator: ", "))
     
     if stringArray.isEmpty {
         print("아쉽지만 없어요")
