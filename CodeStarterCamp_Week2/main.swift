@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Mark:- 로또 번호 생성
 func createLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     
@@ -18,37 +19,27 @@ func createLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func compareLottoNumbers(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) -> Array<Int> {
-    var compareNumbers: [Int] = []
-    
-    for num in myLottoNumbers {
-        if lottoNumbers.contains(num) {
-            compareNumbers.append(num)
-        }
-    }
-    
-    return compareNumbers
+// Mark:- 로또번호와 내 번호 비교
+func compareLottoNumbers(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) -> [Int] {
+    let compareNumbers = lottoNumbers.intersection(myLottoNumbers)
+
+    return Array(compareNumbers).sorted()
 }
 
-func printLottoNumbers(compareNumber: [Int]) {
-    if compareNumber.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+// Mark:- 출력함수
+func printLotto(compareNumbers: [Int]) {
+//
+    let numbers = compareNumbers
+    let stringArray = (numbers.map(String.init).joined())
+    
+    if stringArray.isEmpty {
+        print("아쉽지만 없어요")
     } else {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for num in compareNumber {
-            if num == compareNumber[0] {
-                print("\(num)", terminator: "")
-            } else {
-                print(", \(num)", terminator: "")
-            }
-        }
-        print(" 입니다!")
+        print("축하합니다 겹치는 번호는 \(stringArray) 입니다")
     }
 }
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 let lottoNumbers = createLottoNumbers()
-var compareNumbers = compareLottoNumbers(lottoNumbers: lottoNumbers, myLottoNumbers: myLottoNumbers)
-compareNumbers = compareNumbers.sorted()
-
-printLottoNumbers(compareNumber: compareNumbers)
+let compareNumbers = compareLottoNumbers(lottoNumbers: lottoNumbers, myLottoNumbers: myLottoNumbers)
+printLotto(compareNumbers: compareNumbers)
