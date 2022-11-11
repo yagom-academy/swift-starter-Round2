@@ -7,9 +7,9 @@
 
 import Foundation
 
-var lottoWinningNumbers: Dictionary<String, Set<Int>> = [:]
+var lottoWinningNumbers: Dictionary<String, [Int]> = [:]
 
-func createLottoWinningNumbers(_ winningNumbers: Set<Int>) {
+func storeLottoWinningNumbers(_ winningNumbers: [Int]) {
     let lottoRound = "\(lottoWinningNumbers.count + 1)회차"
     lottoWinningNumbers[lottoRound] = winningNumbers
 }
@@ -19,9 +19,9 @@ func printRoundWinningNumber(_ round: Int) {
         var numberString: String = ""
         for (index, numberValue) in lottoNumbers.enumerated() {
             if index == lottoNumbers.count-1 {
-                numberString += "\(numberValue) "
+                numberString += "\(numberValue)"
             } else {
-                numberString += "\(numberValue), "
+                numberString += "\(numberValue),"
             }
             
         }
