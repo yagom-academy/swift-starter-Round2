@@ -1,11 +1,8 @@
 import Foundation
 
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
 var lottoNumber: [Int] = []
-var winNumber: [Int] = []
-let changeString = ""
 
-func createLotto() {
+func createLottoNumbers() {
     while true {
         let randomNumber = Int.random(in: 1..<10)
 
@@ -15,11 +12,12 @@ func createLotto() {
         if lottoNumber.contains(randomNumber) == false {
             lottoNumber.append(randomNumber)
         }
-
     }
 }
 
 func compareWithNumber() {
+    let myLottoNumbers: [Int] = [1,2,3,4,5,6]
+    var winNumber: [Int] = []
     
     for number in 0...5 {
         if lottoNumber.contains(myLottoNumbers[number]) == true {
@@ -33,8 +31,7 @@ func compareWithNumber() {
         let stringArray = winNumber.map { String($0) }
         print("축하합니다! 겹치는 번호는 \(stringArray.joined(separator: ",") ) 입니다!")
     }
-    
 }
 
-createLotto()
+createLottoNumbers()
 compareWithNumber()
