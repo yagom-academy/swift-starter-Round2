@@ -38,6 +38,13 @@ func getWinningAnswer(_ winningNumbers: Set<Int>) -> String {
     return winningAnswer
 }
 
-let myLottoNumbers = creatRandomNumbers()
-let winningNumbers = checkLottoNumbers(myLottoNumbers)
-print(getWinningAnswer(winningNumbers))
+
+storeLottoWinningNumbers(Array(creatRandomNumbers().sorted()))
+storeLottoWinningNumbers(Array(creatRandomNumbers().sorted()))
+storeLottoWinningNumbers(Array(creatRandomNumbers().sorted()))
+storeLottoWinningNumbers(Array(creatRandomNumbers().sorted()))
+storeLottoWinningNumbers(Array(creatRandomNumbers().sorted()))
+
+printRoundWinningNumber(3)
+printRoundWinningNumber(5)
+printRoundWinningNumber(6)
