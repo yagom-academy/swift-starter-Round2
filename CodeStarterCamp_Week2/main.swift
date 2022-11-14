@@ -8,7 +8,7 @@
 import Foundation
 
 // Mark: - 로또 번호 생성
-func makeLottoNumbers() -> Set<Int> {
+func createLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     
     while lottoNumbers.count < 6 {
@@ -22,7 +22,7 @@ func makeLottoByRounds() -> Dictionary<String, [Int]> {
     var lottoDictionary: Dictionary<String, [Int]> = [String: [Int]]()
     
     for round in 1...5 {
-        let lottoNumbersArray = Array(makeLottoNumbers())
+        let lottoNumbersArray = Array(createLottoNumbers())
         lottoDictionary["\(round)"] = lottoNumbersArray
     }
     return lottoDictionary
