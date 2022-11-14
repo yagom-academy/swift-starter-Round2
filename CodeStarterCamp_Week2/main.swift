@@ -1,43 +1,43 @@
 //
-//  main.swift
+//  File.swift
 //  CodeStarterCamp_Week2
 //
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
+//  Created by 예강이다 on 2022/11/11.
 //
 
 import Foundation
 
-// Mark:- 로또 번호 생성
+// Mark: - 로또 번호 생성
 func createLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     
     while lottoNumbers.count < 6 {
         lottoNumbers.insert((Int.random(in: 1...45)))
     }
-    
     return lottoNumbers
 }
 
-// Mark:- 로또번호와 내 번호 비교
-func compareLottoNumbers(lottoNumbers: Set<Int>, myLottoNumbers: [Int]) -> [Int] {
-    let compareNumbers = lottoNumbers.intersection(myLottoNumbers)
-
-    return Array(compareNumbers).sorted()
+// Makr: - 회차 번호 생성
+func makeLottoByRounds() -> Dictionary<String, [Int]> {
+    var lottoDictionary: Dictionary<String, [Int]> = [String: [Int]]()
+    
+    for round in 1...5 {
+        let lottoNumbersArray = Array(createLottoNumbers())
+        lottoDictionary["\(round)"] = lottoNumbersArray
+    }
+    return lottoDictionary
 }
 
-// Mark:- 출력함수
-func printLotto(compareNumbers: [Int]) {
-    let stringArray = (compareNumbers.map(String.init).joined(separator: ", "))
-    
-    if stringArray.isEmpty {
-        print("아쉽지만 없어요")
+// Mark: -원하는 회차를 출력하는 함수
+func findLotto(by round: Int) {
+    if let lotto = lottoList[String(round)] {
+        print("\(round)회차의 로또 당첨 번호는 \((lotto).map { String($0) }.joined(separator: ", ")) 입니다.")
     } else {
-        print("축하합니다 겹치는 번호는 \(stringArray) 입니다")
+        print("원하는 회차가 없습니다.")
     }
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let lottoNumbers = createLottoNumbers()
-let compareNumbers = compareLottoNumbers(lottoNumbers: lottoNumbers, myLottoNumbers: myLottoNumbers)
-printLotto(compareNumbers: compareNumbers)
+let lottoList = makeLottoByRounds()
+findLotto(by: 2)
+findLotto(by: 4)
+findLotto(by: 6)
