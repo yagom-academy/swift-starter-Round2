@@ -23,22 +23,21 @@ func makeLottoByRounds() -> Dictionary<String, [Int]> {
     
     for round in 1...5 {
         let lottoNumbersArray = Array(makeLottoNumbers())
-        let round = "\(round)"
-        lottoDictionary[round] = lottoNumbersArray
+        lottoDictionary["\(round)"] = lottoNumbersArray
     }
     return lottoDictionary
 }
 
 // Mark: -원하는 회차를 출력하는 함수
-let lotto = makeLottoByRounds()
-func findByRounds(youWant: String) {
-    if let lotto = lotto[youWant] {
-        print("\(youWant)회차의 로또 당첨 번호는 \((lotto).map { String($0) }.joined(separator: ", ")) 입니다.")
+func findLotto(by round: Int) {
+    if let lotto = lottoList[String(round)] {
+        print("\(round)회차의 로또 당첨 번호는 \((lotto).map { String($0) }.joined(separator: ", ")) 입니다.")
     } else {
         print("원하는 회차가 없습니다.")
     }
 }
 
-findByRounds(youWant: "2")
-findByRounds(youWant: "4")
-findByRounds(youWant: "6")
+let lottoList = makeLottoByRounds()
+findLotto(by: 2)
+findLotto(by: 4)
+findLotto(by: 6)
