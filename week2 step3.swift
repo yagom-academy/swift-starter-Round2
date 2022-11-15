@@ -7,7 +7,7 @@
 
 import Foundation
 
-func makeLottoNumber() -> Array<Int> {
+func makeLottoNumbers() -> Array<Int> {
     var lottoNumbers: [Int] = []
     while true {
         if lottoNumbers.count == 6 {
@@ -25,20 +25,20 @@ func makeLottoNumber() -> Array<Int> {
     return lottoNumbers
 }
 
-func storeLottoNumber() -> Dictionary<Int, Array<Int>> {
+func storeLottoNumber(rounds:Int) -> Dictionary<Int, Array<Int>> {
     var lottoDictionary: [Int:Array<Int>] = [:]
-    for i in 1...5 {
-        lottoDictionary[i] = makeLottoNumber()
+    for i in 1...rounds {
+        lottoDictionary[i] = makeLottoNumbers()
     }
-    
     return lottoDictionary
-    
 }
 
-func printLottoNumber(round:Int) {
-    var lottoDictionary = storeLottoNumber()
+func printLottoNumber(rounds: Int, round: Int) {
+    let lottoDictionary = storeLottoNumber(rounds: rounds)
     if let lottoDictionary = lottoDictionary[round] {
-        var thisLottoNumber = lottoDictionary[round].map{String($0)}.joined(separator: ", ")
+        let thisLottoNumber = lottoDictionary.map( {
+            (value: Int) -> String in return String(value)
+        } ).joined(separator: ", ")  // lottoDictionary.map{String($0)}.joined(separator: ", ")
         print("\(round)회차의 로또 당첨 번호는 \(thisLottoNumber) 입니다.")
     } else {
         print("해당 회차가 없습니다.")
@@ -46,4 +46,4 @@ func printLottoNumber(round:Int) {
 }
 
 
-printLottoNumber(round: 3)
+printLottoNumber(rounds: 5, round: 3)
