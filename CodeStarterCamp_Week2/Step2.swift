@@ -20,7 +20,6 @@ func getWinningLottoNumbers() -> Set<Int> {
 /// 찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수
 func compareLottoNumbers(winningNumbers: Set<Int>, myNumbers: [Int]) {
     let overlappingNumbers = winningNumbers.intersection(Set(myNumbers))
-    
     if overlappingNumbers.count > 0 {
         let stringOverlappingNumbers = overlappingNumbers.map { String($0) }.joined(separator: ",")
         print("축하합니다! 겹치는 번호는 \(stringOverlappingNumbers) 입니다!")
