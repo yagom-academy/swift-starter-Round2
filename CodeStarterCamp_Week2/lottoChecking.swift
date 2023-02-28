@@ -6,3 +6,27 @@
 //
 
 import Foundation
+
+var lottoSet: Set<Int> = Set<Int>()
+
+func pickNumbers() {
+    while lottoSet.count < 6 {
+        lottoSet.insert(Int.random(in: (1...45)))
+    }
+}
+
+func checkMyLotto(myLottoNumbers: Set) {
+    var matchSet: Set<Int> = Set<Int>()
+    
+    for matchNumber in lottoSet {
+        if myLottoNumbers.contains(matchNumber) {
+            matchSet.insert(matchNumber)
+        }
+    }
+    
+    if matchSet.count > 0 {
+        print ("축하합니다! 겹치는 번호는 \(matchSet) 입니다!")
+    } else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+}
