@@ -8,5 +8,6 @@
 
 import Foundation
 
-print("Hello, World!")
+let lotto = Lotto()
+lotto.matchNumbers(myLottoNumbers: [1,2,3,4,5,6])
 
