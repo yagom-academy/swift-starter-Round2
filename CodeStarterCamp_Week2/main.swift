@@ -8,5 +8,9 @@
 
 import Foundation
 
-print("Hello, World!")
+pickNumbers()
+
+print(lottoSet)
+
+checkMyLotto()
 
