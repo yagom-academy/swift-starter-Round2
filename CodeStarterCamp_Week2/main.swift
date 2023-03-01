@@ -10,7 +10,5 @@ import Foundation
 
 pickNumbers()
 
-print(lottoSet)
-
 checkMyLotto()
 

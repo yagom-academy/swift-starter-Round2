@@ -6,29 +6,35 @@
 //
 
 import Foundation
-
-
-var lottoSet: Set<Int> = Set<Int>()
+var luckyNumbers: Set<Int> = Set<Int>()
 
 func pickNumbers() {
-    while lottoSet.count < 6 {
-        lottoSet.insert(Int.random(in: (1...45)))
+    while luckyNumbers.count < 6 {
+        luckyNumbers.insert(Int.random(in: (1...45)))
     }
 }
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
 func checkMyLotto() {
-    var matchSet: Set<Int> = Set<Int>()
+    var matchWithLuckyNumbers: [Int] = []
     
-    for matchNumber in lottoSet {
+    for matchNumber in luckyNumbers {
         if myLottoNumbers.contains(matchNumber) {
-            matchSet.insert(matchNumber)
+            matchWithLuckyNumbers.append(matchNumber)
         }
     }
     
-    if matchSet.count > 0 {
-        print ("축하합니다! 겹치는 번호는 \(matchSet) 입니다!")
+    if matchWithLuckyNumbers.count > 0 {
+        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        for index in matchWithLuckyNumbers {
+            if index != matchWithLuckyNumbers[matchWithLuckyNumbers.count - 1] {
+                print (index,terminator: ", ")
+            } else {
+                print (index, terminator: " ")
+            }
+        }
+        print("입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
