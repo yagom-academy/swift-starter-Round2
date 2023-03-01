@@ -8,11 +8,11 @@
 
 import Foundation
 
-func drawLotto(myLottoNumbers: [Int]) {
+func drawLotto(_ myLottoNumbers: [Int]) {
     let lottoNumbers: Set<Int> = generateLottoNumbers()
     let matchedLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
     
-    printLottoResult(matchedLottoNumbers: matchedLottoNumbers)
+    printLottoResult(matchedLottoNumbers)
 }
 
 func generateLottoNumbers() -> Set<Int> {
@@ -25,18 +25,17 @@ func generateLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func printLottoResult(matchedLottoNumbers: Set<Int>) {
+func printLottoResult(_ matchedLottoNumbers: Set<Int>) {
     if matchedLottoNumbers.count > 0 {
         let matchNumbersString = matchedLottoNumbers
             .sorted()
             .map{ String($0) }
             .joined(separator: ", ")
         print("축하합니다! 겹치는 번호는 \(matchNumbersString) 입니다!")
-        
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-drawLotto(myLottoNumbers: myLottoNumbers)
+drawLotto(myLottoNumbers)
