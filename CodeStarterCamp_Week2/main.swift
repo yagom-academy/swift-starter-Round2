@@ -8,10 +8,10 @@ func createRandomNumbers() -> Set<Int> {
 }
 
 func compareNumbers(myLottoNumbers: Set<Int>) {
-    let subtractNumbers = myLottoNumbers.subtracting(randomNumbers)
+    let subtractNumbers = myLottoNumbers.intersection(createRandomNumbers())
     
-    if subtractNumbers.isEmpty {
-        print("축하합니다! 겹치는 번호는 \(randomNumbers) 입니다!")
+    if subtractNumbers.isEmpty == false {
+        print("축하합니다! 겹치는 번호는 \(subtractNumbers) 입니다!")
     }
     else {
         print("아쉽지만 겹치는 번호는 없습니다.")
