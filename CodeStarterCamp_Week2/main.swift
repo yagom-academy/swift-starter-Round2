@@ -1,6 +1,6 @@
 var randomNumbers: Set<Int> = Set()
 
-func creatRandomNumbers() -> Set<Int> {
+func createRandomNumbers() -> Set<Int> {
     while randomNumbers.count < 6 {
         randomNumbers.insert(Int.random(in: 1...45))
     }
@@ -8,7 +8,9 @@ func creatRandomNumbers() -> Set<Int> {
 }
 
 func compareNumbers(myLottoNumbers: Set<Int>) {
-    if myLottoNumbers == creatRandomNumbers() {
+    let subtractNumbers = myLottoNumbers.subtracting(randomNumbers)
+    
+    if subtractNumbers.isEmpty {
         print("축하합니다! 겹치는 번호는 \(randomNumbers) 입니다!")
     }
     else {
