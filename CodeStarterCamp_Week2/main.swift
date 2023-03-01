@@ -9,17 +9,16 @@
 import Foundation
 
 func generateLottoNumbers() -> Set<Int> {
-    var baseNumbersArray: Array<Int> = Array<Int>(1...45)
     var pickedNumbersSet: Set<Int> = Set<Int>()
     while pickedNumbersSet.count < 6 {
-        let randomIndex: Int = Int.random(in: 0...baseNumbersArray.count-1)
-        pickedNumbersSet.insert(baseNumbersArray[randomIndex])
-        baseNumbersArray.remove(at:randomIndex)
+        let randomIndex: Int = Int.random(in: 1...45)
+        pickedNumbersSet.insert(randomIndex)
     }
     return pickedNumbersSet
 }
 
-func checkLottoNumbers(myLottoNumbersArray: Array<Int>, newLottoNumbersSet: Set<Int>) {
+func checkLottoNumbers(mine myLottoNumbersArray: Array<Int>,
+                       winners newLottoNumbersSet: Set<Int>) {
     let myLottoNumbersSet: Set<Int> = Set<Int>(myLottoNumbersArray)
     let matchedLottoNumbersString: String = newLottoNumbersSet.intersection(myLottoNumbersSet)
         .map({(value: Int) -> String in return String(value)})
@@ -35,7 +34,6 @@ func checkLottoNumbers(myLottoNumbersArray: Array<Int>, newLottoNumbersSet: Set<
 let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
 let newLottoNumbers: Set<Int> = generateLottoNumbers()
 
-checkLottoNumbers(myLottoNumbersArray: myLottoNumbers,
-                  newLottoNumbersSet: newLottoNumbers)
+checkLottoNumbers(mine: myLottoNumbers, winners: newLottoNumbers)
 
 
