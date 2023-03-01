@@ -8,6 +8,13 @@
 
 import Foundation
 
+func drawLotto(myLottoNumbers: [Int]) {
+    let lottoNumbers: Set<Int> = generateLottoNumbers()
+    let matchedLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
+    
+    printLottoResult(matchedLottoNumbers: matchedLottoNumbers)
+}
+
 func generateLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     
@@ -16,13 +23,6 @@ func generateLottoNumbers() -> Set<Int> {
     }
     
     return lottoNumbers
-}
-
-func drawLotto(myLottoNumbers: [Int]) {
-    let lottoNumbers: Set<Int> = generateLottoNumbers()
-    let matchedLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
-    
-    printLottoResult(matchedLottoNumbers: matchedLottoNumbers)
 }
 
 func printLottoResult(matchedLottoNumbers: Set<Int>) {
