@@ -8,5 +8,10 @@
 
 import Foundation
 
-print("Hello, World!")
+pickNumbers()
 
+//checkMyLotto()
+
+saveLuckyNumbers(time: 5)
+
+getPassedLuckyNumbers(time: 4)
