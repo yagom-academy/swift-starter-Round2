@@ -14,4 +14,4 @@ pickNumbers()
 
 saveLuckyNumbers(time: 5)
 
-getPassedLuckyNumbers(time: 4)
+getPassedLuckyNumbers(time: 6)
