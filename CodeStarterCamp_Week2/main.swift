@@ -20,31 +20,33 @@ func createLottoNumbers() -> Set<Int>{
     return number
 }
 
-func checkLottoNumbers(my number : [Int]) -> (matchingResult : Set<Int>, lottoNumber : Set<Int>) {
+func comparisonLottoNumbers(my number : [Int]) -> (matchingResult : Set<Int>, lottoNumber : Set<Int>) {
     let lottoNumber = createLottoNumbers()
     var matchingNumbers = Set<Int>()
     
     if number.count == 6 {
         matchingNumbers = Set<Int>(number).intersection(lottoNumber)
     } else {
-        matchingNumbers = [0]
+        matchingNumbers = [0] // matchingNumbers 변수에 멤버가 아예 없으면 로또번호와 일치하는 번호가 없다는 뜻으로도 해석됨으로 1~45사이의 값이 아닌 0을 넣어 반환하게함.
     }
     
     return (matchingNumbers, lottoNumber)
 }
 
-func writeLottoNumbersResult(my number : [Int]) {
-    let outputNumbers = checkLottoNumbers(my: number)
+func showLottoNumbersResult(my number : [Int]) {
+    let outputNumbers = comparisonLottoNumbers(my: number)
     
     if outputNumbers.matchingResult.contains(0) {
         print("로또번호는 6개 입니다. 다시 입력해주세요")
-    } else if outputNumbers.matchingResult.isEmpty {
-        print("이번주의 당첨번호는 \(outputNumbers.lottoNumber.sorted())입니다")
-        print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("이번주의 당첨번호는 \(outputNumbers.lottoNumber.sorted())입니다")
-        print("축하합니다! 겹치는 번호는 \(outputNumbers.matchingResult.sorted())입니다!")
+        
+        if outputNumbers.matchingResult.isEmpty {
+            print("아쉽지만 겹치는 번호가 없습니다.")
+        } else {
+            print("축하합니다! 겹치는 번호는 \(outputNumbers.matchingResult.sorted())입니다!")
+        }
     }
 }
 
-writeLottoNumbersResult(my: myLottoNumbers)
+showLottoNumbersResult(my: myLottoNumbers)
