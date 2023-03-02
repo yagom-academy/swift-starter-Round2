@@ -8,7 +8,6 @@
 import Foundation
 
 struct WinningLotteryNumbers {
-    
     func showNumbers(round: Int) {
         var lotteryNumbers: [Int : Set<Int>] = [:]
         for lotteryRound in 1...5 {
