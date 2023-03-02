@@ -26,6 +26,6 @@ func saveLuckyNumbers(time: Int) {
 func getPassedLuckyNumbers(time: Int) {
     if let numbers = passedLuckyNumbers["\(time)회차"] {
         print("\(time)회차의 로또 당첨 번호는 ", terminator: "")
-        print(numbers.map{ (number: Int) -> String in return String(number)}.joined(separator:","), terminator: " 입니다.")
+        print(numbers.map{ (number: Int) -> String in return String(number)}.joined(separator:", "), terminator: " 입니다.")
     }
 }
