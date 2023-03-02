@@ -17,7 +17,7 @@ func generateLotteryNumbers() -> Set<Int> {
     return winningNumbers
 }
 
-func compareLotteryNumbers(target: Array<Int>, to winning: Set<Int>) {
+func compareLotteryNumbers(target: Set<Int>, to winning: Set<Int>) {
     let matchedNumbers = winning.intersection(target).sorted()
     
     if matchedNumbers.isEmpty {
