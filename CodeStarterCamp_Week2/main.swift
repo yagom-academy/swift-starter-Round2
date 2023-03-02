@@ -8,6 +8,5 @@
 
 import Foundation
 
-let lotto = Lotto()
-lotto.matchNumbers(myLottoNumbers: [1,2,3,4,5,6])
-
+let winningLotteryNumbers = WinningLotteryNumbers()
+winningLotteryNumbers.showNumbers(round: 2)
