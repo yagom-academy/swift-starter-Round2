@@ -16,18 +16,18 @@ func getWinningLottoNumbers() {
         let randomNumber = Int.random(in: 1...45)
         lottoNumbers.insert(randomNumber)
     }
-    saveWinningNumbers(winningNumbers: lottoNumbers)
+    saveWinningNumbers(lottoNumbers)
     winningNumbers = lottoNumbers
 }
 
 /// 로또 당첨 번호를 생성하여 비교하는 함수
-func checkLottoNumbers(myNumbers: [Int]) {
+func checkLottoNumbers(_ myNumbers: [Int]) {
     getWinningLottoNumbers()
-    compareLottoNumbers(winningNumbers: winningNumbers, myNumbers: myNumbers)
+    compareLottoNumbers(winningNumbers, myNumbers)
 }
 
 /// 찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수
-func compareLottoNumbers(winningNumbers: Set<Int>, myNumbers: [Int]) {
+func compareLottoNumbers(_ winningNumbers: Set<Int>, _ myNumbers: [Int]) {
     let overlappingNumbers = winningNumbers.intersection(Set(myNumbers))
     let sortedNumbers = overlappingNumbers.sorted()
     
