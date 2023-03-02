@@ -9,22 +9,22 @@ import Foundation
 
 struct WinningLotteryNumbers {
     
-    func check(showTurn: Int) {
+    func showNumbers(round: Int) {
         var lotteryNumbers: [Int : Set<Int>] = [:]
-        for turn in 1...5 {
-            lotteryNumbers[turn] = generate()
+        for lotteryRound in 1...5 {
+            lotteryNumbers[lotteryRound] = generateNumbers()
         }
         
-        if let showTurnNumbersSet = lotteryNumbers[showTurn] {
+        if let showTurnNumbersSet = lotteryNumbers[round] {
             let showTurnNumbersString = showTurnNumbersSet.sorted()
                                                         .map{String($0)}
                                                         .joined(separator: ", ")
-            print("\(showTurn)회차의 로또 당첨 번호는 \(showTurnNumbersString) 입니다.")
+            print("\(round)회차의 로또 당첨 번호는 \(showTurnNumbersString) 입니다.")
         }
     }
     
     private
-    func generate() -> Set<Int> {
+    func generateNumbers() -> Set<Int> {
         var randomNumber: Int
         var lottoNumberSet = Set<Int>()
         
@@ -35,5 +35,4 @@ struct WinningLotteryNumbers {
         
         return lottoNumberSet
     }
-
 }

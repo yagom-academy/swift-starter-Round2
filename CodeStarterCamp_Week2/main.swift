@@ -9,4 +9,4 @@
 import Foundation
 
 let winningLotteryNumbers = WinningLotteryNumbers()
-winningLotteryNumbers.check(showTurn: 2)
+winningLotteryNumbers.showNumbers(round: 2)
