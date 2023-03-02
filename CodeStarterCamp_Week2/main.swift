@@ -8,5 +8,12 @@
 
 import Foundation
 
-print("Hello, World!")
+// practice
+//choose(gender: Gender.man)
+//choose(cardinalPoints: .west)
+
+// step 2
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+compareLotteryNumbers(target: myLottoNumbers, to: generateLotteryNumbers())
+
 
