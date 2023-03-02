@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Lotto {
+struct Lotto {
     
     func matchNumbers(myLottoNumbers: [Int]) {
         let myNumbersSet = Set<Int>(myLottoNumbers)
-        let lottoNumbers: Set<Int> = generateWinningLoteryNumbers()
+        let lottoNumbers: Set<Int> = generateWinningLotteryNumbers()
         let matchNumbers = lottoNumbers.intersection(myNumbersSet)
             .sorted()
             .map{String($0)}
@@ -25,7 +25,7 @@ class Lotto {
     }
     
     private
-    func generateWinningLoteryNumbers() -> Set<Int> {
+    func generateWinningLotteryNumbers() -> Set<Int> {
         var randomNumber: Int
         var lottoNumberSet = Set<Int>()
         
