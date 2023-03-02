@@ -7,20 +7,23 @@
 
 import Foundation
 
+private var winningNumbers: Set<Int> = []
+
 /// 로또 당첨 번호를 생성하는 함수
-func getWinningLottoNumbers() -> Set<Int> {
+func getWinningLottoNumbers() {
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
         let randomNumber = Int.random(in: 1...45)
         lottoNumbers.insert(randomNumber)
     }
-    return lottoNumbers
+    saveWinningNumbers(winningNumbers: lottoNumbers)
+    winningNumbers = lottoNumbers
 }
 
 /// 로또 당첨 번호를 생성하여 비교하는 함수
 func checkLottoNumbers(myNumbers: [Int]) {
-    let winningLottoNumbers = getWinningLottoNumbers()
-    compareLottoNumbers(winningNumbers: winningLottoNumbers, myNumbers: myNumbers)
+    getWinningLottoNumbers()
+    compareLottoNumbers(winningNumbers: winningNumbers, myNumbers: myNumbers)
 }
 
 /// 찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수
