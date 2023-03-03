@@ -17,11 +17,11 @@ func chooseLottoNumbers() -> Set<Int> {
     return pickUpLottoNumbers
 }
 
-func compareLottoNumbers(lhs myLottoNumbers: [Int], rhs chosenLottoNumbers: Set<Int>) -> [Int] {
+func compareLottoNumbers(with myLottoNumbers: [Int], _ chosenLottoNumbers: Set<Int>) -> [Int] {
     return chosenLottoNumbers.intersection(myLottoNumbers).sorted()
 }
 
-func printResult(commonLottoNumbers: [Int]) {
+func printResult(in commonLottoNumbers: [Int]) {
     if commonLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
@@ -30,7 +30,7 @@ func printResult(commonLottoNumbers: [Int]) {
 }
 
 func checkLottoResult(with myLottoNumbers: [Int]) {
-    let commonLottoNumbers = compareLottoNumbers(lhs: myLottoNumbers, rhs: chooseLottoNumbers())
+    let commonLottoNumbers = compareLottoNumbers(with: myLottoNumbers, chooseLottoNumbers())
     
-    printResult(commonLottoNumbers: commonLottoNumbers)
+    printResult(in: commonLottoNumbers)
 }
