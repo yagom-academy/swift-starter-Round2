@@ -14,6 +14,7 @@ func generateLottoNumbers() -> Set<Int> {
         let randomNumber: Int = Int.random(in: 1...45)
         pickedNumbers.insert(randomNumber)
     }
+    saveLottoNumbersWithCount(pickedNumbers)
     return pickedNumbers
 }
 
@@ -31,8 +32,30 @@ func checkLottoNumbers(mine myLottoNumbersArray: Array<Int>,
     }
 }
 
-let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
-let newLottoNumbers: Set<Int> = generateLottoNumbers()
+var lottoNumbersPerCount: [String: Array<Int>] = [:]
+var lottoCount: Int = 1
 
-checkLottoNumbers(mine: myLottoNumbers, winners: newLottoNumbers)
+func saveLottoNumbersWithCount(_ lottoNumbers: Set<Int>) {
+    let dictionaryKey: String = "\(lottoCount)회차"
+    lottoNumbersPerCount[dictionaryKey] = Array<Int>(lottoNumbers)
+    lottoCount += 1
+}
+
+func getPastLottoNumbers(of lottoCount: Int) {
+    let dictionaryKey: String = "\(lottoCount)회차"
+    let lottoNumbersOptional = lottoNumbersPerCount[dictionaryKey]
+    if let lottoNumbersSet = lottoNumbersOptional {
+        let lottoNumbers: String = lottoNumbersSet.map {String($0)}.joined(separator: ", ")
+        print("\(dictionaryKey)의 로또 당첨 번호는 \(lottoNumbers) 입니다.")
+    } else {
+        print("찾으시는 회차의 로또 당첨 번호가 없습니다")
+    }
+}
+
+var newLottoNumbers: Set<Int>
+for _ in (1...5) {
+    newLottoNumbers = generateLottoNumbers()
+}
+
+getPastLottoNumbers(of: 5)
 
