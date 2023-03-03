@@ -1,21 +1,42 @@
-var randomNumbers: Set<Int> = Set()
+var lottoList: Dictionary<String, Array> = [String: Array<Int>]()
 
-func createRandomNumbers() -> Set<Int> {
+func addRandomNubers() -> Array<Int>{
+    var randomNumbers: Array<Int> = []
+    
     while randomNumbers.count < 6 {
-        randomNumbers.insert(Int.random(in: 1...45))
+        randomNumbers.append(Int.random(in: 1...45))
     }
     return randomNumbers
 }
 
-func compareNumbers(myLottoNumbers: Set<Int>) {
-    let subtractNumbers = myLottoNumbers.intersection(createRandomNumbers())
-    
-    if subtractNumbers.isEmpty == false {
-        print("축하합니다! 겹치는 번호는 \(subtractNumbers) 입니다!")
+func wantLottoTurn(count: Int, wantTurn: Int, randomNubers: [Int]) {
+    for turn in 1...count {
+        lottoList["\(turn)회차"] = randomNubers
     }
+    print(lottoList)
+    if let randomNubers = lottoList["\(wantTurn)회차"] {
+            print("\(wantTurn)회차의 로또 당첨 번호는", randomNubers)
+              }
     else {
-        print("아쉽지만 겹치는 번호는 없습니다.")
+        print("아직 진행되지 않았습니다.")
     }
 }
 
-compareNumbers(myLottoNumbers: [4, 6, 8, 20, 25, 39])
+//func addLottoTurn(count: Int) {
+//
+//    for turn in 1...count {
+//        lottoList[turn] = randomNumbers
+//    }
+//    print(lottoList)
+//}
+//
+//func findLottoTurn(wantTurn: Int) {
+//    if let wantList = lottoList[wantTurn] {
+//
+//    }
+//}
+
+
+wantLottoTurn(count: 10, wantTurn: 4, randomNubers: addRandomNubers())
+
+
