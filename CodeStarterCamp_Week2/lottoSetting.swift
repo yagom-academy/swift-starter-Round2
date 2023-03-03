@@ -6,6 +6,7 @@
 //
 
 import Foundation
+/*
 var luckyNumbers: Set<Int> = Set<Int>()
 
 func pickNumbers() {
@@ -14,7 +15,7 @@ func pickNumbers() {
     }
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let myLottoNumbers: [Int] = [1, 35, 17, 11, 40, 23]
 
 func checkMyLotto() {
     var matchWithLuckyNumbers: [Int] = []
@@ -39,4 +40,4 @@ func checkMyLotto() {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
-
+*/

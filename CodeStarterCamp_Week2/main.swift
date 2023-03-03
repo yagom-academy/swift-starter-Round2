@@ -7,6 +7,7 @@
 //
 
 import Foundation
-saveLuckyNumbers(time: 10)
 
-getPassedLuckyNumbers(time: 6)
+saveLuckyNumbers(time: 100)
+
+getPassedLuckyNumbers(time: 78)
