@@ -20,10 +20,10 @@ func drawRandomNumber() -> [Int] {
 
 // step2
 func compare(myNumbers: [Int]) {
-    let randomNubers = drawRandomNumber()
+    let randomNumbers = drawRandomNumber()
     var lotteryNumbers: [Int] = []
     
-    for randomNumber in randomNubers {
+    for randomNumber in randomNumbers {
         if myNumbers.contains(randomNumber) {
             lotteryNumbers.append(randomNumber)
         }
