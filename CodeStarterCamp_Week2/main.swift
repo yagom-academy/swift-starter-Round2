@@ -8,7 +8,4 @@
 
 import Foundation
 
-pickNumbers()
-
-checkMyLotto()
-
+getPassedLuckyNumbers(since: 34, time: 1)
