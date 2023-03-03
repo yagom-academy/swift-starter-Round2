@@ -17,22 +17,20 @@ func chooseLottoNumbers() -> Set<Int> {
     return pickUpLottoNumbers
 }
 
-func compareLottoNumbers(myLottoNumbers: [Int], chosenLottoNumbers: Set<Int>) -> [Int] {
+func compareLottoNumbers(lhs myLottoNumbers: [Int], rhs chosenLottoNumbers: Set<Int>) -> [Int] {
     return chosenLottoNumbers.intersection(myLottoNumbers).sorted()
 }
 
 func printResult(commonLottoNumbers: [Int]) {
-    let commonLottoNumbersString: [String] = commonLottoNumbers.map{ String($0) }
-    
     if commonLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(commonLottoNumbersString.joined(separator: ", ")) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(commonLottoNumbers.map { String($0) }.joined(separator: ", ")) 입니다!")
     }
 }
 
-func checkLottoResult(myLottoNumbers: [Int]) {
-    let commonLottoNumbers = compareLottoNumbers(myLottoNumbers: myLottoNumbers, chosenLottoNumbers: chooseLottoNumbers())
+func checkLottoResult(with myLottoNumbers: [Int]) {
+    let commonLottoNumbers = compareLottoNumbers(lhs: myLottoNumbers, rhs: chooseLottoNumbers())
     
     printResult(commonLottoNumbers: commonLottoNumbers)
 }
