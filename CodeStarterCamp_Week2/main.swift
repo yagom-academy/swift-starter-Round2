@@ -38,7 +38,7 @@ func compare(myNumbers: [Int]) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
-compare(myNumbers: [3, 5, 12, 22, 26, 31])
+//compare(myNumbers: [3, 5, 12, 22, 26, 31])
 
 
 
@@ -46,25 +46,27 @@ compare(myNumbers: [3, 5, 12, 22, 26, 31])
 
 // step3
 
-//var lottoNumber = [String: [Int]]()
-//var round : Int = 1
-//
-//func save() {
-//    let numberDraw = randomNumberDraw()  //랜덤 숫자
-//    lottoNumber["\(round)회차 :"] = numberDraw   // 회차 : 번호
-////    print("what \(lottoNumber)")
-//    round += 1   // 함수 호출때마다 회차 +1
-//}
-////save()
-//
-//func numberCheck(checkRound: Int) {
-//    let numberDraws = randomNumberDraw()  //랜덤 숫자
-//
-//    for _ in 1...5 {
-//        save()  // 1회차  [번호]  5번 돈다
-//    }
-//
-//     let check = lottoNumber["\(checkRound)회차"] // 여기서 벨류 값 아....
-//        print("== \(check)")
-//}
-//numberCheck(checkRound: 3)
+var lottoNumber = [String: [Int]]()
+var round : Int = 1
+
+func saveLottoNumber() { // 로또 번호 생성 저장 진행
+    let numberDraw = drawRandomNumber()
+    lottoNumber["\(round)회차"] = numberDraw
+    round += 1
+    print(" 회차 \(lottoNumber)")
+}
+
+func createLotteryRounds() { // 5회차 생성
+    for _ in 1...5 {
+        saveLottoNumber()
+    }
+}
+
+func numberCheck(checkRound: Int) {
+    print("체크 함수")
+    if let check = lottoNumber["\(checkRound)회차"]  {
+        print("\(checkRound)회차의 로또 당첨 번호는 \(check)입니다.")
+    }
+}
+createLotteryRounds()
+numberCheck(checkRound: 1)
