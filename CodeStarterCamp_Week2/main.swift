@@ -7,32 +7,83 @@
 //
 
 import Foundation
-
-func randomNumberDraw() -> [Int] {
-    var result = [Int]()
+// step1
+func drawRandomNumber() -> [Int] {
+    var numbers: Set<Int> = []
     
-    while result.count < 6 {
+    while numbers.count < 6 {
         let randomNubers = Int.random(in: 1...45)
-        if !result.contains(randomNubers) {
-            result.append(randomNubers)
-        }
+        numbers.insert(randomNubers)
     }
-    return result.sorted()
+    return numbers.sorted()
 }
 
-func compare(myNumber: [Int]) {
-    let randomNuber = randomNumberDraw()
-
-    for selectNumbers in myNumber {
-        for randomNubers in randomNuber {
-            if selectNumbers == randomNubers  {
-                print("축하합니다! 겹치는 번호는 \(myNumber) 입니다!")
-                return
-            } else {
-                print("아쉽지만 겹치는 번호가 없습니다.")
-                return
-            }
+// step2
+func compare(myNumbers: [Int]) {
+    let randomNubers = drawRandomNumber()
+    var lotteryNumbers: [Int] = []
+    
+    for randomNuber in randomNubers {
+        if myNumbers.contains(randomNuber) {
+            lotteryNumbers.append(randomNuber)
         }
     }
+
+    let conversion = lotteryNumbers.map { String($0) }
+    let bine = conversion.joined(separator: ",")
+    if lotteryNumbers.count > 0 {
+            print("축하합니다! 겹치는 번호는 \(bine) 입니다!")
+    } else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
 }
-compare(myNumber: [3, 5, 12, 22, 26, 31])
+compare(myNumbers: [3, 5, 12, 22, 26, 31])
+
+
+
+
+
+// step3
+
+//var lottoNumber = [String: [Int]]()
+//var round : Int = 1
+//
+//func save() {
+//    let numberDraw = randomNumberDraw()  //랜덤 숫자
+//    lottoNumber["\(round)회차 :"] = numberDraw   // 회차 : 번호
+////    print("what \(lottoNumber)")
+//    round += 1   // 함수 호출때마다 회차 +1
+//}
+////save()
+//
+//func numberCheck(checkRound: Int) {
+//    let numberDraws = randomNumberDraw()  //랜덤 숫자
+//
+//    for _ in 1...5 {
+//        save()  // 1회차  [번호]  5번 돈다
+//    }
+//
+//     let check = lottoNumber["\(checkRound)회차"] // 여기서 벨류 값 아....
+//        print("== \(check)")
+//}
+//numberCheck(checkRound: 3)
+
+
+
+
+
+/*
+ if lotteryNumbers.count > 0 {
+ for i in lotteryNumbers.sorted() {
+ if i != lotteryNumbers[lotteryNumbers.count-1] {
+ print("축하합니다! 겹치는 번호는 ", terminator: "")
+ print("\(i)", terminator: ",")
+ print(" 입니다")
+ }
+ if i == lotteryNumbers[lotteryNumbers.count-1] {
+ print("축하합니다! 겹치는 번호는 ", terminator: "")
+ print("\(i)", terminator: "")
+ print(" 입니다")
+ }
+ }
+ */
