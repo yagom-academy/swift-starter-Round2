@@ -23,16 +23,17 @@ func compare(myNumbers: [Int]) {
     let randomNubers = drawRandomNumber()
     var lotteryNumbers: [Int] = []
     
-    for randomNuber in randomNubers {
-        if myNumbers.contains(randomNuber) {
-            lotteryNumbers.append(randomNuber)
+    for randomNumber in randomNubers {
+        if myNumbers.contains(randomNumber) {
+            lotteryNumbers.append(randomNumber)
         }
     }
-
-    let conversion = lotteryNumbers.map { String($0) }
-    let bine = conversion.joined(separator: ",")
+    
+    let convertedNumbersToTexts = lotteryNumbers.map { String($0) }
+    let bindedText = convertedNumbersToTexts.joined(separator: ",")
+    
     if lotteryNumbers.count > 0 {
-            print("축하합니다! 겹치는 번호는 \(bine) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(bindedText) 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
@@ -67,23 +68,3 @@ compare(myNumbers: [3, 5, 12, 22, 26, 31])
 //        print("== \(check)")
 //}
 //numberCheck(checkRound: 3)
-
-
-
-
-
-/*
- if lotteryNumbers.count > 0 {
- for i in lotteryNumbers.sorted() {
- if i != lotteryNumbers[lotteryNumbers.count-1] {
- print("축하합니다! 겹치는 번호는 ", terminator: "")
- print("\(i)", terminator: ",")
- print(" 입니다")
- }
- if i == lotteryNumbers[lotteryNumbers.count-1] {
- print("축하합니다! 겹치는 번호는 ", terminator: "")
- print("\(i)", terminator: "")
- print(" 입니다")
- }
- }
- */
