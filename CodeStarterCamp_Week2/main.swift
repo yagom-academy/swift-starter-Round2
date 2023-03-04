@@ -8,5 +8,15 @@
 
 import Foundation
 
-print("Hello, World!")
+var integers = [1,2,3]
+let people = ["yagom": 10, "eric":15, "mike":12]
+
+for integer in integers {
+    print(integer)
+}
+
+// Dictionary의 item은 key와 value로 구성된 튜플 타입이다.
+for (name, age) in people {
+    print("\(name): \(age)")
+}
 
