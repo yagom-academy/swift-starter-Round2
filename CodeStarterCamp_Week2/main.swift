@@ -14,6 +14,7 @@ compareLottoNumber([1,2,3,4,5,6])
 func compareLottoNumber(_ myLottoNumbers: [Int]) {
     var sameLottoNumbers: String = ""
     let lottoNumbers = createRandomLottoNumbers()
+    
     for myLottoNum in myLottoNumbers {
         for lottoNum in lottoNumbers {
             if myLottoNum == lottoNum {
@@ -22,6 +23,7 @@ func compareLottoNumber(_ myLottoNumbers: [Int]) {
             }
         }
     }
+    
     if sameLottoNumbers.count != 0 {
         print("축하합니다! 겹치는 번호는 \(sameLottoNumbers.dropLast(2)) 입니다.")
     }
@@ -34,9 +36,12 @@ func compareLottoNumber(_ myLottoNumbers: [Int]) {
 //로또 숫자 6개를 랜덤으로 생성하는 함수
 func createRandomLottoNumbers() -> [Int] {
     var setLottoNumbers: Set<Int> = Set<Int>()
+    
     while setLottoNumbers.count < 6 {
         setLottoNumbers.insert(Int.random(in: 1...45))
     }
+    
     let lottoNumbers = Array(setLottoNumbers.sorted())
+    
     return lottoNumbers
 }
