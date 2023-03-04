@@ -45,7 +45,7 @@ func makeLottoRound(increasingRound: Int) {
 }
 
 
-func compareLottoNumbers(myLottoNumbers: [Int]) {
+func compareLottoNumbers(writingLottoNumber myLottoNumbers: [Int]) {
     let lottoNumber: Set<Int> = drawLottoNumbers()
     
     let intersectionLottoNumbers = lottoNumber.intersection(Set(myLottoNumbers))
@@ -60,7 +60,7 @@ func compareLottoNumbers(myLottoNumbers: [Int]) {
 }
 
 
-func callLottoRound(roundNumber: Int) {
+func callLottoRound(wantedRound roundNumber: Int) {
     guard let lottoNumbers = savedLottoRounds[roundNumber] else {
         print("잘못된 회차를 입력했습니다")
         return
@@ -74,6 +74,6 @@ func callLottoRound(roundNumber: Int) {
 
 
 makeLottoRound(increasingRound: 5)
-callLottoRound(roundNumber: 6)
+callLottoRound(wantedRound: 6)
 makeLottoRound(increasingRound: 5)
-callLottoRound(roundNumber: 6)
+callLottoRound(wantedRound: 6)
