@@ -6,13 +6,6 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-//pastLottoNumbers = ["1회차": [13456]]
-//print(pastLottoNumbers.count)
-//pastLottoNumbers.updateValue([1,2,3,4,5,6], forKey: "2회차")
-//print(pastLottoNumbers.count)
-//print(pastLottoNumbers)
-//pastLottoNumbers.append("2회차": [1,2,3,4,5,6])
-
 import Foundation
 
 var pastLottoNumbers: [String: [Int]] = [:]
