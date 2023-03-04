@@ -7,21 +7,20 @@
 //
 
 import Foundation
-
-var lottoNumber: Set<Int> = [];
-let myLottoNumbers: [Int] = [1,2,3,4,5,6]
-var sameLottoNumbers = Set<Int>()
-var sameLottoNumbersChangeString = String()
-
-func createLottoNumbers() {
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+func createLottoNumbers() -> Set<Int> {
+    var lottoNumber: Set<Int> = []
     while lottoNumber.count < 6 {
         lottoNumber.insert(Int.random(in:1...45))
     }
     print("이번 주 로또 번호 :",lottoNumber)
+    return lottoNumber
 }
 
-func compareLottoNumbers(confirmedNumber: Set<Int>, myLottoNumber: [Int]) {
-    sameLottoNumbers = confirmedNumber.intersection(myLottoNumber)
+func compareLottoNumbers(lottoWinNumbers: Set<Int>, mine: [Int]) {
+    var sameLottoNumbers = Set<Int>()
+    var sameLottoNumbersChangeString = String()
+    sameLottoNumbers = lottoWinNumbers.intersection(mine)
     if sameLottoNumbers.count > 0 {
         for stringCount in sameLottoNumbers {
             sameLottoNumbersChangeString += String(stringCount) + ","
@@ -32,8 +31,7 @@ func compareLottoNumbers(confirmedNumber: Set<Int>, myLottoNumber: [Int]) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
-createLottoNumbers()
-compareLottoNumbers(confirmedNumber: lottoNumber, myLottoNumber: myLottoNumbers)
+compareLottoNumbers(lottoWinNumbers: createLottoNumbers(), mine: myLottoNumbers)
 
 
 
