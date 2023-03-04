@@ -11,6 +11,19 @@ import Foundation
 var lottoRound: [Int: [Int]] = [:]
 
 
+var savedLottoRounds: [Int: [Int]] = [:]
+var round = 1
+
+
+func changeToStr(customStr: [Int]) -> String {
+    var str = customStr.description
+    str.removeFirst()
+    str.removeLast()
+    
+    return str
+}
+
+
 func drawLottoNumbers() -> Set<Int> {
     var lottoNumbers = Set<Int>()
 
@@ -21,12 +34,12 @@ func drawLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func makeLottoRound(lottoNumbers: Set<Int>, round: Int) {
+
+func makeLottoRound(increasingRound: Int) {
     
-    let lottoNumbers = lottoNumbers.sorted()
-    
-    for count in 1 ... round {
-        lottoRound[count] = lottoNumbers
+    for count in round ..< round + increasingRound {
+        savedLottoRounds[count] = drawLottoNumbers().sorted()
+        round += 1
     }
     
 }
@@ -38,10 +51,7 @@ func compareLottoNumbers(myLottoNumbers: [Int]) {
     let intersectionLottoNumbers = lottoNumber.intersection(Set(myLottoNumbers))
     
     if !intersectionLottoNumbers.isEmpty {
-        var winningNumbers = intersectionLottoNumbers.sorted().description
-        
-        winningNumbers.removeFirst()
-        winningNumbers.removeLast()
+        let winningNumbers = changeToStr(customStr: intersectionLottoNumbers.sorted())
         
         print("축하합니다! 겹치는 번호는 \(winningNumbers) 입니다!")
     } else {
@@ -49,20 +59,21 @@ func compareLottoNumbers(myLottoNumbers: [Int]) {
     }
 }
 
-func printLotto(roundNumber: Int) {
-    guard let lottoNumbers = lottoRound[roundNumber] else {
+
+func callLottoRound(roundNumber: Int) {
+    guard let lottoNumbers = savedLottoRounds[roundNumber] else {
         print("잘못된 회차를 입력했습니다")
         return
     }
     
-    var winningNumbers = lottoNumbers.description
-    winningNumbers.removeFirst()
-    winningNumbers.removeLast()
+    let lottoNumbers2 = changeToStr(customStr: lottoNumbers)
+
     
-    print("\(roundNumber)회차의 로또 당첨 번호는 \(winningNumbers) 입니다.")
+    print("\(roundNumber)회차의 로또 당첨 번호는 \(lottoNumbers2) 입니다.")
 }
 
 
-
-makeLottoRound(lottoNumbers: drawLottoNumbers(), round: 5)
-printLotto(roundNumber: 1)
+makeLottoRound(increasingRound: 5)
+callLottoRound(roundNumber: 6)
+makeLottoRound(increasingRound: 5)
+callLottoRound(roundNumber: 6)
