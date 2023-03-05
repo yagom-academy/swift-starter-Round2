@@ -8,54 +8,42 @@
 
 import Foundation
 
+var lottoNumbersPerRound: [String: Array<Int>] = [:]
+var lottoRound: Int = 1
+
 func generateLottoNumbers() -> Set<Int> {
     var pickedNumbers: Set<Int> = Set<Int>()
     while pickedNumbers.count < 6 {
         let randomNumber: Int = Int.random(in: 1...45)
         pickedNumbers.insert(randomNumber)
     }
-    saveLottoNumbersWithCount(pickedNumbers)
+    saveLottoNumbersWithRound(pickedNumbers)
+    lottoRound += 1
     return pickedNumbers
 }
 
-func checkLottoNumbers(mine myLottoNumbersArray: Array<Int>,
-                       winners newLottoNumbersSet: Set<Int>) {
-    let myLottoNumbersSet: Set<Int> = Set<Int>(myLottoNumbersArray)
-    let matchedLottoNumbers: String = newLottoNumbersSet.intersection(myLottoNumbersSet)
-        .map({(value: Int) -> String in return String(value)})
-        .joined(separator: ", ")
-
-    if matchedLottoNumbers.count > 0 {
-        print("축하합니다! 겹치는 번호는 \(matchedLottoNumbers) 입니다!")
-    } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    }
+func saveLottoNumbersWithRound(_ lottoNumbers: Set<Int>) {
+    let dictionaryKey: String = "\(lottoRound)회차"
+    lottoNumbersPerRound[dictionaryKey] = Array<Int>(lottoNumbers)
 }
 
-var lottoNumbersPerCount: [String: Array<Int>] = [:]
-var lottoCount: Int = 1
-
-func saveLottoNumbersWithCount(_ lottoNumbers: Set<Int>) {
-    let dictionaryKey: String = "\(lottoCount)회차"
-    lottoNumbersPerCount[dictionaryKey] = Array<Int>(lottoNumbers)
-    lottoCount += 1
-}
-
-func getPastLottoNumbers(of lottoCount: Int) {
-    let dictionaryKey: String = "\(lottoCount)회차"
-    let lottoNumbersOptional = lottoNumbersPerCount[dictionaryKey]
-    if let lottoNumbersSet = lottoNumbersOptional {
-        let lottoNumbers: String = lottoNumbersSet.map {String($0)}.joined(separator: ", ")
-        print("\(dictionaryKey)의 로또 당첨 번호는 \(lottoNumbers) 입니다.")
+func checkPastLottoNumbers(of lottoRound: Int) {
+    let dictionaryKey: String = "\(lottoRound)회차"
+    if let winnerForTheRound = lottoNumbersPerRound[dictionaryKey] {
+        let winner: String = winnerForTheRound.map {String($0)}.joined(separator: ", ")
+        print("\(dictionaryKey)의 로또 당첨 번호는 \(winner) 입니다.")
     } else {
         print("찾으시는 회차의 로또 당첨 번호가 없습니다")
     }
 }
 
-var newLottoNumbers: Set<Int>
-for _ in (1...5) {
-    newLottoNumbers = generateLottoNumbers()
+func generateLottoNumbers(by repeatCount: Int) {
+    var newLottoNumbers: Set<Int>
+    for _ in (1...repeatCount) {
+        newLottoNumbers = generateLottoNumbers()
+    }
 }
 
-getPastLottoNumbers(of: 5)
+generateLottoNumbers(by: 5)
+checkPastLottoNumbers(of: 6)
 
