@@ -8,15 +8,6 @@
 
 import Foundation
 // step1
-func drawRandomNumber() -> [Int] {
-    var numbers: Set<Int> = []
-    
-    while numbers.count < 6 {
-        let randomNubers = Int.random(in: 1...45)
-        numbers.insert(randomNubers)
-    }
-    return numbers.sorted()
-}
 
 // step2
 func compare(myNumbers: [Int]) {
@@ -24,7 +15,9 @@ func compare(myNumbers: [Int]) {
     var lotteryNumbers: [Int] = []
     
     for randomNumber in randomNumbers {
+        print(randomNumber)
         if myNumbers.contains(randomNumber) {
+            print("contains = \(randomNumber)")
             lotteryNumbers.append(randomNumber)
         }
     }
@@ -46,27 +39,45 @@ func compare(myNumbers: [Int]) {
 
 // step3
 
+
 var lottoNumber = [String: [Int]]()
 var round : Int = 1
 
-func saveLottoNumber() { // 로또 번호 생성 저장 진행
-    let numberDraw = drawRandomNumber()
-    lottoNumber["\(round)회차"] = numberDraw
+func saveRoundLottoNumbers(numbers: [Int]) {
+    lottoNumber["\(round)회차"] = numbers
     round += 1
-    print(" 회차 \(lottoNumber)")
 }
 
-func createLotteryRounds() { // 5회차 생성
-    for _ in 1...5 {
-        saveLottoNumber()
+@discardableResult
+func drawRandomNumber() -> [Int] {
+    var numbers: Set<Int> = []
+    
+    while numbers.count < 6 {
+        let randomNubers = Int.random(in: 1...45)
+        numbers.insert(randomNubers)
+    }
+    saveRoundLottoNumbers(numbers: Array(numbers.sorted()))
+    return numbers.sorted()
+}
+
+func createLotteryRounds(round: Int) {
+    for _ in 1...round {
+        drawRandomNumber()
     }
 }
-
-func numberCheck(checkRound: Int) {
-    print("체크 함수")
+createLotteryRounds(round: 5)
+func checkNumber(checkRound: Int) {
     if let check = lottoNumber["\(checkRound)회차"]  {
         print("\(checkRound)회차의 로또 당첨 번호는 \(check)입니다.")
+    } else {
+        print("추첨 회차가 아닙니다")
     }
 }
-createLotteryRounds()
-numberCheck(checkRound: 1)
+checkNumber(checkRound: 1)
+checkNumber(checkRound: 2)
+checkNumber(checkRound: 3)
+checkNumber(checkRound: 4)
+checkNumber(checkRound: 5)
+checkNumber(checkRound: 6)
+checkNumber(checkRound: 7)
+checkNumber(checkRound: 8)
