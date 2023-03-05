@@ -8,7 +8,17 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var savedLottoRounds: [Int: [Int]] = [:]
+var round = 1
+
+
+func changeToText(from numbers: [Int]) -> String {
+    var text = numbers.description
+    text.removeFirst()
+    text.removeLast()
+    
+    return text
+}
 
 
 func drawLottoNumbers() -> Set<Int> {
@@ -22,16 +32,28 @@ func drawLottoNumbers() -> Set<Int> {
 }
 
 
-func compareLottoNumbers() {
-    let lottoNumber: Set<Int> = drawLottoNumbers()
+func createLottoRound(increasingRound: Int) {
     
-    let intersectionLottoNumbers = lottoNumber.intersection(Set(myLottoNumbers))
+    for count in round ..< round + increasingRound {
+        savedLottoRounds[count] = drawLottoNumbers().sorted()
+        round += 1
+    }
+    
+}
+
+
+func compareLottoNumbers(with myLottoNumbers: [Int], roundNumber: Int) {
+    var intersectionLottoNumbers = Set<Int>()
+    
+    guard let wantedLottoRound = savedLottoRounds[round] else {
+        print("잘못된 회차입니다.")
+        return
+    }
+
+    intersectionLottoNumbers = Set(wantedLottoRound).intersection(Set(myLottoNumbers))
     
     if !intersectionLottoNumbers.isEmpty {
-        var winningNumbers = intersectionLottoNumbers.description
-        
-        winningNumbers.removeFirst()
-        winningNumbers.removeLast()
+        let winningNumbers = changeToText(from: intersectionLottoNumbers.sorted())
         
         print("축하합니다! 겹치는 번호는 \(winningNumbers) 입니다!")
     } else {
@@ -39,5 +61,22 @@ func compareLottoNumbers() {
     }
 }
 
-compareLottoNumbers()
 
+func callLottoNumbers(in roundNumber: Int) {
+    guard let lottoNumbers = savedLottoRounds[roundNumber] else {
+        print("잘못된 회차를 입력했습니다")
+        return
+    }
+    
+    let textLottoNumbers = changeToText(from: lottoNumbers)
+
+    
+    print("\(roundNumber)회차의 로또 당첨 번호는 \(textLottoNumbers) 입니다.")
+}
+
+
+createLottoRound(increasingRound: 5)
+//callLottoRound(in: 6)
+createLottoRound(increasingRound: 5)
+compareLottoNumbers(with: [1, 4, 5, 13, 33, 43], roundNumber: 9)
+//callLottoRound(in: 6)
