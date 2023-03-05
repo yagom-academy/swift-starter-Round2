@@ -8,15 +8,6 @@
 
 import Foundation
 // step1
-func drawRandomNumber() -> [Int] {
-    var numbers: Set<Int> = []
-    
-    while numbers.count < 6 {
-        let randomNubers = Int.random(in: 1...45)
-        numbers.insert(randomNubers)
-    }
-    return numbers.sorted()
-}
 
 // step2
 func compare(myNumbers: [Int]) {
@@ -24,7 +15,9 @@ func compare(myNumbers: [Int]) {
     var lotteryNumbers: [Int] = []
     
     for randomNumber in randomNumbers {
+        print(randomNumber)
         if myNumbers.contains(randomNumber) {
+            print("contains = \(randomNumber)")
             lotteryNumbers.append(randomNumber)
         }
     }
@@ -38,7 +31,7 @@ func compare(myNumbers: [Int]) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
-compare(myNumbers: [3, 5, 12, 22, 26, 31])
+//compare(myNumbers: [3, 5, 12, 22, 26, 31])
 
 
 
@@ -46,25 +39,45 @@ compare(myNumbers: [3, 5, 12, 22, 26, 31])
 
 // step3
 
-//var lottoNumber = [String: [Int]]()
-//var round : Int = 1
-//
-//func save() {
-//    let numberDraw = randomNumberDraw()  //랜덤 숫자
-//    lottoNumber["\(round)회차 :"] = numberDraw   // 회차 : 번호
-////    print("what \(lottoNumber)")
-//    round += 1   // 함수 호출때마다 회차 +1
-//}
-////save()
-//
-//func numberCheck(checkRound: Int) {
-//    let numberDraws = randomNumberDraw()  //랜덤 숫자
-//
-//    for _ in 1...5 {
-//        save()  // 1회차  [번호]  5번 돈다
-//    }
-//
-//     let check = lottoNumber["\(checkRound)회차"] // 여기서 벨류 값 아....
-//        print("== \(check)")
-//}
-//numberCheck(checkRound: 3)
+
+var lottoNumber = [String: [Int]]()
+var round : Int = 1
+
+func saveRoundLottoNumbers(numbers: [Int]) {
+    lottoNumber["\(round)회차"] = numbers
+    round += 1
+}
+
+@discardableResult
+func drawRandomNumber() -> [Int] {
+    var numbers: Set<Int> = []
+    
+    while numbers.count < 6 {
+        let randomNubers = Int.random(in: 1...45)
+        numbers.insert(randomNubers)
+    }
+    saveRoundLottoNumbers(numbers: Array(numbers.sorted()))
+    return numbers.sorted()
+}
+
+func createLotteryRounds(round: Int) {
+    for _ in 1...round {
+        drawRandomNumber()
+    }
+}
+createLotteryRounds(round: 5)
+func checkNumber(checkRound: Int) {
+    if let check = lottoNumber["\(checkRound)회차"]  {
+        print("\(checkRound)회차의 로또 당첨 번호는 \(check)입니다.")
+    } else {
+        print("추첨 회차가 아닙니다")
+    }
+}
+checkNumber(checkRound: 1)
+checkNumber(checkRound: 2)
+checkNumber(checkRound: 3)
+checkNumber(checkRound: 4)
+checkNumber(checkRound: 5)
+checkNumber(checkRound: 6)
+checkNumber(checkRound: 7)
+checkNumber(checkRound: 8)
