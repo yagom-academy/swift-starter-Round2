@@ -8,12 +8,11 @@
 
 var lottoWinNumbers: Set<Int> = Set<Int>()
 
-func setLottoWinNumbers() -> Set<Int> {
+func setLottoWinNumbers() {
     while lottoWinNumbers.count < 6 {
         let element = Int.random(in: 1...45)
         lottoWinNumbers.insert(element)
     }
-    return lottoWinNumbers
 }
 
 func matchMyLottoNumbers(myLottoNumbers: Set<Int>) {
