@@ -7,25 +7,32 @@
 //
 
 var lottoWinNumbers: Set<Int> = Set<Int>()
+var lottoWinNumbersDictionary: [String: [Int]] = [:]
+var count = 1
 
 func setLottoWinNumbers() {
+    lottoWinNumbers.removeAll()
+    
     while lottoWinNumbers.count < 6 {
         let element = Int.random(in: 1...45)
         lottoWinNumbers.insert(element)
     }
+    
+    lottoWinNumbersDictionary["\(count)회차"] = lottoWinNumbers.sorted()
+    count += 1
 }
 
-func matchMyLottoNumbers(myLottoNumbers: Set<Int>) {
-    let intersection: Set<Int> = lottoWinNumbers.intersection(myLottoNumbers)
+for _ in 1...5 {
+    setLottoWinNumbers()
+}
 
-    if intersection.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        let matchNumbers = intersection.sorted().map{String($0)}.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(matchNumbers) 입니다!")
+func pickTheNumbers(countNumber: Int) {
+    let theNumbers = lottoWinNumbersDictionary["\(countNumber)회차"]
+    if let printTheNumbers: Array<Int> = theNumbers {
+        let message = printTheNumbers.map{String($0)}.joined(separator: ", ")
+        print("\(countNumber)회차의 로또 당첨 번호는 \(message) 입니다.")
     }
 }
 
-setLottoWinNumbers()
-matchMyLottoNumbers(myLottoNumbers: [1,2,3,4,5,6])
-matchMyLottoNumbers(myLottoNumbers: [12,24,37,41,7,30])
+print(lottoWinNumbersDictionary)
+pickTheNumbers(countNumber: 2)
