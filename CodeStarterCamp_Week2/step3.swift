@@ -7,22 +7,16 @@
 
 import Foundation
 
-func generateLotteryNumbers(history: inout [String: Array<Int>]) {
-    var winningNumbers: Set<Int> = []
-
-    while winningNumbers.count < 6 {
-        winningNumbers.insert(Int.random(in: 1...45))
+func genarateAndSaveLotteryNumbers(to history: [String: [Int]], iteration: Int = 1) -> [String: [Int]] {
+    var updatedHistory = history
+    
+    for _ in 1...iteration {
+        updatedHistory["\(updatedHistory.count + 1)회차"] = Array(generateLotteryNumbers()).sorted()
     }
-    addLotteryNumbers(Array(winningNumbers).sorted(), to: &history)
+    return updatedHistory
 }
 
-func addLotteryNumbers(_ winningNumbers: Array<Int>, to history: inout [String: Array<Int>]) {
-    let key: String = "\(history.count + 1)회차"
-
-    history[key] = winningNumbers
-}
-
-func findLotteryNumbers(round: Int, from history: [String: Array<Int>]) {
+func findLotteryNumbers(round: Int, from history: [String: [Int]]) {
     let key: String = "\(round)회차"
     
     if let numbers = history[key] {

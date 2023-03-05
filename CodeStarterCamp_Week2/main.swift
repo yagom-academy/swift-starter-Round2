@@ -8,20 +8,6 @@
 
 import Foundation
 
-// MARK: - practice
-//choose(gender: Gender.man)
-//choose(cardinalPoints: .west)
-//optionalPractice1()
-//optionalPractice2()
-//optionalPractice3()
-
-// MARK: - step2
-//let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-//compareLotteryNumbers(target: myLottoNumbers, to: generateLotteryNumbers())
-
-// MARK: - step3
-var lotteryHistory: [String: Array<Int>] = [:]
-for _ in 1...5 {
-    generateLotteryNumbers(history: &lotteryHistory)
-}
+var lotteryHistory: [String: [Int]] = [:]
+lotteryHistory = genarateAndSaveLotteryNumbers(to: lotteryHistory, iteration: 5)
 findLotteryNumbers(round: 2, from: lotteryHistory)
