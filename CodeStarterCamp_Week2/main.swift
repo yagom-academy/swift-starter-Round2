@@ -8,19 +8,16 @@
 
 import Foundation
 
-var lottoRound: [Int: [Int]] = [:]
-
-
 var savedLottoRounds: [Int: [Int]] = [:]
 var round = 1
 
 
-func changeToStr(customStr: [Int]) -> String {
-    var str = customStr.description
-    str.removeFirst()
-    str.removeLast()
+func changeToText(from numbers: [Int]) -> String {
+    var text = numbers.description
+    text.removeFirst()
+    text.removeLast()
     
-    return str
+    return text
 }
 
 
@@ -35,7 +32,7 @@ func drawLottoNumbers() -> Set<Int> {
 }
 
 
-func makeLottoRound(increasingRound: Int) {
+func createLottoRound(increasingRound: Int) {
     
     for count in round ..< round + increasingRound {
         savedLottoRounds[count] = drawLottoNumbers().sorted()
@@ -45,13 +42,18 @@ func makeLottoRound(increasingRound: Int) {
 }
 
 
-func compareLottoNumbers(writingLottoNumber myLottoNumbers: [Int]) {
-    let lottoNumber: Set<Int> = drawLottoNumbers()
+func compareLottoNumbers(with myLottoNumbers: [Int], roundNumber: Int) {
+    var intersectionLottoNumbers = Set<Int>()
     
-    let intersectionLottoNumbers = lottoNumber.intersection(Set(myLottoNumbers))
+    guard let wantedLottoRound = savedLottoRounds[round] else {
+        print("잘못된 회차입니다.")
+        return
+    }
+
+    intersectionLottoNumbers = Set(wantedLottoRound).intersection(Set(myLottoNumbers))
     
     if !intersectionLottoNumbers.isEmpty {
-        let winningNumbers = changeToStr(customStr: intersectionLottoNumbers.sorted())
+        let winningNumbers = changeToText(from: intersectionLottoNumbers.sorted())
         
         print("축하합니다! 겹치는 번호는 \(winningNumbers) 입니다!")
     } else {
@@ -60,20 +62,21 @@ func compareLottoNumbers(writingLottoNumber myLottoNumbers: [Int]) {
 }
 
 
-func callLottoRound(wantedRound roundNumber: Int) {
+func callLottoNumbers(in roundNumber: Int) {
     guard let lottoNumbers = savedLottoRounds[roundNumber] else {
         print("잘못된 회차를 입력했습니다")
         return
     }
     
-    let lottoNumbers2 = changeToStr(customStr: lottoNumbers)
+    let textLottoNumbers = changeToText(from: lottoNumbers)
 
     
-    print("\(roundNumber)회차의 로또 당첨 번호는 \(lottoNumbers2) 입니다.")
+    print("\(roundNumber)회차의 로또 당첨 번호는 \(textLottoNumbers) 입니다.")
 }
 
 
-makeLottoRound(increasingRound: 5)
-callLottoRound(wantedRound: 6)
-makeLottoRound(increasingRound: 5)
-callLottoRound(wantedRound: 6)
+createLottoRound(increasingRound: 5)
+//callLottoRound(in: 6)
+createLottoRound(increasingRound: 5)
+compareLottoNumbers(with: [1, 4, 5, 13, 33, 43], roundNumber: 9)
+//callLottoRound(in: 6)
