@@ -9,6 +9,14 @@ import Foundation
 
 var lottoInformation: Dictionary<String, Array<Int>> = [:]
 
+func checkLottoInformation(round: Int) {
+    for round in 1...5 {
+        recordLottoNumbersPerRound(per: round, with: chooseLottoNumbers())
+    }
+    
+    printLottoInformationPerRound(per: round)
+}
+
 func recordLottoNumbersPerRound(per round: Int, with chosenLottoNumbers: Array<Int>) {
     lottoInformation.updateValue(chosenLottoNumbers, forKey: "\(round)회차")
 }
@@ -29,12 +37,4 @@ func printLottoInformationPerRound(per round: Int) {
     } else {
         print("조회할 수 없는 회차입니다!!!")
     }
-}
-
-func checkLottoInfo(round: Int) {
-    for round in 1...5 {
-        recordLottoNumbersPerRound(per: round, with: chooseLottoNumbers())
-    }
-    
-    printLottoInformationPerRound(per: round)
 }
