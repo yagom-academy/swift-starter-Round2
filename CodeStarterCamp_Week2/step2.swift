@@ -18,11 +18,11 @@ func getLottoNumbers() -> Set<Int> {
 }
 
 func checkLottoNumbers(with myLottoNumbers: [Int]) {
-    let winNumbers: [Int] = getLottoNumbers().intersection(myLottoNumbers).sorted()
+    let winningNumbers: [Int] = getLottoNumbers().intersection(myLottoNumbers).sorted()
 
-    if winNumbers.isEmpty {
+    if winningNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(winNumbers.map { String($0) } .joined(separator: ", ")) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(winningNumbers.map { String($0) } .joined(separator: ", ")) 입니다!")
     }
 }
