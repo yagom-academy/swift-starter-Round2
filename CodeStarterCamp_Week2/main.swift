@@ -8,11 +8,11 @@
 
 import Foundation
 
-func drawLotto(_ myLottoNumbers: [Int]) {
+func drawLotto(by myLottoNumbers: [Int]) {
     let lottoNumbers: Set<Int> = generateLottoNumbers()
     let matchedLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
     
-    printLottoResult(matchedLottoNumbers)
+    printLottoResult(by: matchedLottoNumbers)
 }
 
 func generateLottoNumbers() -> Set<Int> {
@@ -25,7 +25,7 @@ func generateLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func printLottoResult(_ matchedLottoNumbers: Set<Int>) {
+func printLottoResult(by matchedLottoNumbers: Set<Int>) {
     if matchedLottoNumbers.count > 0 {
         let matchNumbersString = matchedLottoNumbers
             .sorted()
@@ -38,4 +38,4 @@ func printLottoResult(_ matchedLottoNumbers: Set<Int>) {
 }
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-drawLotto(myLottoNumbers)
+drawLotto(by: myLottoNumbers)
