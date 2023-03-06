@@ -7,7 +7,7 @@
 
 import Foundation
 
-func pickLottoNumber() -> Set<Int> {
+func getLottoNumbers() -> Set<Int> {
     var pickedLottoNumbers: Set<Int> = Set<Int>()
     
     while pickedLottoNumbers.count < 6 {
@@ -17,22 +17,12 @@ func pickLottoNumber() -> Set<Int> {
     return pickedLottoNumbers
 }
 
-func checkLottoNumbers(to myLottoNumbers: [Int]) {
-    let overlapNumber: [Int] = pickLottoNumber().intersection(myLottoNumbers).sorted()
+func checkLottoNumbers(with myLottoNumbers: [Int]) {
+    let winNumbers: [Int] = getLottoNumbers().intersection(myLottoNumbers).sorted()
 
-    if overlapNumber.isEmpty {
+    if winNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        
-        for index in 0...overlapNumber.count - 1 {
-            if index == overlapNumber.count - 1 { // 겹치는 마지막 로또 번호일 경우
-                print("\(overlapNumber[index])", terminator: "")
-            } else {
-                print("\(overlapNumber[index])", terminator: ", ")
-            }
-        }
-        
-        print(" 입니다!")
+        print("축하합니다! 겹치는 번호는 \(winNumbers.map { String($0) } .joined(separator: ", ")) 입니다!")
     }
 }

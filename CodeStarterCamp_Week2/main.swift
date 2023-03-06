@@ -9,4 +9,4 @@
 import Foundation
 
 let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
-checkLottoNumbers(to: myLottoNumbers)
+checkLottoNumbers(with: myLottoNumbers)
