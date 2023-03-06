@@ -7,34 +7,34 @@
 
 import Foundation
 
-func recordLottoInfo(round: Int, which chosenLottoNumbers: Array<Int>, in lottoInfos: inout [String: [Int]]) {
-    lottoInfos.updateValue(chosenLottoNumbers, forKey: String(round) + "회차")
+var lottoInformation: Dictionary<String, Array<Int>> = [:]
+
+func recordLottoNumbersPerRound(per round: Int, with chosenLottoNumbers: Array<Int>) {
+    lottoInformation.updateValue(chosenLottoNumbers, forKey: "\(round)회차")
 }
 
 func chooseLottoNumbers() -> [Int] {
-    var pickUpLottoNumbers: Set<Int> = Set<Int>()
+    var selectedLottoNumbers: Set<Int> = []
     
-    while pickUpLottoNumbers.count < 6 {
-        pickUpLottoNumbers.insert(Int.random(in: 1...45))
+    while selectedLottoNumbers.count < 6 {
+        selectedLottoNumbers.insert(Int.random(in: 1...45))
     }
     
-    return pickUpLottoNumbers.sorted()
+    return selectedLottoNumbers.sorted()
 }
 
-func printLottoInfo(round: Int, in lottoInfos: [String: Array<Int>]) {
-    if let lottoInfo = lottoInfos[String(round) + "회차"] {
-        print("\(round)회차의 로또 당첨 번호는 \(lottoInfo.map{ String($0) }.joined(separator: ", ")) 입니다.")
+func printLottoInformationPerRound(per round: Int) {
+    if let lottoNumbers = lottoInformation["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(lottoNumbers.map { String($0) }.joined(separator: ", ")) 입니다.")
     } else {
         print("조회할 수 없는 회차입니다!!!")
     }
 }
 
 func checkLottoInfo(round: Int) {
-    var lottoInfos: Dictionary<String, Array<Int>> = [:]
-    
     for round in 1...5 {
-        recordLottoInfo(round: round, which: chooseLottoNumbers(), in: &lottoInfos)
+        recordLottoNumbersPerRound(per: round, with: chooseLottoNumbers())
     }
     
-    printLottoInfo(round: round, in: lottoInfos)
+    printLottoInformationPerRound(per: round)
 }
