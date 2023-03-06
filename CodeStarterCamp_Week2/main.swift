@@ -14,8 +14,7 @@ for _ in 0...4 {
     createRandomLottoNumbers()
 }
 
-printPastLottoNumbers("6회차")
-
+doPrintPastLottoNumbers(4)
 
 //로또 회차와 번호를 저장하는 함수 -> key = "n회차", value = [로또번호]
 func saveLottoNumbers(_ lastLottoNumbers: [Int]) {
@@ -25,17 +24,17 @@ func saveLottoNumbers(_ lastLottoNumbers: [Int]) {
 }
 
 //로또 회차와 번호를 출력하는 함수
-func printPastLottoNumbers(_ roundNumber: String) {
-    var lottoNum:String = ""
+func doPrintPastLottoNumbers(_ roundNumber: Int) {
+    var lottoNumbers: String = ""
     
-    if let pastLottoNum = pastLottoNumbers[roundNumber] {
-        for pastLottoNumtoString in pastLottoNum {
-            lottoNum += String(pastLottoNumtoString) + ", "
+    if let pastLottoNumbers = pastLottoNumbers[String(roundNumber) + "회차"] {
+        for previousLottoNumbers in pastLottoNumbers {
+            lottoNumbers += String(previousLottoNumbers) + ", "
         }
-        print("\(roundNumber)의 로또 당첨 번호는 \(lottoNum.dropLast(2)) 입니다.")
+        print("\(roundNumber)회차의 로또 당첨 번호는 \(lottoNumbers.dropLast(2)) 입니다.")
     }
     else {
-        print("\(roundNumber)의 로또 당첨 번호가 없습니다.")
+        print("\(roundNumber)회차의 로또 당첨 번호가 없습니다.")
     }
 
 }
@@ -54,11 +53,12 @@ func compareLottoNumbers(_ myLottoNumbers: [Int]) {
         }
     }
     
-    printLottoResult(sameLottoNumbers)
+    doPrintLottoResult(sameLottoNumbers)
+
 }
 
 //로또 결과 출력 함수
-func printLottoResult(_ sameLottoNumbers: String) {
+func doPrintLottoResult(_ sameLottoNumbers: String) {
     if sameLottoNumbers.count != 0 {
         print("축하합니다! 겹치는 번호는 \(sameLottoNumbers.dropLast(2)) 입니다.")
     }
@@ -68,6 +68,7 @@ func printLottoResult(_ sameLottoNumbers: String) {
 }
 
 //로또 숫자 6개를 랜덤으로 생성하는 함수
+@discardableResult
 func createRandomLottoNumbers() -> [Int] {
     var setLottoNumbers: Set<Int> = Set<Int>()
     
@@ -77,5 +78,6 @@ func createRandomLottoNumbers() -> [Int] {
     
     let lottoNumbers = Array(setLottoNumbers.sorted())
     saveLottoNumbers(lottoNumbers)
+    
     return lottoNumbers
 }
