@@ -8,12 +8,6 @@
 
 import Foundation
 
-// practice
-//choose(gender: Gender.man)
-//choose(cardinalPoints: .west)
-
-// step 2
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-compareLotteryNumbers(target: myLottoNumbers, to: generateLotteryNumbers())
-
-
+var lotteryHistory: [String: [Int]] = [:]
+lotteryHistory = genarateAndSaveLotteryNumbers(to: lotteryHistory, iteration: 5)
+findLotteryNumbers(round: 2, from: lotteryHistory)
