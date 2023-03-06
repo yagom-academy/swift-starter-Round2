@@ -7,8 +7,10 @@
 
 import Foundation
 
+var theLottoWinNumbers: Set<Int> = Set<Int>()
+
 func matchMyLottoNumbers(myLottoNumbers: Set<Int>) {
-    let intersection: Set<Int> = lottoWinNumbers.intersection(myLottoNumbers)
+    let intersection: Set<Int> = theLottoWinNumbers.intersection(myLottoNumbers)
 
     if intersection.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
