@@ -1,21 +1,41 @@
-var randomNumbers: Set<Int> = Set()
+//
+//  main.swift
+//  CodeStarterCamp_Week2
+//
+//  Created by yagom.
+//  Copyright :copyright: yagom academy. All rights reserved.
+//
 
-func createRandomNumbers() -> Set<Int> {
+var lottoList: Dictionary<String, Array> = [String: Array<Int>]()
+
+func addRandomNumbers() -> Array<Int>{
+    var randomNumbers: Array<Int> = []
+    
     while randomNumbers.count < 6 {
-        randomNumbers.insert(Int.random(in: 1...45))
+        randomNumbers.append(Int.random(in: 1...45))
     }
     return randomNumbers
 }
 
-func compareNumbers(myLottoNumbers: Set<Int>) {
-    let subtractNumbers = myLottoNumbers.intersection(createRandomNumbers())
-    
-    if subtractNumbers.isEmpty == false {
-        print("축하합니다! 겹치는 번호는 \(subtractNumbers) 입니다!")
-    }
-    else {
-        print("아쉽지만 겹치는 번호는 없습니다.")
+func addLottoTurn(count : Int) {
+    for turn in 1...count {
+        lottoList["\(turn)회차"] = addRandomNumbers()
     }
 }
 
-compareNumbers(myLottoNumbers: [4, 6, 8, 20, 25, 39])
+func searchLottoTurn(count: Int, turn: Int, randomNumbers: [Int]) {
+    addLottoTurn(count: count)
+    
+    if let randomNumbers = lottoList["\(turn)회차"] {
+        let stringArray = randomNumbers.map { String($0) }
+        let addSeparator = stringArray.joined(separator: ", ")
+        print("\(turn)회차의 로또 당첨 번호는 \(addSeparator) 입니다!")
+    }
+    else {
+        print("원하시는 회차는 아직 진행되지 않았습니다.")
+    }
+}
+
+searchLottoTurn(count: 5, turn: 3, randomNumbers: addRandomNumbers())
+
+
