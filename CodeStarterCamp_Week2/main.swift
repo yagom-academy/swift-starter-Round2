@@ -8,7 +8,7 @@
 
 import Foundation
 
-func drawLotto(by myLottoNumbers: [Int]) {
+func compareLotto(by myLottoNumbers: [Int]) {
     let lottoNumbers: Set<Int> = generateLottoNumbers()
     let matchedLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
     
@@ -38,4 +38,4 @@ func printLottoResult(by matchedLottoNumbers: Set<Int>) {
 }
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-drawLotto(by: myLottoNumbers)
+compareLotto(by: myLottoNumbers)
