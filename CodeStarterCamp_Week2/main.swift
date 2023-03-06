@@ -1,3 +1,11 @@
+//
+//  main.swift
+//  CodeStarterCamp_Week2
+//
+//  Created by yagom.
+//  Copyright :copyright: yagom academy. All rights reserved.
+//
+
 var lottoList: Dictionary<String, Array> = [String: Array<Int>]()
 
 func addRandomNumbers() -> Array<Int>{
