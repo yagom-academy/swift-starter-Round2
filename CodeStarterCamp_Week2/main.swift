@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
-
+/**
+ Step 2: 내 번호와 맞추어보기!
+ */
+checkMyLottoNumber(realLottoSet: [41,20,1,7,8,9])
