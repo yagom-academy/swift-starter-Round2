@@ -11,9 +11,7 @@ var index = 0
 var beforeLottoNumbers = Dictionary<Int, [Int]>()
 
 func saveLottoNumbers(lottoNumbers: Set<Int>) {
-    
     index = index + 1
-    
     beforeLottoNumbers.updateValue(lottoNumbers.sorted(), forKey: index)
 }
 
