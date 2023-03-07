@@ -44,7 +44,6 @@ func checkLottoNumbers(lotto collectNumbers: Set<Int>, my myNumbers: Set<Int>) {
 
 //로또 회차별 당첨번호 저장
 var lottoTimes: [String:Set<Int>] = [:]
-print(lottoTimes.count)
 var times = 0
 
 func saveLottoTimes(lottoNumbers: Set<Int>) -> Int {
@@ -55,9 +54,9 @@ func saveLottoTimes(lottoNumbers: Set<Int>) -> Int {
 //    for i in 0...lottoNumbers.count-1 {
 //        lottoTimes[time] = a[i]
 //    }
-    if lottoTimes.count == 5 {
-        print(lottoTimes.sorted(by: { $0.0 < $1.0}))
-    }
+//    if lottoTimes.count == 5 {
+//        print(lottoTimes.sorted(by: { $0.0 < $1.0}))
+//    }
     
     return times
 }
@@ -85,4 +84,4 @@ collectLottoNumber()
 collectLottoNumber()
 collectLottoNumber()
 collectLottoNumber()
-findLottoTimes(findLotto: 1)
+findLottoTimes(findLotto: 2)
