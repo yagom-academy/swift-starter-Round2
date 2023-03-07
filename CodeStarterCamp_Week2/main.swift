@@ -23,12 +23,14 @@ func checkMyLottoNumbers(_ myLottoNumbers: [Int]) {
     }
 }
 
-func recordWinningLottoNumbers(search: Int) {
-    for time in 1...5 {
+func recordWinningLottoNumbers(_ round: Int) {
+    for time in 1...round {
         lottoRecord["\(time)회차"] = makeWinningLottoNumbers()
         print("\(time)회차:", lottoRecord["\(time)회차"] ?? 0)
     }
-    
+}
+
+func searchWinningLottoNumbers(_ search: Int) {
     if let searchRound = lottoRecord["\(search)회차"] {
         print("\(search)회차의 로또 당첨 번호는 \(searchRound.map {String($0)}.joined(separator: ", ")) 입니다.")
     } else {
@@ -37,4 +39,5 @@ func recordWinningLottoNumbers(search: Int) {
 }
 
 var lottoRecord = [String: [Int]]()
-recordWinningLottoNumbers(search: 2)
+recordWinningLottoNumbers(7)
+searchWinningLottoNumbers(4)
