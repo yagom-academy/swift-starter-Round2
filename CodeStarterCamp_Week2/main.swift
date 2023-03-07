@@ -18,16 +18,16 @@ func selectLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func checkLottoNumbers(_ selectLottoNumbers: Set<Int>) {
+func checkLottoNumbers(with selectLottoNumbers: Set<Int>) {
     let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    let duplicationSortedLottoNumbers: [Int] = selectLottoNumbers.intersection(myLottoNumbers).sorted()
-    if duplicationSortedLottoNumbers.count == 0 {
+    let result: [Int] = selectLottoNumbers.intersection(myLottoNumbers).sorted()
+    if result.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for numberIndex in 0...duplicationSortedLottoNumbers.count-1 {
-            let lottoNumber = duplicationSortedLottoNumbers[numberIndex]
-            if numberIndex < duplicationSortedLottoNumbers.count-1 {
+        for numberIndex in 0...result.count-1 {
+            let lottoNumber = result[numberIndex]
+            if numberIndex < result.count-1 {
                 print("\(lottoNumber), ", terminator: "")
             } else {
                 print("\(lottoNumber) ", terminator: "")
@@ -37,4 +37,4 @@ func checkLottoNumbers(_ selectLottoNumbers: Set<Int>) {
     }
 }
 
-checkLottoNumbers(selectLottoNumbers())
+checkLottoNumbers(with: selectLottoNumbers())
