@@ -8,6 +8,7 @@
 
 import Foundation
 
+// STEP 2
 func compareLotto(by myLottoNumbers: [Int]) {
     let lottoNumbers: Set<Int> = generateLottoNumbers()
     let matchedLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
@@ -37,5 +38,32 @@ func printLottoResult(by matchedLottoNumbers: Set<Int>) {
     }
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-compareLotto(by: myLottoNumbers)
+//let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+//compareLotto(by: myLottoNumbers)
+
+
+// STEP 3
+var lottoResults: [String: [Int]] = [:]
+
+func generateLottoRound() {
+    for round in 1...5 {
+        let lottoNumbers = generateLottoNumbers().sorted().map{ $0 }
+        saveLottoRound(of: round, result: lottoNumbers)
+    }
+}
+
+func saveLottoRound(of round: Int, result lottoNumbers: [Int]) {
+    lottoResults["\(round)회차"] = lottoNumbers
+}
+
+func printLottoRound(of round: Int) {
+    let lottoNumbers = lottoResults["\(round)회차"]
+    if let numbers: [Int] = lottoNumbers {
+        let numbersString = numbers.map{ String($0) }.joined(separator: ", ")
+        print("\(round)회차의 로또 당첨 번호는 \(numbersString) 입니다.")
+    } else {
+        print("해당하는 회차가 없습니다.")
+    }
+}
+
+printLottoRound(of: 3)
