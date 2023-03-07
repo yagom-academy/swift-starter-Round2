@@ -8,5 +8,9 @@
 
 import Foundation
 
-print("Hello, World!")
+/**
+ Step 2: 내 번호와 맞추어보기!
+ */
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
+checkMyLottoNumber(myLottoNumbers: myLottoNumbers)
