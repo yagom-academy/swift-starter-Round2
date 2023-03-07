@@ -20,28 +20,26 @@ func createLottoNumbers() -> [Int] {
     return lottoNumber.sorted()
 }
 
-func createRoundLottoNumbers(createNumbers: Int) {
-    for roundNumber in 1...createNumbers {
-        saveRoundLottoNumbers(saveRoundNumber: roundNumber, roundLottoNumbers: createLottoNumbers())
+func createRoundLottoNumbers(roundCount: Int) {
+    for round in 1...roundCount {
+        saveRoundLottoNumbers(storageRound: round, roundWinLottoSet: createLottoNumbers())
     }
 }
 
-func saveRoundLottoNumbers(saveRoundNumber: Int, roundLottoNumbers: Array<Int>) {
-    lottoWinNumbersDictionary.updateValue(roundLottoNumbers, forKey: "\(saveRoundNumber)회차")
-    print("\(saveRoundNumber)회차 : \(roundLottoNumbers.map{String($0)}.joined(separator: ", "))")
+func saveRoundLottoNumbers(storageRound: Int, roundWinLottoSet: Array<Int>) {
+    lottoWinNumbersDictionary.updateValue(roundWinLottoSet, forKey: "\(storageRound)회차")
 }
 
-
-func searchRoundLottoNumbers(roundNumber: Int) {
-    if let lottoNumbers = lottoWinNumbersDictionary["\(roundNumber)회차"] {
-        print("\(roundNumber)회차의 로또 당첨번호는 \(lottoNumbers.map{String($0)}.joined(separator: ", "))입니다.")
+func searchRoundLottoNumbers(searchRound: Int) {
+    if let lottoNumbers = lottoWinNumbersDictionary["\(searchRound)회차"] {
+        print("\(searchRound)회차의 로또 당첨번호는 \(lottoNumbers.map{String($0)}.joined(separator: ", "))입니다.")
     } else {
         print("조회할 수 없는 회차입니다!")
     }
 }
 
-createRoundLottoNumbers(createNumbers: 5)
-searchRoundLottoNumbers(roundNumber: 3)
+createRoundLottoNumbers(roundCount: 5)
+searchRoundLottoNumbers(searchRound: 3)
 
 
 
