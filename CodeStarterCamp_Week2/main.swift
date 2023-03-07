@@ -11,37 +11,44 @@ import Foundation
 func createLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
-        let randomInt = Int.random(in: 1...45)
-        lottoNumbers.insert(randomInt)
+        let lottoNumber = Int.random(in: 1...45)
+        lottoNumbers.insert(lottoNumber)
     }
     return lottoNumbers
 }
 
-func changeNumbersToString(from numbers: [Int]) -> String {
-    var stringNumbers = ""
+func changeNumbersToSentence(from numbers: [Int]) -> String {
+    var sentenceNumbers = ""
     for i in 0...(numbers.count - 1) {
         if i == (numbers.count - 1) {
-            stringNumbers.append("\(numbers[i])")
+            sentenceNumbers.append("\(numbers[i])")
         } else {
-            stringNumbers.append("\(numbers[i]), ")
+            sentenceNumbers.append("\(numbers[i]), ")
         }
     }
-    return stringNumbers
+    return sentenceNumbers
+}
+
+func checkLottoNumbers(with myNumbers: [Int]) {
+    var sameNumbers: [Int] = []
+    let lottoNumbers: Set<Int> = createLottoNumbers()
+    
+    for count in 0...5 {
+        if lottoNumbers.contains(myNumbers[count]) {
+            sameNumbers.append(myNumbers[count])
+        }
+    }
+    
+    if sameNumbers.isEmpty {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 \(changeNumbersToSentence(from: sameNumbers)) 입니다!")
+    }
 }
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-var sameNumbers: [Int] = []
+checkLottoNumbers(with: myLottoNumbers)
 
-for i in 0...5 {
-    if createLottoNumbers().contains(myLottoNumbers[i]) {
-        sameNumbers.append(myLottoNumbers[i])
-    }
-}
 
-if sameNumbers.isEmpty {
-    print("아쉽지만 겹치는 번호가 없습니다.")
-} else {
-    print("축하합니다! 겹치는 번호는 \(changeNumbersToString(from: sameNumbers)) 입니다!")
-}
 
