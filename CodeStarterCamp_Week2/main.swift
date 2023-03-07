@@ -8,5 +8,5 @@
 
 import Foundation
 
-print("Hello, World!")
-
+let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
+checkLottoNumbers(with: myLottoNumbers)
