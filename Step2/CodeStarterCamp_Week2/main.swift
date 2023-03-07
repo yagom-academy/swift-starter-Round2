@@ -8,45 +8,42 @@
 
 import Foundation
 
-func setIntToString(setInt: Set<Int>) -> String {
-    let setInt = setInt
-    let setString = setInt.map {String($0)}
-    let string = setString.joined(separator: ", ")
+func convertSetTypeIntoStringType(toConvert: Set<Int>) -> String {
+    let converted = toConvert.map {String($0)}.joined(separator: ", ")
     
-    return string
+    return converted
 }
 
-func makeRandomSet(setLength: Int) -> Set<Int> {
-    var randomSet = Set<Int>()
+func makeRandomNumbers(numberCount: Int) -> Set<Int> {
+    var randomNumbers = Set<Int>()
     
-    while (randomSet.count < setLength) {
-        randomSet.insert(Int.random(in: 1...45))
+    while (randomNumbers.count < numberCount) {
+        randomNumbers.insert(Int.random(in: 1...45))
     }
     
-    return randomSet
+    return randomNumbers
 }
 
-func checkLotto(myNumbers: Int...) {
-    let lottoNumbers = makeRandomSet(setLength: 6)
-    let myNumbers = myNumbers
+func compareMyNumbersWithRandomNumbers(myNumbers: Int...) {
+    let randomNumbers = makeRandomNumbers(numberCount: 6)
     
-    var correctNumbersSet = Set<Int>() //로또와 비교해 맞힌 숫자를 저장할 Set 선언
+    var correctNumbers = Set<Int>()
     
     for myNumber in myNumbers {
-        if lottoNumbers.contains(myNumber) {
-            correctNumbersSet.insert(myNumber)
+        if randomNumbers.contains(myNumber) {
+            correctNumbers.insert(myNumber)
         }
     }
     
-    let correctNumbersString = setIntToString(setInt: correctNumbersSet)
+    let correctNumbersConverted = convertSetTypeIntoStringType(toConvert: correctNumbers)
     
-    if correctNumbersSet.count == 0 {
+    if correctNumbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
-        print(correctNumbersString, terminator: "")
+        print(correctNumbersConverted, terminator: "")
         print(" 입니다!")
     }
 }
 
-checkLotto(myNumbers: 1,2,3,4,5,6)
+compareMyNumbersWithRandomNumbers(myNumbers: 1,2,3,4,5,6)
