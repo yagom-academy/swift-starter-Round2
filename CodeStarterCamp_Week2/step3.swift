@@ -7,33 +7,32 @@
 
 import Foundation
 
+var index = 0
 var beforeLottoNumbers = Dictionary<Int, [Int]>()
 
-func findBeforeLottoNumbers(beforeTurn: Int) {
-    saveLottoes()
-    printLotto(beforeTurn: beforeTurn)
+func saveLottoNumbers(lottoNumbers: Set<Int>) {
+    
+    index = index + 1
+    
+    beforeLottoNumbers.updateValue(lottoNumbers.sorted(), forKey: index)
 }
 
-private func saveLottoes() {
-    for index in 1...5 {
-        beforeLottoNumbers.updateValue(makeLotto().sorted(), forKey: index)
-    }
-}
-
-private func printLotto(beforeTurn: Int) {
+func printBeforeLottoNumbers(beforeTurn: Int) {
     let lottoNumbers = beforeLottoNumbers[beforeTurn]
 
-    if let numbers = lottoNumbers {
+    if let lottoNumbers = lottoNumbers {
         print("\(beforeTurn)회차의 로또 당첨 번호는 ", terminator: "")
         
-        for index in 0...(numbers.count-1) {
+        for index in 0...(lottoNumbers.count-1) {
             if index == 0 {
-                print("\(numbers[index])", terminator: "")
+                print("\(lottoNumbers[index])", terminator: "")
             } else {
-                print(", \(numbers[index])", terminator: "")
+                print(", \(lottoNumbers[index])", terminator: "")
             }
         }
         
         print(" 입니다!")
+    } else {
+        print("이전 회차를 찾을 수 없습니다.")
     }
 }

@@ -39,7 +39,9 @@ func makeLotto() -> Set<Int> {
         lottoSet.insert(suffledNumbers[index])
     }
     
-    //print("lottoSet = \(lottoSet)")
+    //print("lottoSet = \(lottoSet.sorted())")
+    
+    saveLottoNumbers(lottoNumbers: lottoSet)
     
     return lottoSet
 }
