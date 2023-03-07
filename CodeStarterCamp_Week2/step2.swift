@@ -7,11 +7,9 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-
-func checkMyLottoNumber(realLottoSet: Set<Int>) {
+func checkMyLottoNumber(myLottoNumbers: [Int]) {
     
-    let sameNumbers = getSameLottoNumber(myLottoNumbers: myLottoNumbers, realLottoNumber: realLottoSet).sorted()
+    let sameNumbers = getSameLottoNumber(myLottoNumbers: myLottoNumbers, realLottoNumber: makeLotto()).sorted()
     
     if sameNumbers.count > 0 {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
@@ -34,28 +32,15 @@ private func getSameLottoNumber(myLottoNumbers: [Int], realLottoNumber: Set<Int>
     return Set<Int>(myLottoNumbers).intersection(realLottoNumber)
 }
 
-private func makeLotto() {
-    var count = 0
+private func makeLotto() -> Set<Int> {
     var lottoSet: Set<Int> = Set<Int>()
-    var canAddNumber = true
-    while (count < 6) {
-        
-        let number = Int.random(in: 0...45)
-        
-        if lottoSet.count > 0 {
-            for item in lottoSet {
-                if item == number {
-                    canAddNumber = false
-                    return
-                }
-            }
-        }
-        
-        if canAddNumber {
-            lottoSet.insert(number)
-            canAddNumber = false
-            count = count + 1
-        }
+    
+    let suffledNumbers = stride(from: 1, through: 45, by: 1).shuffled()
+    for index in 0...5 {
+        lottoSet.insert(suffledNumbers[index])
     }
     
+    print("lottoSet = \(lottoSet)")
+    
+    return lottoSet
 }

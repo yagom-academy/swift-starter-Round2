@@ -11,4 +11,6 @@ import Foundation
 /**
  Step 2: 내 번호와 맞추어보기!
  */
-checkMyLottoNumber(realLottoSet: [41,20,1,7,8,9])
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+
+checkMyLottoNumber(myLottoNumbers: myLottoNumbers)
