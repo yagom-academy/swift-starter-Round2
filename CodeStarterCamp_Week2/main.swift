@@ -13,17 +13,17 @@ var thisWeekLottoNumber: Array<Int> = []
 var winningNumber: Set<Int> = []
 
 func generateLottoNumber() -> Array<Int> {
-    var drawLotto: Array<Int> = []
+    var generateNumber: Array<Int> = []
     
-    while drawLotto.count <= 6 {
-        drawLotto.append(Int.random(in: (1...45)))
+    while generateNumber.count <= 6 {
+        generateNumber.append(Int.random(in: (1...45)))
     }
-    return(drawLotto)
+    return(generateNumber)
 }
 
-func compareLottoNumber(drawLotto: [Int]) {
+func compareNumber(thisWeekNumber: [Int]) {
     for temp in myLottoNumbers {
-        if thisWeekLottoNumber.contains(temp) {
+        if thisWeekNumber.contains(temp) {
             winningNumber.insert(temp)
         }
     }
@@ -36,4 +36,4 @@ func compareLottoNumber(drawLotto: [Int]) {
 }
 
 thisWeekLottoNumber = generateLottoNumber()
-compareLottoNumber(drawLotto: thisWeekLottoNumber)
+compareNumber(thisWeekNumber: thisWeekLottoNumber)
