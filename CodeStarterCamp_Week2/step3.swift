@@ -7,19 +7,19 @@
 
 import Foundation
 
-var lottoNumbersHistory = Dictionary<String, Set<Int>>()
+var lottoNumbersRecord = Dictionary<String, Set<Int>>()
 var currentRound = 1
 
 func saveNewLottoNumbers(saveCount: Int) {
     for _ in 1...saveCount {
         let numbers: Set<Int> = createLottoNumbers()
-        lottoNumbersHistory["\(currentRound)회차"] = numbers
-        currentRound = lottoNumbersHistory.count + 1
+        lottoNumbersRecord["\(currentRound)회차"] = numbers
+        currentRound = lottoNumbersRecord.count + 1
     }
 }
 
 func getLottoNumbers(round: Int) -> Set<Int> {
-    if let numbers = lottoNumbersHistory["\(round)회차"] {
+    if let numbers = lottoNumbersRecord["\(round)회차"] {
         return numbers
     }
     return Set<Int>()

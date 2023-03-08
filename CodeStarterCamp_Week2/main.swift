@@ -10,5 +10,3 @@ import Foundation
 
 saveNewLottoNumbers(saveCount: 5)
 printLottoNumbers(round: 2)
-print("")
-print(lottoNumbersHistory)
