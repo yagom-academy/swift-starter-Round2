@@ -20,12 +20,17 @@ func selectLottoNumbers() {
 
 //로또 회차별 당첨번호 저장
 var lottoTimes: Dictionary<String, Set<Int>> = [:]
-var times = 0
 
 func saveLottoTimes(lottoNumbers: Set<Int>) {
-    times += 1
-    let time: String = "\(times)" + "회차"
+    if lottoTimes.count == 0 {
+        let times = 1
+        let time: String = "\(times)" + "회차"
         lottoTimes[time] = lottoNumbers
+    } else {
+        let times = lottoTimes.count + 1
+        let time: String = "\(times)" + "회차"
+        lottoTimes[time] = lottoNumbers
+    }
 }
 
 func findLottoTimes(at findLottoTime: Int) {
