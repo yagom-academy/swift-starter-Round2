@@ -8,42 +8,47 @@
 
 import Foundation
 
-func convertSetTypeIntoStringType(toConvert: Set<Int>) -> String {
-    let converted = toConvert.map {String($0)}.joined(separator: ", ")
+func convertToString(from: Set<Int>) -> String {
+    let convertedOne = from.map {String($0)}.joined(separator: ", ")
     
-    return converted
+    return convertedOne
 }
 
-func makeRandomNumbers(numberCount: Int) -> Set<Int> {
-    var randomNumbers = Set<Int>()
+func getLotto() -> Set<Int> {
+    var lotto = Set<Int>()
     
-    while (randomNumbers.count < numberCount) {
-        randomNumbers.insert(Int.random(in: 1...45))
+    while lotto.count < 6 {
+        lotto.insert(Int.random(in: 1...45))
     }
     
-    return randomNumbers
+    return lotto
 }
 
-func compareMyNumbersWithRandomNumbers(myNumbers: Int...) {
-    let randomNumbers = makeRandomNumbers(numberCount: 6)
+func findSameNumbers(one: Set<Int>, other: Set<Int>) -> Set<Int> {
+    let sameNumbers = one.intersection(other)
     
-    var correctNumbers = Set<Int>()
-    
-    for myNumber in myNumbers {
-        if randomNumbers.contains(myNumber) {
-            correctNumbers.insert(myNumber)
-        }
-    }
-    
-    let correctNumbersConverted = convertSetTypeIntoStringType(toConvert: correctNumbers)
-    
-    if correctNumbers.count == 0 {
+    return sameNumbers
+}
+
+func printLottoResult(matchNumbers: String) {
+    if matchNumbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
-        print(correctNumbersConverted, terminator: "")
+        print(matchNumbers, terminator: "")
         print(" 입니다!")
     }
 }
 
-compareMyNumbersWithRandomNumbers(myNumbers: 1,2,3,4,5,6)
+func checkLotto() {
+    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+    let lotto = getLotto()
+    
+    let matchNumbers = findSameNumbers(one: Set(myLottoNumbers), other: lotto)
+    
+    let convertedMatchNumbers = convertToString(from: matchNumbers)
+    
+    printLottoResult(matchNumbers: convertedMatchNumbers)
+}
+
+checkLotto()
