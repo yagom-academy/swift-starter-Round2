@@ -19,11 +19,11 @@ func createLottoNumbers() -> Set<Int> {
 
 func changeNumbersToSentence(from numbers: [Int]) -> String {
     var sentenceNumbers = ""
-    for i in 0...(numbers.count - 1) {
-        if i == (numbers.count - 1) {
-            sentenceNumbers.append("\(numbers[i])")
+    for order in 0...(numbers.count - 1) {
+        if order == (numbers.count - 1) {
+            sentenceNumbers.append("\(numbers[order])")
         } else {
-            sentenceNumbers.append("\(numbers[i]), ")
+            sentenceNumbers.append("\(numbers[order]), ")
         }
     }
     return sentenceNumbers
