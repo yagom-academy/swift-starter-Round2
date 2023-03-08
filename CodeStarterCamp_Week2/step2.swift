@@ -21,7 +21,6 @@ func checkMyLottoNumber(myLottoNumbers: [Int]) {
                 print(", \(sameNumbers[index])", terminator: "")
             }
         }
-        
         print(" 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
@@ -32,7 +31,7 @@ private func getSameLottoNumber(myLottoNumbers: [Int], realLottoNumber: Set<Int>
     return Set<Int>(myLottoNumbers).intersection(realLottoNumber)
 }
 
-private func makeLotto() -> Set<Int> {
+func makeLotto() -> Set<Int> {
     var lottoSet: Set<Int> = Set<Int>()
     
     let suffledNumbers = stride(from: 1, through: 45, by: 1).shuffled()
@@ -40,7 +39,9 @@ private func makeLotto() -> Set<Int> {
         lottoSet.insert(suffledNumbers[index])
     }
     
-    print("lottoSet = \(lottoSet)")
+    //print("lottoSet = \(lottoSet.sorted())")
+    
+    saveLottoNumbers(lottoNumbers: lottoSet)
     
     return lottoSet
 }
