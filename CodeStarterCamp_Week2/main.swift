@@ -48,7 +48,7 @@ var lottoResults: [String: [Int]] = [:]
 
 func generateLottoRound() {
     for round in 1...5 {
-        let lottoNumbers = generateLottoNumbers().sorted().map{ $0 }
+        let lottoNumbers = generateLottoNumbers().sorted()
         saveLottoRound(of: round, result: lottoNumbers)
     }
 }
