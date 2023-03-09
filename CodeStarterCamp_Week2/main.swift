@@ -48,8 +48,8 @@ var lottoResults: [String: [Int]] = [:]
 
 func generateLottoRound() {
     for round in 1...5 {
-        let lottoNumbers = generateLottoNumbers().sorted()
-        saveLottoRound(of: round, result: lottoNumbers)
+        let lottoResult = generateLottoNumbers().sorted()
+        saveLotto(of: round, winningNumbers: lottoResult)
     }
 }
 
@@ -63,8 +63,8 @@ func generateLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-func saveLottoRound(of round: Int, result lottoNumbers: [Int]) {
-    lottoResults["\(round)회차"] = lottoNumbers
+func saveLotto(of round: Int, winningNumbers lottoResult: [Int]) {
+    lottoResults["\(round)회차"] = lottoResult
 }
 
 func printLottoRound(of round: Int) {
