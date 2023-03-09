@@ -8,7 +8,7 @@
 
 import Foundation
 
-func createLottoWinNumbers() -> Set<Int> {
+func createWinningLottoNumbers() -> Set<Int> {
     var randomNumbers: Set<Int> = Set<Int>()
     while randomNumbers.count < 6 {
         randomNumbers.insert(Int.random(in: 1...45))
@@ -17,9 +17,9 @@ func createLottoWinNumbers() -> Set<Int> {
     return randomNumbers
 }
 
-func checkOverlapNumbers(with createLottoWinNumbers: Set<Int>) {
-    let myLottoNumbers: [Int] = [23, 7, 3, 17, 35, 10]
-    let overlapNumbers: Set<Int> = createLottoWinNumbers.intersection(myLottoNumbers)
+func checkOverlapNumbers(myLottoNumbers: [Int]) {
+    let WinningLottoNumbers: Set<Int> = createWinningLottoNumbers()
+    let overlapNumbers: Set<Int> = WinningLottoNumbers.intersection(myLottoNumbers)
     if overlapNumbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
@@ -28,4 +28,4 @@ func checkOverlapNumbers(with createLottoWinNumbers: Set<Int>) {
     }
 }
 
-checkOverlapNumbers(with: createLottoWinNumbers())
+checkOverlapNumbers(myLottoNumbers: [23, 7, 3, 17, 35, 10])
