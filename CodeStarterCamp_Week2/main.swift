@@ -77,4 +77,5 @@ func printLottoRound(of round: Int) {
     }
 }
 
+generateLottoRound()
 printLottoRound(of: 3)
