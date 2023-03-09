@@ -9,31 +9,40 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 7, 8, 9, 21, 31]
-var thisWeekLottoNumber: Array<Int> = []
-var winningNumber: Set<Int> = []
 
-func generateLottoNumber() -> Array<Int> {
-    var generateNumber: Array<Int> = []
+func generateLottoNumbers() -> Set<Int> {
+    var generateNumbers: Set<Int> = []
     
-    while generateNumber.count <= 6 {
-        generateNumber.append(Int.random(in: (1...45)))
+    while generateNumbers.count <= 6 {
+        generateNumbers.insert(Int.random(in: 1...45))
     }
-    return(generateNumber)
+    return(generateNumbers)
 }
 
-func compareNumber(thisWeekNumber: [Int]) {
-    for temp in myLottoNumbers {
-        if thisWeekNumber.contains(temp) {
-            winningNumber.insert(temp)
-        }
+func compareWithMyNumbers(generatedLottoNumbers: Set<Int>) {
+    var setMyLottoNumbers: Set<Int> = []
+    
+    for temp in 0...5 {
+        setMyLottoNumbers.insert(myLottoNumbers[temp])
     }
-    switch winningNumber.count {
-    case 1 ..< 6:
-        print("축하합니다. 겹치는 번호는 \(winningNumber.sorted()) 입니다!")
-    default:
+    
+    let winningNumbers: Array<Int> = Array(generatedLottoNumbers.intersection(setMyLottoNumbers))
+    
+    if winningNumbers.count > 0 {
+        print("축하합니다. 겹치는 번호는 ", terminator: "")
+        for temp in winningNumbers {
+            if temp != winningNumbers[winningNumbers.count-1] {
+                print(temp, terminator: ", ")
+            }
+            else {
+                print(temp, terminator: " ")
+            }
+        }
+        print("입니다!")
+    }
+    else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
-thisWeekLottoNumber = generateLottoNumber()
-compareNumber(thisWeekNumber: thisWeekLottoNumber)
+compareWithMyNumbers(generatedLottoNumbers: generateLottoNumbers())
