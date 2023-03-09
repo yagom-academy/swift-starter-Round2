@@ -9,8 +9,6 @@
 import Foundation
 
 // Step3
-var historyLottoNumbers = [String: [Int]]()
-
 saveLottoNumbers(roundCount: 5)
 provideHistoryLottoNumbers(lottoRound: 4)
 

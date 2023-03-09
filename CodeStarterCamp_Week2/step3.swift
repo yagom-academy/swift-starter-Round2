@@ -7,6 +7,8 @@
 
 import Foundation
 
+var historyLottoNumbers = [String: [Int]]()
+
 func getLottoNumbers() -> Set<Int> {
     var pickedLottoNumbers: Set<Int> = Set<Int>()
 
@@ -29,5 +31,4 @@ func saveLottoNumbers(roundCount: Int) {
     for round in 1...roundCount {
         historyLottoNumbers["\(round)회차"] = Array<Int>(getLottoNumbers())
     }
-
 }
