@@ -16,6 +16,7 @@ func addLottoInfo(lottoNumbers: [Int]) {
     lottoInfo["\(count)회차"] = lottoNumbers
 }
 
+@discardableResult
 func createLottoNumbers() -> [Int] {
     var lottoNumbers: [Int] = []
     while lottoNumbers.count < 6 {
@@ -59,9 +60,9 @@ func checkLottoNumbers(with myNumbers: [Int]) {
     }
 }
 
-func findLottoNumbers(in index: Int) {
-    if let foundLottoNumbers = lottoInfo["\(index - 1)회차"] {
-        print("\(index)회차의 로또 당첨 번호는 \(changeNumbersToSentence(from: foundLottoNumbers)) 입니다")
+func findLottoNumbers(in round: Int) {
+    if let foundLottoNumbers = lottoInfo["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(changeNumbersToSentence(from: foundLottoNumbers)) 입니다")
     }
 }
 
