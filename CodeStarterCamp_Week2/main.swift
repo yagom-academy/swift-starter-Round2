@@ -70,8 +70,8 @@ func saveLottoRound(of round: Int, result lottoNumbers: [Int]) {
 func printLottoRound(of round: Int) {
     let lottoNumbers = lottoResults["\(round)회차"]
     if let numbers: [Int] = lottoNumbers {
-        let numbersString = numbers.map{ String($0) }.joined(separator: ", ")
-        print("\(round)회차의 로또 당첨 번호는 \(numbersString) 입니다.")
+        let formattedNumbers = numbers.map { String($0) }.joined(separator: ", ")
+        print("\(round)회차의 로또 당첨 번호는 \(formattedNumbers) 입니다.")
     } else {
         print("해당하는 회차가 없습니다.")
     }
