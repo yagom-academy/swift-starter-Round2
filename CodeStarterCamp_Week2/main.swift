@@ -55,7 +55,7 @@ func saveLottoNumbers() -> Dictionary<String, Array<Int>> {
     return lottoNumbersSavings
 }
 
-func showlottoTurns(turn: String) {
+func showLottoTurns(turn: String) {
     if let lottoTurns : Array<Int> = saveLottoNumbers()[turn] {
         print(turn + "의 로또 당첨 번호는 " + lottoTurns.sorted().map{ String($0) }.joined(separator: ", ") + " 입니다." )
     } else {
@@ -63,4 +63,4 @@ func showlottoTurns(turn: String) {
     }
 }
 
-showlottoTurns(turn: "1회차")
+showLottoTurns(turn: "1회차")
