@@ -8,15 +8,29 @@
 
 import Foundation
 
-var integers = [1,2,3]
-let people = ["yagom": 10, "eric":15, "mike":12]
+let myLottoNumbers: Set<Int> = [2,5,16,27,35,40]
 
-for integer in integers {
-    print(integer)
+func makeLottoNumbers() -> Set<Int> {
+    var randomLottoNumbers: Set<Int> = Set<Int>()
+    while randomLottoNumbers.count <= 6 {
+        let randomNumber = Int.random(in: 1...45)
+        randomLottoNumbers.insert(randomNumber)
+    }
+    return randomLottoNumbers
 }
 
-// Dictionary의 item은 key와 value로 구성된 튜플 타입이다.
-for (name, age) in people {
-    print("\(name): \(age)")
+func checkSameLottoNumbers() {
+    let sameNumbers : Set<Int> = myLottoNumbers.intersection(makeLottoNumbers())
+    switch sameNumbers.count {
+    case 0:
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    default:
+        let result = sameNumbers.map { String($0) }.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(result)입니다!")
+    }
 }
+
+checkSameLottoNumbers()
+
+
 
