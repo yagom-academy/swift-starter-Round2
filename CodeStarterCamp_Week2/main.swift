@@ -8,33 +8,51 @@
 
 import Foundation
 
-func selectLottoNumbers() -> Set<Int> {
+func selectLottoNumbers() {
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
         let lottoNumber = Int.random(in: 1...45)
         lottoNumbers.insert(lottoNumber)
     }
     
-    return lottoNumbers
+    return saveLottoTimes(lottoNumbers: lottoNumbers)
 }
 
-func checkLottoNumbers(with selectLottoNumbers: Set<Int>) {
-    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    let result: [Int] = selectLottoNumbers.intersection(myLottoNumbers).sorted()
-    if result.count == 0 {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+//로또 회차별 당첨번호 저장
+var lottoTimes: Dictionary<String, Set<Int>> = [:]
+
+func saveLottoTimes(lottoNumbers: Set<Int>) {
+    if lottoTimes.count == 0 {
+        let times = 1
+        let time: String = "\(times)" + "회차"
+        lottoTimes[time] = lottoNumbers
     } else {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for numberIndex in 0...result.count-1 {
-            let lottoNumber = result[numberIndex]
-            if numberIndex < result.count-1 {
-                print("\(lottoNumber), ", terminator: "")
-            } else {
-                print("\(lottoNumber) ", terminator: "")
-            }
-        }
-        print("입니다!")
+        let times = lottoTimes.count + 1
+        let time: String = "\(times)" + "회차"
+        lottoTimes[time] = lottoNumbers
     }
 }
 
-checkLottoNumbers(with: selectLottoNumbers())
+func findLottoTimes(at findLottoTime: Int) {
+    if let lottoTime: Set<Int> = lottoTimes["\(findLottoTime)회차"] {
+        print("\(findLottoTime)회차의 로또 당첨 번호는 ", terminator: "")
+        for lottoNumberCount in 0...lottoTime.count - 1 {
+            let a = lottoTime.sorted()[lottoNumberCount]
+            if lottoNumberCount < lottoTime.count - 1 {
+                print("\(a), ", terminator: "")
+            } else {
+                print("\(a) ", terminator: "")
+            }
+        }
+        print("입니다.")
+    } else {
+        print("해당 회차가 존재하지 않습니다.")
+    }
+}
+
+selectLottoNumbers()
+selectLottoNumbers()
+selectLottoNumbers()
+selectLottoNumbers()
+selectLottoNumbers()
+findLottoTimes(at: 2)
