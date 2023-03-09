@@ -13,17 +13,14 @@ func makeLottoNumbers() -> Set<Int> {
     while lottoNumbers.count < 6 {
         let lottoNumber = Int.random(in: 1...45)
         lottoNumbers.insert(lottoNumber)
-        if lottoNumbers.contains(lottoNumber) == false {
-            lottoNumbers.insert(lottoNumber)
-        }
     }
     return lottoNumbers
 }
 
 
-func checkLottoNumbers(_: Array<Int>) {
+func checkLottoNumbers(_ myNumbers: Array<Int>) {
     let lottoNumbers = makeLottoNumbers()
-    let sameNumbers: [Int] = Array(Set(myLottoNumbers).intersection(lottoNumbers))
+    let sameNumbers: [Int] = Array(Set(myNumbers).intersection(lottoNumbers))
     if sameNumbers.count > 0 {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
         for value in sameNumbers {
@@ -40,5 +37,4 @@ func checkLottoNumbers(_: Array<Int>) {
 }
 
 checkLottoNumbers(myLottoNumbers)
-
 
