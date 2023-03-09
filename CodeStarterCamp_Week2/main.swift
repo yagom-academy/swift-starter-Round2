@@ -9,6 +9,7 @@
 import Foundation
 
 // STEP 2
+/*
 func compareLotto(by myLottoNumbers: [Int]) {
     let lottoNumbers: Set<Int> = generateLottoNumbers()
     let matchedLottoNumbers: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
@@ -38,9 +39,9 @@ func printLottoResult(by matchedLottoNumbers: Set<Int>) {
     }
 }
 
-//let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-//compareLotto(by: myLottoNumbers)
-
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+compareLotto(by: myLottoNumbers)
+*/
 
 // STEP 3
 var lottoResults: [String: [Int]] = [:]
@@ -50,6 +51,16 @@ func generateLottoRound() {
         let lottoNumbers = generateLottoNumbers().sorted().map{ $0 }
         saveLottoRound(of: round, result: lottoNumbers)
     }
+}
+
+func generateLottoNumbers() -> Set<Int> {
+    var lottoNumbers: Set<Int> = []
+    
+    while lottoNumbers.count < 6 {
+        lottoNumbers.insert(Int.random(in: (1...45)))
+    }
+    
+    return lottoNumbers
 }
 
 func saveLottoRound(of round: Int, result lottoNumbers: [Int]) {
