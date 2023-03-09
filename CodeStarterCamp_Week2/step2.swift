@@ -7,15 +7,15 @@
 
 import Foundation
 
-func getLottoNumbers() -> Set<Int> {
-    var pickedLottoNumbers: Set<Int> = Set<Int>()
-    
-    while pickedLottoNumbers.count < 6 {
-        pickedLottoNumbers.insert(Int.random(in: 1...45))
-    }
-    
-    return pickedLottoNumbers
-}
+//func getLottoNumbers() -> Set<Int> {
+//    var pickedLottoNumbers: Set<Int> = Set<Int>()
+//
+//    while pickedLottoNumbers.count < 6 {
+//        pickedLottoNumbers.insert(Int.random(in: 1...45))
+//    }
+//
+//    return pickedLottoNumbers
+//}
 
 func checkLottoNumbers(with myLottoNumbers: [Int]) {
     let winningNumbers: [Int] = getLottoNumbers().intersection(myLottoNumbers).sorted()
