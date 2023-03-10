@@ -6,7 +6,35 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-import Foundation
+let myLottoNumbers: [Int] = [4, 31, 11, 7, 28, 45]
 
-print("Hello, World!")
+func makeLottoNumbers() -> Set<Int> {
+    var lottoNumbers: Set<Int> = Set<Int>()
+    while lottoNumbers.count < 6 {
+        let lottoNumber = Int.random(in: 1...45)
+        lottoNumbers.insert(lottoNumber)
+    }
+    return lottoNumbers
+}
+
+
+func checkLottoNumbers(_ myNumbers: Array<Int>) {
+    let lottoNumbers = makeLottoNumbers()
+    let sameNumbers: [Int] = Array(Set(myNumbers).intersection(lottoNumbers))
+    if sameNumbers.count > 0 {
+        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        for value in sameNumbers {
+            if value == sameNumbers[sameNumbers.count - 1] {
+                print(value, terminator:" ")
+            } else {
+                print(value, terminator: ", ")
+            }
+        }
+        print("입니다!")
+    } else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+}
+
+checkLottoNumbers(myLottoNumbers)
 
