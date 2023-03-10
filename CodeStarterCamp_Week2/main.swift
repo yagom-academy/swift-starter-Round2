@@ -17,9 +17,11 @@ func createWinningLottoNumbers() -> Set<Int> {
     return randomNumbers
 }
 
-func checkOverlapNumbers(myLottoNumbers: [Int]) {
-    let WinningLottoNumbers: Set<Int> = createWinningLottoNumbers()
-    let overlapNumbers: Set<Int> = WinningLottoNumbers.intersection(myLottoNumbers)
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+
+func checkOverlapNumbers(choose myLottoNumbers: [Int]) {
+    let winningLottoNumbers: Set<Int> = createWinningLottoNumbers()
+    let overlapNumbers: Set<Int> = winningLottoNumbers.intersection(myLottoNumbers)
     if overlapNumbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
@@ -28,4 +30,4 @@ func checkOverlapNumbers(myLottoNumbers: [Int]) {
     }
 }
 
-checkOverlapNumbers(myLottoNumbers: [23, 7, 3, 17, 35, 10])
+checkOverlapNumbers(choose: myLottoNumbers)
