@@ -8,12 +8,26 @@
 
 import Foundation
 
-func createLottoNumbers() -> Set<Int> {
-    var lottoNumbers: Set<Int> = []
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var lottoInfo: [String: [Int]] = [:]
+
+func addLottoInfo(lottoNumbers: [Int]) {
+    let count = lottoInfo.count + 1
+    lottoInfo["\(count)회차"] = lottoNumbers
+}
+
+@discardableResult
+func createLottoNumbers() -> [Int] {
+    var lottoNumbers: [Int] = []
     while lottoNumbers.count < 6 {
         let lottoNumber = Int.random(in: 1...45)
-        lottoNumbers.insert(lottoNumber)
+        if lottoNumbers.contains(lottoNumber) == false {
+            lottoNumbers.append(lottoNumber)
+        }
     }
+    lottoNumbers = lottoNumbers.sorted()
+    addLottoInfo(lottoNumbers: lottoNumbers)
+    
     return lottoNumbers
 }
 
@@ -31,11 +45,11 @@ func changeNumbersToSentence(from numbers: [Int]) -> String {
 
 func checkLottoNumbers(with myNumbers: [Int]) {
     var sameNumbers: [Int] = []
-    let lottoNumbers: Set<Int> = createLottoNumbers()
+    let lottoNumbers: [Int] = createLottoNumbers()
     
-    for count in 0...5 {
-        if lottoNumbers.contains(myNumbers[count]) {
-            sameNumbers.append(myNumbers[count])
+    for myNumber in myNumbers {
+        if lottoNumbers.contains(myNumber) {
+            sameNumbers.append(myNumber)
         }
     }
     
@@ -46,9 +60,16 @@ func checkLottoNumbers(with myNumbers: [Int]) {
     }
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+func findLottoNumbers(in round: Int) {
+    if let foundLottoNumbers = lottoInfo["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(changeNumbersToSentence(from: foundLottoNumbers)) 입니다")
+    }
+}
 
-checkLottoNumbers(with: myLottoNumbers)
+for _ in 0...4 {
+    createLottoNumbers()
+}
 
+findLottoNumbers(in: 2)
 
 
