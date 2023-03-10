@@ -8,6 +8,8 @@
 
 import Foundation
 
+let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
+
 func createWinningLottoNumbers() -> Set<Int> {
     var randomNumbers: Set<Int> = Set<Int>()
     while randomNumbers.count < 6 {
@@ -17,9 +19,7 @@ func createWinningLottoNumbers() -> Set<Int> {
     return randomNumbers
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-
-func checkOverlapNumbers(choose myLottoNumbers: [Int]) {
+func checkOverlapNumbers(with myLottoNumbers: [Int]) {
     let winningLottoNumbers: Set<Int> = createWinningLottoNumbers()
     let overlapNumbers: Set<Int> = winningLottoNumbers.intersection(myLottoNumbers)
     if overlapNumbers.count == 0 {
@@ -30,4 +30,4 @@ func checkOverlapNumbers(choose myLottoNumbers: [Int]) {
     }
 }
 
-checkOverlapNumbers(choose: myLottoNumbers)
+checkOverlapNumbers(with: myLottoNumbers)
