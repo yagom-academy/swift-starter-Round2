@@ -26,9 +26,9 @@ func saveLottoTimes(lottoNumbers: Set<Int>) {
         lottoTimes[time] = lottoNumbers
 }
 
-func findTimesNumbers(at findTime: Int) {
-    if let lottoTime: Set<Int> = lottoTimes["\(findTime)회차"] {
-        print("\(findTime)회차의 로또 당첨 번호는 ", terminator: "")
+func findTimesNumbers(by Time: Int) {
+    if let lottoTime: Set<Int> = lottoTimes["\(Time)회차"] {
+        print("\(Time)회차의 로또 당첨 번호는 ", terminator: "")
         let sortedLottoNumbers = lottoTime.sorted()
         for lottoNumber in 0...sortedLottoNumbers.count - 1 {
             if lottoNumber < sortedLottoNumbers.count {
@@ -44,4 +44,4 @@ func findTimesNumbers(at findTime: Int) {
 }
 
 selectLottoNumbers(times: 5)
-findTimesNumbers(at: 2)
+findTimesNumbers(by: 2)
