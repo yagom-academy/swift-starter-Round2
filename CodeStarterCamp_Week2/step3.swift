@@ -18,20 +18,16 @@ func saveNewLottoNumbers(saveCount: Int) {
     }
 }
 
-func getLottoNumbers(round: Int) -> Set<Int> {
-    if let numbers = lottoNumbersRecord["\(round)회차"] {
-        return numbers
-    }
-    return Set<Int>()
+func getLottoNumbers(round: Int) -> Set<Int>? {
+    return lottoNumbersRecord["\(round)회차"]
 }
 
 func printLottoNumbers(round: Int) {
-    let numbers = getLottoNumbers(round: round)
-    if numbers.isEmpty {
+    if let numbers = getLottoNumbers(round: round) {
+        print(
+            "\(round)회차의 로또 당첨 번호는 \(numbers.description.trimmingCharacters(in: ["[", "]"])) 입니다."
+        )
+    } else {
         print("\(round)회차 기록이 존재하지 않습니다.")
-        return
-    }
-    print(
-        "\(round)회차의 로또 당첨 번호는 \(numbers.description.trimmingCharacters(in: ["[", "]"])) 입니다."
-    )
+    }    
 }
