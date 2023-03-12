@@ -8,47 +8,45 @@
 
 import Foundation
 
-func convertToString(from: Set<Int>) -> String {
-    let convertedOne = from.map {String($0)}.joined(separator: ", ")
+func convertToString(from lottoNumbers: Set<Int>) -> String {
+    let joinedMapResult = lottoNumbers.map {String($0)}.joined(separator: ", ")
     
-    return convertedOne
+    return joinedMapResult
 }
 
-func getLotto() -> Set<Int> {
-    var lotto = Set<Int>()
+func makeRandomLottoNumbers() -> Set<Int> {
+    var randomLottoNumbers = Set<Int>()
     
-    while lotto.count < 6 {
-        lotto.insert(Int.random(in: 1...45))
+    while randomLottoNumbers.count < 6 {
+        randomLottoNumbers.insert(Int.random(in: 1...45))
     }
     
-    return lotto
+    return randomLottoNumbers
 }
 
-func findSameNumbers(one: Set<Int>, other: Set<Int>) -> Set<Int> {
-    let sameNumbers = one.intersection(other)
+func findSameNumbersBetween(myLottoNumbers: Set<Int>, randomLottoNumbers: Set<Int>) -> Set<Int> {
+    let sameNumbers = myLottoNumbers.intersection(randomLottoNumbers)
     
     return sameNumbers
 }
 
-func printLottoResult(matchNumbers: String) {
-    if matchNumbers.count == 0 {
+func printLottoResult(sameNumbers: String) {
+    if sameNumbers.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
-        print(matchNumbers, terminator: "")
+        print(sameNumbers, terminator: "")
         print(" 입니다!")
     }
 }
 
 func checkLotto() {
     let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    let lotto = getLotto()
+    let randomLottoNumbers = makeRandomLottoNumbers()
+    let sameNumbers = findSameNumbersBetween(myLottoNumbers: Set(myLottoNumbers), randomLottoNumbers: randomLottoNumbers)
+    let convertedSameNumbers = convertToString(from: sameNumbers)
     
-    let matchNumbers = findSameNumbers(one: Set(myLottoNumbers), other: lotto)
-    
-    let convertedMatchNumbers = convertToString(from: matchNumbers)
-    
-    printLottoResult(matchNumbers: convertedMatchNumbers)
+    printLottoResult(sameNumbers: convertedSameNumbers)
 }
 
 checkLotto()
