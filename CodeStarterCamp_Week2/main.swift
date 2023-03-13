@@ -8,7 +8,7 @@
 
 import Foundation
 
-var lottoTimes: Dictionary<String, Set<Int>> = [:]
+var lottoRounds: Dictionary<String, Set<Int>> = [:]
 
 func selectLottoNumbers(times: Int){
     for _ in 1...times {
@@ -22,14 +22,14 @@ func selectLottoNumbers(times: Int){
 }
 
 func saveLottoTimes(lottoNumbers: Set<Int>) {
-        let time: String = "\(lottoTimes.count + 1)" + "회차"
-        lottoTimes[time] = lottoNumbers
+        let round: String = "\(lottoRounds.count + 1)" + "회차"
+        lottoRounds[round] = lottoNumbers
 }
 
 func findLottoNumbers(by round: Int) {
-    if let lottoTime: Set<Int> = lottoTimes["\(round)회차"] {
+    if let lottoRoundNumbers: Set<Int> = lottoRounds["\(round)회차"] {
         print("\(round)회차의 로또 당첨 번호는 ", terminator: "")
-        let sortedLottoNumbers = lottoTime.sorted()
+        let sortedLottoNumbers = lottoRoundNumbers.sorted()
         for lottoNumber in 0...sortedLottoNumbers.count - 1 {
             if lottoNumber < sortedLottoNumbers.count {
                 print("\(sortedLottoNumbers[lottoNumber]), ", terminator: "")
