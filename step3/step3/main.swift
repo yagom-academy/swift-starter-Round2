@@ -24,7 +24,6 @@ func makeRandomLottoNumbers() -> Array<Int> {
 
 func recordLottoNumbers(roundLength: Int) -> Dictionary<String, Array<Int>> {
     var lottoNumbersRecord = Dictionary<String, Array<Int>>()
-    
     let roundLength = roundLength
     
     for round in 1...roundLength {
