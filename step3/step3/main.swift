@@ -22,12 +22,20 @@ func makeRandomLottoNumbers() -> Array<Int> {
     return Array(randomLottoNumbers)
 }
 
-func checkLottoNumber(round: Int) {
+func recordLottoNumbers(roundLength: Int) -> Dictionary<String, Array<Int>> {
     var lottoNumbersRecord = Dictionary<String, Array<Int>>()
     
-    for round in 1...5 {
+    let roundLength = roundLength
+    
+    for round in 1...roundLength {
         lottoNumbersRecord["\(round)회차"] = makeRandomLottoNumbers()
     }
+    
+    return lottoNumbersRecord
+}
+
+func checkLottoNumber(round: Int) {
+    let lottoNumbersRecord = recordLottoNumbers(roundLength: 5)
     
     let selectedRoundLottoNumbers = lottoNumbersRecord["\(round)회차"]
     
