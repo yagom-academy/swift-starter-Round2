@@ -8,7 +8,9 @@
 
 import Foundation
 
-let myLottoNumbers: Set<Int> = [2,5,16,27,35,40]
+
+//let myLottoNumbers: Set<Int> = [2,5,16,27,35,40]
+
 
 func makeLottoNumbers() -> Set<Int> {
     var randomLottoNumbers: Set<Int> = Set<Int>()
@@ -19,7 +21,26 @@ func makeLottoNumbers() -> Set<Int> {
     return randomLottoNumbers
 }
 
-func checkSameLottoNumbers() {
+func saveLottoTry() -> Dictionary<String, Set<Int>>{
+    var lottoTry = [String: Set<Int>] ()
+    var newTry: Int = 1
+    while newTry <= 5 {
+        lottoTry["\(newTry)회차"] = makeLottoNumbers()
+        newTry += 1
+    }
+    return lottoTry
+}
+
+func getLottoTryResult(time: Int) {
+    if let lottoNumbers = saveLottoTry()["\(time)회차"] {
+        print("\(time)회차의 로또 당첨 번호는 ", terminator: "")
+        print(lottoNumbers.map { String($0) }.joined(separator: ", "), terminator: " 입니다.")
+    } else {
+        print("회차 정보가 없습니다.")
+    }
+}
+
+/*func checkSameLottoNumbers() {
     let sameNumbers : Set<Int> = myLottoNumbers.intersection(makeLottoNumbers())
     switch sameNumbers.count {
     case 0:
@@ -30,7 +51,7 @@ func checkSameLottoNumbers() {
     }
 }
 
-checkSameLottoNumbers()
+checkSameLottoNumbers() */
 
-
+getLottoTryResult(time: 3)
 
