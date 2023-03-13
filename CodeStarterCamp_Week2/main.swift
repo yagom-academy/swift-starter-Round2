@@ -8,33 +8,40 @@
 
 import Foundation
 
-func selectLottoNumbers() -> Set<Int> {
-    var lottoNumbers: Set<Int> = []
-    while lottoNumbers.count < 6 {
-        let lottoNumber = Int.random(in: 1...45)
-        lottoNumbers.insert(lottoNumber)
+var lottoRounds: Dictionary<String, Set<Int>> = [:]
+
+func selectLottoNumbers(times: Int){
+    for _ in 1...times {
+        var lottoNumbers: Set<Int> = []
+        while lottoNumbers.count < 6 {
+            let lottoNumber = Int.random(in: 1...45)
+            lottoNumbers.insert(lottoNumber)
+        }
+    saveLottoTimes(lottoNumbers: lottoNumbers)
     }
-    
-    return lottoNumbers
 }
 
-func checkLottoNumbers(with selectLottoNumbers: Set<Int>) {
-    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    let result: [Int] = selectLottoNumbers.intersection(myLottoNumbers).sorted()
-    if result.count == 0 {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for numberIndex in 0...result.count-1 {
-            let lottoNumber = result[numberIndex]
-            if numberIndex < result.count-1 {
-                print("\(lottoNumber), ", terminator: "")
+func saveLottoTimes(lottoNumbers: Set<Int>) {
+        let round: String = "\(lottoRounds.count + 1)" + "회차"
+        lottoRounds[round] = lottoNumbers
+}
+
+func findLottoNumbers(by round: Int) {
+    if let lottoRoundNumbers: Set<Int> = lottoRounds["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 ", terminator: "")
+        let sortedLottoNumbers = lottoRoundNumbers.sorted()
+        for lottoNumber in 0...sortedLottoNumbers.count - 1 {
+            if lottoNumber < sortedLottoNumbers.count {
+                print("\(sortedLottoNumbers[lottoNumber]), ", terminator: "")
             } else {
-                print("\(lottoNumber) ", terminator: "")
+                print("\(sortedLottoNumbers[lottoNumber]) ", terminator: "")
             }
         }
-        print("입니다!")
+        print("입니다.")
+    } else {
+        print("해당 회차가 존재하지 않습니다.")
     }
 }
 
-checkLottoNumbers(with: selectLottoNumbers())
+selectLottoNumbers(times: 5)
+findLottoNumbers(by: 2)
