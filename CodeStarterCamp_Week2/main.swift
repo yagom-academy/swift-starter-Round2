@@ -13,20 +13,20 @@ let myLottoNumbers: [Int] = [1, 7, 8, 9, 21, 31]
 func generateLottoNumbers() -> Set<Int> {
     var generateNumbers: Set<Int> = []
     
-    while generateNumbers.count <= 6 {
+    while generateNumbers.count < 6 {
+//        print(generateNumbers.count)
         generateNumbers.insert(Int.random(in: 1...45))
+//        print(generateNumbers)
     }
     return(generateNumbers)
 }
 
 func compareWithMyNumbers(generatedLottoNumbers: Set<Int>) {
-    var setMyLottoNumbers: Set<Int> = []
+
+    print(myLottoNumbers)
+    print(generatedLottoNumbers)
     
-    for temp in 0...5 {
-        setMyLottoNumbers.insert(myLottoNumbers[temp])
-    }
-    
-    let winningNumbers: Array<Int> = Array(generatedLottoNumbers.intersection(setMyLottoNumbers)).sorted()
+    let winningNumbers: Array<Int> = Array(generatedLottoNumbers.intersection(myLottoNumbers)).sorted()
     
     if winningNumbers.count > 0 {
         print("축하합니다. 겹치는 번호는 ", terminator: "")
