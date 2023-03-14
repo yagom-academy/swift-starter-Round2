@@ -17,7 +17,6 @@ func makeLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
-
 func checkLottoNumbers(_ myNumbers: Array<Int>) {
     let lottoNumbers = makeLottoNumbers()
     let sameNumbers: [Int] = Array(Set(myNumbers).intersection(lottoNumbers))
@@ -36,5 +35,28 @@ func checkLottoNumbers(_ myNumbers: Array<Int>) {
     }
 }
 
-checkLottoNumbers(myLottoNumbers)
+func saveLottoNumbers(times: Int) -> Dictionary<Int, Set<Int>> {
+    var count = 0
+    var manyLottoNumbers: [Int: Set<Int>] = [:]
+    for _ in 1...times {
+        count += 1
+        manyLottoNumbers[count] = makeLottoNumbers()
+    }
+    return manyLottoNumbers
+}
 
+func findLottoNumber(times: Int, whichRound: Int) {
+    if let lottoNumber = saveLottoNumbers(times: times)[whichRound] {
+        print("\(whichRound)회차의 로또 당첨 번호는", terminator: " ")
+        for values in Array(lottoNumber) {
+            if values == Array(lottoNumber)[Array(lottoNumber).count - 1] {
+                print(values, terminator: " ")
+            } else {
+                print(values, terminator: ", ")
+            }
+        }
+        print("입니다.")
+    }
+}
+
+findLottoNumber(times: 5, whichRound: 2)
