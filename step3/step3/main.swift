@@ -19,14 +19,13 @@ func makeRandomLottoNumbers() -> Array<Int> {
         randomLottoNumbers.insert(Int.random(in: 1...45))
     }
     
-    return Array(randomLottoNumbers)
+    return Array(randomLottoNumbers).sorted()
 }
 
-func recordLottoNumbers(roundLength: Int) -> Dictionary<String, Array<Int>> {
+func recordLottoNumbers(totalRound: Int) -> Dictionary<String, Array<Int>> {
     var lottoNumbersRecord = Dictionary<String, Array<Int>>()
-    let roundLength = roundLength
     
-    for round in 1...roundLength {
+    for round in 1...totalRound {
         lottoNumbersRecord["\(round)회차"] = makeRandomLottoNumbers()
     }
     
@@ -34,16 +33,11 @@ func recordLottoNumbers(roundLength: Int) -> Dictionary<String, Array<Int>> {
 }
 
 func checkLottoNumber(round: Int) {
-    let lottoNumbersRecord = recordLottoNumbers(roundLength: 5)
+    let lottoNumbersRecord = recordLottoNumbers(totalRound: 5)
     
-    let selectedRoundLottoNumbers = lottoNumbersRecord["\(round)회차"]
-    
-    if let optionalBindingSelectedRoundLottoNumbers = selectedRoundLottoNumbers {
-        let convertedOptionalBindingSelectedRoundLottoNumbers = convertToString(from: optionalBindingSelectedRoundLottoNumbers)
-        print("\(round)회차의 로또 당첨 번호는 \(convertedOptionalBindingSelectedRoundLottoNumbers) 입니다.")
+    if let lottoNumbers = lottoNumbersRecord["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(convertToString(from: lottoNumbers)) 입니다.")
     }
 }
 
 checkLottoNumber(round: 4)
-
-
