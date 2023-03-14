@@ -19,7 +19,7 @@ func generateLottoNumbers() -> Set<Int> {
     return(generateNumbers)
 }
 
-func compareWithMyLotto() {
+func generateAndCheckWithMyLotto() {
     let generatedLottoNumbers: Set<Int> = generateLottoNumbers()
     
     let winningNumbers: Array<Int> = Array(generatedLottoNumbers.intersection(myLottoNumbers)).sorted()
@@ -41,4 +41,4 @@ func compareWithMyLotto() {
     }
 }
 
-compareWithMyLotto()
+generateAndCheckWithMyLotto()
