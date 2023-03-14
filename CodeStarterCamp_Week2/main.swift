@@ -26,7 +26,7 @@ func compareWithMyNumbers(generatedLottoNumbers: Set<Int>) {
         setMyLottoNumbers.insert(myLottoNumbers[temp])
     }
     
-    let winningNumbers: Array<Int> = Array(generatedLottoNumbers.intersection(setMyLottoNumbers))
+    let winningNumbers: Array<Int> = Array(generatedLottoNumbers.intersection(setMyLottoNumbers)).sorted()
     
     if winningNumbers.count > 0 {
         print("축하합니다. 겹치는 번호는 ", terminator: "")
