@@ -21,18 +21,18 @@ func makeLottoNumbers() -> Set<Int> {
     return randomLottoNumbers
 }
 
-func saveLottoTry() -> Dictionary<String, Set<Int>>{
-    var lottoTry = [String: Set<Int>] ()
-    var newTry: Int = 1
-    while newTry <= 5 {
-        lottoTry["\(newTry)회차"] = makeLottoNumbers()
-        newTry += 1
+func saveLottoTurn() -> Dictionary<String, Set<Int>> {
+    var lottoTurn: Dictionary<String, Set<Int>> = [String: Set<Int>] ()
+    var newTurn: Int = 1
+    while newTurn <= 5 {
+        lottoTurn["\(newTurn)회차"] = makeLottoNumbers()
+        newTurn += 1
     }
-    return lottoTry
+    return lottoTurn
 }
 
-func getLottoTryResult(time: Int) {
-    if let lottoNumbers = saveLottoTry()["\(time)회차"] {
+func getLottoTurnResult(time: Int) {
+    if let lottoNumbers = saveLottoTurn() ["\(time)회차"] {
         print("\(time)회차의 로또 당첨 번호는 ", terminator: "")
         print(lottoNumbers.map { String($0) }.joined(separator: ", "), terminator: " 입니다.")
     } else {
@@ -53,5 +53,5 @@ func getLottoTryResult(time: Int) {
 
 checkSameLottoNumbers() */
 
-getLottoTryResult(time: 3)
+getLottoTurnResult(time: 3)
 
