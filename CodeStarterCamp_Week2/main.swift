@@ -10,3 +10,4 @@ import Foundation
 
 print("Hello, World!")
 
+matchLottoNumbers(myLottoNumbers: [1,2,3,4,5,6], winnerLottoNumbers: winnerLottoNumber)
