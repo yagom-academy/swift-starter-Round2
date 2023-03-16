@@ -23,9 +23,16 @@ func printLottoInformation(round: Int) {
     for numbers in 1...5 {
         roundLottoInfo["\(numbers)회차"] = createWinningLottoNumbers()
     }
-    let optionalRoundLottoInfo: Dictionary<String, Set<Int>>? = roundLottoInfo
-    if let lottoRound = optionalRoundLottoInfo {
-        print("\(round)회차의 로또 당첨 번호는 \(String(describing: lottoRound["\(round)회차"])) 입니다.")
+    
+    if let lottoRound = roundLottoInfo["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는", terminator: " ")
+        for lottoNumbersSort in 0...4 {
+            print(lottoRound.sorted()[lottoNumbersSort], terminator: ", ")
+        }
+        print("\(lottoRound.sorted()[5]) 입니다.")
+    }
+    else {
+        print("\(round)회차는 아직 진행하지 않은 회차입니다.")
     }
 }
 
