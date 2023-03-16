@@ -24,12 +24,13 @@ func printLottoInformation(round: Int) {
         roundLottoInfo["\(numbers)회차"] = createWinningLottoNumbers()
     }
     
-    if let lottoRound = roundLottoInfo["\(round)회차"] {
+    if let roundLottoWinningNumbers = roundLottoInfo["\(round)회차"] {
+        let lottoNumbersSorted = roundLottoWinningNumbers.sorted()
         print("\(round)회차의 로또 당첨 번호는", terminator: " ")
-        for lottoNumbersSort in 0...4 {
-            print(lottoRound.sorted()[lottoNumbersSort], terminator: ", ")
+        for lottoNumbersIndex in 0...lottoNumbersSorted.count-2 {
+            print(lottoNumbersSorted[lottoNumbersIndex], terminator: ", ")
         }
-        print("\(lottoRound.sorted()[5]) 입니다.")
+        print("\(lottoNumbersSorted[5]) 입니다.")
     }
     else {
         print("\(round)회차는 아직 진행하지 않은 회차입니다.")
@@ -47,4 +48,4 @@ func checkOverlapNumbers(with myLottoNumbers: Array<Int>) {
     }
 }
 
-printLottoInformation(round: 3)
+printLottoInformation(round: 2)
