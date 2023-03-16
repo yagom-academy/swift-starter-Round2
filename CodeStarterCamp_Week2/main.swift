@@ -9,17 +9,27 @@
 import Foundation
 
 let myLottoNumbers: Array<Int> = [1, 2, 3, 4, 5, 6]
+var roundLottoInfo: Dictionary<String, Set<Int>> = [String: Set<Int>]()
 
 func createWinningLottoNumbers() -> Set<Int> {
     var randomNumbers: Set<Int> = Set<Int>()
     while randomNumbers.count < 6 {
         randomNumbers.insert(Int.random(in: 1...45))
     }
-    print("당첨 번호는 \(randomNumbers)입니다.")
     return randomNumbers
 }
 
-func checkOverlapNumbers(with myLottoNumbers: [Int]) {
+func printLottoInformation(round: Int) {
+    for numbers in 1...5 {
+        roundLottoInfo["\(numbers)회차"] = createWinningLottoNumbers()
+    }
+    let optionalRoundLottoInfo: Dictionary<String, Set<Int>>? = roundLottoInfo
+    if let lottoRound = optionalRoundLottoInfo {
+        print("\(round)회차의 로또 당첨 번호는 \(String(describing: lottoRound["\(round)회차"])) 입니다.")
+    }
+}
+
+func checkOverlapNumbers(with myLottoNumbers: Array<Int>) {
     let winningLottoNumbers: Set<Int> = createWinningLottoNumbers()
     let overlapNumbers: Set<Int> = winningLottoNumbers.intersection(myLottoNumbers)
     if overlapNumbers.count == 0 {
@@ -30,4 +40,4 @@ func checkOverlapNumbers(with myLottoNumbers: [Int]) {
     }
 }
 
-checkOverlapNumbers(with: myLottoNumbers)
+printLottoInformation(round: 3)
