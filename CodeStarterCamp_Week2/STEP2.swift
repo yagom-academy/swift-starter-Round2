@@ -7,40 +7,34 @@
 
 import Foundation
 
-var temporaryArr: [Int] = []
-
 func makeLottoNumbers() -> [Int] {
-	for _ in 0...5 {
-		temporaryArr.append(Int.random(in: 1...45))
+	var randomNumbers: Set<Int> = []
+	
+	while randomNumbers.count != 6 {
+		let randomNumber = Int.random(in: 1...45)
+		randomNumbers.insert(randomNumber)
 	}
 	
-	var lottoArray = temporaryArr
+	let lottoNumbers = Array(randomNumbers)
 	
-	for i in temporaryArr {
-		if lottoArray.contains(i) == false {
-			lottoArray.append(i)
-		}
-	}
-	return lottoArray
+	return lottoNumbers
 }
 
-let winnerLottoNumber = makeLottoNumbers()
-
-func matchLottoNumbers(myLottoNumbers: [Int], winnerLottoNumbers: [Int]) {
+func matchedLottoNumbers(myLottoNumbers: [Int]) {
 	var matchLottoNumbers: [Int] = []
+	let winnerLottoNumbers = makeLottoNumbers()
 	
 	for number in winnerLottoNumbers {
 		if myLottoNumbers.contains(number) == true {
 			matchLottoNumbers.append(number)
-			print(matchLottoNumbers)
 		}
 	}
 	
-	let winnerNumbers = matchLottoNumbers.map { String($0) }.joined(separator: ",")
+	let winnerNumbers = matchLottoNumbers.map { String($0) }.joined(separator: ", ")
 	
 	if matchLottoNumbers.count >= 1 {
 		print("축하합니다! 겹치는 번호는 \(winnerNumbers) 입니다.")
-	} else if matchLottoNumbers.count == 0 {
+	} else {
 		print("아쉽지만 겹치는 번호가 없습니다.")
 	}
 }
