@@ -20,13 +20,17 @@ func pickLottoNumber() -> Set<Int> {
     return lottoNumber
 }
 
-func isWinning(myLottoNumber: [Int], pickedLottoNumber: Set<Int>) {
+func comapareTwoNumbers(myLottoNumber: [Int], pickedLottoNumber: Set<Int>) -> [Int] {
     var correctNumber: [Int] = []
     for number in myLottoNumber {
         if pickedLottoNumber.contains(number) {
             correctNumber.append(number)
         }
     }
+    return correctNumber
+}
+
+func printResult(_ correctNumber: [Int]) {
     if correctNumber.count > 0 {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
         for index in 0...correctNumber.count - 1 {
@@ -43,4 +47,4 @@ func isWinning(myLottoNumber: [Int], pickedLottoNumber: Set<Int>) {
 }
 
 let pickedLottoNumber: Set<Int> = pickLottoNumber()
-isWinning(myLottoNumber: myLottoNumber, pickedLottoNumber: pickedLottoNumber)
+printResult(comapareTwoNumbers(myLottoNumber: myLottoNumber, pickedLottoNumber: pickedLottoNumber))
