@@ -8,21 +8,21 @@
 import Foundation
 
 
-func collectLotto() -> Set<Int> {
-    var numberSet: Set<Int> = Set<Int>()
-        while numberSet.count < 6 {
-        numberSet.insert(Int.random(in: 1..<45))
+func winLottoNumbers() -> Set<Int> {
+    var winningNumberSet: Set<Int> = Set<Int>()
+        while winningNumberSet.count < 6 {
+            winningNumberSet.insert(Int.random(in: 1..<45))
     }
-    return numberSet
+    return winningNumberSet
 }
 
-
-
-func checkNumbers(myLottoNumbers: [Int]) {
-    let intersection: [Int] = myLottoNumbers.intersection(collectLotto)
-    if intersection.count > 5 {
-        print("축하합니다! 겹치는 번호는 1, 2, 3, 4, 5, 6 입니다!")
-    } else if intersection.count < 1 {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    }
+func checkWinMyNumbers(winLottoNumbers: Set<Int>) {
+    var myLottoNumbers = Set(myLottoNumbers)
+    let intersection: Set<Int> = myLottoNumbers.intersection(winLottoNumbers)
+        if intersection == intersection {
+            print("축하합니다! 겹치는 번호는", intersection, "입니다!")
+        } else {
+            print("아쉽지만 겹치는 번호가 없습니다.")
+        }
+    
 }
