@@ -8,5 +8,9 @@
 
 import Foundation
 
-matchedLottoNumbers(myLottoNumbers: [1,2,3,4,5,6])
+// MARK: - STEP 2
+//matchedLottoNumbers(myLottoNumbers: [1,2,3,4,5,6])
+
+// MARK: - STEP 3
+makeLottoWinnerTimeAndNumbers(pickTime: "5회차")
 
