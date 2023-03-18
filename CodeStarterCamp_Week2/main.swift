@@ -20,7 +20,7 @@ func pickLottoNumber() -> Set<Int> {
     return lottoNumber
 }
 
-func comapareTwoNumbers(myLottoNumber: [Int], pickedLottoNumber: Set<Int>) -> [Int] {
+func compareTwoNumbers(myLottoNumber: [Int], pickedLottoNumber: Set<Int>) -> [Int] {
     var correctNumber: [Int] = []
     for number in myLottoNumber {
         if pickedLottoNumber.contains(number) {
@@ -47,4 +47,4 @@ func printResult(_ correctNumber: [Int]) {
 }
 
 let pickedLottoNumber: Set<Int> = pickLottoNumber()
-printResult(comapareTwoNumbers(myLottoNumber: myLottoNumber, pickedLottoNumber: pickedLottoNumber))
+printResult(compareTwoNumbers(myLottoNumber: myLottoNumber, pickedLottoNumber: pickedLottoNumber))
