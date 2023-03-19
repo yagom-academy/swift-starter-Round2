@@ -5,7 +5,7 @@
 //  Copyright © yagom academy. All rights reserved.
 import Foundation
 
-let lottoNumbers: [Int] = generateLottoNumbers()
-let myLottoNumbers: [Int] = inputMyLottoNumbers()
+let lottoNumbers: Set<Int> = generateLottoNumbers()
+let myLottoNumbers: Set<Int> = inputMyLottoNumbers()
 
-compareLottoNumbers(myLottoNumbers, lottoNumbers)
+compareLottoAndMyNumbers(myLottoNumbers, lottoNumbers)

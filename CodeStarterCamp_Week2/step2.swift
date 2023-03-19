@@ -1,53 +1,46 @@
-func generateLottoNumbers() -> [Int] {
-    var lottoNumbers: [Int] = []
+func generateLottoNumbers() -> Set<Int> {
+    var lottoNumbers: Set<Int> = []
     
     while lottoNumbers.count < 6 {
         let randomNumber = Int.random(in: 1...45)
         
-        if lottoNumbers.contains(randomNumber) == false {
-            lottoNumbers.append(randomNumber)
-        }
+        lottoNumbers.insert(randomNumber)
     }
     
     return lottoNumbers
 }
 
-func inputMyLottoNumbers() -> [Int] {
-    var myLottoNumbers: [Int] = []
+func inputMyLottoNumbers() -> Set<Int> {
+    var myLottoNumbers: Set<Int> = []
     
     while myLottoNumbers.count < 6 {
         var myInputNumber: Int = 0
         
         print("숫자를 입력하세요 (\(myLottoNumbers.count + 1)번째 숫자): ", terminator: "")
-        if let prompt = readLine() {
-            if let integerPrompt = Int(prompt) {
-                if integerPrompt < 1 || integerPrompt > 45 {
-                    print("잘못 입력하였습니다.")
-                    continue
-                } else {
-                    myInputNumber = integerPrompt
-                }
-            } else {
-                print("잘못 입력하였습니다.")
-                continue
-            }
-        } else {
+        guard let prompt = readLine() else {
             print("잘못 입력하였습니다.")
             continue
         }
         
-        if myLottoNumbers.contains(myInputNumber) == false {
-            myLottoNumbers.append(myInputNumber)
-        } else {
-            print("중복된 숫자입니다.")
+        guard let integerPrompt = Int(prompt) else {
+            print("잘못 입력하였습니다.")
+            continue
         }
+        
+        if integerPrompt < 1 || integerPrompt > 45 {
+            print("잘못 입력하였습니다.")
+            continue
+        }
+        
+        myInputNumber = integerPrompt
+        myLottoNumbers.insert(myInputNumber)
     }
     
     return myLottoNumbers
 }
 
-func compareLottoNumbers(_ myLottoNumbers: [Int], _ lottoNumbers: [Int]) -> Void {
-    let duplicatedNumbers = [Int](Set<Int>(myLottoNumbers).intersection(Set<Int>(lottoNumbers))).sorted()
+func compareLottoAndMyNumbers(_ myLottoNumbers: Set<Int>, _ lottoNumbers: Set<Int>) -> Void {
+    let duplicatedNumbers = myLottoNumbers.intersection(lottoNumbers).sorted()
     
     if duplicatedNumbers.count > 0 {
         print("축하합니다! 겹치는 번호는 \(duplicatedNumbers.map{String($0)}.joined(separator: ", ")) 입니다!")
