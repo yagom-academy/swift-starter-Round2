@@ -9,15 +9,17 @@
 import Foundation
 
 let myLottoNumber: [Int] = [1, 2, 3, 4, 5, 6]
+var pickedLottoNumbers: [String: Set<Int>] = [:]
+var lottoRound: Int = 0
 
-func pickLottoNumber() -> Set<Int> {
+func pickLottoNumber() {
     var lottoNumber: Set<Int> = []
     
     while lottoNumber.count < 6 {
         let randomNumber: Int = Int.random(in: 1...45)
         lottoNumber.insert(randomNumber)
     }
-    return lottoNumber
+    saveLottoNumberAndRound(lottoNumber: lottoNumber)
 }
 
 func compareTwoNumbers(myLottoNumber: [Int], pickedLottoNumber: Set<Int>) -> [Int] {
@@ -46,5 +48,28 @@ func printResult(_ correctNumber: [Int]) {
     }
 }
 
-let pickedLottoNumber: Set<Int> = pickLottoNumber()
-printResult(compareTwoNumbers(myLottoNumber: myLottoNumber, pickedLottoNumber: pickedLottoNumber))
+func saveLottoNumberAndRound(lottoNumber: Set<Int>) {
+    lottoRound += 1
+    pickedLottoNumbers["\(lottoRound)회차"] = lottoNumber
+}
+
+func printNthRoundLottoNumber() {
+    let Nth: String = "2회차"
+    if let safeLottoNumber: Set<Int> = pickedLottoNumbers["\(Nth)"] {
+        let NthRoundLottoNumber: [Int] = Array(safeLottoNumber)
+        print("\(Nth)의 로또 당첨 번호는 ", terminator: "")
+        for index in 0...NthRoundLottoNumber.count - 1 {
+            if index == NthRoundLottoNumber.count - 1 {
+                print(NthRoundLottoNumber[index], terminator: " ")
+                break
+            }
+            print(NthRoundLottoNumber[index], terminator: ", ")
+        }
+        print("입니다.")
+    }
+}
+
+for _ in 1...5 {
+    pickLottoNumber()
+}
+printNthRoundLottoNumber()
