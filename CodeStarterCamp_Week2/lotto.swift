@@ -17,12 +17,18 @@ func winLottoNumbers() -> Set<Int> {
 }
 
 func checkWinMyNumbers(winLottoNumbers: Set<Int>) {
-    var myLottoNumbers = Set(myLottoNumbers)
-    let intersection: Set<Int> = myLottoNumbers.intersection(winLottoNumbers)
-        if intersection == intersection {
-            print("축하합니다! 겹치는 번호는", intersection, "입니다!")
-        } else {
-            print("아쉽지만 겹치는 번호가 없습니다.")
+    let myLottoNumbers = Set(myLottoNumbers)
+    let sameNumbers: Set<Int> = myLottoNumbers.intersection(winLottoNumbers)
+    let arraySameNumbers = Array(sameNumbers)
+    if arraySameNumbers.isEmpty {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+    else {
+        print("축하합니다! 겹치는 번호는", terminator: "")
+        for row in arraySameNumbers {
+            print(" \(row)", separator: ", ", terminator: "")
         }
-    
+        print(" 입니다!")
+    }
 }
+
