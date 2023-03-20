@@ -6,7 +6,6 @@
 import Foundation
 
 var lottoResults: [String: Set<Int>] = [:]
-var lastRound: Int = 0
 
 runLotto(iteration: 5)
-print(checkLottoNumbers(round: 2))
+checkLottoNumbers(round: 2)
