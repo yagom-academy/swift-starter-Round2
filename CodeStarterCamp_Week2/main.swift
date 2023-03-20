@@ -53,11 +53,10 @@ func saveLottoNumberAndRound(lottoNumber: Set<Int>) {
     pickedLottoNumbers["\(lottoRound)회차"] = lottoNumber
 }
 
-func printNthRoundLottoNumber() {
-    let Nth: String = "2회차"
-    if let safeLottoNumber: Set<Int> = pickedLottoNumbers["\(Nth)"] {
+func printLottoNumber(from round: String) {
+    if let safeLottoNumber: Set<Int> = pickedLottoNumbers["\(round)"] {
         let NthRoundLottoNumber: [Int] = Array(safeLottoNumber)
-        print("\(Nth)의 로또 당첨 번호는 ", terminator: "")
+        print("\(round)의 로또 당첨 번호는 ", terminator: "")
         for index in 0...NthRoundLottoNumber.count - 1 {
             if index == NthRoundLottoNumber.count - 1 {
                 print(NthRoundLottoNumber[index], terminator: " ")
@@ -72,4 +71,4 @@ func printNthRoundLottoNumber() {
 for _ in 1...5 {
     pickLottoNumber()
 }
-printNthRoundLottoNumber()
+printLottoNumber(from: "2회차")
