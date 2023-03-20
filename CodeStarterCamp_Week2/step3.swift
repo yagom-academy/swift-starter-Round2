@@ -1,6 +1,6 @@
 func runLotto(iteration: Int) {
     for _ in 1...iteration {
-        lottoResults["\(lottoResults.count)회차"] = generateLottoNumbers()
+        lottoResults["\(lottoResults.count + 1)회차"] = generateLottoNumbers()
     }
 }
 
