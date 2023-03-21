@@ -28,6 +28,7 @@ func compareLottoNumber(with myLottoNumbers: [Int], to winningLottoNumbers: Set<
         let endIndexOfIntersection: Int = intersectionNumbers.count - 1
         // for index in 0..<intersectionNumber.count {
         for index in 0...endIndexOfIntersection {
+            // if index == intersectionNumbers.count - 1
             if index == endIndexOfIntersection {
                 print("\(intersectionNumbers[index])", terminator: "")
             } else {
