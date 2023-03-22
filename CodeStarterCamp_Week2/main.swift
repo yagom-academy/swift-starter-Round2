@@ -7,6 +7,11 @@
 //
 
 import Foundation
-// MARK: - STEP3
-//confirmLottoNumbers(time: )
+// MARK: - STEP 3
+for time in 1...5 {
+	matchTimeAndLottoNumbers(time: time)
+}
+
+// MARK: - STEP 3 실행 함수
+confirmWinnerLottoNumbers(time: 1)
 
