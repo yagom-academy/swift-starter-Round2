@@ -8,43 +8,35 @@
 
 import Foundation
 
+let lotto: Set<Int> = getlotto()
+
 func getlotto() -> Set<Int>{
     
     var lotto: Set<Int> = Set<Int>()
     
     repeat {
-
+        
         lotto.insert(Int.random(in: (1...45)))
-
+        
     } while (lotto.count < 6)
-  
-     
-    
-//    var lotto: Set<Int> = Set<Int>()
-//    lotto.insert(1)
-//    lotto.insert(2)
-//    lotto.insert(3)
-//    lotto.insert(4)
-//    lotto.insert(5)
-//    lotto.insert(6)
-     
     
     return lotto
     
 }
+
+
 
 func getIntersectionLottoNumber() -> [Int]{
     
     let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
     var lottoNumber: Set<Int> = Set<Int> (myLottoNumbers)
     
-    lottoNumber = lottoNumber.intersection(getlotto())
-   
+    lottoNumber = lottoNumber.intersection(lotto)
     
     var lottoIntersectionArray: [Int] = [Int](lottoNumber)
     
     lottoIntersectionArray = lottoIntersectionArray.sorted()
-   
+    print("번호",lottoIntersectionArray)
     return lottoIntersectionArray
 }
 
@@ -52,7 +44,9 @@ func getIntersectionLottoNumber() -> [Int]{
 func printArrayMemberOneByOne() {
     
     let lottoNumberCount: Int = getIntersectionLottoNumber().count
+    
     let lottoIntersectionArrayForFunc: [Int] = getIntersectionLottoNumber()
+    
     if lottoNumberCount == 1 {
         
         print(lottoIntersectionArrayForFunc[0] ,terminator: " ")
@@ -67,7 +61,7 @@ func printArrayMemberOneByOne() {
     }
     
 }
- 
+
 
 func printLottoResult() {
     let lottoNumberCount: Int = getIntersectionLottoNumber().count
