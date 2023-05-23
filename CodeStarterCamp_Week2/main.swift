@@ -9,7 +9,7 @@
 import Foundation
 
 print("Hello, World!")
-/*
+
 var lotteryArray = Set<Int>()
 while lotteryArray.count != 6 {
   if let randomNumber = (1...45).randomElement() {
@@ -17,4 +17,4 @@ while lotteryArray.count != 6 {
   }
 }
 print(lotteryArray)
-*/
+
