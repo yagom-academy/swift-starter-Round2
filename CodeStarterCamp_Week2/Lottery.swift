@@ -21,5 +21,6 @@ func checkLottoNumber(picked: [Int], goal: [Int]) {
         print("아쉽지만 겹치는 번호가 없습니다.")
         return
     }
-    print("축하합니다! 겹치는 번호는 \(sameNumbers.sorted().map{ String($0) }.joined(separator: ", ")) 입니다!")
+    let sameNumberList = sameNumbers.sorted().map{ String($0) }.joined(separator: ", ")
+    print("축하합니다! 겹치는 번호는 \(sameNumberList) 입니다!")
 }
