@@ -19,10 +19,4 @@ import Foundation
 let lottoNumbers = getLottoNumbers()
 let myLottoNumbers = [6, 7, 19, 35, 37, 44]
 
-let lottoResult = checkLottoNumber(myNumbers: myLottoNumbers, goal: lottoNumbers)
-
-if lottoResult.count == 0 {
-    print("아쉽지만 겹치는 번호가 없습니다.")
-} else {
-    print("축하합니다! 겹치는 번호는 \(lottoResult.sorted().map{ String($0) }.joined(separator: ", ")) 입니다!")
-}
+checkLottoNumber(picked: myLottoNumbers, goal: lottoNumbers)

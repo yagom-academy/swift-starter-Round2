@@ -15,10 +15,11 @@ func getLottoNumbers() -> [Int] {
     return Array(lottoNumbers)
 }
 
-func checkLottoNumber(myNumbers: [Int], goal: [Int]) -> [Int] {
-    let sameNumbers: [Int] = goal.filter{ myNumbers.contains($0) }
+func checkLottoNumber(picked: [Int], goal: [Int]) {
+    let sameNumbers: [Int] = goal.filter{ picked.contains($0) }
     guard sameNumbers.count > 0 else {
-        return []
+        print("아쉽지만 겹치는 번호가 없습니다.")
+        return
     }
-    return sameNumbers
+    print("축하합니다! 겹치는 번호는 \(sameNumbers.sorted().map{ String($0) }.joined(separator: ", ")) 입니다!")
 }
