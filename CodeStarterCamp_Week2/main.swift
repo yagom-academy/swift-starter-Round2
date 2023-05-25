@@ -8,5 +8,5 @@
 
 import Foundation
 
-lottoNumberGenerator()
-lottoWinnerChecker()
+print("Hello, World!")
+
