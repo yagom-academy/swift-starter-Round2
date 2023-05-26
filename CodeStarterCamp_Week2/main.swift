@@ -21,13 +21,17 @@ import Foundation
 //
 //checkLottoNumber(picked: myLottoNumbers, goal: lottoNumbers)
 
+
+//let storage = createLottoStorageByCount(count: 5)
+//
+//let round = 4
+//showTargetRoundLotto(target: round, lotto: storage)
+
 /*
  Todo
  1. 로또 당첨 번호를 5번 생성합니다.
  2. Dictionary 에서 원하는 회차의 로또 당첨 번호(Optional)를 안전하게 찾습니다.
  3. Dictionary 에서 추출한 원하는 회차의 로또 당첨 번호 6개를 출력합니다.
  */
-let storage = createLottoStorageByCount(count: 5)
 
-let round = 4
-showTargetRoundLotto(target: round, lotto: storage)
+lottoManager()
