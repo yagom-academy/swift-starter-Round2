@@ -1,9 +1,8 @@
 //
-//  main.swift
+//  Lotto.swift
 //  CodeStarterCamp_Week2
 //
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
+//  Created by Lee minyeol on 2023/05/27.
 //
 
 import Foundation

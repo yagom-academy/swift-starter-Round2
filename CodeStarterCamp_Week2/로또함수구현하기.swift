@@ -1,9 +1,8 @@
 //
-//  main.swift
+//  로또함수구현하기.swift
 //  CodeStarterCamp_Week2
 //
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
+//  Created by Lee minyeol on 2023/05/27.
 //
 
 import Foundation
@@ -14,7 +13,7 @@ var lotto: Set<Int> = []
 
     while lotto.count < 6 {
         lotto.insert(numbers.randomElement()!)
-    }
+}
 
 func matchingLotto(myLottoNumbers: Set<Int>, lotto: Set<Int>) {
     let result: Set<Int> = myLottoNumbers.intersection(lotto)
