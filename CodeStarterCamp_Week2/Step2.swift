@@ -23,6 +23,11 @@ func announceLottoResult(lottos: Set<Int>, myNumbers: Set<Int>) {
     if result.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(result.map { String($0) }.joined(separator: ",")) 입니다!")
+        print("축하합니다! 겹치는 번호는", terminator: " ")
+        for index in 0 ..< result.count - 1 {
+            print(result[index], terminator: ", ")
+        }
+        print(result[result.count - 1], terminator: " ")
+        print("입니다!")
     }
 }
