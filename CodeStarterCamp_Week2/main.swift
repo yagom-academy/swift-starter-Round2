@@ -13,4 +13,4 @@ import Foundation
 var lottoNumbers = getLottoNumber()
 let myLottoNumbers = [1, 2, 3, 4, 5, 6]
 
-announceLottoResult(lottos: lottoNumbers, myNumbers: Set(myLottoNumbers))
+announceLottoResult(lottos: lottoNumbers, myNumbers: myLottoNumbers)

@@ -18,7 +18,7 @@ func getLottoNumber() -> Set<Int> {
     return lottoNumbers
 }
 
-func announceLottoResult(lottos: Set<Int>, myNumbers: Set<Int>) {
+func announceLottoResult(lottos: Set<Int>, myNumbers: [Int]) {
     let result = Array(lottos.intersection(myNumbers)).sorted()
     if result.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
