@@ -11,22 +11,28 @@ import Foundation
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var winningNumbers: Set<Int> = Set<Int>()
 var duplicationNumber = [Int]()
+var dictionary = [String: Any]()
 
-while(winningNumbers.count < 6){
-    winningNumbers.insert(Int.random(in: 1...45))
+func makeNumbers(){
+    while(winningNumbers.count < 6){
+        winningNumbers.insert(Int.random(in: 1...45))
+    }
 }
 func checkNumbers(){
-    //myLottoNumbers 겹치는 번호 비교 winningNumbers
     for number in 0...5{
         if(myLottoNumbers.contains(Array(winningNumbers)[number])) == true{
             duplicationNumber.append(Array(winningNumbers)[number])
         }
     }
 }
-checkNumbers()
-if duplicationNumber.isEmpty == true{
-    print("아쉽지만 겹치는 번호가 없습니다.")
+func saveWinningNumbers(round:Int){
+    dictionary = ["\(round)회차": Array(winningNumbers)]
 }
-else{
-    print(duplicationNumber.sorted())
+for round in 1...5{
+    makeNumbers()
+    saveWinningNumbers(round: round)
+    if (round == 4){ // 원하는 회차 입력
+        print("\(round)회차의 로또 당첨 번호는 \(dictionary.values)입니다")
+    }
+    winningNumbers.removeAll()
 }
