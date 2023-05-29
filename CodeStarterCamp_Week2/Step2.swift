@@ -15,6 +15,8 @@ func getLottoNumber() -> Set<Int> {
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
+    
+    savedLottoResult(lottoNumbers)
     return lottoNumbers
 }
 
