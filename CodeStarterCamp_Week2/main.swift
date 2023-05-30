@@ -17,12 +17,14 @@ func pickRandomLottoNumber() {
         lotto.insert(Int.random(in: 1...45))
     }
 }
+
 func matchingLotto(myLottoNumbers: Set<Int>, lotto: Set<Int>) {
     let result: Set<Int> = myLottoNumbers.intersection(lotto)
     if result.isEmpty {
         print("아쉽지만 겹치는 번호는 없습니다.")
         return
     }
-     print(result.map{String($0)}.joined(separator: ","))
+    print(result.map{String($0)}.joined(separator: ","))
 }
+pickRandomLottoNumber()
 matchingLotto(myLottoNumbers: myLottoNumbers, lotto: lotto)
