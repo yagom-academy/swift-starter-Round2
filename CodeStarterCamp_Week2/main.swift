@@ -8,5 +8,4 @@
 
 import Foundation
 
-generateLotto()
-checkWinner()
+saveWinners(andFind: 5)

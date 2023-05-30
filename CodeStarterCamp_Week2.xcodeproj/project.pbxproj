@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
-		BDDCF4312A1F1BF0004782B2 /* LottoNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCF4302A1F1BF0004782B2 /* LottoNumberGenerator.swift */; };
+		BD1ADBAF2A21C760001E6B35 /* saveWinners.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1ADBAE2A21C760001E6B35 /* saveWinners.swift */; };
+		BDDCF4312A1F1BF0004782B2 /* generateLotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCF4302A1F1BF0004782B2 /* generateLotto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +27,8 @@
 /* Begin PBXFileReference section */
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		BDDCF4302A1F1BF0004782B2 /* LottoNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoNumberGenerator.swift; sourceTree = "<group>"; };
+		BD1ADBAE2A21C760001E6B35 /* saveWinners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveWinners.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BDDCF4302A1F1BF0004782B2 /* generateLotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateLotto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				34811DC1274B93D800A1E994 /* main.swift */,
-				BDDCF4302A1F1BF0004782B2 /* LottoNumberGenerator.swift */,
+				BDDCF4302A1F1BF0004782B2 /* generateLotto.swift */,
+				BD1ADBAE2A21C760001E6B35 /* saveWinners.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -123,7 +126,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
-				BDDCF4312A1F1BF0004782B2 /* LottoNumberGenerator.swift in Sources */,
+				BD1ADBAF2A21C760001E6B35 /* saveWinners.swift in Sources */,
+				BDDCF4312A1F1BF0004782B2 /* generateLotto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
