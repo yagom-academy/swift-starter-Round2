@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+
+let randomlottoNum = generateLotteryNum()
+compareLotteryNum(lottoNum: randomlottoNum)
 
