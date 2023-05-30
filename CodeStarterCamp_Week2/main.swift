@@ -12,17 +12,17 @@ let myLottoNumbers: Set<Int> =  [1, 2, 3, 4, 5, 6]
 var numberfull: [Int] = Array<Int>(1...45)
 var lotto: Set<Int> = []
 
+func pickRandomLottoNumber() {
     while lotto.count < 6 {
         lotto.insert(Int.random(in: 1...45))
     }
-
+}
 func matchingLotto(myLottoNumbers: Set<Int>, lotto: Set<Int>) {
     let result: Set<Int> = myLottoNumbers.intersection(lotto)
     if result.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+        print("아쉽지만 겹치는 번호는 없습니다.")
+        return
     }
-    return print(result)
+     print(result.map{String($0)}.joined(separator: ","))
 }
-
 matchingLotto(myLottoNumbers: myLottoNumbers, lotto: lotto)
-
