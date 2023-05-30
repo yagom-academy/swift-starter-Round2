@@ -8,10 +8,12 @@
 
 import Foundation
 
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+
 var numbersPool: Array<Int> = Array<Int>(1...45)
 var winningNumbers: Array<Int> = Array<Int>()
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var matchingNumbers: Array<Int> = Array<Int>()
+var resultNumberString: String = ""
 
 func pickWinningNumbers() {
     numbersPool.shuffle()
@@ -21,20 +23,31 @@ func pickWinningNumbers() {
 }
 
 func compareLottoNumbers() {
-    for placeInMyNumbers in 0...5 {
-        for placeInWinningNumbers in 0...5 {
-            if myLottoNumbers[placeInMyNumbers] == winningNumbers[placeInWinningNumbers] {
-                matchingNumbers.append(myLottoNumbers[placeInMyNumbers])
+    for placeInMyNumber in 0...5 {
+        for placeInWinningNumber in 0...5 {
+            if myLottoNumbers[placeInMyNumber] == winningNumbers[placeInWinningNumber] {
+                matchingNumbers.append(myLottoNumbers[placeInMyNumber])
             }
         }
     }
 }
 
 func printLottoResult() {
-    if matchingNumbers.isEmpty == true {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+    if matchingNumbers.isEmpty != true {
+        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        
+        for number in matchingNumbers {
+            if resultNumberString == "" {
+                resultNumberString = String(number)
+            } else {
+                resultNumberString = resultNumberString + ", " + String(number)
+            }
+        }
+        print(resultNumberString + " 입니다!")
+
     } else {
-        print("축하합니다! 겹치는 번호는 \(matchingNumbers) 입니다!")
+        print("아쉽지만 겹치는 번호가 없습니다.")
+
     }
 }
 
