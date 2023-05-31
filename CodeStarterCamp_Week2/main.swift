@@ -13,4 +13,5 @@ import Foundation
 //compareLotteryNum(lottoNum: randomlottoNum)
 //createLotteryRounds(roundCount: 5, do: generateLotteryNum)
 
-matchLotteryWinningRounds(round: 2, roundLottoNumber: createLotteryRounds(roundCount: 5, do: generateLotteryNum))
+let lottoNumbers = createLotteryRounds(numberOfRounds: 5)
+matchLotteryWinningRounds(round: 2, lottoNumbersDictionary: lottoNumbers)
