@@ -9,6 +9,8 @@
 import Foundation
 
 
-let randomlottoNum = generateLotteryNum()
-compareLotteryNum(lottoNum: randomlottoNum)
+//let randomlottoNum = generateLotteryNum()
+//compareLotteryNum(lottoNum: randomlottoNum)
+//createLotteryRounds(roundCount: 5, do: generateLotteryNum)
 
+matchLotteryWinningRounds(round: 2, roundLottoNumber: createLotteryRounds(roundCount: 5, do: generateLotteryNum))
