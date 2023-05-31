@@ -16,7 +16,22 @@ import Foundation
  4. 겹치는 숫자 여부에 따라 메세지 출력합니다.
  */
 
-let lottoNumbers = getLottoNumbers()
-let myLottoNumbers = [6, 7, 19, 35, 37, 44]
+//let lottoNumbers = getLottoNumbers()
+//let myLottoNumbers = [6, 7, 19, 35, 37, 44]
+//
+//checkLottoNumber(picked: myLottoNumbers, goal: lottoNumbers)
 
-checkLottoNumber(picked: myLottoNumbers, goal: lottoNumbers)
+
+//let storage = createLottoStorageByCount(count: 5)
+//
+//let round = 4
+//showTargetRoundLotto(target: round, lotto: storage)
+
+/*
+ Todo
+ 1. 로또 당첨 번호를 5번 생성합니다.
+ 2. Dictionary 에서 원하는 회차의 로또 당첨 번호(Optional)를 안전하게 찾습니다.
+ 3. Dictionary 에서 추출한 원하는 회차의 로또 당첨 번호 6개를 출력합니다.
+ */
+
+lottoManager()
