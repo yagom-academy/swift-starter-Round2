@@ -8,5 +8,5 @@
 
 import Foundation
 
-playLotto(rounds: 20)
-printWinners()
+playLotto(rounds: 5)
+printAllWinners()
