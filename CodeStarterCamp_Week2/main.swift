@@ -8,7 +8,7 @@
 
 import Foundation
 
-func myLottoNumbers() -> Set<Int> {
+func makeLottoNumbers() -> Set<Int> {
     var numbers: Set<Int> = []
     
     while numbers.count < 6 {
@@ -20,13 +20,13 @@ func myLottoNumbers() -> Set<Int> {
     return numbers
 }
 
-func checkLottoNumbers(_ myNumbers: Set<Int>, with winNumbers: Set<Int>) -> String {
+func checkLottoNumbers(_ winNumbers: Set<Int>, with myNumbers: [Int]) -> String {
     
-    print("내가 찍은 번호 \(myNumbers)")
     print("당첨 번호 \(winNumbers)")
+    print("내가 찍은 번호 \(myNumbers)")
     
     let failMsg = "아쉽지만 겹치는 번호가 없습니다."
-    let winner = Array(myNumbers.intersection(winNumbers)).sorted()
+    let winner = Array(winNumbers.intersection(myNumbers)).sorted()
     
     guard winner.isEmpty == false else { return failMsg }
     
@@ -40,9 +40,8 @@ func checkLottoNumbers(_ myNumbers: Set<Int>, with winNumbers: Set<Int>) -> Stri
     return winnerMsg
 }
 
-let winNumbers: Set<Int> = [1,2,3,4,5,6]
-let failNumbers: Set<Int> = [46, 47, 48, 49, 50]
+let myLottoNumbers: [Int] = [1,2,3,4,5,6]
 
-print(checkLottoNumbers(myLottoNumbers(), with: winNumbers))
+print(checkLottoNumbers(makeLottoNumbers(), with: myLottoNumbers))
 
 
