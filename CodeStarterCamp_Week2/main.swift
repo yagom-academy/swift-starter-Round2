@@ -8,4 +8,5 @@
 
 import Foundation
 
-saveWinners(andFind: 5)
+playLotto(rounds: 20)
+printWinners()
