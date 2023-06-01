@@ -8,5 +8,7 @@
 
 import Foundation
 
-generateLotto()
-checkWinner()
+playLotto(rounds: 9)
+printAllWinners()
+print()
+findWinner(round: 5)
