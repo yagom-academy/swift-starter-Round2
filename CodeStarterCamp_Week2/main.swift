@@ -27,8 +27,8 @@ func storeLottoNumber(round: Int) {
 func moveLottoNumber(from:Int, to:Int) {
     for i in 1...5 {
         storeLottoNumber(round: i)
-        }
     }
+}
 
 func searchLottoNumber(times: Int) {
     if let lottoOptional = lottoDictionary["\(times)회차"] {
