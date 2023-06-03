@@ -7,13 +7,18 @@
 
 import Foundation
 
-func savedLottoResult(_ lottos: Set<Int>) {
-    let cnt = lottoHistories.count
-    lottoHistories["\(cnt)회차"] = Array(lottos)
+func createLotto() {
+    let round = lottoHistories.count // 현재 회차
+    let newLotto = getLottoNumber()
+    saveLottoResult(for: round, with: newLotto)
 }
 
-func fetchLottoResult(at number: Int) {
-    let key = "\(number)회차"
+func saveLottoResult(for round: Int, with lotto: Set<Int>) {
+    lottoHistories["\(round)회차"] = Array(lotto)
+}
+
+func fetchLottoResult(at round: Int) {
+    let key = "\(round)회차"
     guard let result = lottoHistories[key] else {
         print("아직 진행되지 않은 회차입니다.")
         return
