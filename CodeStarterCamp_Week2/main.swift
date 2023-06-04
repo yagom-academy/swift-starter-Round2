@@ -10,7 +10,12 @@ import Foundation
 
 // MARK: - STEP2
 
-var lottoNumbers = getLottoNumber()
 let myLottoNumbers = [1, 2, 3, 4, 5, 6]
+var lottoHistories = [String: [Int]]()
 
-compareLottoResult(to: lottoNumbers, from: myLottoNumbers)
+for _ in 0 ..< 5 {
+    createLotto()
+}
+
+///3 회차 로또 결과를 출력한다.
+fetchLottoResult(at: 3)
