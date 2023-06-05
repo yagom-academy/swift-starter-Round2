@@ -8,16 +8,16 @@
 
 import Foundation
 
-var lottoDictionary = [String : Set<Int>]()
+var lottoDictionary = [String : Array<Int>]()
 var numberFull: [Int] = Array<Int>(1...45)
 var lottoNumber: Set<Int> = Set<Int>()
 
-func makeRandomLottoNumber() -> Set<Int> {
-    var lottoNumber: Set<Int> = Set<Int>()
+func makeRandomLottoNumber() -> Array<Int> {
+    var lottoNumber: Set<Int> = []
     while lottoNumber.count < 6 {
         lottoNumber.insert(Int.random(in: 1...45))
     }
-    return lottoNumber
+    return Array(lottoNumber)
 }
 
 func storeLottoNumber(round: Int) {
