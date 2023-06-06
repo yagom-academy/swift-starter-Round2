@@ -43,4 +43,3 @@ searchLottoNumber(times: 2)
 searchLottoNumber(times: 3)
 searchLottoNumber(times: 4)
 searchLottoNumber(times: 5)
-
