@@ -8,23 +8,38 @@
 
 import Foundation
 
-let myLottoNumbers: Set<Int> =  [1, 2, 3, 4, 5, 6]
-var numberfull: [Int] = Array<Int>(1...45)
-var lotto: Set<Int> = Set<Int>()
+var lottoDictionary = [String : Array<Int>]()
+var numberFull: [Int] = Array<Int>(1...45)
+var lottoNumber: Set<Int> = Set<Int>()
 
-func pickRandomLottoNumber() {
-    while lotto.count < 6 {
-        lotto.insert(Int.random(in: 1...45))
+func makeRandomLottoNumber() -> Array<Int> {
+    var lottoNumber: Set<Int> = []
+    while lottoNumber.count < 6 {
+        lottoNumber.insert(Int.random(in: 1...45))
+    }
+    return Array(lottoNumber)
+}
+
+func storeLottoNumber(round: Int) {
+    lottoDictionary["\(round)회차"] = makeRandomLottoNumber()
+}
+
+func moveLottoNumber(from:Int, to:Int) {
+    for i in 1...5 {
+        storeLottoNumber(round: i)
     }
 }
 
-func matchingLotto(myLottoNumbers: Set<Int>, lotto: Set<Int>) {
-    let result: Set<Int> = myLottoNumbers.intersection(lotto)
-    if result.isEmpty {
-        print("아쉽지만 겹치는 번호는 없습니다.")
-        return
+func searchLottoNumber(times: Int) {
+    if let lottoOptional = lottoDictionary["\(times)회차"] {
+        return print("\(times)회차의 로또 당첨 번호는 \(lottoOptional.map { String($0) }.joined(separator: ", ")) 입니다.")
     }
-    print("축하합니다! 겹치는 번호는 \(result.map{String($0)}.joined(separator: ","))입니다!")
+    return print("\(times)회차는 존재하지 않습니다.")
 }
-pickRandomLottoNumber()
-matchingLotto(myLottoNumbers: myLottoNumbers, lotto: lotto)
+
+moveLottoNumber(from: 1, to: 5)
+searchLottoNumber(times: 1)
+searchLottoNumber(times: 2)
+searchLottoNumber(times: 3)
+searchLottoNumber(times: 4)
+searchLottoNumber(times: 5)
