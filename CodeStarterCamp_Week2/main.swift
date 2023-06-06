@@ -23,13 +23,8 @@ func pickWinningNumbers() {
 }
 
 func compareLottoNumbers() {
-    for placeInMyNumber in 0...5 {
-        for placeInWinningNumber in 0...5 {
-            if myLottoNumbers[placeInMyNumber] == winningNumbers[placeInWinningNumber] {
-                matchingNumbers.append(myLottoNumbers[placeInMyNumber])
-            }
-        }
-    }
+    matchingNumbers.append(contentsOf:myLottoNumbers.filter(winningNumbers.contains))
+    print(matchingNumbers)
 }
 
 func printLottoResult() {
