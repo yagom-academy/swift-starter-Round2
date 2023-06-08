@@ -9,6 +9,8 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var lottoResult: [String: [Int]] = [String: [Int]]()
+var count: Int = 0
 
 func makeLottoNumbers() -> [Int] {
 
@@ -19,23 +21,22 @@ func makeLottoNumbers() -> [Int] {
         
         randNum = Int.random(in: 1...45)
 
-        if lottoNumbers.contains(randNum) == false{
+        if lottoNumbers.contains(randNum) == false {
             lottoNumbers.append(randNum)
         }
         
     } while lottoNumbers.count < 6
-
-    return lottoNumbers
     
+    return lottoNumbers
 }
 
 
-func compareLotto(myLotto: [Int], Lotto: [Int]) {
+func compareLotto(comparingMyLottoNumbers: [Int], comparingLottoNumbers: [Int]) {
     
     var resultNumbers: [Int] = [Int]()
     
-    for numbers in Lotto {
-        if myLotto.contains(numbers) {
+    for numbers in comparingLottoNumbers {
+        if comparingMyLottoNumbers.contains(numbers) {
             resultNumbers.append(numbers)
         }
     }
@@ -48,4 +49,26 @@ func compareLotto(myLotto: [Int], Lotto: [Int]) {
     
 }
 
-compareLotto(myLotto: myLottoNumbers, Lotto: makeLottoNumbers())
+func recordLottoResults(turn: String, lottoNumbers: [Int]) {
+    
+    lottoResult[turn] = lottoNumbers
+    
+}
+
+func printLottoResult(turn: String, lottoResults: [String:[Int]]) {
+    
+    if let lottoResults = lottoResults[turn] {
+        print("\(turn)회차의 로또 당첨 번호는", terminator: " ")
+        print("\((lottoResults).map {String($0)}.joined(separator: ", ")) 입니다")
+    }
+    
+}
+
+for turn in 1...5 {
+    recordLottoResults(turn: String(turn), lottoNumbers: makeLottoNumbers())
+}
+
+let turn: String
+print("원하는 회차를 입력하세요: ", terminator: "")
+turn = readLine() ?? ""
+printLottoResult(turn: turn, lottoResults: lottoResult)
