@@ -31,12 +31,12 @@ func makeLottoNumbers() -> [Int] {
 }
 
 
-func compareLotto(myLotto: [Int], Lotto: [Int]) {
+func compareLotto(ComparingMyLottoNumbers: [Int], ComparingLottoNumbers: [Int]) {
     
     var resultNumbers: [Int] = [Int]()
     
-    for numbers in Lotto {
-        if myLotto.contains(numbers) {
+    for numbers in ComparingLottoNumbers {
+        if ComparingMyLottoNumbers.contains(numbers) {
             resultNumbers.append(numbers)
         }
     }
@@ -57,17 +57,14 @@ func recordLottoResults(turn: String, lottoNumbers: [Int]) {
 
 func printLottoResult(turn: String, lottoResults: [String:[Int]]) {
     
-    if lottoResult[turn] == nil {
-        print("회차 정보가 없습니다.")
-    } else {
+    if lottoResult[turn] != nil {
         print("\(turn)회차의 로또 당첨 번호는", terminator: " ")
         print("\((lottoResult[turn] ?? [0]).map {String($0)}.joined(separator: ", ")) 입니다")
     }
     
 }
 
-for _ in 1...5 {
-    count += 1
+for count in 1...5 {
     recordLottoResults(turn: String(count), lottoNumbers: makeLottoNumbers())
 }
 
