@@ -27,4 +27,3 @@ if let lottoNumber = lottoNumbers[round] {
 } else {
     print("no value")
 }
-
