@@ -8,20 +8,20 @@
 
 import Foundation
 
-// 로또 번호 생성
-
-func generateUniqueRandomNumbers() -> Set<Int> {
+func generateUniqueNumbers(count: Int, range: ClosedRange<Int>) -> Set<Int> {
     var uniqueNumbers = Set<Int>()
     
-    while uniqueNumbers.count < 6 {
-        let randomNumber = Int.random(in: 1...45)
+    while uniqueNumbers.count < count {
+        let randomNumber = Int.random(in: range)
         uniqueNumbers.insert(randomNumber)
     }
     
     return uniqueNumbers
 }
 
-// 내가 고른 번호와 생성된 로또 번호 비교
+func generateLottoNumbers() -> Set<Int> {
+    return generateUniqueNumbers(count: 6, range: 1...45)
+}
 
 func compareLottoNumbers(_ choiceLottoNumbers: [Int]) {
     if choiceLottoNumbers.count != 6 {
@@ -35,17 +35,20 @@ func compareLottoNumbers(_ choiceLottoNumbers: [Int]) {
     }
     
     let myLottoNumbers: Set<Int> = Set(choiceLottoNumbers)
-    let generateLottoNumbers : Set<Int> = generateUniqueRandomNumbers()
+    let generatedLottoNumbers: Set<Int> = generateLottoNumbers()
     
-    let overrappingNumbers = myLottoNumbers.intersection(generateLottoNumbers)
+    let overrappingNumbers = myLottoNumbers.intersection(generatedLottoNumbers)
     
     if overrappingNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(overrappingNumbers.sorted())입니다!")
+        let overrappingNumbers = overrappingNumbers.sorted()
+        let result = overrappingNumbers.map { String($0) }.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(result) 입니다!")
     }
 }
 
-compareLottoNumbers([4, 10, 20, 27, 34, 40])
+let mySelectedLottoNumbers: [Int] = [4, 10, 20, 27, 34, 40]
+compareLottoNumbers(mySelectedLottoNumbers)
 
 
