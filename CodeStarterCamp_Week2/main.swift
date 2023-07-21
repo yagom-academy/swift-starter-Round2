@@ -23,7 +23,7 @@ func generateLottoNumbers() -> Set<Int> {
     return generateUniqueNumbers(count: 6, range: 1...45)
 }
 
-func compareLottoNumbers(_ choiceLottoNumbers: [Int]) {
+func compareLottoNumbers(_ choiceLottoNumbers: [Int], _ generatedLottoNumbers: Set<Int>) {
     if choiceLottoNumbers.count != 6 {
         print("6개의 숫자를 선택해주세요.")
         return
@@ -35,7 +35,7 @@ func compareLottoNumbers(_ choiceLottoNumbers: [Int]) {
     }
     
     let myLottoNumbers: Set<Int> = Set(choiceLottoNumbers)
-    let generatedLottoNumbers: Set<Int> = generateLottoNumbers()
+    let generatedLottoNumbers: Set<Int> = generatedLottoNumbers
     
     let overrappingNumbers = myLottoNumbers.intersection(generatedLottoNumbers)
     
@@ -49,6 +49,6 @@ func compareLottoNumbers(_ choiceLottoNumbers: [Int]) {
 }
 
 let mySelectedLottoNumbers: [Int] = [4, 10, 20, 27, 34, 40]
-compareLottoNumbers(mySelectedLottoNumbers)
+compareLottoNumbers(mySelectedLottoNumbers, generateLottoNumbers())
 
 
