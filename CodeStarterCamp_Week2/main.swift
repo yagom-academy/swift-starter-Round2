@@ -8,6 +8,12 @@
 
 import Foundation
 
+var lottoNumbersDictionary: [Int: (Set<Int>, String)] = [:]
+
+func generateLottoNumbers() -> Set<Int> {
+    return generateUniqueNumbers(count: 6, range: 1...45)
+}
+
 func generateUniqueNumbers(count: Int, range: ClosedRange<Int>) -> Set<Int> {
     var uniqueNumbers = Set<Int>()
     
@@ -15,40 +21,56 @@ func generateUniqueNumbers(count: Int, range: ClosedRange<Int>) -> Set<Int> {
         let randomNumber = Int.random(in: range)
         uniqueNumbers.insert(randomNumber)
     }
-    
+    SaveLottorNumbersForEachRound(uniqueNumbers)
     return uniqueNumbers
 }
 
-func generateLottoNumbers() -> Set<Int> {
-    return generateUniqueNumbers(count: 6, range: 1...45)
+func SaveLottorNumbersForEachRound(_ generatedLottoNumbers: Set<Int>) {
+    let roundNumber = lottoNumbersDictionary.count + 1
+    lottoNumbersDictionary[roundNumber] = (generatedLottoNumbers, generatedLottoNumbers.map { String($0) }.joined(separator: ", "))
 }
 
-func compareLottoNumbers(_ choiceLottoNumbers: [Int], _ generatedLottoNumbers: Set<Int>) {
-    if choiceLottoNumbers.count != 6 {
-        print("6개의 숫자를 선택해주세요.")
-        return
-    }
-    
-    if choiceLottoNumbers.contains(where: { $0 < 1 || $0 > 45 }) {
-        print("1부터 45사이의 숫자를 선택해주세요.")
-        return
-    }
-    
-    let myLottoNumbers: Set<Int> = Set(choiceLottoNumbers)
-    let generatedLottoNumbers: Set<Int> = generatedLottoNumbers
-    
-    let overrappingNumbers = myLottoNumbers.intersection(generatedLottoNumbers)
-    
-    if overrappingNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+generateLottoNumbers()
+generateLottoNumbers()
+generateLottoNumbers()
+generateLottoNumbers()
+generateLottoNumbers()
+
+func printLottoNumbersForEachRound(_ key: Int) {
+    if let lottoNumbers = lottoNumbersDictionary[key] {
+        print("\(key)회차의 로또 당첨 번호는 \(lottoNumbers.1) 입니다.")
     } else {
-        let overrappingNumbers = overrappingNumbers.sorted()
-        let result = overrappingNumbers.map { String($0) }.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(result) 입니다!")
+        print("해당 회차의 로또 당첨 번호가 없습니다.")
     }
 }
 
-let mySelectedLottoNumbers: [Int] = [4, 10, 20, 27, 34, 40]
-compareLottoNumbers(mySelectedLottoNumbers, generateLottoNumbers())
+printLottoNumbersForEachRound(2)
 
+//func compareLottoNumbers(_ choiceLottoNumbers: [Int], _ generatedLottoNumbers: Set<Int>) {
+//    if choiceLottoNumbers.count != 6 {
+//        print("6개의 숫자를 선택해주세요.")
+//        return
+//    }
+//
+//    if choiceLottoNumbers.contains(where: { $0 < 1 || $0 > 45 }) {
+//        print("1부터 45사이의 숫자를 선택해주세요.")
+//        return
+//    }
+//
+//    let myLottoNumbers: Set<Int> = Set(choiceLottoNumbers)
+//    let generatedLottoNumbers: Set<Int> = generatedLottoNumbers
+//
+//    let overrappingNumbers = myLottoNumbers.intersection(generatedLottoNumbers)
+//
+//    if overrappingNumbers.isEmpty {
+//        print("아쉽지만 겹치는 번호가 없습니다.")
+//    } else {
+//        let overrappingNumbers = overrappingNumbers.sorted()
+//        let result = overrappingNumbers.map { String($0) }.joined(separator: ", ")
+//        print("축하합니다! 겹치는 번호는 \(result) 입니다!")
+//    }
+//}
+//
+//let mySelectedLottoNumbers: [Int] = [4, 10, 20, 27, 34, 40]
+//compareLottoNumbers(mySelectedLottoNumbers, generateLottoNumbers())
 
