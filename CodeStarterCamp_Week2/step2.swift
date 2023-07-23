@@ -1,5 +1,6 @@
 import Foundation
 
+
 var lottoNumbers: Set<Int> = []
 
 func makeLottoNumbers() {
