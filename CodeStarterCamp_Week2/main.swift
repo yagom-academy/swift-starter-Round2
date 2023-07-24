@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let lottoNumbers = makeLottoNumbers()
 
+checkLottoNumbers(myNumbers: myLottoNumbers, lottoNumbers: lottoNumbers)
