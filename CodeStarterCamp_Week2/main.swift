@@ -11,10 +11,10 @@ import Foundation
 var lottoNumbersDictionary: [Int: (Set<Int>, String)] = [:]
 
 func generateLottoNumbers() -> Set<Int> {
-    return generateUniqueNumbers(count: 6, range: 1...45)
+    return generateUniqueNumbersAndSaveInDictionary(count: 6, range: 1...45)
 }
 
-func generateUniqueNumbers(count: Int, range: ClosedRange<Int>) -> Set<Int> {
+func generateUniqueNumbersAndSaveInDictionary(count: Int, range: ClosedRange<Int>) -> Set<Int> {
     var uniqueNumbers = Set<Int>()
     
     while uniqueNumbers.count < count {
