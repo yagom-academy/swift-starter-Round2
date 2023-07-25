@@ -13,9 +13,11 @@ let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
 func checkLottoNumbers() {
     makeLottoNumbers()
-    if lottoNumbers.intersection(myLottoNumbers) != [] {
-        print("축하합니다! 겹치는 번호는 \((lottoNumbers.intersection(myLottoNumbers)).sorted())입니다!")
-    }else {
+    let matchNumbers = lottoNumbers.intersection(myLottoNumbers).sorted()
+    if matchNumbers.isEmpty {
         print("아쉽지만 겹치는 번호는 없습니다.")
+    }else {
+        print("축하합니다! 겹치는 번호는 \(matchNumbers.map{ String($0)}.joined(separator: ", ")) 입니다!")
     }
 }
+
