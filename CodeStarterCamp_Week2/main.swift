@@ -3,6 +3,5 @@ import Foundation
 
 //step2
 
-checkLottoNumbers()
-
+printMatchNumbers()
 
