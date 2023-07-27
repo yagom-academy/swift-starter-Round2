@@ -1,7 +1,6 @@
 import Foundation
 
 
-//step2
+//step3
 
-printMatchNumbers()
-
+printWinningNumbers(round: 2)
