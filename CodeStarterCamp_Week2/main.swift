@@ -7,49 +7,64 @@
 
 import Foundation
 
-// lotto 회차별 당첨번호 저장할 딕셔너리 변수 생성
-var lottoDic: Dictionary<Int, String> = [Int: String]()
-
-// 각 회차 판단할 변수 생성
-var countOfLotto: Int = 1
-
-// MARK: - 로또 당첨번호 생성하는 함수
+// MARK: - 로또 번호 생성 함수
 func makeLottoNumbers() -> Set<Int>{
     var lottoNumbers: Set<Int> = []
-    
+
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
     return lottoNumbers
 }
 
-// MARK: - 결과 출력시 [] 와 같은 대괄호를 없애기 위한 함수
-func lottoDicWithSeparator() {
-    let lottoNumbers = makeLottoNumbers()
-    let lottoWithMap = lottoNumbers.map({String($0)})
-    let lottoWithJoined = lottoWithMap.joined(separator: ",")
-    lottoDic[countOfLotto] = lottoWithJoined
-    countOfLotto += 1
+// MARK: - 내 번호와 로또 당첨번호 맞추는 함수
+func lottoMachine(winnerNumbers: Array<Int>) -> Array<Int> {
+
+    var count = 0
+    var correct = [Int]()
+
+    for i in winnerNumbers {
+        if myLottoNumbers.contains(i) {
+            count += 1
+            correct.append(i)
+        }
+    }
+    return correct
 }
 
-// MARK: - 로또 당첨번호 5회차 생성
-for _ in 0..<5 {
-    lottoDicWithSeparator()
-}
 
-// MARK: - lottoDic에 담긴 각 회차별 당첨번호를 옵셔널로부터 안전하게 언래핑하기 위한 함수
-func step3Solution(_ key: Int) {
-    if let lottoWithJoined = lottoDic[key] {
-        printLotto(key: key, value: lottoWithJoined)
+func step2Solution() {
+    let winnerNumbers = Array(makeLottoNumbers())
+    let correctNumbers = lottoMachine(winnerNumbers: winnerNumbers)
+
+    if correctNumbers.count == 0 {
+        print("아쉽지만 겹치는 번호가 없습니다.")
     }
     else {
-        print("해당 값은 nil 상태입니다")
+        print("축하합니다! 겹치는 번호는 ",terminator: "")
+        for i in correctNumbers {
+            if i != correctNumbers[correctNumbers.count-1] {
+                print(i, terminator: ",")
+            }
+            else {
+                print(i, terminator: " 입니다!")
+            }
+        }
+        print("")
     }
 }
 
-// MARK: - 사용자가 요구하였던 회차에 맞는 로또 당첨 번호를 출력해주는 함수
-func printLotto(key: Int, value: String) {
-    print("\(key)회차의 로또 당첨 번호는 \(value) 입니다.")
-}
 
-step3Solution(2)
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+step2Solution()
+
+
+
+// MARK: 아래 코드에서 3을 꺼내 그 값을 출력하는 가장 안전한 코드를 작성해보세요.
+let someArray: [[[Int?]?]?] = [[[1, 2], nil, [3, nil, 4], nil, [5, 6]]]
+if let num = someArray[0]?[2]?[0] {
+    print(num)
+}
+else {
+    print("해당 값은 optional 입니다.")
+}
