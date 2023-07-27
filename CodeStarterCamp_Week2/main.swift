@@ -8,5 +8,26 @@
 
 import Foundation
 
-print("Hello, World!")
+func makeLottoNumbers() -> Set<Int> {
+    var randomNumbers: Set<Int> = []
+    while randomNumbers.count < 6 {
+        randomNumbers.insert(Int.random(in: 1...45))
+    }
+    return randomNumbers
+}
+
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let lottoNumbers = makeLottoNumbers()
+
+let intersection: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
+
+if intersection.count >= 6 {
+    print("축하합니다! 겹치는 번호는 \(intersection) 입니다.")
+}
+else if (intersection.count > 1  && intersection.count < 6){
+    print("아쉽습니다. 겹치는 번호는 \(intersection) 입니다.")
+}
+else {
+    print("아쉽지만 겹치는 번호가 없습니다.")
+}
 
