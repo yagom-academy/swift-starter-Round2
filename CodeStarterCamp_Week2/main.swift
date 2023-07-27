@@ -12,8 +12,9 @@ func makeRound(round: Int) -> String {
     return "\(round)회차"
 }
 
-func makeNumber() -> Set<Int> {
+func generateRandomNumbers() -> Set<Int> {
     var numbers: Set<Int> = []
+    
     repeat {
         let random = Int.random(in: 1...45)
         numbers.insert(random)
@@ -21,13 +22,16 @@ func makeNumber() -> Set<Int> {
     return numbers
 }
 
-func makeLottoNumber(roundByNumbers: inout [String: Set<Int>]) {
-    let round = makeRound(round: roundByNumbers.count + 1)
-    roundByNumbers[round] = makeNumber()
+func makeLottoNumber(maxRound: Int) {
+    for currentRound in 1...maxRound {
+        let round = makeRound(round: currentRound)
+        
+        roundByNumbers[round] = generateRandomNumbers()
+    }
 }
 
-func checkNumbers(roundByNumbers: [String: Set<Int>]) {
-    print(roundByNumbers) //check Dictionary
+/*
+ func checkAllNumbers() {
     for num in 1...6 {
         let round = "\(num)회차"
         guard let numbers = roundByNumbers[round] else {
@@ -38,12 +42,26 @@ func checkNumbers(roundByNumbers: [String: Set<Int>]) {
         print("\(round)의 로또 당첨 번호는 \(numbersAddSeparator) 입니다.")
     }
 }
+*/
 
-func compareNumbers(roundByNumbers: [String: Set<Int>], round num: Int, myLottoNumbers: [Int]) {
-    let round = "\(num)회차"
-    print("\(round)의 결과를 내 번호와 비교합니다")
+func checkNumbers(forRound round: Int) {
+    let roundString = makeRound(round: round)
     
-    guard let numbers = roundByNumbers[round] else {
+    guard let numbers = roundByNumbers[roundString] else {
+        return
+    }
+    let sortNumbers = numbers.sorted().map{ String($0) }
+    let numbersAddSeparator = sortNumbers.joined(separator: ", ")
+    print("\(roundString)의 로또 당첨 번호는 \(numbersAddSeparator) 입니다.")
+}
+
+
+func compareNumbers(forRound round: Int) {
+    let roundString = "\(round)회차"
+    print("\(roundString)의 결과를 내 번호와 비교합니다.")
+    
+    guard let numbers = roundByNumbers[roundString] else {
+        print("\(roundString)는 진행되지 않았습니다.")
         return
     }
     let result = numbers.intersection(myLottoNumbers).sorted().map { String($0) }
@@ -56,10 +74,8 @@ func compareNumbers(roundByNumbers: [String: Set<Int>], round num: Int, myLottoN
 }
 
 var roundByNumbers: [String: Set<Int>] = [:]
-for _ in 1...5 {
-    makeLottoNumber(roundByNumbers: &roundByNumbers)
-}
-checkNumbers(roundByNumbers: roundByNumbers)
-//step2
-let myLottoNumbers: [Int] = [1, 6, 12, 15, 23, 45]
-compareNumbers(roundByNumbers: roundByNumbers, round: 3, myLottoNumbers: myLottoNumbers)
+makeLottoNumber(maxRound: 5)
+checkNumbers(forRound: 3)
+
+let myLottoNumbers: Set<Int> = generateRandomNumbers()
+compareNumbers(forRound: 5)
