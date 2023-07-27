@@ -19,6 +19,7 @@ func generateRandomNumbers() -> Set<Int> {
         let random = Int.random(in: 1...45)
         numbers.insert(random)
         } while numbers.count < 6
+    
     return numbers
 }
 
@@ -29,20 +30,6 @@ func makeLottoNumber(maxRound: Int) {
         roundByNumbers[round] = generateRandomNumbers()
     }
 }
-
-/*
- func checkAllNumbers() {
-    for num in 1...6 {
-        let round = "\(num)회차"
-        guard let numbers = roundByNumbers[round] else {
-            break
-        }
-        let sortNumbers = numbers.sorted().map{ String($0) }
-        let numbersAddSeparator = sortNumbers.joined(separator: ", ")
-        print("\(round)의 로또 당첨 번호는 \(numbersAddSeparator) 입니다.")
-    }
-}
-*/
 
 func checkNumbers(forRound round: Int) {
     let roundString = makeRound(round: round)
@@ -62,6 +49,7 @@ func compareNumbers(forRound round: Int) {
     
     guard let numbers = roundByNumbers[roundString] else {
         print("\(roundString)는 진행되지 않았습니다.")
+        
         return
     }
     let result = numbers.intersection(myLottoNumbers).sorted().map { String($0) }
