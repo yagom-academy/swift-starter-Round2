@@ -2,7 +2,7 @@
 //  step3.swift
 //  CodeStarterCamp_Week2
 //
-//  Created by 이채훈 on 2023/07/27.
+//  Created by 이채훈 on 2023/07/29.
 //
 
 import Foundation
@@ -33,4 +33,3 @@ func printWinningNumbers(round: Int) {
         print("해당 회차의 로또 당첨 번호는 없습니다.")
     }
 }
-
