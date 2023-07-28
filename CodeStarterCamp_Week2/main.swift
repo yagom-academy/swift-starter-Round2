@@ -21,13 +21,9 @@ let lottoNumbers = makeLottoNumbers()
 
 let intersection: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
 
-if intersection.count >= 6 {
-    print("축하합니다! 겹치는 번호는 \(intersection) 입니다.")
-}
-else if (intersection.count > 1  && intersection.count < 6){
-    print("아쉽습니다. 겹치는 번호는 \(intersection) 입니다.")
+if intersection.count > 0 {
+    print("축하합니다! 겹치는 번호는 \(intersection.map{String($0)}.joined(separator:",")) 입니다")
 }
 else {
     print("아쉽지만 겹치는 번호가 없습니다.")
 }
-
