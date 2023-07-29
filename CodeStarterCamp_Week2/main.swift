@@ -8,7 +8,16 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let lottoNumbers = makeLottoNumbers()
+// 로또 당첨 번호를 회차별로 저장할 딕셔너리
+var lottoHistory: [String: Set<Int>] = [:]
 
-checkLottoNumbers(myNumbers: myLottoNumbers, lottoNumbers: lottoNumbers)
+// 로또 당첨 번호를 5번 생성합니다.
+makeLottoNumbers()
+makeLottoNumbers()
+makeLottoNumbers()
+makeLottoNumbers()
+makeLottoNumbers()
+
+// n회차의 로또 당첨번호를 출력합니다.
+findLottoNumbers(5)
+
