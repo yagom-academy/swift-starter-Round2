@@ -9,7 +9,7 @@
 import Foundation
 
 // 당첨번호 생성
-let winningNumbers: [Int] = makeLottoNumber()
+let winningNumbers: Set<Int> = makeLottoNumber()
 
 // 내가 찍은 번호
 let myLottoNumbers: [Int] = [9, 22, 33, 19, 30, 35]
