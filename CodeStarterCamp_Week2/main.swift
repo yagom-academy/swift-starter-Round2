@@ -16,14 +16,26 @@ func makeLottoNumbers() -> Set<Int> {
     return randomNumbers
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let lottoNumbers = makeLottoNumbers()
+var lottoResults: [Int: Set<Int>] = [:]
+var presentRound: Int = 0
 
-let intersection: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
-
-if intersection.count > 0 {
-    print("축하합니다! 겹치는 번호는 \(intersection.map{String($0)}.joined(separator:",")) 입니다")
+func progressPresentRound() {
+    let lottoNumbers = makeLottoNumbers()
+    presentRound += 1
+    lottoResults[presentRound] = lottoNumbers
 }
-else {
-    print("아쉽지만 겹치는 번호가 없습니다.")
+
+for _ in 1...5 {
+    progressPresentRound()
+}
+
+let sortedResults = lottoResults.sorted(by: { $0.key < $1.key })
+for (round, numbers) in sortedResults {
+    print("\(round)회차의 로또 당첨 번호는 \(numbers) 입니다.")
+}
+print()
+
+if let round2Numbers = lottoResults[2] {
+    let numbersString = round2Numbers.map { String($0) }.joined(separator: ", ")
+    print("2회차의 로또 당첨 번호는 \(numbersString) 입니다.")
 }
