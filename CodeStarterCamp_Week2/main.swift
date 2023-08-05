@@ -32,8 +32,7 @@ for _ in 1...5 {
 let sortedResults = lottoResults.sorted(by: { $0.key < $1.key })
 for (round, numbers) in sortedResults {
     print("\(round)회차의 로또 당첨 번호는 \(numbers) 입니다.")
-}
-print()
+}; print()
 
 if let round2Numbers = lottoResults[2] {
     let numbersString = round2Numbers.map { String($0) }.joined(separator: ", ")
