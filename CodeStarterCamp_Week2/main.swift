@@ -22,4 +22,4 @@ for _ in 1...5 {
     makeLottoNumbers()
 }
 
-readLottoNumbers(round: 2, from: lottoNumbersDictionary)
+readLottoNumbers(from: lottoNumbersDictionary, round: 2)

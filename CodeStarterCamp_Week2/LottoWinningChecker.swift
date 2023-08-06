@@ -39,7 +39,7 @@ func saveLottoNumbers(lottoNumbers: [Int]) {
     lottoNumbersDictionary.updateValue(madeLottoNumbers, forKey: "\(roundNumber)회차")
 }
 
-func readLottoNumbers(round: Int, from storedLottoNumbers: [String: [Int]]) {
+func readLottoNumbers(from storedLottoNumbers: [String: [Int]], round: Int) {
     if let selectedLottoNumbers = storedLottoNumbers["\(round)회차"] {
         let lottoNumbersToString: String = selectedLottoNumbers.map { String($0) }.joined(separator: ", ")
         print("\(round)회차의 로또 당첨 번호는 \(lottoNumbersToString) 입니다.")
