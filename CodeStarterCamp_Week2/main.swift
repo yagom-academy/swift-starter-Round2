@@ -1,46 +1,21 @@
 import Foundation
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var lottoNumbers = Set<Int>()
 
-func makeLottoNumbers() {
-    while (lottoNumbers.count < 6) {
-        lottoNumbers.insert(Int.random(in: 1...45))
-    }
-}
-
-func getCorrectNumbers() -> [Int] {
-    var correctNumbers: [Int] = []
-    for numbers in 0...lottoNumbers.count-1 {
-           if lottoNumbers.contains(myLottoNumbers[numbers]) {
-                correctNumbers.append(myLottoNumbers[numbers])
+var lottoNumbers = [String : Set<Int>]()
+var round : Int = 1
+func makeFiveRoundLottoNumbers() {
+    for _ in stride(from: 1, through: 5, by: 1) {
+        var lottoNumbersList = Set<Int>()
+        while (lottoNumbersList.count < 6) {
+            lottoNumbersList.insert(Int.random(in: 1...45))
         }
+        lottoNumbers["\(round) + 회차"] = lottoNumbersList
+        round = round + 1
     }
-    return correctNumbers
 }
-func correctNumbersArrayToString(correctNumbers: [Int]) -> String {
-    var correctNumbersList : String = ""
-    for index in 0...correctNumbers.count-1 {
-        if correctNumbersList == "" {
-            correctNumbersList = correctNumbersList + "\(correctNumbers[index])"
-        }
-        else {
-            correctNumbersList = correctNumbersList + ", " + "\(correctNumbers[index])"
-        }
-    }
-    return correctNumbersList
+makeFiveRoundLottoNumbers()
+round = 4
+if let lottoNumber = lottoNumbers["\(round) + 회차"] {
+    print("\(round)회차의 로또 당첨 번호는 \(lottoNumber.map{String($0)}.joined(separator:", ")) 입니다.")
 }
-func printLottoResult() {
-    var correctNumbers = [Int]()
-    var correctNumbersList : String = ""
-    makeLottoNumbers()
-    correctNumbers = getCorrectNumbers()
-    guard !(correctNumbers.isEmpty) else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-        return
-    }
-    correctNumbersList = correctNumbersArrayToString(correctNumbers: correctNumbers)
-    print("축하합니다! 겹치는 번호는 \(correctNumbersList) 입니다!")
-}
-printLottoResult()
 
 
