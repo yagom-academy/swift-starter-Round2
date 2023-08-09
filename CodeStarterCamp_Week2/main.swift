@@ -1,46 +1,29 @@
 import Foundation
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var lottoNumbers = Set<Int>()
 
-func makeLottoNumbers() {
-    while (lottoNumbers.count < 6) {
-        lottoNumbers.insert(Int.random(in: 1...45))
+var lottoNumbers = [String : Array<Int>]()
+func makeFiveRoundLottoNumbers() {
+    for round in 1...5 {
+        let lottoNumbersList = Array(makeLottoNumbers())
+        lottoNumbers["\(round)회차"] = lottoNumbersList
     }
+    print(lottoNumbers)
 }
 
-func getCorrectNumbers() -> [Int] {
-    var correctNumbers: [Int] = []
-    for numbers in 0...lottoNumbers.count-1 {
-           if lottoNumbers.contains(myLottoNumbers[numbers]) {
-                correctNumbers.append(myLottoNumbers[numbers])
+
+func makeLottoNumbers() -> Set<Int> {
+    var lottoNumbersList = Set<Int>()
+        while (lottoNumbersList.count < 6) {
+            lottoNumbersList.insert(Int.random(in: 1...45))
         }
-    }
-    return correctNumbers
+    return lottoNumbersList
 }
-func correctNumbersArrayToString(correctNumbers: [Int]) -> String {
-    var correctNumbersList : String = ""
-    for index in 0...correctNumbers.count-1 {
-        if correctNumbersList == "" {
-            correctNumbersList = correctNumbersList + "\(correctNumbers[index])"
-        }
-        else {
-            correctNumbersList = correctNumbersList + ", " + "\(correctNumbers[index])"
-        }
+
+func printLottoResult(round: Int) {
+    if let lottoNumber = lottoNumbers["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(lottoNumber.map{String($0)}.joined(separator:", ")) 입니다.")
     }
-    return correctNumbersList
 }
-func printLottoResult() {
-    var correctNumbers = [Int]()
-    var correctNumbersList : String = ""
-    makeLottoNumbers()
-    correctNumbers = getCorrectNumbers()
-    guard !(correctNumbers.isEmpty) else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-        return
-    }
-    correctNumbersList = correctNumbersArrayToString(correctNumbers: correctNumbers)
-    print("축하합니다! 겹치는 번호는 \(correctNumbersList) 입니다!")
-}
-printLottoResult()
+makeFiveRoundLottoNumbers()
+printLottoResult(round: 3)
 
 
