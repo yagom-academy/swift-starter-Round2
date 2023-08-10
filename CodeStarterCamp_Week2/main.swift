@@ -16,14 +16,38 @@ func makeLottoNumbers() -> Set<Int> {
     return randomNumbers
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let lottoNumbers = makeLottoNumbers()
+var lottoResults: [String: Set<Int>] = [:]
 
-let intersection: Set<Int> = lottoNumbers.intersection(myLottoNumbers)
+func progressPresentRound() {
+    let lottoNumbers = makeLottoNumbers()
+    let newRound = lottoResults.count + 1
+    lottoResults["\(newRound)회차"] = lottoNumbers
+}
 
-if intersection.count > 0 {
-    print("축하합니다! 겹치는 번호는 \(intersection.map{String($0)}.joined(separator:",")) 입니다")
+func carryOutRound(numberOfRound: Int) {
+    for _ in 1...numberOfRound {
+        progressPresentRound()
+    }
 }
-else {
-    print("아쉽지만 겹치는 번호가 없습니다.")
+
+carryOutRound(numberOfRound: 5)
+
+func printResult() {
+    let sortedResults = lottoResults.sorted(by: { $0.key < $1.key })
+    for (round, numbers) in sortedResults {
+        let formattedNumbers = numbers.sorted().map(String.init).joined(separator: ", ")
+        print("\(round)의 로또 당첨 번호는 \(formattedNumbers) 입니다.")
+    }
+    print()
 }
+
+printResult()
+
+func decideRoundNumber(round: String) {
+    if let roundNumbers = lottoResults[round] {
+        let numbersString = roundNumbers.sorted().map { String($0) }.joined(separator: ", ")
+        print("\(round)의 로또 당첨 번호는 \(numbersString) 입니다.")
+    }
+}
+
+decideRoundNumber(round: "2회차")
