@@ -1,19 +1,24 @@
-let myLottoNumbers: [Int] = [4, 5, 10, 18, 22, 32]
+let myLottoNumbers: Set<Int> = [4, 5, 10, 18, 22, 32]
 
-
-var lottoNumSet: Set<Int> = Set<Int>()
-
-while lottoNumSet.count < 6 {
-    lottoNumSet.insert(Int.random(in: 1...45))
+func makeLottoSet() -> Set<Int> {
+    var selectedLottoNumbers: Set<Int> = []
+    
+    repeat {
+        selectedLottoNumbers.insert(Int.random(in: 1...45))
+    } while selectedLottoNumbers.count < 6
+    
+    return selectedLottoNumbers
 }
 
-print(lottoNumSet.sorted())
-print(myLottoNumbers)
+let winningNumbers = makeLottoSet()
 
-let matchedLottoNumbers: Set<Int> = lottoNumSet.intersection(myLottoNumbers)
+print("이번의 당첨 번호 : \(winningNumbers.sorted())")
+print("나의 행운의 번호 : \(myLottoNumbers.sorted())")
 
-if matchedLottoNumbers.count >= 1 {
-    print("축하합니다! 겹치는 번호는 \(matchedLottoNumbers.sorted()) 입니다!")
+let score: Set<Int> = myLottoNumbers.intersection(winningNumbers)
+
+if score.count >= 1 {
+    print("축하합니다. 겹치는 번호는 \(score.sorted()) 입니다!")
 }
 else {
     print("아쉽지만 겹치는 번호가 없습니다.")
