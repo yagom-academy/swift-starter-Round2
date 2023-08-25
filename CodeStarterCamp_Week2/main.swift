@@ -16,7 +16,6 @@ while makeLottoNumbersSet.count < 6 {
     let makeRandomNumber = Int.random(in: 1...45)
     makeLottoNumbersSet.insert(makeRandomNumber)
 }
-let sorted: [Int] = makeLottoNumbersSet.sorted()
 
 let intersection = makeLottoNumbersSet.intersection(myLottoNumbers)
 let sortedLottoNumbers = intersection.sorted()
