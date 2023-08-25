@@ -26,3 +26,4 @@ if myResult.count == 0 {
 } else {
     print("축하합니다! 겹치는 번호는 \(myResult) 입니다!")
 }
+
