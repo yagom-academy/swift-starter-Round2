@@ -8,7 +8,11 @@
 
 import Foundation
 
-print("\nRound 2 STEP 2")
+// print("\nRound 2 STEP 2")
 // print(round2Step2Main([1, 2, 3, 4, 5]))
 // print(round2Step2Main([1, 2, 3, 4, 4, 6]))
-print(round2Step2Main([1, 2, 3, 4, 5, 6]))
+// print(round2Step2Main([1, 2, 3, 4, 5, 6]))
+
+print("\nRound 2 STEP 3")
+print(round2Step3Main())
+//print(getAllWinNumbers())
