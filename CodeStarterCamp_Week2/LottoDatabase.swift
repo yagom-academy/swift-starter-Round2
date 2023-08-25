@@ -21,13 +21,13 @@ func getWinNumbers(at round: Int) -> [Int]? {
     return winNumbersList[key]
 }
 
-func getAllWinNumbers() -> [String:[Int]] {
+func getAllWinNumbers() -> [String: [Int]] {
     return winNumbersList
 }
 
 // MARK: - Private
 
-fileprivate var winNumbersList = [String:[Int]]()
+fileprivate var winNumbersList = [String: [Int]]()
 
 fileprivate func makeKey(from round: Int) -> String {
     return "\(round)회차"
