@@ -22,8 +22,6 @@ func checkLotto(){
     for i in myLottoNumbers{
         if lottoNumber.contains(i){
             bingGo.append(i)
-        }else{
-            continue
         }
     }
     if bingGo.isEmpty{
