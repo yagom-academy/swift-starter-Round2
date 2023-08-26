@@ -19,13 +19,11 @@ func checkLotto(){
     let lottoNumber : Set<Int> = createLotto()
     let myLottoNumbers : [Int] = [1,2,3,4,5,6]
     var bingGo : [Int] = []
-    for i in lottoNumber{
-        for j in myLottoNumbers{
-            if i != j{
-                continue
-            }else{
-                bingGo.append(i)
-            }
+    for i in myLottoNumbers{
+        if lottoNumber.contains(i){
+            bingGo.append(i)
+        }else{
+            continue
         }
     }
     if bingGo.isEmpty{
