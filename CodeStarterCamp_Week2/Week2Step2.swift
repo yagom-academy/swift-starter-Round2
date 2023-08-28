@@ -20,6 +20,7 @@ func generateRandomNumbers() -> Set<Int> {
 }
 
 
+
 func compare(myLottoNumbers: Set<Int>, with thisWeekLottonumbers: Set<Int>) {
     var correctLottoNumbers: Set<Int> = []
     correctLottoNumbers = myLottoNumbers.intersection(thisWeekLottonumbers)
@@ -28,16 +29,13 @@ func compare(myLottoNumbers: Set<Int>, with thisWeekLottonumbers: Set<Int>) {
         print("아쉽지만 겹치는 번호가 없습니다!")
     } else {
         print("축하합니다! 겹치는 번호는", terminator: " ")
-        var count: Int = 0
         
-        for number in correctLottoNumbers {
-            count += 1
-            if count != correctLottoNumbers.count {
-                print("\(number)", terminator: ", ")
-            } else if count == correctLottoNumbers.count{
-                print("\(number)", terminator: " ")
-            }
-        }
+        var numberString: String
+        numberString = correctLottoNumbers.map({ String($0) }).joined(separator: ", ")
+        print(numberString, terminator: " ")
+        
         print("입니다!")
     }
 }
+
+
