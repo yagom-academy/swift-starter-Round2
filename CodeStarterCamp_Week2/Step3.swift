@@ -20,9 +20,9 @@ func makeLottoNumbersDictionary() -> [String: Set<Int>] {
 func showRoundLottoNumbers(round: Int) {
     let resultNumbers = makeLottoNumbersDictionary()
 
-    if let checkNumbers = resultNumbers["\(round)회차"] {
+    if let checkingNumbers = resultNumbers["\(round)회차"] {
 
-        let changedCheckNumbers = checkNumbers.map { String($0) }.joined(separator: ", ")
+        let changedCheckNumbers = checkingNumbers.map { String($0) }.joined(separator: ", ")
 
         print("\(round)회차의 로또 당첨 번호는 \(changedCheckNumbers) 입니다.")
     } else {
