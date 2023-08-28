@@ -7,7 +7,7 @@
 
 import Foundation
 
-func saveLottoNumbers() -> [String: Set<Int>] {
+func makeLottoNumbersDictionary() -> [String: Set<Int>] {
     var resultNumbers: [String : Set<Int>] = [:]
 
     for _ in 0..<5 {
@@ -17,8 +17,8 @@ func saveLottoNumbers() -> [String: Set<Int>] {
     return resultNumbers
 }
 
-func roundLottoNumbers(round: Int) {
-    let resultNumbers = saveLottoNumbers()
+func showRoundLottoNumbers(round: Int) {
+    let resultNumbers = makeLottoNumbersDictionary()
 
     if let checkNumbers = resultNumbers["\(round)회차"] {
 

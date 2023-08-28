@@ -30,4 +30,4 @@ if !matchingLottoNumber.isEmpty {
     print("아쉽지만 겹치는 번호가 없습니다.")
 }
 
-roundLottoNumbers(round: 3)
+showRoundLottoNumbers(round: 3)
