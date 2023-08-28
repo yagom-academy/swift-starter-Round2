@@ -7,6 +7,6 @@
 //
 
 
-compareLottoNumbers(myLottoNumbers: myLottoNumbers, randomBox: popRandomNumbers())
+compare(myLottoNumbers: myLottoNumbers, with: generateRandomNumbers())
 
 

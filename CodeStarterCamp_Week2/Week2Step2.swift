@@ -5,30 +5,28 @@
 //  Created by 홍세희 on 2023/08/28.
 //
 
-import Foundation
 
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+var myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 
-func popRandomNumbers() -> Set<Int> {
-    var randomBox: Set<Int> = []
-    var popNumber: Int;
+func generateRandomNumbers() -> Set<Int> {
+    var thisWeekLottonumbers: Set<Int> = []
+    var popNumber: Int
     
-    while randomBox.count < 6 {
+    while thisWeekLottonumbers.count < 6 {
         popNumber = Int.random(in: 1...45)
-        randomBox.insert(popNumber)
+        thisWeekLottonumbers.insert(popNumber)
     }
-    return randomBox
+    return thisWeekLottonumbers
 }
 
 
-func compareLottoNumbers(myLottoNumbers: Set<Int>, randomBox: Set<Int>) {
+func compare(myLottoNumbers: Set<Int>, with thisWeekLottonumbers: Set<Int>) {
     var correctLottoNumbers: Set<Int> = []
-    correctLottoNumbers = myLottoNumbers.intersection(randomBox)
+    correctLottoNumbers = myLottoNumbers.intersection(thisWeekLottonumbers)
     
     if correctLottoNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다!")
-    }
-    else {
+    } else {
         print("축하합니다! 겹치는 번호는", terminator: " ")
         var count: Int = 0
         
@@ -36,8 +34,7 @@ func compareLottoNumbers(myLottoNumbers: Set<Int>, randomBox: Set<Int>) {
             count += 1
             if count != correctLottoNumbers.count {
                 print("\(number)", terminator: ", ")
-            }
-            else if count == correctLottoNumbers.count{
+            } else if count == correctLottoNumbers.count{
                 print("\(number)", terminator: " ")
             }
         }
