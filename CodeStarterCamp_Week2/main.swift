@@ -6,7 +6,7 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-import Foundation
 
-print("Hello, World!")
+compareLottoNumbers(myLottoNumbers: myLottoNumbers, randomBox: popRandomNumbers())
+
 
