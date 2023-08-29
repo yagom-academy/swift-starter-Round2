@@ -1,28 +1,33 @@
 let myLottoNumbers: Set<Int> = [4, 5, 10, 18, 22, 32]
+var winningLottoNumbers: [Int: Any] = [:]
+var nthTime: Int = 1
+let searchingNumber: Int = 4
 
-func getLottoSet() -> Set<Int> {
+func getLottoSet() {
     var selectedLottoNumbers: Set<Int> = []
-    
+
     repeat {
         selectedLottoNumbers.insert(Int.random(in: 1...45))
     } while selectedLottoNumbers.count < 6
     
-    return selectedLottoNumbers
+    winningLottoNumbers[nthTime] = selectedLottoNumbers.sorted()
+    nthTime += 1
 }
 
-let winningNumbers = getLottoSet()
 
-//print("이번의 당첨 번호 : \(winningNumbers.sorted())")
-//print("나의 행운의 번호 : \(myLottoNumbers.sorted())")
+getLottoSet()
+getLottoSet()
+getLottoSet()
+getLottoSet()
+getLottoSet()
 
-func compareLottoNumbers() -> Set<Int> {
-    let score: Set<Int> = myLottoNumbers.intersection(winningNumbers)
-    return score
-}
+var sortedWinningNumbers = winningLottoNumbers.sorted{$0.0 < $1.0}
 
-if compareLottoNumbers().count >= 1 {
-    print("축하합니다. 겹치는 번호는 \(compareLottoNumbers().sorted()) 입니다!")
+print(sortedWinningNumbers)
+
+if let lottoSet = winningLottoNumbers[searchingNumber] {
+    print("\(searchingNumber)회차의 로또 당첨 번호는 \(lottoSet)입니다.")
 }
 else {
-    print("아쉽지만 겹치는 번호가 없습니다.")
+    print("해당 회차에 추첨된 번호가 없습니다. 1부터 5 사이의 회차를 입력하세요")
 }
