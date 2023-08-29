@@ -1,9 +1,9 @@
 import Foundation
 
-let myLottoNumbers: [Int] = [7, 9, 12, 15, 22, 43]
-let rottoNumber = Array(generateRottoNumber())
+let myLottoNumber: [Int] = [7, 9, 12, 15, 22, 43]
+let rottoNumber: [Int] = Array(generateRottoNumber())
 
-lotteryWinningCheck(with: myLottoNumbers, by: rottoNumber)
+lotteryWinningCheck(for: myLottoNumber, with: rottoNumber)
 
 //로또번호 생성 함수
 func generateRottoNumber() -> Set<Int> {
@@ -17,17 +17,14 @@ func generateRottoNumber() -> Set<Int> {
 }
 
 //나의 번호와 로또번호 중복 확인 함수
-func lotteryWinningCheck(with myLottoNumbers: Array<Int>, by rottoNumber: Array<Int>) {
+func lotteryWinningCheck(for myLottoNumber: Array<Int>, with rottoNumber: Array<Int>) {
     
-    var resultArray: Array<Int> = []
-    var doubleCheck: Bool = false
+    var resultSet: Set<Int> = []
     
-    for x in myLottoNumbers {
+    for x in myLottoNumber {
           if rottoNumber.contains(x) {
-              resultArray.append(x)
-              doubleCheck = true
+              resultSet.insert(x)
           }
        }
-    
-    doubleCheck ? print("축하합니다! 겹치는 번호는 \(resultArray) 입니다!") : print("아쉽지만 겹치는 번호가 없습니다.")
+    resultSet.isEmpty ? print("아쉽지만 겹치는 번호가 없습니다.") : print("축하합니다! 겹치는 번호는 \(resultSet.map { String($0) }.joined(separator: ", ")) 입니다!")
 }
