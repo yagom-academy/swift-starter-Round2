@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
-		B159FED62A9CC6B20052FBAC /* Week2Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159FED12A9C77090052FBAC /* Week2Step2.swift */; };
+		B1DC21592A9DFAB500372DAB /* Week2Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159FED12A9C77090052FBAC /* Week2Step2.swift */; };
+		B1DC215A2A9DFAB700372DAB /* Week2Step3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159FED72A9CF5180052FBAC /* Week2Step3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,7 @@
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B159FED12A9C77090052FBAC /* Week2Step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week2Step2.swift; sourceTree = "<group>"; };
+		B159FED72A9CF5180052FBAC /* Week2Step3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week2Step3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				B159FED12A9C77090052FBAC /* Week2Step2.swift */,
 				34811DC1274B93D800A1E994 /* main.swift */,
+				B159FED72A9CF5180052FBAC /* Week2Step3.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -123,7 +126,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
-				B159FED62A9CC6B20052FBAC /* Week2Step2.swift in Sources */,
+				B1DC215A2A9DFAB700372DAB /* Week2Step3.swift in Sources */,
+				B1DC21592A9DFAB500372DAB /* Week2Step2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
