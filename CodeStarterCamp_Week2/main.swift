@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
-
+// MARK: STEP2
+let lotto = Lotto()
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+lotto.start(with: myLottoNumbers)
