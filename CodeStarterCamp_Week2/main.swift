@@ -6,8 +6,13 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
+generateAndSave(for: 5)
 
-compare(myLottoNumbers: myLottoNumbers, with: generateRandomNumbers())
+findLottoNumbers(weekNumber: 1)
+findLottoNumbers(weekNumber: 2)
+findLottoNumbers(weekNumber: 7)
+
+
 
 
 
