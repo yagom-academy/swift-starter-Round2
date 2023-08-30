@@ -1,33 +1,29 @@
-let myLottoNumbers: Set<Int> = [4, 5, 10, 18, 22, 32]
-var winningLottoNumbers: [Int: Any] = [:]
+var winningLottoNumbers: [Int: [Int]] = [:]
 var nthTime: Int = 1
-let searchingNumber: Int = 4
+let targetNumber: Int = 4
 
-func getLottoSet() {
-    var selectedLottoNumbers: Set<Int> = []
-
-    repeat {
-        selectedLottoNumbers.insert(Int.random(in: 1...45))
-    } while selectedLottoNumbers.count < 6
+func selectLottoNumbers() -> [Int] {
+    var selectedWinningNumbers: [Int] = []
     
-    winningLottoNumbers[nthTime] = selectedLottoNumbers.sorted()
+    repeat {
+        selectedWinningNumbers.append(Int.random(in: 1...45))
+    } while selectedWinningNumbers.count < 6
+    return selectedWinningNumbers
+}
+
+func saveLottoNumbers(lottoArray: [Int]) {
+    winningLottoNumbers[nthTime] = lottoArray
     nthTime += 1
 }
 
+var tempLottoArray: [Int] = []
 
-getLottoSet()
-getLottoSet()
-getLottoSet()
-getLottoSet()
-getLottoSet()
-
-var sortedWinningNumbers = winningLottoNumbers.sorted{$0.0 < $1.0}
-
-print(sortedWinningNumbers)
-
-if let lottoSet = winningLottoNumbers[searchingNumber] {
-    print("\(searchingNumber)회차의 로또 당첨 번호는 \(lottoSet)입니다.")
+for _ in 1...5 {
+    tempLottoArray = selectLottoNumbers()
+    saveLottoNumbers(lottoArray: tempLottoArray)
 }
-else {
-    print("해당 회차에 추첨된 번호가 없습니다. 1부터 5 사이의 회차를 입력하세요")
+
+if let unwrapper = winningLottoNumbers[targetNumber] {
+    print("\(targetNumber)회차의 로또 당첨 번호는 \(unwrapper.sorted().map{String($0)}.joined(separator: ", " ))입니다.")
 }
+
