@@ -5,7 +5,7 @@
 //  Created by 홍세희 on 2023/08/29.
 //
 
-var lottoNumberStorage: [String : Array<Int>] = [:]
+var lottoNumberStorage: [String : [Int]] = [:]
 var count: Int = 0
 
 func save(thisWeekLottoNumbers: Set<Int>) {
@@ -25,7 +25,7 @@ func findLottoNumbers(weekNumber: Int) {
 }
 
 func generateAndSave(for count: Int) {
-    for _ in 1...count{
+    for _ in 1...count {
         save(thisWeekLottoNumbers: generateRandomNumbers())
     }
 }

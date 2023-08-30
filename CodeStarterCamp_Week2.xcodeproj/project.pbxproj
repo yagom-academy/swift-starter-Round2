@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
-		B1DC21592A9DFAB500372DAB /* Week2Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159FED12A9C77090052FBAC /* Week2Step2.swift */; };
-		B1DC215A2A9DFAB700372DAB /* Week2Step3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159FED72A9CF5180052FBAC /* Week2Step3.swift */; };
+		B1E20BB12A9F705800E687D7 /* Week2Step3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159FED72A9CF5180052FBAC /* Week2Step3.swift */; };
+		B1E20BB22A9F705A00E687D7 /* Week2Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159FED12A9C77090052FBAC /* Week2Step2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,9 +125,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E20BB12A9F705800E687D7 /* Week2Step3.swift in Sources */,
+				B1E20BB22A9F705A00E687D7 /* Week2Step2.swift in Sources */,
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
-				B1DC215A2A9DFAB700372DAB /* Week2Step3.swift in Sources */,
-				B1DC21592A9DFAB500372DAB /* Week2Step2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
