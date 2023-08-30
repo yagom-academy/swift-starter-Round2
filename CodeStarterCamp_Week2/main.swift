@@ -8,6 +8,8 @@
 
 import Foundation
 
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+
 func createLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     var number: Int
@@ -20,3 +22,15 @@ func createLottoNumbers() -> Set<Int> {
     return lottoNumbers
 }
 
+func checkSameNumbers(myLottoNumbers: [Int], lottoNumbers: Set<Int>) {
+    let sameNumbers: Set<Int> = lottoNumbers.intersection(Set(myLottoNumbers))
+    let sortedSameNumbers = sameNumbers.sorted()
+    
+    if !sortedSameNumbers.isEmpty {
+        print("축하합니다! 겹치는 번호는 \(sortedSameNumbers.map{ String($0) }.joined(separator: ", ")) 입니다!")
+    } else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+}
+
+checkSameNumbers(myLottoNumbers: myLottoNumbers, lottoNumbers: createLottoNumbers())
