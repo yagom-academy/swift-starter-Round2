@@ -6,17 +6,12 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
+generateAndSave(for: 5)
 
-generateRandomNumbers()
-generateRandomNumbers()
-generateRandomNumbers()
-generateRandomNumbers()
-generateRandomNumbers()
+findLottoNumbers(weekNumber: 1)
+findLottoNumbers(weekNumber: 2)
+findLottoNumbers(weekNumber: 7)
 
-findWhatLottoNumbers(week: "1회차")
-findWhatLottoNumbers(week: "2회차")
-findWhatLottoNumbers(week: "3회차")
-findWhatLottoNumbers(week: "7회차")
 
 
 

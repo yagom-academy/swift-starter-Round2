@@ -8,7 +8,6 @@
 
 var myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 
-
 func generateRandomNumbers() -> Set<Int> {
     var thisWeekLottoNumbers: Set<Int> = []
     var popNumber: Int
@@ -17,7 +16,6 @@ func generateRandomNumbers() -> Set<Int> {
         popNumber = Int.random(in: 1...45)
         thisWeekLottoNumbers.insert(popNumber)
     }
-    save(thisWeekLottoNumbers: thisWeekLottoNumbers)
     return thisWeekLottoNumbers
 }
 
