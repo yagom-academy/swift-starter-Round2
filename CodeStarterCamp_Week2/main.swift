@@ -3,12 +3,14 @@ import Foundation
 let myLottoNumbers: Set<Int> = [7, 9, 12, 15, 22, 43]
 let rottoNumbers: Set<Int> = generateRottoNumber()
 
+
+
 let numberOfRounds = 5
-let nTimeRottoNumber = generateNtimesRottoNumber(for: numberOfRounds)
+let nTimeRottoNumber = generateNtimesRottoNumber(rounds: numberOfRounds)
 lotteryWinningCheck(with: myLottoNumbers, by: nTimeRottoNumber, for: numberOfRounds)
 
 //n회차 로또 번호 생성 함수
-func generateNtimesRottoNumber(for rounds: Int) -> Dictionary<Int, Set<Int>> {
+func generateNtimesRottoNumber(rounds: Int) -> Dictionary<Int, Set<Int>> {
     var nTimesWinningLottoNumbers: [Int : Set<Int>] = [:]
     
     for round in 1...rounds {
