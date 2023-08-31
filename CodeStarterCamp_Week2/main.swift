@@ -8,7 +8,7 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [3,8,15,31,44]
+let myLottoNumbers: [Int] = [3,8,15,16,31,44]
 
 func makeWinningNumbers() -> Array<Int> {
     var lottery: [Int] = []
@@ -22,7 +22,7 @@ func makeWinningNumbers() -> Array<Int> {
     return lottery
 }
 
-func checkLottery(myNums: Array<Int>) {
+func checkLottery(_: Array<Int>) {
     let winningNumbers = Set(makeWinningNumbers()).intersection(Set(myLottoNumbers))
     let winningList = winningNumbers.map{ String($0) }
     
@@ -35,4 +35,4 @@ func checkLottery(myNums: Array<Int>) {
     }
 }
 
-checkLottery(myNums: myLottoNumbers)
+checkLottery(myLottoNumbers)
