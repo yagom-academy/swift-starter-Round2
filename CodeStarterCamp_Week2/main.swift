@@ -1,26 +1,40 @@
 import Foundation
 
-let myLottoNumbers: Set<Int> = [7, 9, 12, 15, 22, 43]
-let rottoNumbers: Set<Int> = generateRottoNumber()
+let nTimeLottoNumbers: Dictionary<String, Set<Int>> = generateNtimesLottoNumber(count: 10)
+let numberOfRounds: String = "5회차"
 
-lotteryWinningCheck(with: myLottoNumbers, by: rottoNumbers)
+lottoWinningCheck(by: nTimeLottoNumbers, for: numberOfRounds)
 
-//로또번호 생성 함수
-func generateRottoNumber() -> Set<Int> {
-    var rotteryNumbers: Set<Int> = []
+//n회차 로또 번호 생성 함수
+func generateNtimesLottoNumber(count rounds: Int) -> Dictionary<String, Set<Int>> {
+    var nTimesWinningLottoNumbers: [String : Set<Int>] = [:]
     
-    while rotteryNumbers.count < 6 {
-        rotteryNumbers.insert(Int.random(in: 1...45))
+    for round in 1...rounds {
+        let lottoNumbers = generateLottoNumber()
+        nTimesWinningLottoNumbers["\(round)회차"] = lottoNumbers
     }
     
-    return rotteryNumbers
+    return nTimesWinningLottoNumbers
 }
 
-//나의 번호와 로또번호 중복 확인 함수
-func lotteryWinningCheck(with myLottoNumbers: Set<Int>, by rottoNumbers: Set<Int>) {
+//로또 번호 생성 함수
+func generateLottoNumber() -> Set<Int> {
+    var lottoNumbers: Set<Int> = []
     
-    let resultSet: Set<Int> = Set(myLottoNumbers).intersection(rottoNumbers)
+    while lottoNumbers.count < 6 {
+        lottoNumbers.insert(Int.random(in: 1...45))
+    }
     
-    resultSet.isEmpty ? print("아쉽지만 겹치는 번호가 없습니다.") : print("축하합니다! 겹치는 번호는 \(resultSet.map { String($0) }.joined(separator: ", ")) 입니다!")
+    return lottoNumbers
 }
 
+//n회차 로또 당첨 번호 확인
+func lottoWinningCheck(by lottoNumbers: Dictionary<String, Set<Int>>, for rounds: String) {
+    
+    if let winningNumbers = lottoNumbers[rounds] {
+        let printWinningNumbers = winningNumbers.map { String($0) }.joined(separator: ", ")
+        print("\(rounds)의 로또 당첨 번호는 \(printWinningNumbers) 입니다.")
+    } else {
+        print("\(rounds)의 로또 당첨 번호가 없습니다.")
+    }
+}
