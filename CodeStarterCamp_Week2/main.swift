@@ -20,10 +20,24 @@ func createLottoNumbers() {
         number = Int.random(in: 1...45)
         lottoNumbers.insert(number)
     }
+    
+    storeLottoNumbers(lottoNumbers: lottoNumbers.sorted())
 }
 
 func storeLottoNumbers(lottoNumbers: [Int]) {
     lottoRound += 1
     
     storedLottoNumbers["\(lottoRound)회차"] = lottoNumbers
+}
+
+createLottoNumbers()
+createLottoNumbers()
+createLottoNumbers()
+createLottoNumbers()
+createLottoNumbers()
+
+let lottoRoundToKnow = 3
+
+if let lottoNumbers = storedLottoNumbers["\(lottoRoundToKnow)회차"] {
+    print("\(lottoRoundToKnow)회차의 로또 당첨 번호는 \(lottoNumbers.map{ String($0) }.joined(separator: ", ")) 입니다.")
 }
