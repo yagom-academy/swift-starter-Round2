@@ -25,8 +25,7 @@ func createLottoNumbers() -> Set<Int> {
 func checkSameNumbers(myLottoNumbers: [Int], lottoNumbers: Set<Int>) {
     let sameNumbers: Set<Int> = lottoNumbers.intersection(Set(myLottoNumbers))
     let sortedSameNumbers = sameNumbers.sorted()
-    var array = [[1,2], [2,3]].joined()
-    print(array)
+    
     if !sortedSameNumbers.isEmpty {
         print("축하합니다! 겹치는 번호는 \(sortedSameNumbers.map{ String($0) }.joined(separator: ", ")) 입니다!")
     } else {
