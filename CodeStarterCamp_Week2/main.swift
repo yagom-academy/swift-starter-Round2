@@ -9,6 +9,8 @@
 import Foundation
 
 let myLottoNumbers = [1, 2, 3, 4, 5, 6]
+var storedLottoNumbers = [String: [Int]]()
+var lottoRound = 0
 
 func createLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
@@ -31,6 +33,12 @@ func checkSameNumbers(myLottoNumbers: [Int], lottoNumbers: Set<Int>) {
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
+}
+
+func storeLottoNumbers(lottoNumbers: [Int]) {
+    lottoRound += 1
+    
+    storedLottoNumbers["\(lottoRound)회차"] = lottoNumbers
 }
 
 checkSameNumbers(myLottoNumbers: myLottoNumbers, lottoNumbers: createLottoNumbers())
