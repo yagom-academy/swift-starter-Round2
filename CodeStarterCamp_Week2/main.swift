@@ -20,19 +20,6 @@ func createLottoNumbers() {
         number = Int.random(in: 1...45)
         lottoNumbers.insert(number)
     }
-    
-    storeLottoNumbers(lottoNumbers: lottoNumbers.sorted())
-}
-
-func checkSameNumbers(myLottoNumbers: [Int], lottoNumbers: Set<Int>) {
-    let sameNumbers: Set<Int> = lottoNumbers.intersection(Set(myLottoNumbers))
-    let sortedSameNumbers = sameNumbers.sorted()
-    
-    if !sortedSameNumbers.isEmpty {
-        print("축하합니다! 겹치는 번호는 \(sortedSameNumbers.map{ String($0) }.joined(separator: ", ")) 입니다!")
-    } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    }
 }
 
 func storeLottoNumbers(lottoNumbers: [Int]) {
@@ -40,5 +27,3 @@ func storeLottoNumbers(lottoNumbers: [Int]) {
     
     storedLottoNumbers["\(lottoRound)회차"] = lottoNumbers
 }
-
-checkSameNumbers(myLottoNumbers: myLottoNumbers, lottoNumbers: createLottoNumbers())
