@@ -12,7 +12,7 @@ let myLottoNumbers = [1, 2, 3, 4, 5, 6]
 var storedLottoNumbers = [String: [Int]]()
 var lottoRound = 0
 
-func createLottoNumbers() -> Set<Int> {
+func createLottoNumbers() {
     var lottoNumbers: Set<Int> = Set<Int>()
     var number: Int
     
@@ -21,7 +21,7 @@ func createLottoNumbers() -> Set<Int> {
         lottoNumbers.insert(number)
     }
     
-    return lottoNumbers
+    storeLottoNumbers(lottoNumbers: lottoNumbers.sorted())
 }
 
 func checkSameNumbers(myLottoNumbers: [Int], lottoNumbers: Set<Int>) {
