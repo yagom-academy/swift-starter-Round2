@@ -20,8 +20,8 @@ func createLottoNumbers() -> Set<Int> {
 func checkSameLottoNumbers(myNumbers: [Int], setLottoNumbers: Set<Int>) {
     var sameNumArray: Array<Int> = [Int]()
     
-    for num in myLottoNumbers {
-        if (lottoNumbers.contains(num)) {
+    for num in myNumbers {
+        if (setLottoNumbers.contains(num)) {
             sameNumArray.append(num)
         }
     }
