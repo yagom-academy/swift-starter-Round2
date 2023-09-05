@@ -8,23 +8,25 @@
 
 import Foundation
 
-func createLotto()-> Dictionary<String,[Int]>{
+func createLotto()->[Int]{
     var lottoNumber : Set<Int> = []
-    var roundOfLotto : [String:[Int]] = [:]
-    var roundOfNumber : Int = 1
-    while roundOfNumber < 6{
-        lottoNumber.removeAll()
         while lottoNumber.count < 6{
             lottoNumber.insert(Int.random(in: 1...45))
         }
-        let myLottoArr = Array(lottoNumber).sorted()
-        roundOfLotto.updateValue(myLottoArr, forKey: "\(roundOfNumber)회차")
+    let myLottoNumber = Array(lottoNumber)
+    return myLottoNumber
+}
+func createRoundOfLotto()->Dictionary<String,[Int]>{
+    var roundOfNumber : Int = 1
+    var roundOfLotto : Dictionary<String,[Int]> = [:]
+    while roundOfNumber < 6{
+        roundOfLotto.updateValue(createLotto(), forKey: "\(roundOfNumber)회차")
         roundOfNumber += 1
     }
     return roundOfLotto
 }
 func getRoundOfLotto(searchOfNumber : Int){
-    let roundOfLotto : [String:[Int]] = createLotto()
+    let roundOfLotto : [String:[Int]] = createRoundOfLotto()
     for roundOfInquiry in roundOfLotto{
             if roundOfInquiry.key == "\(searchOfNumber)회차"{
                 print("\(roundOfInquiry.key)의 로또 당첨 번호는 \(roundOfInquiry.value.map({String($0)}).joined(separator: ", ")) 입니다.")
@@ -47,4 +49,5 @@ func getRoundOfLotto(searchOfNumber : Int){
 //    }
 //}
 //roundOfLotto()
+
 getRoundOfLotto(searchOfNumber: 3)
