@@ -41,3 +41,5 @@ func printLottoRoundNumbers(searchingLottoRound: Int) {
         print("\(searchingLottoRound)회차의 로또 당첨 번호는 \(lottoNumbers.map{ String($0) }.joined(separator: ", ")) 입니다.")
     }
 }
+
+repeatCreatingLottoNumbers(time: 5)
