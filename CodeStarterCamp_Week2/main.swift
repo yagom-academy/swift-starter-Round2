@@ -30,11 +30,11 @@ func storeLottoNumbers(lottoNumbers: [Int]) {
     storedLottoNumbers["\(lottoRound)회차"] = lottoNumbers
 }
 
-createLottoNumbers()
-createLottoNumbers()
-createLottoNumbers()
-createLottoNumbers()
-createLottoNumbers()
+func repeatCreatingLottoNumbers(time: Int) {
+    for _ in 1...time {
+        createLottoNumbers()
+    }
+}
 
 func printLottoRoundNumbers(searchingLottoRound: Int) {
     if let lottoNumbers = storedLottoNumbers["\(searchingLottoRound)회차"] {
