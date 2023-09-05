@@ -6,9 +6,7 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-import Foundation
-
-func makePool() -> Array<Int> {
+func makeWinningNumbers() -> Array<Int> {
     var poolNumbers: [Int] = []
     
     while poolNumbers.count < 6 {
@@ -23,8 +21,8 @@ func makePool() -> Array<Int> {
     return poolNumbers
     }
     
-var winningNumbers = makePool()
-print(winningNumbers)
+var winningNumbers = makeWinningNumbers()
+print("당첨 번호는 \(winningNumbers.map {String($0)}.joined(separator: ", ")) 입니다!")
 
 let myLottoNumbers: [Int] = [11, 22, 33, 44, 45, 46]
 
@@ -37,7 +35,7 @@ func checkingNumbers(){
         }
     }
     if matchedNumbers.count > 0 {
-        print("축하합니다! 겹치는 번호는 \(matchedNumbers) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(matchedNumbers.map {String($0)}.joined(separator: ", "))로 \(matchedNumbers.count)개 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
