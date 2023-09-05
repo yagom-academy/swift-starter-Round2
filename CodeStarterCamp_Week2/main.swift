@@ -10,10 +10,10 @@ import Foundation
 
 func createLotto()->[Int]{
     var lottoNumber : Set<Int> = []
-        while lottoNumber.count < 6{
-            lottoNumber.insert(Int.random(in: 1...45))
-        }
-    let myLottoNumber = Array(lottoNumber)
+    while lottoNumber.count < 6{
+        lottoNumber.insert(Int.random(in: 1...45))
+    }
+    let myLottoNumber = Array(lottoNumber).sorted()
     return myLottoNumber
 }
 func createRoundOfLotto()->Dictionary<String,[Int]>{
@@ -27,11 +27,10 @@ func createRoundOfLotto()->Dictionary<String,[Int]>{
 }
 func getRoundOfLotto(searchOfNumber : Int){
     let roundOfLotto : [String:[Int]] = createRoundOfLotto()
-    for roundOfInquiry in roundOfLotto{
-            if roundOfInquiry.key == "\(searchOfNumber)회차"{
-                print("\(roundOfInquiry.key)의 로또 당첨 번호는 \(roundOfInquiry.value.map({String($0)}).joined(separator: ", ")) 입니다.")
-        }
+    guard let lottoNumber = roundOfLotto["\(searchOfNumber)회차"] else{
+        return
     }
+    print("\(searchOfNumber)회차의 로또 당첨 번호는 \(lottoNumber.map({String($0)}).joined(separator: ", ")) 입니다.")
 }
 
 //func checkLotto(){
@@ -50,4 +49,4 @@ func getRoundOfLotto(searchOfNumber : Int){
 //}
 //roundOfLotto()
 
-getRoundOfLotto(searchOfNumber: 3)
+getRoundOfLotto(searchOfNumber: 1)
