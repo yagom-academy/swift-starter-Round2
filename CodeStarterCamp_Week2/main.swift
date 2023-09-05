@@ -14,7 +14,7 @@ var lottoNumder: Set<Int> = []
 func createLottoNumders() -> Set<Int>{
  
     while lottoNumder.count < 6{
-        let numder = Int.random(in: 1...10)
+        let numder = Int.random(in: 1...45)
         lottoNumder.insert(numder)
     }
     return lottoNumder
