@@ -36,8 +36,8 @@ createLottoNumbers()
 createLottoNumbers()
 createLottoNumbers()
 
-let searchingLottoRound = 3
-
-if let lottoNumbers = storedLottoNumbers["\(searchingLottoRound)회차"] {
-    print("\(searchingLottoRound)회차의 로또 당첨 번호는 \(lottoNumbers.map{ String($0) }.joined(separator: ", ")) 입니다.")
+func printLottoRoundNumbers(searchingLottoRound: Int) {
+    if let lottoNumbers = storedLottoNumbers["\(searchingLottoRound)회차"] {
+        print("\(searchingLottoRound)회차의 로또 당첨 번호는 \(lottoNumbers.map{ String($0) }.joined(separator: ", ")) 입니다.")
+    }
 }
