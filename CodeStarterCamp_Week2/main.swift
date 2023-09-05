@@ -13,7 +13,7 @@ var storedLottoNumbers = [String: [Int]]()
 var lottoRound = 0
 
 func createLottoNumbers() {
-    var lottoNumbers: Set<Int> = Set<Int>()
+    var lottoNumbers = Set<Int>()
     var number: Int
     
     while lottoNumbers.count < 6 {
