@@ -8,28 +8,30 @@
 
 import Foundation
 
-func createLotto()-> Dictionary<Int,Set<Int>>{
+func createLotto()-> Dictionary<String,[Int]>{
     var lottoNumber : Set<Int> = []
-    var roundOfLotto : [Int:Set<Int>] = [:]
+    var roundOfLotto : [String:[Int]] = [:]
     var roundOfNumber : Int = 1
     while roundOfNumber < 6{
         lottoNumber.removeAll()
         while lottoNumber.count < 6{
             lottoNumber.insert(Int.random(in: 1...45))
         }
-        roundOfLotto.updateValue(lottoNumber, forKey: roundOfNumber)
+        let myLottoArr = Array(lottoNumber).sorted()
+        roundOfLotto.updateValue(myLottoArr, forKey: "\(roundOfNumber)회차")
         roundOfNumber += 1
     }
     return roundOfLotto
 }
-func getRoundOfLotto(){
-    let roundOfLotto : [Int:Set<Int>] = createLotto()
+func getRoundOfLotto(searchOfNumber : Int){
+    let roundOfLotto : [String:[Int]] = createLotto()
     for roundOfInquiry in roundOfLotto{
-        if roundOfInquiry.key == 2{
-            print("\(roundOfInquiry.key)회차의 로또 당첨 번호는 \(roundOfInquiry.value.map({String($0)}).joined(separator: ", ")) 입니다.")
+            if roundOfInquiry.key == "\(searchOfNumber)회차"{
+                print("\(roundOfInquiry.key)의 로또 당첨 번호는 \(roundOfInquiry.value.map({String($0)}).joined(separator: ", ")) 입니다.")
         }
     }
 }
+
 //func checkLotto(){
 //    let myLottoNumbers : [Int] = [1,2,3,4,5,6]
 //    var bingGo : [Int] = []
@@ -45,4 +47,4 @@ func getRoundOfLotto(){
 //    }
 //}
 //roundOfLotto()
-getRoundOfLotto()
+getRoundOfLotto(searchOfNumber: 3)
