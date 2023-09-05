@@ -43,3 +43,4 @@ func printLottoRoundNumbers(searchingLottoRound: Int) {
 }
 
 repeatCreatingLottoNumbers(time: 5)
+printLottoRoundNumbers(searchingLottoRound: 2)
