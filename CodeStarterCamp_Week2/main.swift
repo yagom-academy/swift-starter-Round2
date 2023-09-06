@@ -8,6 +8,6 @@
 
 import Foundation
 
-lottoNumberMakeing()
+makeLottoNumbers()
 checkLottoNumbers()
 

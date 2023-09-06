@@ -7,13 +7,13 @@
 
 import Foundation
 
-let numbers = Array(1...45)
 var result : Set<Int> = []
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-func lottoNumberMakeing() {
+func makeLottoNumbers() {
+    
     while result.count < 6 {
-        result.insert(numbers.randomElement()!)
+        result.insert(Int.random(in: 1...45))
     }
     print("로또 번호 : \(result)" )
     print("나의 로또 번호 : \(myLottoNumbers)" )
@@ -22,10 +22,9 @@ func lottoNumberMakeing() {
 func checkLottoNumbers() {
     let lottoIntersection: Set<Int> = result.intersection(myLottoNumbers)
 
-    if(lottoIntersection.count == 0){
+    if(lottoIntersection.count == 0) {
         print("아쉽지만 겹치는 번호가 없습니다.")
-    }else{
-        //축하합니다! 겹치는 번호는 1, 2, 3, 4, 5, 6 입니다!
+    } else {
         print("축하합니다! 겹치는 번호는 \(lottoIntersection) 입니다!")
     }
 }
