@@ -9,7 +9,7 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-let lottoNumbers = createLottoNumbers()
+let setLottoNumbers = createLottoNumbers()
 
-checkSameLottoNumbers(myNumbers: myLottoNumbers, setLottoNumbers: lottoNumbers)
+checkSameLottoNumbers(myLottoNumbers: myLottoNumbers, setLottoNumbers: setLottoNumbers)
  

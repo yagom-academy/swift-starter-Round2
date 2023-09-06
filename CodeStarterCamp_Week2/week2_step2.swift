@@ -17,21 +17,24 @@ func createLottoNumbers() -> Set<Int> {
     return lottoSet
 }
 
-func checkSameLottoNumbers(myNumbers: [Int], setLottoNumbers: Set<Int>) {
+func checkSameLottoNumbers(myLottoNumbers: [Int], setLottoNumbers: Set<Int>) {
     var sameNumArray: Array<Int> = [Int]()
     
-    for num in myNumbers {
+    for num in myLottoNumbers {
         if (setLottoNumbers.contains(num)) {
             sameNumArray.append(num)
         }
     }
     
-    if(sameNumArray.count > 0) {
+    // sameNumArray.count > 0 과 같은 의미로 isEmpty를 부정문으로 사용해 조건 설정
+    if(!sameNumArray.isEmpty) {
         print("축하합니다! 겹치는 번호는 ", terminator: "")
         print(sameNumArray.map{String($0)}.joined(separator:", "), terminator: "")
         print(" 입니다!")
+        
+        // 위 표현 한 줄로 작성해보기
+        print("축하합니다! 겹치는 번호는", sameNumArray.map{String($0)}.joined(separator: ", "), "입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다")
     }
-    
 }
