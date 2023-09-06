@@ -7,18 +7,18 @@
 //
 
 func makeWinningNumbers() -> Array<Int> {
-    var poolNumbers: [Int] = []
+    var pickedNumbers: [Int] = []
     
-    while poolNumbers.count < 6 {
+    while pickedNumbers.count < 6 {
         let pickedNumber = Int.random(in: 1...45)
-        if !poolNumbers.contains(pickedNumber) {
-            poolNumbers.append(pickedNumber)
+        if !pickedNumbers.contains(pickedNumber) {
+            pickedNumbers.append(pickedNumber)
         } else {
             continue
         }
     }
-    poolNumbers.sort()
-    return poolNumbers
+    pickedNumbers.sort()
+    return pickedNumbers
     }
     
 var winningNumbers = makeWinningNumbers()
