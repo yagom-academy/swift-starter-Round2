@@ -4,26 +4,25 @@
 //
 //  Created by 유지완 on 2023/08/27.
 
-
-// STEP2
+//STEP2
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var lottoNumder: Set<Int> = []
+var lottoNumders: Set<Int> = []
 
 func createLottoNumders() -> Set<Int>{
  
-    while lottoNumder.count < 6{
+    while lottoNumders.count < 6{
         let numder = Int.random(in: 1...45)
-        lottoNumder.insert(numder)
+        lottoNumders.insert(numder)
     }
-    return lottoNumder
+    return lottoNumders
 }
 print("당첨번호 \(createLottoNumders())입니다.")
 
+let overlappingLottoNumder: Set<Int> = createLottoNumders().intersection(myLottoNumbers)
 
-func checkForOverlappingNumbers(overlappingLottoNumder: [Int]){
-    let overlappingLottoNumder: Set<Int> = createLottoNumders().intersection(myLottoNumbers)
+func checkForOverlappingNumbers(overlappingLottoNumder: Set<Int>){
     
     if overlappingLottoNumder.count == 0{
         print("아쉽지만 겹치는 번호가 없습니다")
@@ -31,4 +30,4 @@ func checkForOverlappingNumbers(overlappingLottoNumder: [Int]){
         print("축하합니다! 겹치는 번호는 \(overlappingLottoNumder)입니다!")
     }
 }
-checkForOverlappingNumbers(overlappingLottoNumder: myLottoNumbers)
+checkForOverlappingNumbers(overlappingLottoNumder: overlappingLottoNumder)
