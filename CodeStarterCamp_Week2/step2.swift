@@ -15,13 +15,16 @@ func makeLottoNumbers() {
     while result.count < 6 {
         result.insert(Int.random(in: 1...45))
     }
-    print("로또 번호 : \(result)" )
-    print("나의 로또 번호 : \(myLottoNumbers)" )
+    print("로또 번호 : ", terminator: "")
+    
+    for number in result {
+            print(number, terminator: ", ")
+        }
+    print("나의 로또 번호 : \(myLottoNumbers)")
 }
 
 func checkLottoNumbers() {
     let lottoIntersection: Set<Int> = result.intersection(myLottoNumbers)
-
     if(lottoIntersection.count == 0) {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
