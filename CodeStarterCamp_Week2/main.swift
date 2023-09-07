@@ -8,5 +8,6 @@
 
 import Foundation
 
-print("Hello, World!")
+makeLottoNumbers()
+checkLottoNumbers()
 
