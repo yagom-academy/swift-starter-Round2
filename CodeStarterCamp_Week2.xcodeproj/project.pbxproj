@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
 		78A49D082AA58497001D50E5 /* week2_step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A49D072AA58497001D50E5 /* week2_step2.swift */; };
+		78A49D0B2AAAB760001D50E5 /* week2_step3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A49D0A2AAAB760001D50E5 /* week2_step3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		78A49D072AA58497001D50E5 /* week2_step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = week2_step2.swift; sourceTree = "<group>"; };
 		78A49D092AA85AD9001D50E5 /* Week2_Step1_flowchart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Week2_Step1_flowchart.png; sourceTree = SOURCE_ROOT; };
+		78A49D0A2AAAB760001D50E5 /* week2_step3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = week2_step3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				34811DC1274B93D800A1E994 /* main.swift */,
+				78A49D0A2AAAB760001D50E5 /* week2_step3.swift */,
 				78A49D072AA58497001D50E5 /* week2_step2.swift */,
 				78A49D092AA85AD9001D50E5 /* Week2_Step1_flowchart.png */,
 			);
@@ -124,6 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78A49D0B2AAAB760001D50E5 /* week2_step3.swift in Sources */,
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
 				78A49D082AA58497001D50E5 /* week2_step2.swift in Sources */,
 			);

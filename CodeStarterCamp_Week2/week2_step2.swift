@@ -7,34 +7,40 @@
 
 import Foundation
 
-func createLottoNumbers() -> Set<Int> {
-    var lottoSet: Set<Int> = Set()
+var nowRound = 0
+
+func createLottoNumbers() {
+    var lottoSet = Set<Int>()
     
     while lottoSet.count < 6 {
-        lottoSet.insert(Int.random(in: 1...45))
+        lottoSet.insert(Int.random(in: 1...45 ))
     }
     
-    return lottoSet
+    nowRound += 1
+    saveLottoNumbers(nowRound: nowRound, lottoSet: lottoSet)
 }
 
-func checkSameLottoNumbers(myLottoNumbers: [Int], setLottoNumbers: Set<Int>) {
+func checkSameLottoNumbers(myLottoNumbers: [Int], roundForLottoNumbers: Int) {
     var sameNumArray: Array<Int> = [Int]()
     
-    for num in myLottoNumbers {
-        if (setLottoNumbers.contains(num)) {
-            sameNumArray.append(num)
+    if let selectedLottoNumbers = lottoNumbersDictionary["\(roundForLottoNumbers)회차"] {
+        for num in myLottoNumbers {
+            if (selectedLottoNumbers.contains(num)) {
+                sameNumArray.append(num)
+            }
         }
     }
     
-    // sameNumArray.count > 0 과 같은 의미로 isEmpty를 부정문으로 사용해 조건 설정
+    printSameLottoNumbers(sameNumArray: sameNumArray)
+}
+
+func printSameLottoNumbers(sameNumArray: [Int]) {
     if(!sameNumArray.isEmpty) {
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        print(sameNumArray.map{String($0)}.joined(separator:", "), terminator: "")
-        print(" 입니다!")
-        
-        // 위 표현 한 줄로 작성해보기
-        print("축하합니다! 겹치는 번호는", sameNumArray.map{String($0)}.joined(separator: ", "), "입니다!")
+        let result = sameNumArray.map{String($0)}.joined(separator: ", ")
+        print("축하합니다! 겹치는 번호는 \(result) 입니다!")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다")
     }
 }
+
+
