@@ -7,8 +7,6 @@
 
 import Foundation
 
-var nowRound = 0
-
 func createLottoNumbers() {
     var lottoSet = Set<Int>()
     
@@ -21,8 +19,6 @@ func createLottoNumbers() {
 }
 
 func checkSameLottoNumbers(myLottoNumbers: [Int], roundForLottoNumbers: Int) {
-    var sameNumArray: Array<Int> = [Int]()
-    
     if let selectedLottoNumbers = lottoNumbersDictionary["\(roundForLottoNumbers)회차"] {
         for num in myLottoNumbers {
             if (selectedLottoNumbers.contains(num)) {
@@ -30,8 +26,6 @@ func checkSameLottoNumbers(myLottoNumbers: [Int], roundForLottoNumbers: Int) {
             }
         }
     }
-    
-    printSameLottoNumbers(sameNumArray: sameNumArray)
 }
 
 func printSameLottoNumbers(sameNumArray: [Int]) {
