@@ -14,7 +14,7 @@ let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 lotto.start(with: myLottoNumbers)
 
 // MARK: STEP3
-var historyDictionary: [String: [Int]] = [:]
-lotto.saveResults(with: [3, 5, 4, 6, 7, 8], history: &historyDictionary)
-lotto.saveResults(with: [9, 11, 21, 24, 35, 41], history: &historyDictionary)
-print(historyDictionary)
+var userLottoRecords: [String: [Int]] = [:]
+lotto.saveResults(with: [3, 5, 4, 6, 7, 8], history: &userLottoRecords)
+lotto.saveResults(with: [9, 11, 21, 24, 35, 41], history: &userLottoRecords)
+print(userLottoRecords)
