@@ -33,11 +33,12 @@ for _ in 1...LottoRound {
     print("\(round)회차의 로또 당첨 번호는 \(LottoNumber) 입니다.")
     }
 
-    let desiredRound = 2 // 원하는 회차 설정 (여기서는 2회차)
+    let desiredRound = 2 // 원하는 회차 설정 (여기서는 2회차 입니다)
     if let desiredLotto = lottoResults[desiredRound]{
         print("\(desiredRound)회차의 로또 당첨 번호는 \(desiredLotto) 입니다.")
     } else {
         print("\(desiredRound)회차의 로또 당첨 번호를 찾을 수 없습니다.")
     }
 }
+
 
