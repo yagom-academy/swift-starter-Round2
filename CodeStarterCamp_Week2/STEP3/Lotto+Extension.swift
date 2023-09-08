@@ -23,8 +23,8 @@ extension Lotto {
         
         results = results.intersection(Set(userSelected))
         
-        let thisRound = "\(history.count + 1)회차"
-        history[thisRound] = Array(results).sorted()
+        let current = "\(history.count + 1)회차"
+        history[current] = Array(results).sorted()
         
     }
     
