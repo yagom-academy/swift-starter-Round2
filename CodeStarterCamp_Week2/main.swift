@@ -10,21 +10,11 @@ let myLottoNumber: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoNumber: Set<Int> = []
 let LottoRound = 5 // 로또 당첨 번호 5번 생성
 
-// STEP2 함수 가져온것
-func createLottoNumder() -> Set<Int>{
-    var generateLotto : Set<Int> = []
-
-    while generateLotto.count < 6{
-        let number = Int.random(in: 1...45)
-        generateLotto.insert(number)
-    }
-    return generateLotto
-}
+createLottoNumder()
 
 var lottoResults: [Int: Set<Int>] = [:] // 각 회차의 로또 당첨 번호를 저장할 Dictionary
 
 // 로또 당첨 번호 5번 생성
-for _ in 1...LottoRound {
 
     for round in 1...5 {
         let LottoNumber = createLottoNumder()
@@ -39,6 +29,7 @@ for _ in 1...LottoRound {
     } else {
         print("\(desiredRound)회차의 로또 당첨 번호를 찾을 수 없습니다.")
     }
-}
+
+
 
 
