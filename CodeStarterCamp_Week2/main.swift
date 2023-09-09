@@ -30,7 +30,3 @@ var lottoResults: [Int: Set<Int>] = [:] // 각 회차의 로또 당첨 번호를
     } else {
         print("\(desiredRound)회차의 로또 당첨 번호를 찾을 수 없습니다.")
     }
-
-
-
-
