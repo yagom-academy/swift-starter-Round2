@@ -8,7 +8,6 @@ import Foundation
 
 let myLottoNumber: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoNumber: Set<Int> = []
-let LottoRound = 5 // 로또 당첨 번호 5번 생성
 
 createLottoNumder()
 
