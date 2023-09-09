@@ -4,13 +4,14 @@
 //
 //  Created by 유지완 on 2023/08/31.
 
+
+
 import Foundation
 
 let myLottoNumber: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoNumber: Set<Int> = []
-let LottoRound = 5 // 로또 당첨 번호 5번 생성
 
-createLottoNumder()
+createLottoNumder()//createNumder 파일 호출
 
 var lottoResults: [Int: Set<Int>] = [:] // 각 회차의 로또 당첨 번호를 저장할 Dictionary
 
