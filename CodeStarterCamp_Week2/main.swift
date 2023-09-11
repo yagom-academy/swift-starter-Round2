@@ -9,4 +9,5 @@
 import Foundation
 
 
-checkLottoNumbers(myLottoNumbers: myLottoNumbers)
+//checkLottoNumbers(myLottoNumbers: myLottoNumbers)
+checkPastLottoNumbers()

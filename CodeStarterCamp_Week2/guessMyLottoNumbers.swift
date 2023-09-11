@@ -20,7 +20,7 @@ func randomLottos() -> Set<Int> {
         randomNumber = Int.random(in: 1...45)
         lottoNumbers.insert(randomNumber)
     }
-    
+    saveLottoNumbers(lottoNumbers: lottoNumbers)
     return lottoNumbers
 }
 
