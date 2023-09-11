@@ -8,6 +8,5 @@
 
 import Foundation
 
-makeLottoNumbers()
-checkLottoNumbers()
+myRoundLotto()
 
