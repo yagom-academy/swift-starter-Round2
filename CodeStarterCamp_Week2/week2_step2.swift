@@ -7,15 +7,14 @@
 
 import Foundation
 
-func createLottoNumbers() {
+func createLottoNumbers(currentRound: Int) {
     var lottoSet = Set<Int>()
     
     while lottoSet.count < 6 {
         lottoSet.insert(Int.random(in: 1...45 ))
     }
     
-    nowRound += 1
-    saveLottoNumbers(nowRound: nowRound, lottoSet: lottoSet)
+    saveLottoNumbers(currentRound: currentRound, lottoSet: lottoSet)
 }
 
 func checkSameLottoNumbers(myLottoNumbers: [Int], roundForLottoNumbers: Int) {

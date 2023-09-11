@@ -13,13 +13,9 @@ let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var sameNumArray: Array<Int> = [Int]()
 
 // 원하는 회차의 로또 번호를 확인하기 위한 변수
-let roundForLottoNumbers: Int = 4
-var nowRound = 0
+let roundForLottoNumbers: Int = -6
 
-for _ in 1...5 {
-    createLottoNumbers()
-}
-
+createSeveralLottoNumbersByCustom(customTimes: 5)
 checkSameLottoNumbers(myLottoNumbers: myLottoNumbers, roundForLottoNumbers: roundForLottoNumbers)
 printSameLottoNumbers(sameNumArray: sameNumArray)
 printSelectedLottoNumbers(roundForLottoNumbers: roundForLottoNumbers)
