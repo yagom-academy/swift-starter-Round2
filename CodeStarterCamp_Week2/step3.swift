@@ -18,15 +18,12 @@ func saveLottos() {
 }
 
 func searchLotto(round: Int) {
-    let lotto = lottoDictionary["\(round)회차"]
-    switch lotto {
-        case .none:
-            print("none")
-        case .some(let val):
-            print("\(round)회차의 로또 당첨 번호는 ", terminator: "")
-            for number in val {
-                print(number, terminator: ", ")
-            }
+    
+    if let lotto = lottoDictionary["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 ", terminator: "")
+        for number in lotto {
+            print(number, terminator: ", ")
+        }
     }
 }
 
