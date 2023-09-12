@@ -8,5 +8,5 @@
 
 import Foundation
 
-myRoundLotto()
-
+saveLottos()
+searchLotto(round: 3)

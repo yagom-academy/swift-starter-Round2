@@ -7,31 +7,28 @@
 
 import Foundation
 
-var lotto: Dictionary<String, Any> = ["1회차": [1, 2, 3, 4, 5, 6]]
-var roundNumber = 1
-var myRound = "3회차"
+var lottoDictionary = [String : Set<Int>]()
 
-func DictionarySaveLotto() {
-    makeLottoNumbers()
-    roundNumber += 1
-    lotto["\(roundNumber)회차"] = result
-}
-
-func myRoundLotto() {
-    repeat {
-        DictionarySaveLotto()
-    } while roundNumber < 5
-
-    let lottoOptional: Any? = lotto[myRound]
-
-    switch lottoOptional {
-        case .none:
-            print("none")
-        case .some(let val):
-            print("\(myRound)의 로또 당첨 번호는 \(val)")
+func saveLottos() {
+    for i in 1...5 {
+        let lotto = makeLottoNumbers()
+        let round = "\(i)회차"
+        lottoDictionary[round] = lotto
     }
 }
 
+func searchLotto(round: Int) {
+    let lotto = lottoDictionary["\(round)회차"]
+    switch lotto {
+        case .none:
+            print("none")
+        case .some(let val):
+            print("\(round)회차의 로또 당첨 번호는 ", terminator: "")
+            for number in val {
+                print(number, terminator: ", ")
+            }
+    }
+}
 
 
 

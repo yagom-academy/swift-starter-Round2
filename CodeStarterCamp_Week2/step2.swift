@@ -10,11 +10,12 @@ import Foundation
 var result : Set<Int> = []
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-func makeLottoNumbers() {
+func makeLottoNumbers() -> Set<Int> {
     
     while result.count < 6 {
         result.insert(Int.random(in: 1...45))
     }
+    return result
     //print("로또 번호 : \(result)" )
     //print("나의 로또 번호 : \(myLottoNumbers)" )
 }
