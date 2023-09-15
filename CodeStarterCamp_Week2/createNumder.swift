@@ -16,7 +16,7 @@ func createLottoNumders() -> Set<Int> {
     return generateLotto
 }
 
-func generateLottoNumbersForRounds(_ round: Int) -> [Int: [Int]] {
+func createLottoNumbersForRounds(_ round: Int) -> [Int: [Int]] {
     var lottoResults: [Int: [Int]] = [:]
     
     for round in 1...round {
@@ -27,9 +27,8 @@ func generateLottoNumbersForRounds(_ round: Int) -> [Int: [Int]] {
     return lottoResults
 }
 
+func desiredLottoNumberForRound(lottoResults: [Int: [Int]], desiredRound: Int) {
 
-func displayLottoResultForRound(lottoResults: [Int: [Int]], desiredRound: Int) {
-    
     if let  desiredLotto = lottoResults[desiredRound] {
         print("\(desiredRound)회차의 로또 당첨 번호는 \(desiredLotto.sorted()) 입니다.")
     } else {
@@ -37,16 +36,6 @@ func displayLottoResultForRound(lottoResults: [Int: [Int]], desiredRound: Int) {
     }
 }
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-let overlappingLottoNumder: Set<Int> = createLottoNumders().intersection(myLottoNumbers)
 
-func checkForOverlappingNumbers(overlappingLottoNumder: Set<Int>){
-
-    if overlappingLottoNumder.count == 0{
-        print("아쉽지만 겹치는 번호가 없습니다")
-    }else{
-        print("축하합니다! 겹치는 번호는 \(overlappingLottoNumder)입니다!")
-    }
-}
 

@@ -9,10 +9,8 @@
 import Foundation
 
 
-var lottoResults: [Int: [Int]] =  generateLottoNumbersForRounds(5)
+var lottoResults: [Int: [Int]] =  createLottoNumbersForRounds(5)
 let myNumder = createLottoNumders()
 
-displayLottoResultForRound(lottoResults: lottoResults , desiredRound: 2)
-
-checkForOverlappingNumbers(overlappingLottoNumder: overlappingLottoNumder)
+desiredLottoNumberForRound(lottoResults: lottoResults , desiredRound: 2)
 
