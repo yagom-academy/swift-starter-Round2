@@ -8,7 +8,7 @@
 
 import Foundation
 
-func generateLottoNumbers() -> Array<Int> {
+func generateLottoNumbers() -> [Int] {
     var lottoNumbers: [Int] = []
 
     while lottoNumbers.count < 6 {
@@ -20,29 +20,35 @@ func generateLottoNumbers() -> Array<Int> {
     return lottoNumbers.sorted()
 }
 
-func convertArray(arr: [Int]) -> String {
-    let strArray: [String] = arr.map( {String($0)} )
-    let resultStr: String = strArray.joined(separator: ", ")
-    return resultStr
+func convertToArray(arr: [Int]) -> String {
+    let stringArray = arr.map( {String($0)} )
+    let resultString = stringArray.joined(separator: ", ")
+    return resultString
 }
 
-func saveNthTimeLottoNumbers() {
+func insertLottoNumbers() {
     i += 1
     let winningNumbersValue = generateLottoNumbers()
     print("\(i)회차의 로또 당첨 번호는 \(winningNumbersValue)입니다.")
-    NthTimeLottoNumbers["\(i)회차"] = winningNumbersValue
+    lottoNumbers["\(i)회차"] = winningNumbersValue
 }
 
-var NthTimeLottoNumbers : [String : Array<Int>] = [ : ]
+func buildLottoNumbers(n : Int) {
+    for _ in 1...n {
+        insertLottoNumbers()
+    }
+}
+
+func printLottoNumbers(n: Int) {
+    if let nthNumbers = lottoNumbers["\(n)회차"]{
+        print("\(n)회차의 로또 당첨 번호는 \(convertToArray(arr: nthNumbers.sorted()))입니다.")
+    }
+}
+
+var lottoNumbers : [String : [Int]] = [ : ]
 var i = 0
 
-for _ in 1...5 {
-    saveNthTimeLottoNumbers()
-}
-print(NthTimeLottoNumbers)
+buildLottoNumbers(n: 5)
+print(lottoNumbers)
 
-
-let n = 5
-if let nthNumbers = NthTimeLottoNumbers["\(n)회차"]{
-    print("\(n)회차의 로또 당첨 번호는 \(convertArray(arr: nthNumbers.sorted()))입니다.")
-}
+printLottoNumbers(n: 5)
