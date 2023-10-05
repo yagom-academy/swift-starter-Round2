@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-05T09:48:22.309Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="peJpIoH_OWRiPmbzWnVI" version="22.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-05T09:49:22.175Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="bkujmv-ls0hYzF7QXUyq" version="22.0.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1018" dy="805" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -19,7 +19,7 @@
         <mxCell id="fP_J6S1NjW1sJ828qq0C-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fP_J6S1NjW1sJ828qq0C-5" target="fP_J6S1NjW1sJ828qq0C-11">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="fP_J6S1NjW1sJ828qq0C-5" value="lottoNumbers &gt; 6 까지 반복" style="swimlane;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="fP_J6S1NjW1sJ828qq0C-5" value="lottoNumbers == 6 까지 반복" style="swimlane;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="120" y="310" width="370" height="230" as="geometry" />
         </mxCell>
         <mxCell id="fP_J6S1NjW1sJ828qq0C-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="fP_J6S1NjW1sJ828qq0C-5" source="fP_J6S1NjW1sJ828qq0C-7" target="fP_J6S1NjW1sJ828qq0C-9">
