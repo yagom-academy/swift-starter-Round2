@@ -8,4 +8,5 @@
 
 import Foundation
 
-print(makeLottoNumbers())
+// Week2 [STEP2] - 내 번호와 맞추어보기!
+checkNumbers()
