@@ -20,3 +20,29 @@ func createLottoNumber() -> Set<Int> {
 	
 	return randomLotto
 }
+
+func checkLottoNumbers(myLottoNumbers: [Int]) -> Void {
+	var correctNumbers = Array<Int>()
+	let lottoNumbers = createLottoNumber()
+	var lottoString = ""
+
+	for number in myLottoNumbers {
+		if(lottoNumbers.contains(number)) {
+			correctNumbers.append(number)
+		}
+	}
+
+	if(correctNumbers.isEmpty) {
+		print("아쉽지만 겹치는 번호가 없습니다.")
+	} else {
+		for number in correctNumbers {
+			lottoString.append("\(number), ")
+		}
+		lottoString.removeLast()
+		lottoString.removeLast()
+
+		print("축하합니다! 겹치는 번호는 \(lottoString) 입니다!")
+	}
+}
+
+checkLottoNumbers(myLottoNumbers: myLottoNumbers)
