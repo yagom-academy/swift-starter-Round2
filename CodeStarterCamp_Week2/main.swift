@@ -8,5 +8,5 @@
 
 import Foundation
 
-print("Hello, World!")
-
+// Week2 [STEP2] - 내 번호와 맞추어보기!
+start()
