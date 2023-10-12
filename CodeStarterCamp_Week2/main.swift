@@ -8,5 +8,15 @@
 
 import Foundation
 
-print("Hello, World!")
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
+func createLottoNumber() -> Set<Int> {
+	
+	var randomLotto: Set<Int> = []
+	
+	while randomLotto.count < 6 {
+		randomLotto.insert(Int.random(in: 1...45))
+	}
+	
+	return randomLotto
+}
