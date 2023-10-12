@@ -1,3 +1,12 @@
+//
+//  test.swift
+//  CodeStarterCamp_Week2
+//
+//  Created by 김성민 on 10/12/23.
+//
+
+import Foundation
+
 
 func makeLottoNumbers() -> [Int] {
     let initNumbers = Array(1...45)
@@ -6,7 +15,7 @@ func makeLottoNumbers() -> [Int] {
     return lottoNumbers
 }
 
-func checkNumbers() {
+func provideInformation() -> (Set<Int>, Set<Int>) {
     let myLottoNumbers: [Int] = [2, 3, 11, 21, 30, 43]
     
     let lottNumberSet = Set<Int>(makeLottoNumbers())
@@ -18,7 +27,11 @@ func checkNumbers() {
     print("이번 주 로또 번호는 \(lottoNumbersString) 입니다.")
     print("당신이 선택한 번호는 \(myLottoNumbersString) 입니다.")
     
-    let overlappingNumbers = Array<Int>(lottNumberSet.intersection(myLottoNumberSet))
+    return (lottNumberSet, myLottoNumberSet)
+}
+
+func checkOverlappingNumbers() {
+    let overlappingNumbers = provideInformation().0.intersection(provideInformation().1)
     let overlappingNumbersString = overlappingNumbers.sorted().map {String($0)}.joined(separator: ", ")
 
     switch overlappingNumbers.count {
@@ -31,6 +44,4 @@ func checkNumbers() {
     }
 }
 
-func start() {
-    checkNumbers()
-}
+
