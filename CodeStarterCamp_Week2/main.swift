@@ -25,27 +25,21 @@ func makeLottoNumbers() -> Set<Int> {
 }
 
 func checkWinningLottoNumbers(myNumbers: Array<Int>, winnigNumbers: Set<Int> ) {
-    // Set 의 집합연산 활용을 위해 myNumbers를 Set type 변경
     let changedMyNumbers = Set(myNumbers)
-    // 당첨번호와 내로또번호의 교집합 - 당첨번호 확인
     let intersectionNumbers: Set<Int> = winnigNumbers.intersection(changedMyNumbers)
+   
+    print(makeReturnMessage(intersectionNumbers: intersectionNumbers))
+}
+
+func makeReturnMessage(intersectionNumbers: Set<Int>) -> String {
+    var returnMessage = ""
     
     if intersectionNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+        returnMessage = "아쉽지만 겹치는 번호가 없습니다."
     } else {
-        // 겹치는 번호에서 "[", "]" 제거 - 고차 함수
-        /*
         let printIntersectionNumbers = intersectionNumbers.map { String($0) }.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(printIntersectionNumbers) 입니다!")
-        */
-        print("축하합니다! 겹치는 번호는", terminator: " ")
-        for (i, number) in intersectionNumbers.enumerated() {
-            if i < intersectionNumbers.count - 1 {
-                print("\(number)", terminator: ", ")
-            } else {
-                print("\(number)", terminator: "")
-            }
-        }
-        print(" 입니다!")
+        returnMessage = "축하합니다! 겹치는 번호는 " + printIntersectionNumbers + " 입니다!"
     }
+    
+    return returnMessage
 }
