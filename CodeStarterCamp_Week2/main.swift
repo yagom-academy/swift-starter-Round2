@@ -22,17 +22,17 @@ func createLottoNumber() -> Set<Int> {
 }
 
 func checkLottoNumbers(myLottoNumbers: [Int]) -> Void {
-	var correctNumbers = Array<Int>()
+	var correctNumbers = [Int]()
 	let lottoNumbers = createLottoNumber()
 	var lottoString = ""
 
 	for number in myLottoNumbers {
-		if(lottoNumbers.contains(number)) {
+		if lottoNumbers.contains(number) {
 			correctNumbers.append(number)
 		}
 	}
 
-	if(correctNumbers.isEmpty) {
+	if correctNumbers.isEmpty {
 		print("아쉽지만 겹치는 번호가 없습니다.")
 	} else {
 		for number in correctNumbers {
