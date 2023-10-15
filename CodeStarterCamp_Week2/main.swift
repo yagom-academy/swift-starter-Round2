@@ -12,4 +12,4 @@ import Foundation
 //start()
 
 // Week2 [STEP3] - 로또 당첨 번호를 회차별로 저장하고, 확인하자!
-print(saveLottoNumbers(totalCount: 5))
+start()

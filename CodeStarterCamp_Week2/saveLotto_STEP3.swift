@@ -14,3 +14,19 @@ func saveLottoNumbers(totalCount: Int) -> [String: [Int]] {
     }
     return savedLotto
 }
+
+func showLottoNumbers(totalCount: Int, userCount: Int) {
+    let savedLotto = saveLottoNumbers(totalCount: totalCount)
+    
+    guard let nonOptionalNumbers = savedLotto["\(userCount)회차"] else {
+        return print("\(userCount)회차는 아직 진행되지 않았습니다.")
+    }
+    
+    let removedBrackets = nonOptionalNumbers.map { String($0) }.joined(separator: ", ")
+
+    print("\(userCount)회차의 로또 당첨 번호는 \(removedBrackets) 입니다.")
+}
+
+func start() {
+    showLottoNumbers(totalCount: 5, userCount: 2)
+}
