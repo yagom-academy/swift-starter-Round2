@@ -7,14 +7,14 @@
 //
 
 func generateLottoNumbers() -> Set<Int> {
-    var randomIntegerSet: Set<Int> = Set<Int>()
+    var randomIntegers: Set<Int> = Set<Int>()
     
     repeat {
         let randomInteger: Int = Int.random(in: 1..<46)
-        randomIntegerSet.insert(randomInteger)
-    } while randomIntegerSet.count < 6
+        randomIntegers.insert(randomInteger)
+    } while randomIntegers.count < 6
     
-    return randomIntegerSet
+    return randomIntegers
 }
 
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
