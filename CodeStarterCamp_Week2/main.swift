@@ -22,7 +22,8 @@ let lottoIntersection: Set<Int> = myLottoNumbers.intersection(generateLottoNumbe
 
 
 if lottoIntersection.count != 0 {
-    print("축하합니다! 겹치는 번호는 \(lottoIntersection)입니다!")
+    let setAsString = lottoIntersection.map { String($0) }.joined(separator:", ")
+    print("축하합니다! 겹치는 번호는 \(setAsString) 입니다!")
 } else {
     print("아쉽지만 겹치는 번호가 없습니다.")
 }
