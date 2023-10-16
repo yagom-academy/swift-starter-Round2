@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
 		7F7215022AD93121006F70F3 /* saveLotto_STEP3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7215012AD93121006F70F3 /* saveLotto_STEP3.swift */; };
-		7FBFE0CF2AD6481E0098FAE9 /* checkLotto_STEP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBFE0CE2AD6481E0098FAE9 /* checkLotto_STEP2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,7 +124,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FBFE0CF2AD6481E0098FAE9 /* checkLotto_STEP2.swift in Sources */,
 				7F7215022AD93121006F70F3 /* saveLotto_STEP3.swift in Sources */,
 				34811DC2274B93D800A1E994 /* main.swift in Sources */,
 			);

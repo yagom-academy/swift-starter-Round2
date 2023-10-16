@@ -7,7 +7,7 @@ func makeLottoNumbers() -> [Int] {
 }
 
 func saveLottoNumbers(totalCount: Int) -> [String: [Int]] {
-    var savedLotto: [String: [Int]] = [:]
+    var savedLotto = [String: [Int]]()
     
     for count in 1...totalCount {
         savedLotto["\(count)회차"] = makeLottoNumbers()
@@ -16,13 +16,13 @@ func saveLottoNumbers(totalCount: Int) -> [String: [Int]] {
 }
 
 func showLottoNumbers(totalCount: Int, userCount: Int) {
-    let savedLotto = saveLottoNumbers(totalCount: totalCount)
+    let savedLottos = saveLottoNumbers(totalCount: totalCount)
     
-    guard let nonOptionalNumbers = savedLotto["\(userCount)회차"] else {
+    guard let nonOptionalSavedLotto = savedLottos["\(userCount)회차"] else {
         return print("\(userCount)회차는 아직 진행되지 않았습니다.")
     }
     
-    let removedBrackets = nonOptionalNumbers.map { String($0) }.joined(separator: ", ")
+    let removedBrackets = nonOptionalSavedLotto.map { String($0) }.joined(separator: ", ")
 
     print("\(userCount)회차의 로또 당첨 번호는 \(removedBrackets) 입니다.")
 }
