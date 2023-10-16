@@ -6,7 +6,7 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-func lottoNumbers () -> Set<Int>{
+func generateLottoNumbers() -> Set<Int> {
     var randomIntegerSet: Set<Int> = Set<Int>()
     
     repeat {
@@ -18,7 +18,7 @@ func lottoNumbers () -> Set<Int>{
 }
 
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-let lottoIntersection: Set<Int> = myLottoNumbers.intersection(lottoNumbers())
+let lottoIntersection: Set<Int> = myLottoNumbers.intersection(generateLottoNumbers())
 
 
 if lottoIntersection.count != 0 {
