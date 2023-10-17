@@ -45,4 +45,25 @@ func checkLottoNumbers(myLottoNumbers: [Int]) -> Void {
 	}
 }
 
-checkLottoNumbers(myLottoNumbers: myLottoNumbers)
+func saveLottoNumbers(totalCount: Int) -> [String: [Int]] {
+	var savedLotto = [String: [Int]]()
+
+	for count in 1...totalCount {
+		savedLotto["\(count)회차"] = Array(createLottoNumber())
+	}
+	return savedLotto
+}
+
+func showLottoNumbers(totalCount: Int, userCount: Int) {
+	let saveLottos = saveLottoNumbers(totalCount: totalCount)
+	
+	let getCountLotto = saveLottos["\(userCount)회차"]
+
+	guard let getCountLotto else { return print("\(userCount)회차는 아직 진행되지 않았습니다.") }
+	
+	let removeBraces = getCountLotto.map {String($0)}.joined(separator:", ")
+
+	print("\(userCount)회차의 로또 당첨 번호는 \(removeBraces) 입니다.")
+}
+
+showLottoNumbers(totalCount: 5, userCount: 1)
