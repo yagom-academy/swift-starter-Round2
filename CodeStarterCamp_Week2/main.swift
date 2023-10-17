@@ -6,7 +6,24 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-import Foundation
+func generateLottoNumbers() -> Set<Int> {
+    var randomIntegers: Set<Int> = Set<Int>()
+    
+    repeat {
+        let randomInteger: Int = Int.random(in: 1..<46)
+        randomIntegers.insert(randomInteger)
+    } while randomIntegers.count < 6
+    
+    return randomIntegers
+}
 
-print("Hello, World!")
+let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+let lottoIntersection: Set<Int> = myLottoNumbers.intersection(generateLottoNumbers())
 
+
+if lottoIntersection.count != 0 {
+    let setAsString = lottoIntersection.map { String($0) }.joined(separator:", ")
+    print("축하합니다! 겹치는 번호는 \(setAsString) 입니다!")
+} else {
+    print("아쉽지만 겹치는 번호가 없습니다.")
+}
