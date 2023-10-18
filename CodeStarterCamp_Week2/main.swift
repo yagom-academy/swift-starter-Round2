@@ -16,14 +16,27 @@ func generateLottoNumbers() -> Set<Int> {
     
     return randomIntegers
 }
+var lottoDictionary: Dictionary<Int?, Set<Int>?> = [Int?: Set<Int>?]()
+lottoDictionary = [:]
 
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-let lottoIntersection: Set<Int> = myLottoNumbers.intersection(generateLottoNumbers())
-
-
-if lottoIntersection.count != 0 {
-    let setAsString = lottoIntersection.map { String($0) }.joined(separator:", ")
-    print("축하합니다! 겹치는 번호는 \(setAsString) 입니다!")
-} else {
-    print("아쉽지만 겹치는 번호가 없습니다.")
+func saveLottoNumbers() {
+    for count in 1...5{
+        lottoDictionary[count] = generateLottoNumbers()
+    }
 }
+
+func findLottoDrawing() {
+    print("찾는 회차 입력 : ")
+    if let inputValue = readLine(), let intValue = Int(inputValue) {
+        if let lottoNumbers = lottoDictionary[intValue] {
+            print("\(intValue)회차의 로또 당첨 번호는 \(lottoNumbers ?? Set<Int>()) 입니다.")
+        } else {
+            print("\(intValue)회차의 로또번호 추첨을 진행하지 않았습니다.")
+        }
+    } else {
+        print("올바른 숫자를 입력하세요.")
+    }
+}
+
+saveLottoNumbers()
+findLottoDrawing()
