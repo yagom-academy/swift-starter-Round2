@@ -6,7 +6,7 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-func generateLottoNumbers() -> Set<Int> {
+func generateLottoNumbers() -> String {
     var randomIntegers: Set<Int> = Set<Int>()
     
     repeat {
@@ -14,9 +14,10 @@ func generateLottoNumbers() -> Set<Int> {
         randomIntegers.insert(randomInteger)
     } while randomIntegers.count < 6
     
-    return randomIntegers
+    
+    return randomIntegers.map({String($0)}).joined(separator: " ,")
 }
-var lottoDictionary: Dictionary<Int?, Set<Int>?> = [Int?: Set<Int>?]()
+var lottoDictionary: Dictionary<Int?, String?> = [Int?: String?]()
 lottoDictionary = [:]
 
 func saveLottoNumbers() {
@@ -29,7 +30,7 @@ func findLottoDrawing() {
     print("찾는 회차 입력 : ")
     if let inputValue = readLine(), let intValue = Int(inputValue) {
         if let lottoNumbers = lottoDictionary[intValue] {
-            print("\(intValue)회차의 로또 당첨 번호는 \(lottoNumbers ?? Set<Int>()) 입니다.")
+            print("\(intValue)회차의 로또 당첨 번호는 \(lottoNumbers ?? "저장되지 않았습니다") 입니다.")
         } else {
             print("\(intValue)회차의 로또번호 추첨을 진행하지 않았습니다.")
         }
