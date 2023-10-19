@@ -15,3 +15,9 @@ func drawLottoNumbers() -> Set<Int>{
         return lottoNumbers
 }
 
+    
+func playLotto() {
+    let myLottoNumbers : Set<Int> = [1, 2, 3, 4, 5, 6]
+    matchedLotto(myLottoNumbers: myLottoNumbers)
+    }
+
