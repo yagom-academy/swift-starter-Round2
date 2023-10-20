@@ -15,13 +15,13 @@ func generateLottoNumbers() -> String {
     } while randomIntegers.count < 6
     
     
-    return randomIntegers.map({String($0)}).joined(separator: " ,")
+    return randomIntegers.map({String($0)}).joined(separator: ", ")
 }
-var lottoDictionary: Dictionary<Int?, String?> = [Int?: String?]()
-lottoDictionary = [:]
+var lottoDictionary: Dictionary<Int, String> = [Int: String]()
+lottoDictionary[1] = "1, 2, 3, 4, 5, 6"
 
 func saveLottoNumbers() {
-    for count in 1...5{
+    for count in 1...5 {
         lottoDictionary[count] = generateLottoNumbers()
     }
 }
@@ -30,7 +30,7 @@ func findLottoDrawing() {
     print("찾는 회차 입력 : ")
     if let inputValue = readLine(), let intValue = Int(inputValue) {
         if let lottoNumbers = lottoDictionary[intValue] {
-            print("\(intValue)회차의 로또 당첨 번호는 \(lottoNumbers ?? "저장되지 않았습니다") 입니다.")
+            print("\(intValue)회차의 로또 당첨 번호는 \(lottoNumbers) 입니다.")
         } else {
             print("\(intValue)회차의 로또번호 추첨을 진행하지 않았습니다.")
         }
