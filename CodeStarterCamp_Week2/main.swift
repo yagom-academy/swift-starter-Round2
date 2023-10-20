@@ -1,5 +1,5 @@
 func generateLottoNumbers() -> [Int] {
-    var lottoNumbers = Set<Int>()
+    var lottoNumbers: Set<Int> = Set<Int>()
     while lottoNumbers.count < 6 {
         let randomNumber = Int.random(in: 1...45)
         lottoNumbers.insert(randomNumber)
@@ -10,7 +10,7 @@ func generateLottoNumbers() -> [Int] {
 
 
 
-let myLottoNumbers: [Int] = [20, 30, 15, 21, 40, 3]
+let myLottoNumbers: [Int] = [1, 4, 27, 21, 40, 3]
 
 
 func lookMatchingNumbers() {
