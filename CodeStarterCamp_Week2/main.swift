@@ -6,15 +6,7 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-
-func drawLottoNumbers() -> Set<Int>{
-    var lottoNumbers: Set<Int> = []
-    while lottoNumbers.count < 6 {
-        lottoNumbers.insert(Int.random(in: 1...45))
-    }
-        return lottoNumbers
-}
-    
+/*
 func matchedLotto(myLottoNumbers: Set<Int>) {
     let matchedNumbers: Set<Int> = drawLottoNumbers().intersection(myLottoNumbers)
     let openNumbers = matchedNumbers.map { String($0) }.joined(separator: ", ")
@@ -34,3 +26,23 @@ func playLotto() {
     }
 
 playLotto()
+*/
+
+func drawLottoNumbers() -> Set<Int>{
+    var lottoNumbers: Set<Int> = []
+    while lottoNumbers.count < 6 {
+        lottoNumbers.insert(Int.random(in: 1...45))
+    }
+        return lottoNumbers
+}
+
+func lottoDrawHistory() -> Dictionary<String, Set<Int>> {
+    var NumberHistory: Dictionary<String, Set<Int>> = [:]
+    var drawCount = 1
+    while drawCount <= 5 {
+        let saveLottoNumbers = drawLottoNumbers()
+        NumberHistory["\(drawCount)회차"] = saveLottoNumbers
+        drawCount += 1
+    }
+    return NumberHistory
+}
