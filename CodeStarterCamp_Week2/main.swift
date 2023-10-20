@@ -25,13 +25,13 @@ func checkLottoNumbers(myLottoNumbers: [Int]) -> Void {
 	var correctNumbers = [Int]()
 	let lottoNumbers = createLottoNumber()
 	var lottoString = ""
-
+	
 	for number in myLottoNumbers {
 		if lottoNumbers.contains(number) {
 			correctNumbers.append(number)
 		}
 	}
-
+	
 	if correctNumbers.isEmpty {
 		print("아쉽지만 겹치는 번호가 없습니다.")
 	} else {
@@ -40,14 +40,14 @@ func checkLottoNumbers(myLottoNumbers: [Int]) -> Void {
 		}
 		lottoString.removeLast()
 		lottoString.removeLast()
-
+		
 		print("축하합니다! 겹치는 번호는 \(lottoString) 입니다!")
 	}
 }
 
 func saveLottoNumbers(totalCount: Int) -> [String: [Int]] {
 	var savedLotto = [String: [Int]]()
-
+	
 	for count in 1...totalCount {
 		savedLotto["\(count)회차"] = Array(createLottoNumber())
 	}
@@ -55,15 +55,20 @@ func saveLottoNumbers(totalCount: Int) -> [String: [Int]] {
 }
 
 func showLottoNumbers(totalCount: Int, userCount: Int) {
-	let saveLottos = saveLottoNumbers(totalCount: totalCount)
+	let savedLotto = saveLottoNumbers(totalCount: totalCount)
 	
-	let getCountLotto = saveLottos["\(userCount)회차"]
-
-	guard let getCountLotto else { return print("\(userCount)회차는 아직 진행되지 않았습니다.") }
+	let countLotto = savedLotto["\(userCount)회차"]
 	
-	let removeBraces = getCountLotto.map {String($0)}.joined(separator:", ")
-
-	print("\(userCount)회차의 로또 당첨 번호는 \(removeBraces) 입니다.")
+	guard let countLotto else {
+		
+		print("\(userCount)회차는 아직 진행되지 않았습니다.")
+		
+		return
+	}
+	
+	let thisRoundLottoNumber = countLotto.map {String($0)}.joined(separator:", ")
+	
+	print("\(userCount)회차의 로또 당첨 번호는 \(thisRoundLottoNumber) 입니다.")
 }
 
 showLottoNumbers(totalCount: 5, userCount: 1)
