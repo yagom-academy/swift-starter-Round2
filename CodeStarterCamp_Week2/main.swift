@@ -10,48 +10,41 @@ import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 var lottoSet: Set<Int> = Set<Int>()
-var lottoDictionary: Dictionary<String, Set<Int>> = [String: Set<Int>]()
-var round: Int = 0
-var winLottoNumbers: Int = 0
+var compareSet: Set<Int> = Set <Int>()
 
+// 로또 Set 생성 함수
 func winningLotto() {
-    
-    if round < 5 {
-        for _ in 1...5 {
-            while lottoSet.count < 6 {
-                winLottoNumbers = Int.random(in: 1...45)
-                lottoSet.insert(winLottoNumbers)
-            }
-            
-            round += 1
-            lottoDictionary["\(round)회차"] = lottoSet
-            lottoSet.removeAll()
-        }
+    var winLottoNumbers: Int
+
+    while lottoSet.count < 6 {
+        winLottoNumbers = Int.random(in: 1...45)
+        lottoSet.insert(winLottoNumbers)
     }
 }
 
 
-func drawWinningNumbers(nowRound: Int) {
-    switch nowRound {
-    case 1...5:
-        if let nowRoundNumbers: Set<Int> = lottoDictionary["\(nowRound)회차"] {
-            var nowWinningNumbers: String = ""
-            print("\(nowRound)회차의 로또 당첨 번호는 ", terminator: "")
-            for a in nowRoundNumbers {
-                nowWinningNumbers += String(a) + ", "
-            }
-            nowWinningNumbers.removeLast(2)
-            print("\(nowWinningNumbers)입니다.")
+// 번호 비교 함수
+func compareNumber() {
+    for _ in lottoSet {
+        compareSet = lottoSet.intersection(myLottoNumbers)
+    }
+}
+
+// 로또 출력 함수
+func drawIsWinning() {
+    if compareSet.count != 0 {
+        var compareLottoNumbers: String = ""
+        print("축하합니다! 겹치는 번호는 ", terminator: "")
+        for a in compareSet {
+            compareLottoNumbers += String(a) + ", "
         }
-    default:
-        print("해당 결과가 없습니다.")
+        compareLottoNumbers.removeLast(2)
+        print("\(compareLottoNumbers)입니다.")
+    } else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
 winningLotto()
-
-for count in 1...5 {
-    drawWinningNumbers(nowRound: count)
-}
-
-drawWinningNumbers(nowRound: 7)
+compareNumber()
+drawIsWinning()
