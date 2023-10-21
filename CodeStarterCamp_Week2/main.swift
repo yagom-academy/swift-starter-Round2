@@ -7,7 +7,7 @@
 //
 
 
-func drawLottoNumbers() -> Set<Int>{
+func generateLottoNumbers() -> Set<Int>{
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
@@ -18,7 +18,7 @@ func drawLottoNumbers() -> Set<Int>{
 func recordLottoNumber() -> Dictionary<String, Set<Int>> {
     var numberHistory: Dictionary<String, Set<Int>> = [:]
     for drawCount in 1...5 {
-        numberHistory["\(drawCount)회차"] = drawLottoNumbers()
+        numberHistory["\(drawCount)회차"] = generateLottoNumbers()
     }
     return numberHistory
 }
