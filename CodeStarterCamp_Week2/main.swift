@@ -16,14 +16,11 @@ func drawLottoNumbers() -> Set<Int>{
 }
 
 func lottoDrawHistory() -> Dictionary<String, Set<Int>> {
-    var NumberHistory: Dictionary<String, Set<Int>> = [:]
-    var drawCount = 1
-    while drawCount <= 5 {
-        let saveLottoNumbers = drawLottoNumbers()
-        NumberHistory["\(drawCount)회차"] = saveLottoNumbers
-        drawCount += 1
+    var numberHistory: Dictionary<String, Set<Int>> = [:]
+    for drawCount in 1...5 {
+        numberHistory["\(drawCount)회차"] = drawLottoNumbers()
     }
-    return NumberHistory
+    return numberHistory
 }
 
 func searchHistory(회차: String) {
