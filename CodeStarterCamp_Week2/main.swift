@@ -15,7 +15,7 @@ func drawLottoNumbers() -> Set<Int>{
     return lottoNumbers
 }
 
-func lottoDrawHistory() -> Dictionary<String, Set<Int>> {
+func recordLottoNumber() -> Dictionary<String, Set<Int>> {
     var numberHistory: Dictionary<String, Set<Int>> = [:]
     for drawCount in 1...5 {
         numberHistory["\(drawCount)회차"] = drawLottoNumbers()
@@ -24,7 +24,7 @@ func lottoDrawHistory() -> Dictionary<String, Set<Int>> {
 }
 
 func searchHistory(회차: String) {
-    let lottoResult = lottoDrawHistory()
+    let lottoResult = recordLottoNumber()
     if let resultNumbers = lottoResult[회차]
     {
         let stringResultNumbers = resultNumbers.map { String($0) }.joined(separator: ", ")
@@ -37,6 +37,5 @@ func searchHistory(회차: String) {
 }
 
 
-print(lottoDrawHistory())
 searchHistory(회차: "3회차")
 
