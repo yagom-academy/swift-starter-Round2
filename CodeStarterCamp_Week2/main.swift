@@ -6,12 +6,12 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-
-func generateLottoNumbers() -> Set<Int>{
+func generateLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
         lottoNumbers.insert(Int.random(in: 1...45))
     }
+  
     return lottoNumbers
 }
 
@@ -36,6 +36,4 @@ func searchHistory(회차: String) {
     }
 }
 
-
 searchHistory(회차: "3회차")
-
