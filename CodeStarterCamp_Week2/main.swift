@@ -1,3 +1,4 @@
+// Step 2
 func generateLottoNumbers() -> [Int] {
     var lottoNumbers: Set<Int> = []
     while lottoNumbers.count < 6 {
