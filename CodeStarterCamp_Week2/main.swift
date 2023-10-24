@@ -19,10 +19,9 @@ for _ in 1...5 {
     saveWinningLottoNumbers(winnigNumbers: makeLottoNumbers())
 }
 
-printWinningNumbersForRound(round: 2)
+printWinningNumbersFor(round: 2)
 
-
-func printWinningNumbersForRound(round: Int) {
+func printWinningNumbersFor(round: Int) {
     let roundString = makeRoundCountString(roundCount: round)
     
     if let winnigNumbers = listWinnigLottoNumbers[roundString] {
@@ -41,7 +40,9 @@ func makeRoundCountString(roundCount: Int) -> String {
 }
 
 func makePrintIntersectionNumbers(intersectionNumbers: Set<Int>) -> String {
-    return intersectionNumbers.map { String($0) }.joined(separator: ", ")
+    let returnNumbers = intersectionNumbers.sorted()
+    
+    return returnNumbers.map { String($0) }.joined(separator: ", ")
 }
 
 func makeLottoNumbers() -> Set<Int> {
