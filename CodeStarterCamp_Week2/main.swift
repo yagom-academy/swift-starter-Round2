@@ -9,41 +9,41 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var lottoSet: Set<Int> = Set<Int>()
-var compareSet: Set<Int> = Set <Int>()
+var drwaingLottoNumbersSet: Set<Int> = Set<Int>()
+var checkLottoNumbersSet: Set<Int> = Set<Int>()
 
 // 로또 Set 생성 함수
-func winningLotto() {
-    var winLottoNumbers: Int
-    while lottoSet.count < 6 {
-        winLottoNumbers = Int.random(in: 1...45)
-        lottoSet.insert(winLottoNumbers)
+func drawLottoNumbers() {
+    var drwaingLottoNumbers: Int
+    while drwaingLottoNumbersSet.count < 6 {
+        drwaingLottoNumbers = Int.random(in: 1...45)
+        drwaingLottoNumbersSet.insert(drwaingLottoNumbers)
     }
 }
 
 
 // 번호 비교 함수
-func compareNumber() {
-    for _ in lottoSet {
-        compareSet = lottoSet.intersection(myLottoNumbers)
+func checkMyNumbersAndLottoNumbers() {
+    for _ in drwaingLottoNumbersSet {
+        checkLottoNumbersSet = drwaingLottoNumbersSet.intersection(myLottoNumbers)
     }
 }
 
 // 로또 출력 함수
-func drawIsWinning() {
-    if compareSet.count != 0 {
-        var compareLottoNumbers: String = ""
+func printWinningLotto() {
+    if checkLottoNumbersSet.count != 0 {
+        var comparisonRaffleNumbers: String = ""
         print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for a in compareSet {
-            compareLottoNumbers += String(a) + ", "
+        for a in checkLottoNumbersSet {
+            comparisonRaffleNumbers += String(a) + ", "
         }
-        compareLottoNumbers.removeLast(2)
-        print("\(compareLottoNumbers)입니다.")
+        comparisonRaffleNumbers.removeLast(2)
+        print("\(comparisonRaffleNumbers)입니다.")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
-winningLotto()
-compareNumber()
-drawIsWinning()
+drawLottoNumbers()
+checkMyNumbersAndLottoNumbers()
+printWinningLotto()
