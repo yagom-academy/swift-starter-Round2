@@ -21,7 +21,6 @@ func drawLottoNumbers() {
     }
 }
 
-
 // 번호 비교 함수
 func checkMyNumbersAndLottoNumbers() {
     for _ in drwaingLottoNumbersSet {
@@ -30,12 +29,12 @@ func checkMyNumbersAndLottoNumbers() {
 }
 
 // 로또 출력 함수
-func printWinningLotto() {
+func printdrawingLotto() {
     if checkLottoNumbersSet.count != 0 {
         var comparisonRaffleNumbers: String = ""
         print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for a in checkLottoNumbersSet {
-            comparisonRaffleNumbers += String(a) + ", "
+        for raffleNumbers in checkLottoNumbersSet {
+            comparisonRaffleNumbers += String(raffleNumbers) + ", "
         }
         comparisonRaffleNumbers.removeLast(2)
         print("\(comparisonRaffleNumbers)입니다.")
@@ -46,4 +45,4 @@ func printWinningLotto() {
 
 drawLottoNumbers()
 checkMyNumbersAndLottoNumbers()
-printWinningLotto()
+printdrawingLotto()
