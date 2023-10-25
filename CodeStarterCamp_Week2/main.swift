@@ -13,6 +13,38 @@ myLottoNumbers = [1, 2, 3, 4, 5, 6]
 
 checkWinningLottoNumbers(myNumbers: myLottoNumbers, winnigNumbers: makeLottoNumbers())
 
+var listWinnigLottoNumbers: [String: Set<Int>] = [:]
+
+for _ in 1...5 {
+    saveWinningLottoNumbers(winnigNumbers: makeLottoNumbers())
+}
+
+printWinningNumbersFor(round: 2)
+
+func printWinningNumbersFor(round: Int) {
+    let roundString = makeRoundCountString(roundCount: round)
+    
+    if let winnigNumbers = listWinnigLottoNumbers[roundString] {
+        print("\(roundString)의 로또 당첨 번호는 " + makePrintIntersectionNumbers(intersectionNumbers: winnigNumbers) + " 입니다.")
+    }
+}
+
+func saveWinningLottoNumbers(winnigNumbers: Set<Int>) {
+    let roundCountString = makeRoundCountString(roundCount: listWinnigLottoNumbers.count + 1)
+    
+    listWinnigLottoNumbers[roundCountString] = winnigNumbers
+}
+
+func makeRoundCountString(roundCount: Int) -> String {
+    return String(roundCount) + "회차"
+}
+
+func makePrintIntersectionNumbers(intersectionNumbers: Set<Int>) -> String {
+    let returnNumbers = intersectionNumbers.sorted()
+    
+    return returnNumbers.map { String($0) }.joined(separator: ", ")
+}
+
 func makeLottoNumbers() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     
@@ -25,27 +57,20 @@ func makeLottoNumbers() -> Set<Int> {
 }
 
 func checkWinningLottoNumbers(myNumbers: Array<Int>, winnigNumbers: Set<Int> ) {
-    // Set 의 집합연산 활용을 위해 myNumbers를 Set type 변경
     let changedMyNumbers = Set(myNumbers)
-    // 당첨번호와 내로또번호의 교집합 - 당첨번호 확인
     let intersectionNumbers: Set<Int> = winnigNumbers.intersection(changedMyNumbers)
+   
+    print(makeReturnMessage(intersectionNumbers: intersectionNumbers))
+}
+
+func makeReturnMessage(intersectionNumbers: Set<Int>) -> String {
+    var returnMessage = ""
     
     if intersectionNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+        returnMessage = "아쉽지만 겹치는 번호가 없습니다."
     } else {
-        // 겹치는 번호에서 "[", "]" 제거 - 고차 함수
-        /*
-        let printIntersectionNumbers = intersectionNumbers.map { String($0) }.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(printIntersectionNumbers) 입니다!")
-        */
-        print("축하합니다! 겹치는 번호는", terminator: " ")
-        for (i, number) in intersectionNumbers.enumerated() {
-            if i < intersectionNumbers.count - 1 {
-                print("\(number)", terminator: ", ")
-            } else {
-                print("\(number)", terminator: "")
-            }
-        }
-        print(" 입니다!")
+        returnMessage = "축하합니다! 겹치는 번호는 " + makePrintIntersectionNumbers(intersectionNumbers: intersectionNumbers) + " 입니다!"
     }
+    
+    return returnMessage
 }
