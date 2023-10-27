@@ -9,40 +9,47 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var drwaingLottoNumbersSet: Set<Int> = Set<Int>()
-var checkLottoNumbersSet: Set<Int> = Set<Int>()
+var lottoSet: Set<Int> = Set<Int>()
+var lottoDictionary: Dictionary<String, Set<Int>> = [String: Set<Int>]()
+var round: Int = 0
+var drwaingLottoNumbers: Int = 0
 
-// 로또 Set 생성 함수
 func drawLottoNumbers() {
-    var drwaingLottoNumbers: Int
-    while drwaingLottoNumbersSet.count < 6 {
-        drwaingLottoNumbers = Int.random(in: 1...45)
-        drwaingLottoNumbersSet.insert(drwaingLottoNumbers)
-    }
-}
+    if round < 5 {
+        for _ in 1...5 {
+            while lottoSet.count < 6 {
+                drwaingLottoNumbers = Int.random(in: 1...45)
+                lottoSet.insert(drwaingLottoNumbers)
+            }
 
-// 번호 비교 함수
-func checkMyNumbersAndLottoNumbers() {
-    for _ in drwaingLottoNumbersSet {
-        checkLottoNumbersSet = drwaingLottoNumbersSet.intersection(myLottoNumbers)
-    }
-}
-
-// 로또 출력 함수
-func printdrawingLotto() {
-    if checkLottoNumbersSet.count != 0 {
-        var comparisonRaffleNumbers: String = ""
-        print("축하합니다! 겹치는 번호는 ", terminator: "")
-        for raffleNumbers in checkLottoNumbersSet {
-            comparisonRaffleNumbers += String(raffleNumbers) + ", "
+            round += 1
+            lottoDictionary["\(round)회차"] = lottoSet
+            lottoSet.removeAll()
         }
-        comparisonRaffleNumbers.removeLast(2)
-        print("\(comparisonRaffleNumbers)입니다.")
-    } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+}
+
+func printdrwaingNumbers(nowRound: Int) {
+    switch nowRound {
+    case 1...5:
+        if let nowRoundNumbers: Set<Int> = lottoDictionary["\(nowRound)회차"] {
+            var nowWinningNumbers: String = ""
+            print("\(nowRound)회차의 로또 당첨 번호는 ", terminator: "")
+            for a in nowRoundNumbers {
+                nowWinningNumbers += String(a) + ", "
+            }
+            nowWinningNumbers.removeLast(2)
+            print("\(nowWinningNumbers)입니다.")
+        }
+    default:
+        print("해당 결과가 없습니다.")
     }
 }
 
 drawLottoNumbers()
-checkMyNumbersAndLottoNumbers()
-printdrawingLotto()
+
+for count in 1...5 {
+    printdrwaingNumbers(nowRound: count)
+}
+
+printdrwaingNumbers(nowRound: 7)
