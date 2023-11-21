@@ -8,5 +8,12 @@
 
 import Foundation
 
-print("Hello, World!")
-
+func printLotto(){
+    var saveNumber: Set<Int> = []
+    
+    while saveNumber.count < 5{
+        let randomNumber = 1 + Int(arc4random_uniform(45))
+        saveNumber.insert(Int(randomNumber))}
+    print(saveNumber)
+}
+printLotto()
