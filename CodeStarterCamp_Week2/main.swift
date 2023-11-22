@@ -10,22 +10,18 @@ import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-func lottoNumberGenerator() -> [Int] {
-    var numbers = Array(1...45)
-    var result = [Int]()
+func generateLottoNumber() -> Set<Int> {
+    var result = Set<Int>()
     
-    for _ in 0..<6 {
-        guard let randomNumbers = numbers.randomElement() else { continue }
-        result.append(randomNumbers)
-        
-        guard let index = numbers.firstIndex(of: randomNumbers) else { continue }
-        numbers.remove(at: index)
+    while result.count < 6 {
+        let randomNumber = Int.random(in: 1...45)
+        result.insert(randomNumber)
     }
     
     return result
 }
 
-func checkLottoNumbers(lottoNumbers: [Int]) {
+func checkLottoNumbers(lottoNumbers: Set<Int>) {
     let matchedNumbers = lottoNumbers.filter { myLottoNumbers.contains($0) }
     
     guard !matchedNumbers.isEmpty else {
@@ -36,5 +32,5 @@ func checkLottoNumbers(lottoNumbers: [Int]) {
     print("축하합니다! 겹치는 번호는 \(joinedNumbers) 입니다!")
 }
 
-let lottoNumbers = lottoNumberGenerator()
+let lottoNumbers = generateLottoNumber()
 checkLottoNumbers(lottoNumbers: lottoNumbers)
