@@ -9,11 +9,10 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var round = 1
 var lotto: [String: Set<Int>] = [:]
 
 @discardableResult
-func generateLottoNumber() -> Set<Int> {
+func generateLottoNumber(round: Int) -> Set<Int> {
     var result = Set<Int>()
     
     while result.count < 6 {
@@ -22,7 +21,6 @@ func generateLottoNumber() -> Set<Int> {
     }
     
     lotto["\(round)회차"] = result
-    round += 1
     
     return result
 }
@@ -50,8 +48,8 @@ func printLottoNumbers() {
     print("\(round)회차의 로또 당첨 번호는 \(joinedNumbers) 입니다.")
 }
 
-for _ in 0..<5 {
-    generateLottoNumber()
+for i in 1..<6 {
+    generateLottoNumber(round: i)
 }
 printLottoNumbers()
 
