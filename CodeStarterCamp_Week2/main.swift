@@ -8,12 +8,25 @@
 
 import Foundation
 
-func printLotto(){
-    var saveNumber: Set<Int> = []
+let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+var lottoNumber: Set<Int> = []
+
+func makeLotto(){
     
-    while saveNumber.count < 5{
+    while lottoNumber.count < 5{
         let randomNumber = 1 + Int(arc4random_uniform(45))
-        saveNumber.insert(Int(randomNumber))}
-    print(saveNumber)
+        lottoNumber.insert(Int(randomNumber))}
+    print(lottoNumber)
 }
-printLotto()
+
+func checkNumber(){
+    let check: Set<Int> = myLottoNumbers.intersection(lottoNumber)
+    if !check.isEmpty {
+        print("축하합니다! 겹치는 번호는 \(check)입니다!")
+    } else {
+        print("아쉽지만 겹치는 값이 없습니다.")
+    }
+}
+
+makeLotto()
+checkNumber()
