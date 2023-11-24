@@ -16,12 +16,7 @@ func drawNumbers() -> Set<Int> {
     
     while lotto.count < 6 {
         num = Int.random(in: 1...45)
-        if lotto.contains(num) {
-            continue
-        }
-        else {
-            lotto.insert(num)
-        }
+        lotto.insert(num)
     }
     
     return lotto
