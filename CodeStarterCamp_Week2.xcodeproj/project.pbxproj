@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34811DC2274B93D800A1E994 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34811DC1274B93D800A1E994 /* main.swift */; };
+		1AA09BD32B121CE800C5D566 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA09BD22B121CE800C5D566 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +23,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1AA09BD02B12168B00C5D566 /* Loop2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop2.swift; sourceTree = "<group>"; };
+		1AA09BD22B121CE800C5D566 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1AA09BD62B12401700C5D566 /* Week2_Step1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Week2_Step1.jpg; sourceTree = "<group>"; };
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
-		34811DC1274B93D800A1E994 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		34811DC1274B93D800A1E994 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AA09BD52B123FCC00C5D566 /* Week2_FlowChart */ = {
+			isa = PBXGroup;
+			children = (
+				1AA09BD62B12401700C5D566 /* Week2_Step1.jpg */,
+			);
+			path = Week2_FlowChart;
+			sourceTree = "<group>";
+		};
 		34811DB5274B93D800A1E994 = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +68,10 @@
 		34811DC0274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {
 			isa = PBXGroup;
 			children = (
-				34811DC1274B93D800A1E994 /* main.swift */,
+				1AA09BD52B123FCC00C5D566 /* Week2_FlowChart */,
+				34811DC1274B93D800A1E994 /* CollectionType.swift */,
+				1AA09BD02B12168B00C5D566 /* Loop2.swift */,
+				1AA09BD22B121CE800C5D566 /* main.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -93,6 +107,7 @@
 				TargetAttributes = {
 					34811DBD274B93D800A1E994 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -119,7 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34811DC2274B93D800A1E994 /* main.swift in Sources */,
+				1AA09BD32B121CE800C5D566 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,8 +259,10 @@
 		34811DC6274B93D800A1E994 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -253,6 +270,7 @@
 		34811DC7274B93D800A1E994 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
