@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AA09BD32B121CE800C5D566 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA09BD22B121CE800C5D566 /* main.swift */; };
+		1AA09BDC2B133E8300C5D566 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA09BDB2B133E8300C5D566 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,8 +24,11 @@
 
 /* Begin PBXFileReference section */
 		1AA09BD02B12168B00C5D566 /* Loop2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop2.swift; sourceTree = "<group>"; };
-		1AA09BD22B121CE800C5D566 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1AA09BD22B121CE800C5D566 /* lotto2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lotto2.swift; sourceTree = "<group>"; };
 		1AA09BD62B12401700C5D566 /* Week2_Step1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Week2_Step1.jpg; sourceTree = "<group>"; };
+		1AA09BD72B13268D00C5D566 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		1AA09BD92B132BF200C5D566 /* OptionSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSets.swift; sourceTree = "<group>"; };
+		1AA09BDB2B133E8300C5D566 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		34811DBE274B93D800A1E994 /* CodeStarterCamp_Week2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeStarterCamp_Week2; sourceTree = BUILT_PRODUCTS_DIR; };
 		34811DC1274B93D800A1E994 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +74,10 @@
 				1AA09BD52B123FCC00C5D566 /* Week2_FlowChart */,
 				34811DC1274B93D800A1E994 /* CollectionType.swift */,
 				1AA09BD02B12168B00C5D566 /* Loop2.swift */,
-				1AA09BD22B121CE800C5D566 /* main.swift */,
+				1AA09BD22B121CE800C5D566 /* lotto2.swift */,
+				1AA09BD72B13268D00C5D566 /* Operators.swift */,
+				1AA09BD92B132BF200C5D566 /* OptionSets.swift */,
+				1AA09BDB2B133E8300C5D566 /* main.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -134,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA09BD32B121CE800C5D566 /* main.swift in Sources */,
+				1AA09BDC2B133E8300C5D566 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
