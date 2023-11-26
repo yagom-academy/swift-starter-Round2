@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// step2
 func makeLotto() -> [Int] {
     var randomLotto: [Int] = []
     
@@ -40,4 +41,34 @@ func checkLotto(myLotto: [Int], prizeLotto: [Int]) {
 }
 
 var myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-checkLotto(myLotto: myLottoNumbers, prizeLotto: makeLotto())
+//checkLotto(myLotto: myLottoNumbers, prizeLotto: makeLotto())
+
+/// step3
+var lottoDictionary: [Int: [Int]] = [:]
+
+func makeDictionary() {
+    for _ in 0..<5 {
+        lottoDictionary.updateValue(makeLotto(), forKey: lottoDictionary.count + 1)
+    }
+}
+
+func checkLottoSession() {
+    print("원하는 회차의 숫자를 입력해주세요. (1~5)")
+    var inputString = readLine()
+    if let validInputString = inputString {
+        if let validInputInt = Int(validInputString) {
+            if let prizeLotto = lottoDictionary[validInputInt] {
+                print("\(validInputInt)회차의 로또 당첨 번호는 \(prizeLotto.map { String($0) }.joined(separator: ", ")) 입니다!")
+            } else {
+                print("입력된 회차는 존재하지 않습니다.")
+            }
+        } else {
+            print("올바른 값을 입력해주세요.")
+        }
+    } else {
+        print("올바른 값을 입력해주세요.")
+    }
+}
+
+makeDictionary()
+checkLottoSession()
