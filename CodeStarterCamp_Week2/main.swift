@@ -9,11 +9,18 @@ import Foundation
 
 // MARK: - Round2 [STEP1] - `로또 당첨번호 생성기 순서도 생성하기`
 /*
- 랜덤한 로또 당첨 번호를 생성하는 함수의 순서도,
- - 1부터 45사이의 랜덤한 숫자를 생성한다.
- - Collection 타입 중 하나의 형태로, 6개의 랜덤한 숫자를 저장
-   - 6개의 숫자는 '서로 겹치지 않아야' 한다
- - 이 함수는 6개의 랜덤한 숫자를 저장한 Collection 타입 중 하나의 형태로 값을 반환한다.
+로또 당첨 번호를 생성했다면, 찍은 번호(뽑은 번호) 와 당첨 번호가 맞는지 확인
+ - 6개의 번호를 다음과 같은 상수로 저장
+ let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+ - 찍은 번호 와 로또 당첨 번호 일치하는지 검사
+  => 번호 순서는 상관 없음
+ 
+ TO DO
+ 1. Step1 순서도를 바탕으로 로또 당첨 번호 생성하는 함수를 생성
+ 2. 내가 찍은 번호 배열을 myLottoNumbers 변수? 상수? 맞나요..? 상수라고 초반에 언급하셔서..
+ 3. 찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수를 생성
+ 
+ 
  */
 
 
@@ -25,13 +32,8 @@ for _ in 1...6 {
     var randomNumber = Int.random(in: 1...45)
     pickNumbers.insert(randomNumber)
 }
-//print("myLottoNumber \(pickNumbers)")
-//let myLottoNumbers = Array(1...6) - TEST ( if 조건 확인용 )
-let myLottoNumbers = Array(pickNumbers)
-//let anotherNumbers = pickNumbers
 
-//print(type(of: myLottoNumbers))
-//print(type(of: anotherNumbers))
+let myLottoNumbers = Array(pickNumbers)
 
 
 if myLottoNumbers == winningLottoNums {
