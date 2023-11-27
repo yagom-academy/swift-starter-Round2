@@ -178,3 +178,4 @@ enum Macbook: Int{
 }
 
 Macbook.M2.printMsg()
+print("m2: \(Macbook.M2.rawValue)")
