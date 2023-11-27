@@ -25,10 +25,9 @@ func drawNumbers() -> Set<Int> {
 /// 찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수
 func guessLotto() {
     let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    var lottoNumbers: Set<Int> = Set<Int>()
+    var lottoNumbers: Set<Int> = drawNumbers()
     var correctNumbers: [Int] = []
     
-    lottoNumbers = drawNumbers()
     for number in myLottoNumbers {
         if (lottoNumbers.contains(number)){
             correctNumbers.append(number)
