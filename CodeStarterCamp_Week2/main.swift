@@ -22,22 +22,33 @@ import Foundation
  
  
  */
+//MARK: 로또 당첨번호 생성하는 함수
 
-
-let winningLottoNums: [Int] = [1, 2, 3, 4, 5, 6]
-
-var pickNumbers: Set<Int> = []
-
-while pickNumbers.count < 6 {
-    let randomNumber = Int.random(in: 1...45)
-    pickNumbers.insert(randomNumber)
+func generateLottoNumbers() -> [Int] {
+    var winningLotteryNums = Set<Int>()
+    
+    while winningLotteryNums.count < 6 {
+        let randomNumber = Int.random(in: 1...45)
+        winningLotteryNums.insert(randomNumber)
+    }
+    let sortedWinningNums: [Int] = Array(winningLotteryNums.sorted())
+    return sortedWinningNums
 }
 
-let myLottoNumbers: Array<Int> = Array(pickNumbers.sorted())
 
-
-if myLottoNumbers == winningLottoNums {
-    print("축하합니다! 겹치는 번호는 \(winningLottoNums) 입니다.")
-} else {
-    print("아쉽지만 겹치는 번호가 없습니다.")
+//MARK: 로또 번호와 내 번호 맞추는 함수
+//let myLottoNumbers: [Int] = []
+func guessWinningNumbers(_ myLottoNumbers: [Int], wonTheLotteryNums: [Int]) {
+    let matchingNumbers = myLottoNumbers.filter { wonTheLotteryNums.contains($0) }
+    if matchingNumbers.count == 6 {
+        print("축하합니다. 겹치는 번호는 \(matchingNumbers) 입니다.")
+    } else {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
 }
+
+let generatedNums = generateLottoNumbers()
+print(generatedNums)
+guessWinningNumbers([3, 17, 24, 36, 38, 45], wonTheLotteryNums: generatedNums)
+
+
