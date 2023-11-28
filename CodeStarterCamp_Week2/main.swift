@@ -8,8 +8,6 @@
 
 import Foundation
 
-var lottoHistory: Dictionary<String, Array> = Dictionary<String, Array<Int>>()
-
 /// 로또 당첨 번호 생성
 /// - Returns: 랜덤으로 생성된 6개의 숫자가 포함된 Set 컬렉션타입
 func drawNumbers() -> Set<Int> {
@@ -24,26 +22,31 @@ func drawNumbers() -> Set<Int> {
     return lotto
 }
 
-/// 로또 당첨 번호 생성 함수를 5번 호출하여 lottoHistory Dictionary에 저장하는 함수
-func storeLottoHistory() {
+/// 로또 당첨 번호 생성 함수를 5번 호출하여 lottoHistory Dictionary에 저장해서 반환하는 함수
+/// - Returns: lottoHistory Dictionary를 반환
+func storeLottoHistory() -> Dictionary<String, Array<Int>> {
+    var lottoHistory: Dictionary<String, Array<Int>> = Dictionary<String, Array<Int>>()
+    
     for roundNumbers in 1...5 {
         lottoHistory["\(roundNumbers)회차"] = Array(drawNumbers())
     }
+    
+    return lottoHistory
 }
 
 /// 원하는 회차의 로또 당첨 번호를 확인하고 출력하는 함수
 /// - Parameter round: 출력을 원하는 회차 매개변수 String
 func printLottoNumbers(for round: String) {
+    var lottoHistory: Dictionary<String?, Array<Int>> = storeLottoHistory()
+    
     if let lottoNumbers = lottoHistory["\(round)"] {
-        var string = lottoNumbers.map{ String($0) }.joined(separator: ", ")
+        let string = lottoNumbers.map{ String($0) }.joined(separator: ", ")
         print("\(round)의 로또 당첨 번호는 \(string) 입니다.")
-    }
-    else {
+    } else {
         print("\(round) 정보는 없습니다.")
     }
 }
 
-storeLottoHistory()
 printLottoNumbers(for: "1회차")
 printLottoNumbers(for: "2회차")
 printLottoNumbers(for: "3회차")
