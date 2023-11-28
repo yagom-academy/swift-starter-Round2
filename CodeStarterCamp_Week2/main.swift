@@ -28,12 +28,12 @@ let winningLottoNums: [Int] = [1, 2, 3, 4, 5, 6]
 
 var pickNumbers: Set<Int> = []
 
-for _ in 1...6 {
-    var randomNumber = Int.random(in: 1...45)
+while pickNumbers.count < 6 {
+    let randomNumber = Int.random(in: 1...45)
     pickNumbers.insert(randomNumber)
 }
 
-let myLottoNumbers = Array(pickNumbers)
+let myLottoNumbers: Array<Int> = Array(pickNumbers.sorted())
 
 
 if myLottoNumbers == winningLottoNums {
