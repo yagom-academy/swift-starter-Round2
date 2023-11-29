@@ -2,55 +2,133 @@
 //  main.swift
 //  CodeStarterCamp_Week2
 //
-//  Created by Nat Kim on 2023/11/25.
+//  Created by Nat Kim on 2023/11/29.
 //
 
 import Foundation
 
-// MARK: - Round2 [STEP1] - `로또 당첨번호 생성기 순서도 생성하기`
+func someFunction(someOptionalParam: Int?) {
+    //
+}
+
+func someFunction(someParam: Int) {
+    //
+}
+
+someFunction(someOptionalParam: nil)
+
+//someFunction(someParam: nil)
+//nil' is not compatible with expected argument type 'Int'
+
+var optionalValue: Int! = 100
+
+//MARK: - Implicitly Unwrapped Optional 암시적 추출 옵셔널
+switch optionalValue {
+case .none:
+    print("This Optional variable is nil.")
+case .some(let value):
+    print("Value is \(value).")
+}
+
+// 기존 변수처럼 사용 가능
+optionalValue = optionalValue + 1
+//Value of optional type 'Int?' must be unwrapped to a value of type 'Int'
+
+// nil 할당 가능
+optionalValue = nil
+
+// 잘못된 접근으로 인한 런타임 오류 발생
+//optionalValue = optionalValue + 1
+//  Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value
+
+//MARK: - Optional Unwrapping
+//var today = 29
+//print(type(of: today))
+//print(today)
+//var someDictionary: [String: String] = [:]
+//let day: Int = day(of: today)
+//print(day)
+//func day(of: Int) {
+//    if day == 1 || day == 30 {
+//        someDictionary["날씨"] == "맑음"
+//    } else {
+//        someDictionary["풍향"] == "남동풍"
+//    }
+//
+//}
+//
+//day(of: 29)
+
+func printName(_ name: String) {
+    print(name)
+}
+
+var myName: String! = nil
+
+if let name: String = myName {
+    printName(name)
+} else {
+    print("myName = nil")
+}
+
+/// name 상수는 if let 구문 내에서만 사용가능
+/// 상수 사용범위를 벗어낫기 때문에 컴파일 오류 발생
+// printName(name)
+// Cannot find 'name' in scope
+
+var myName2: String? = "nat"
+var yourName: String? = nil
+
+if let name = myName2, let friend = yourName {
+    print("\(name) and \(friend)")
+}
+// yourname 이 nil 이라 print 문이 실행되지 않음
+yourName = "hahah"
+
+if let name = myName2, let friend = yourName {
+    print("\(name) and \(friend)")
+}
+
+// MARK: Try it yourself
+var someDictionary: [String: String] = [:]
+
+var numbers: [Int?] = [0, 1, nil, 2, 5]
+numbers.append(nil)
+
+print(numbers)
 /*
-로또 당첨 번호를 생성했다면, 찍은 번호(뽑은 번호) 와 당첨 번호가 맞는지 확인
- - 6개의 번호를 다음과 같은 상수로 저장
- let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
- - 찍은 번호 와 로또 당첨 번호 일치하는지 검사
-  => 번호 순서는 상관 없음
- 
- TO DO
- 1. Step1 순서도를 바탕으로 로또 당첨 번호 생성하는 함수를 생성
- 2. 내가 찍은 번호 배열을 myLottoNumbers 변수? 상수? 맞나요..? 상수라고 초반에 언급하셔서..
- 3. 찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수를 생성
- 
- 
+let someArray: [[[Int?]?]?] = [[[1, 2],
+                                nil,
+                                [3, nil, 4],
+                                nil,
+                                [5, 6]
+                               ]]
  */
-//MARK: 로또 당첨번호 생성하는 함수
+//someArray.contains { num in
+//    if num % 3 == 0 || num == 3 {
+//
+//    }
+//}
 
-func generateLottoNumbers() -> [Int] {
-    var winningLotteryNums = Set<Int>()
-    
-    while winningLotteryNums.count < 6 {
-        let randomNumber = Int.random(in: 1...45)
-        winningLotteryNums.insert(randomNumber)
-    }
-    let sortedWinningNums: [Int] = Array(winningLotteryNums.sorted())
-    return sortedWinningNums
-}
+let someArray: [[[Int?]?]?] = [[[1, 2], nil, [3, nil, 4], nil, [5, 6]]]
 
 
-//MARK: 로또 번호와 내 번호 맞추는 함수
 
-func guessWinningNumbers(_ myLottoNumbers: [Int], wonTheLotteryNums: [Int]) {
-    let matchingNumbers = myLottoNumbers.filter { wonTheLotteryNums.contains($0) }
-    
-    if matchingNumbers.count > 0 {
-        let resultNumbers =  matchingNumbers.map({ String($0) }).joined(separator: ", ")
-        print("축하합니다. 겹치는 번호는 \(resultNumbers) 입니다.")
-    } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-}
 
-let generatedNums = generateLottoNumbers()
-guessWinningNumbers([3, 17, 24, 36, 38, 45], wonTheLotteryNums: generatedNums)
 
-let generatedNums2 = generateLottoNumbers()
-guessWinningNumbers([1, 2, 3, 4, 5, 6], wonTheLotteryNums: generatedNums2)
+//let parts: [[[Int]]] = [[[1, 2], [3, 4]],
+//                        [[5, 6], [7, 8]]]
+//
+//for a in 0..<parts.count {
+//    // Print index of first dimension.
+//    print("Outer = \(a)")
+//    // Display inner two arrays.
+//    for b in 0..<parts[a].count {
+//        var line = ""
+//        for c in 0..<parts[a][b].count {
+//            line += String(parts[a][b][c])
+//        }
+//        print(line)
+//    }
+//    print("")
+//}
