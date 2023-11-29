@@ -30,7 +30,7 @@ func makeRound() -> [Int: Set<Int>] {
 }
 
 func printLottoNumbers(_ round: Int, _ results: [Int: Set<Int>]) { //makeRound함수에서 만들어낸 딕셔너리를 받아 출력합니다.
-    if let numbers = results[round] {
+    if let numbers = results[round] { //results[round]가 nil이면 출력하지 않습니다.
         print("\(round)회차의 로또 당첨 번호는 \(numbers)입니다.")
     }
 }
