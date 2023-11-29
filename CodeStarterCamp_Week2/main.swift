@@ -34,12 +34,13 @@ func storeLottoHistory() -> Dictionary<String, Array<Int>> {
     return lottoHistory
 }
 
+let lottoNumberHistory: Dictionary<String?, Array<Int>> = storeLottoHistory()
+
 /// 원하는 회차의 로또 당첨 번호를 확인하고 출력하는 함수
 /// - Parameter round: 출력을 원하는 회차 매개변수 String
 func printLottoNumbers(for round: String) {
-    var lottoHistory: Dictionary<String?, Array<Int>> = storeLottoHistory()
     
-    if let lottoNumbers = lottoHistory["\(round)"] {
+    if let lottoNumbers = lottoNumberHistory["\(round)"] {
         let string = lottoNumbers.map{ String($0) }.joined(separator: ", ")
         print("\(round)의 로또 당첨 번호는 \(string) 입니다.")
     } else {
@@ -52,4 +53,3 @@ printLottoNumbers(for: "2회차")
 printLottoNumbers(for: "3회차")
 printLottoNumbers(for: "4회차")
 printLottoNumbers(for: "5회차")
-printLottoNumbers(for: "6회차")
