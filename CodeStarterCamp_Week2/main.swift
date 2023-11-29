@@ -37,7 +37,7 @@ func generateLottoNumbers() -> [Int] {
 
 
 //MARK: 로또 번호와 내 번호 맞추는 함수
-let myLottoNumbers: [Int] = []
+
 func guessWinningNumbers(_ myLottoNumbers: [Int], wonTheLotteryNums: [Int]) {
     let matchingNumbers = myLottoNumbers.filter { wonTheLotteryNums.contains($0) }
     
