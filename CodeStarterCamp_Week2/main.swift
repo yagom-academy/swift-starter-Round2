@@ -37,18 +37,20 @@ func generateLottoNumbers() -> [Int] {
 
 
 //MARK: 로또 번호와 내 번호 맞추는 함수
-//let myLottoNumbers: [Int] = []
+let myLottoNumbers: [Int] = []
 func guessWinningNumbers(_ myLottoNumbers: [Int], wonTheLotteryNums: [Int]) {
     let matchingNumbers = myLottoNumbers.filter { wonTheLotteryNums.contains($0) }
-    if matchingNumbers.count == 6 {
-        print("축하합니다. 겹치는 번호는 \(matchingNumbers) 입니다.")
+    
+    if matchingNumbers.count > 0 {
+        let resultNumbers =  matchingNumbers.map({ String($0) }).joined(separator: ", ")
+        print("축하합니다. 겹치는 번호는 \(resultNumbers) 입니다.")
     } else {
         print("아쉽지만 겹치는 번호가 없습니다.")
     }
 }
 
 let generatedNums = generateLottoNumbers()
-print(generatedNums)
 guessWinningNumbers([3, 17, 24, 36, 38, 45], wonTheLotteryNums: generatedNums)
 
-
+let generatedNums2 = generateLottoNumbers()
+guessWinningNumbers([1, 2, 3, 4, 5, 6], wonTheLotteryNums: generatedNums2)
