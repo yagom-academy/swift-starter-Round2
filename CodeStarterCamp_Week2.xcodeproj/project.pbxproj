@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A1396942B1732E70072BC49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1396912B1701060072BC49 /* main.swift */; };
+		1A1396A22B18F4850072BC49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1396A12B18F4850072BC49 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +23,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A1396912B1701060072BC49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1A1396912B1701060072BC49 /* Optionals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
+		1A13969F2B18B4490072BC49 /* ExamClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamClass.swift; sourceTree = "<group>"; };
+		1A1396A12B18F4850072BC49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1A16657C2B14ACDC00CBF216 /* Conditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conditional.swift; sourceTree = "<group>"; };
 		1AA09BD02B12168B00C5D566 /* Loop2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop2.swift; sourceTree = "<group>"; };
 		1AA09BD22B121CE800C5D566 /* STEP2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEP2.swift; sourceTree = "<group>"; };
@@ -81,7 +83,9 @@
 				1AA09BD92B132BF200C5D566 /* OptionSets.swift */,
 				1AA09BDB2B133E8300C5D566 /* Enum.swift */,
 				1A16657C2B14ACDC00CBF216 /* Conditional.swift */,
-				1A1396912B1701060072BC49 /* main.swift */,
+				1A1396912B1701060072BC49 /* Optionals.swift */,
+				1A13969F2B18B4490072BC49 /* ExamClass.swift */,
+				1A1396A12B18F4850072BC49 /* main.swift */,
 			);
 			path = CodeStarterCamp_Week2;
 			sourceTree = "<group>";
@@ -144,7 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A1396942B1732E70072BC49 /* main.swift in Sources */,
+				1A1396A22B18F4850072BC49 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
