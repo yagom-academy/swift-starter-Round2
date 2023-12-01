@@ -22,26 +22,34 @@ func drawNumbers() -> Set<Int> {
     return lotto
 }
 
-/// 찍은 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수
-func guessLotto() {
-    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-    var lottoNumbers: Set<Int> = Set<Int>()
-    var correctNumbers: [Int] = []
+/// 로또 당첨 번호 생성 함수를 5번 호출하여 lottoHistory Dictionary에 저장해서 반환하는 함수
+/// - Returns: lottoHistory Dictionary를 반환
+func storeLottoHistory() -> Dictionary<String, Array<Int>> {
+    var lottoHistory: Dictionary<String, Array<Int>> = Dictionary<String, Array<Int>>()
     
-    lottoNumbers = drawNumbers()
-    for number in myLottoNumbers {
-        if (lottoNumbers.contains(number)){
-            correctNumbers.append(number)
-        }
+    for roundNumbers in 1...5 {
+        lottoHistory["\(roundNumbers)회차"] = Array(drawNumbers())
     }
     
-    if correctNumbers.count > 0 {
-        let string = correctNumbers.map{ String($0) }.joined(separator: ", ")
-        print("축하합니다! 겹치는 번호는 \(string) 입니다!")
-    }
-    else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+    return lottoHistory
+}
+
+let lottoNumberHistory: Dictionary<String?, Array<Int>> = storeLottoHistory()
+
+/// 원하는 회차의 로또 당첨 번호를 확인하고 출력하는 함수
+/// - Parameter round: 출력을 원하는 회차 매개변수 String
+func printLottoNumbers(for round: String) {
+    
+    if let lottoNumbers = lottoNumberHistory["\(round)"] {
+        let string = lottoNumbers.map{ String($0) }.joined(separator: ", ")
+        print("\(round)의 로또 당첨 번호는 \(string) 입니다.")
+    } else {
+        print("\(round) 정보는 없습니다.")
     }
 }
 
-guessLotto()
+printLottoNumbers(for: "1회차")
+printLottoNumbers(for: "2회차")
+printLottoNumbers(for: "3회차")
+printLottoNumbers(for: "4회차")
+printLottoNumbers(for: "5회차")
