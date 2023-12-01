@@ -1,0 +1,99 @@
+<mxfile host="Electron" modified="2023-12-01T14:27:19.730Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="oIAiAZJC44fpNlYjItfx" version="22.1.2" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="931" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-0" value="시작" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="354" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="wvyVhmJ-lPzutkxVr_Ck-0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="460" as="sourcePoint" />
+            <mxPoint x="414" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-2" value="1~45 사이의 번호&lt;br&gt;랜덤으로 1개 선택" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="287" y="160" width="254" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-3" value="중복되는 번호가 있다" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="332" y="290" width="164" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="wvyVhmJ-lPzutkxVr_Ck-3" target="wvyVhmJ-lPzutkxVr_Ck-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="460" as="sourcePoint" />
+            <mxPoint x="440" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="240" y="350" />
+              <mxPoint x="240" y="205" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="wvyVhmJ-lPzutkxVr_Ck-2" target="wvyVhmJ-lPzutkxVr_Ck-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="460" as="sourcePoint" />
+            <mxPoint x="440" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="414" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-6" value="YES" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="250" y="320" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="413.67" y="410" as="sourcePoint" />
+            <mxPoint x="413.67" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="413.67" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-8" value="NO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="414" y="410" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-9" value="선택한 번호가&lt;br&gt;6개이다" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="332" y="450" width="164" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="414" y="570" as="sourcePoint" />
+            <mxPoint x="414" y="610" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="414" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-12" value="YES" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="414.33" y="570" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-13" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.997;entryY=0.456;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="wvyVhmJ-lPzutkxVr_Ck-9" target="wvyVhmJ-lPzutkxVr_Ck-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="460" as="sourcePoint" />
+            <mxPoint x="440" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="600" y="510" />
+              <mxPoint x="600" y="201" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-14" value="NO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="480" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-15" value="중복되지 않은&lt;br&gt;6개 번호 출력" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="354.33" y="610" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.504;exitY=0.849;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="wvyVhmJ-lPzutkxVr_Ck-15" target="wvyVhmJ-lPzutkxVr_Ck-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="414.3299999999999" y="679.68" as="sourcePoint" />
+            <mxPoint x="414" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wvyVhmJ-lPzutkxVr_Ck-18" value="끝" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="354.33" y="730" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
