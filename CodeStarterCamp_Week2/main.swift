@@ -11,6 +11,7 @@ import Foundation
 var storeLotteryNumbers: [String: [Int]] = [:]
 var currentRound: Int = 0
 
+//MARK: STEP2 에서 만들었던 로또 당첨번호 생성 함수
 func generateLottoNumbers() -> [Int] {
     
     var winningLotteryNums = Set<Int>()
@@ -25,15 +26,15 @@ func generateLottoNumbers() -> [Int] {
 }
 
 
-
+//MARK: Dictionary 타입 storeLotteryNumbers에 저장하는 saveLotteryNumbers
 func saveLotteryNumbers() {
     currentRound += 1
     let lotteryNumbers = generateLottoNumbers()
     
     storeLotteryNumbers["\(currentRound)회차"] = lotteryNumbers
 }
-/// 예시 사용자가 알고 싶은 회차 만큼 반복해준다. 하지만, 다른 방법으로 **함수 호출할때마다** 회차를 저장해서 + 1을 해줄 수 있을까?
-/// 문제에서 바라는 것은 그것 같아서, 의문이긴합니다. 이렇게 고정적인 회차를 미리 정해주고 print 하는 것은 가능합니다.
+
+//MARK: 예시) 1~7회차까지 로또 당첨번호 생성기에서 회차, 로또번호 저장
 for _ in 1...7 {
     saveLotteryNumbers()
                    
