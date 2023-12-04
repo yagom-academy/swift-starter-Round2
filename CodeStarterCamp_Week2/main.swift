@@ -35,18 +35,8 @@ func saveLotteryNumbers() -> [String: [Int]] {
     return perRoundLottery
 }
 
-//MARK: 1~5회차에서 원하는 회차의 로또 당첨 번호
-//func printLottoNumbers() {
-//    let sortedRoundLottery = storedLottoNums.sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
-//    for (round, lottery) in sortedRoundLottery {
-//        let commaSeparatedNumbers = lottery.map { String($0) }.joined(separator: ", ")
-//        print("\(round)의 로또 당첨 번호는 \(commaSeparatedNumbers) 입니다.")
-//    }
-//}
-//
-//printLottoNumbers()
 
-//MARK: 1~5회차에서 원하는 회차의 로또 당첨 번호
+//MARK: 1~5회차에서 원하는 특정 회차의 로또 당첨 번호
 func printLottoNumbers(forRound round: Int? = nil) {
     let sortedRoundLottery = storedLottoNums.sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
     
