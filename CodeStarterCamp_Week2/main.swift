@@ -8,11 +8,11 @@
 import Foundation
 
 //MARK: - [STEP3] 로또 당첨 번호를 회차별로 저장하고, 확인하자.
-var storeLotteryNumbers: [String: [Int]] = [:]
-var currentRound: Int = 0
+let storedLottoNums: [String: [Int]] = saveLotteryNumbers()
 
+
+//MARK: STEP2 에서 만들었던 로또 당첨번호 생성 함수
 func generateLottoNumbers() -> [Int] {
-    
     var winningLotteryNums = Set<Int>()
     
     while winningLotteryNums.count < 6 {
@@ -25,23 +25,38 @@ func generateLottoNumbers() -> [Int] {
 }
 
 
-
-func saveLotteryNumbers() {
-    currentRound += 1
-    let lotteryNumbers = generateLottoNumbers()
-    
-    storeLotteryNumbers["\(currentRound)회차"] = lotteryNumbers
+//MARK: Dictionary 타입 storeLotteryNumbers에 저장하는 saveLotteryNumbers
+func saveLotteryNumbers() -> [String: [Int]] {
+    var perRoundLottery: [String: [Int]] = [:]
+    for perRound in 1...5 {
+        let lotteryNumber = generateLottoNumbers()
+        perRoundLottery["\(perRound)회차"] = lotteryNumber
+    }
+    return perRoundLottery
 }
-/// 예시 사용자가 알고 싶은 회차 만큼 반복해준다. 하지만, 다른 방법으로 **함수 호출할때마다** 회차를 저장해서 + 1을 해줄 수 있을까?
-/// 문제에서 바라는 것은 그것 같아서, 의문이긴합니다. 이렇게 고정적인 회차를 미리 정해주고 print 하는 것은 가능합니다.
-for _ in 1...7 {
-    saveLotteryNumbers()
-                   
-    if let round = storeLotteryNumbers.keys.sorted().last.flatMap({ storeLotteryNumbers[$0] }) {
-        let lastRoundNumber = storeLotteryNumbers.count
-        
-        let formattedNumbers = round.map({ String($0) }).joined(separator: ", ")
-        print("\(lastRoundNumber)회차의 로또 당첨 번호는 \(formattedNumbers) 입니다.")
+
+
+//MARK: 1~5회차에서 원하는 특정 회차의 로또 당첨 번호
+func printLottoNumbers(forRound round: Int? = nil) {
+    let sortedRoundLottery = storedLottoNums.sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
+    
+    if let specificRound = round {
+        if let specificRoundChoice = sortedRoundLottery.first(where: { $0.key.hasPrefix("\(specificRound)회차") }) {
+            let lotteryNumbers = specificRoundChoice.value
+            let commaSeparatedNumbers = lotteryNumbers.map { String($0) }.joined(separator: ", ")
+            print("\(specificRoundChoice.key)의 로또 당첨 번호는 \(commaSeparatedNumbers) 입니다.")
+        } else {
+            print("해당 회차의 로또 당첨 번호가 없습니다.")
+        }
+    } else {
+        for (round, lottery) in sortedRoundLottery {
+            let commaSeparatedNumbers = lottery.map { String($0) }.joined(separator: ", ")
+            print("\(round)의 로또 당첨 번호는 \(commaSeparatedNumbers) 입니다.")
+        }
     }
 }
 
+
+
+// 특정 회차 확인용 print 문
+printLottoNumbers(forRound: 2)
