@@ -5,9 +5,6 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-// 나의 로또 번호
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-
 func generateLottoNumbers() -> Set<Int> {
     var generatedLottoNumbers: Set<Int> = [] // 순서가 없고 멤버가 유일한 것을 보장 (중복을 막음)
     
@@ -19,6 +16,7 @@ func generateLottoNumbers() -> Set<Int> {
 
 // 로또 번호 비교 함수
 func compareLottoNumbers() -> [Int] {
+    let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6] // 나의 로또 번호
     var resultLottoNumbers: [Int] = [] // 겹치는 로또 번호를 저장할 배열
     let generatedLottoNumbers = generateLottoNumbers() // 당첨 번호 저장
     
