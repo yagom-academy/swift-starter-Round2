@@ -251,4 +251,9 @@ $RECYCLE.BIN/
 *.xcuserstate
 */xcuserdata/*
 
+
+
+### etc ###
+step2LottoGame.swift
+
 # End of https://www.toptal.com/developers/gitignore/api/xcode,macos,linux,windows,sublimetext,swift,swiftpackagemanager,swiftpm,objective-c
