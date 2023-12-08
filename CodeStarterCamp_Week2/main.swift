@@ -6,10 +6,6 @@
 //  Copyright © csp. All rights reserved.
 //
 
-/*
- Step2 todo#1 : 로또 당첨 번호를 생성하는 함수 (Step1의 순서도를 옮김)
- */
-
 func generateLottoNumbers() -> Set<Int> {
     var baseNumbers: [Int] = [Int](1...45)
     var randomLottoNumbers: Set<Int> = Set<Int>()
@@ -27,15 +23,12 @@ func generateLottoNumbers() -> Set<Int> {
     return randomLottoNumbers
 }
 
-/*
- Step2 todo#3 : 선택한(찍은) 번호와 로또 당첨 번호의 겹치는 숫자를 확인하는 함수
- */
 func findEqualNumbers(with myNumbers: [Int], and lottoNumbers: Set<Int>) {
     let equalNumbers = lottoNumbers.intersection(myNumbers)
-    if equalNumbers.count > 0 {
-        print("축하합니다! 겹치는 번호는 \(equalNumbers) 입니다!")
-    } else {
+    if equalNumbers.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 \(equalNumbers) 입니다!")
     }
 }
 
@@ -62,6 +55,9 @@ func getUserChoiceNumbers() -> [Int] {
             }
             
             myChoiceNumbers.append(inputNumber)
+        } else {
+            print("입력에 오류가 발생하였습니다. 숫자를 다시 입력해 주세요.")
+            numberCount -= 1
         }
         
     } while numberCount < 6
@@ -72,10 +68,6 @@ func getUserChoiceNumbers() -> [Int] {
 func playLottoGame() {
     print("환영합니다! 1부터 45 사이에서 6개의 숫자를 선택하여 로또 당첨에 도전해 보세요!")
     
-    /*
-     Step2 todo#2 : 내가 선택한(찍은) 번호 배열을 myLottoNumbers 변수에 할당
-     Step2 todo#4 : 6개의 번호를 상수 형태로 저장
-     */
     let myLottoNumbers: [Int] = getUserChoiceNumbers()
     print("\n입력한 숫자 : \(myLottoNumbers)")
     
