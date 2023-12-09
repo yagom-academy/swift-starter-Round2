@@ -43,7 +43,7 @@ func showResult(duplicateNumbers: [Int]) {
     }
 }
 
-var myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var prizeLottoNumbers: [Int] = makeLotto()
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let prizeLottoNumbers: [Int] = makeLotto()
 
 showResult(duplicateNumbers: checkLotto(myLotto: myLottoNumbers, prizeLotto: prizeLottoNumbers))
