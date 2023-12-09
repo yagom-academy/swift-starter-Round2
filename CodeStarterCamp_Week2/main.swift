@@ -13,7 +13,6 @@ func makeNumber() -> Set<Int> {
     while lottoNumber.count < 6 {
         lottoNumber.insert(Int.random(in: 1...45))
     }
-    print(lottoNumber)
     return lottoNumber
 }
 
