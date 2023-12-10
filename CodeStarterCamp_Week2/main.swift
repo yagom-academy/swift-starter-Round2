@@ -10,29 +10,22 @@ import Foundation
 
 //나의 선택한 복권번호 6자리
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var lottoNumbers: [Int: [Int]] = [Int: [Int]]() //로또 회차번호, 당첨번호를 저장하기 위한 Dictionary
-var lottoDegreeCount: Int = 0; //로또 회차를 저장하기 위한 변수
 
-// 변경점
-// : 당첨번호에 대한 Set<Int> 타입을 리턴하는 함수에서 반환 값이 없는 Void 함수로 변경
-// : 당첨번호 생성 후 makeLottoNumbersHistory 함수를 호출하여 해당 회차에 대한 당첨번호 정보를 Dictionary에 저장
-func createLottoNumbers() {
-    var lottoWinNumbers: Set<Int> = Set<Int>()
-    while lottoWinNumbers.count < 6 {
-        let randomInt: Int = Int.random(in: 1...45)
-        lottoWinNumbers.insert(randomInt)
-    }
-    makeLottoNumbersHistory(lottoNum: lottoWinNumbers)
-}
 
-//회차 별 당첨번호 기록을 저장을 위한 함수
-func makeLottoNumbersHistory(lottoNum: Set<Int>) {
-    lottoDegreeCount = lottoDegreeCount + 1 //회차 1 증가
-    var lottoHistory: [Int] = [Int]()
-    for num in lottoNum {
-        lottoHistory.append(num)
+//생성할 당첨번호 회차 수를 입력받아서 해당 회차 개수만큼 정보를 생성하여 Dictionary 컬렉션 타입으로 반환하는 함수
+func createLottoNumbers(createCount: Int) -> [Int: [Int]] {
+    var tempLottoNumbers: [Int: [Int]] = [Int: [Int]]()
+    var loopCounter: Int = 1
+    while loopCounter <= createCount {
+        var lottoWinNumbers: Set<Int> = Set<Int>()
+        while lottoWinNumbers.count < 6 {
+            let randomInt: Int = Int.random(in: 1...45)
+            lottoWinNumbers.insert(randomInt)
+        }
+        tempLottoNumbers[loopCounter] = [Int](lottoWinNumbers)
+        loopCounter = loopCounter + 1
     }
-    lottoNumbers[lottoDegreeCount] = lottoHistory
+    return tempLottoNumbers
 }
 
 // Round2 - [STEP 2]에서 사용했던 본인 로또번호와 당첨번호를 비교하여 당첨결과를 출력하는 함수
@@ -64,14 +57,11 @@ func findLottoHistory(count: Int) {
     }
 }
 
-for _ in 0...4 {
-    createLottoNumbers()
-}
 
+let lottoNumbers: [Int: [Int]] = createLottoNumbers(createCount: 5)
 findLottoHistory(count: 1)
 findLottoHistory(count: 2)
 findLottoHistory(count: 3)
 findLottoHistory(count: 4)
 findLottoHistory(count: 5)
-findLottoHistory(count: 6)
 
