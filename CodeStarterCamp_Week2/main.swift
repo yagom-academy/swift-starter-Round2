@@ -6,19 +6,6 @@
 //  Copyright © csp. All rights reserved.
 //
 
-//- [x] 회차와 로또 번호를 저장하는 Dictionary 타입의 변수를 생성
-//- [x] '로또 당첨 번호 생성 함수'(Step2)를 호출할 때마다 회차와 로또 번호를 Dictionary에 저장하는 함수를 별도로 작성
-//    - [x] 새로운 로또 당첨 번호가 생성되면, 직전 회차에 1을 더해 금번 회차를 생성
-//        - [x] Key : 회차
-//        - [x] Value : 로또 당첨 번호
-//        - [x] 예시 Key : Value = "1회차": [1, 2, 3, 4, 5]
-//- [ ] 로또 당첨 번호를 생성한 후, Dictionary에 저장된 로또 당첨 번호를 확인
-//    - [ ] 로또 당첨 번호를 5번 생성
-//    - [ ] Dictionary에서 원하는 회차의 로또 당첨 번호를 찾기
-//        - [ ] Optional 값을 안전하게 추출
-//    - [ ] Dictionary에서 추출한 원하는 회차의 로또 당첨 번호 6개를 출력
-//        - [ ] "2회차의 로또 당첨 번호는 1, 2, 3, 4, 5, 6 입니다."
-
 // 회차와 로또 번호를 저장하는 Dictionary 타입의 변수를 생성
 var lottoWinningResults: [String: Set<Int>] = [:]
 
@@ -63,7 +50,8 @@ func printLottoWinningResultWithRound(_ round: Int) {
     if lottoNumbers.isEmpty {
         print("오류가 발생하였습니다. 프로그램을 다시 실행해 주세요.")
     } else {
-        print("\(round)회차의 로또 당첨 번호는 \(lottoNumbers)입니다.")
+        let formattedString: String = lottoNumbers.sorted().map(String.init).joined(separator: ", ")
+        print("\(round)회차의 로또 당첨 번호는 \(formattedString) 입니다.")
     }
 }
 
