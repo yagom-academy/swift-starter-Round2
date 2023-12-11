@@ -8,6 +8,10 @@
 
 import Foundation
 
+/// session 2
+let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+let prizeLottoNumbers: [Int] = makeLotto()
+
 func makeLotto() -> [Int] {
     var randomLotto: [Int] = []
 
@@ -43,7 +47,52 @@ func showResult(duplicateNumbers: [Int]) {
     }
 }
 
-var myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
-var prizeLottoNumbers: [Int] = makeLotto()
+/// step3
+let lottoDictionary: [Int: [Int]] = makeLottoDictionary()
 
-showResult(duplicateNumbers: checkLotto(myLotto: myLottoNumbers, prizeLotto: prizeLottoNumbers))
+func makeLottoDictionary() -> [Int: [Int]] {
+    var lottoDictionary: [Int: [Int]] = [:]
+    
+    for _ in 0..<5 {
+        lottoDictionary.updateValue(makeLotto(), forKey: lottoDictionary.count + 1)
+    }
+    
+    return lottoDictionary
+}
+
+func checkLottoSession() {
+    print("원하는 회차의 숫자를 입력해주세요. (1~5)")
+    
+    let inputString = readLine()
+    if let validInputString = inputString {
+        if let validInputInt = Int(validInputString) {
+            if let prizeLotto = lottoDictionary[validInputInt] {
+                print("\(validInputInt)회차의 로또 당첨 번호는 \(prizeLotto.map { String($0) }.joined(separator: ", ")) 입니다!")
+            } else {
+                print("입력된 회차는 존재하지 않습니다.")
+            }
+        } else {
+            print("올바른 값을 입력해주세요.")
+        }
+    } else {
+        print("올바른 값을 입력해주세요.")
+    }
+}
+
+/// 메인 함수
+func run() {
+    print("몇 번째 step을 진행하시겠습니까? (2 혹은 3)")
+    
+    if let answer = readLine(), let answerInt = Int(answer), answerInt == 2 || answerInt == 3 {
+        if answerInt == 2 {
+            showResult(duplicateNumbers: checkLotto(myLotto: myLottoNumbers, prizeLotto: prizeLottoNumbers))
+        } else {
+            checkLottoSession()
+        }
+    } else {
+        print("잘못된 입력입니다.")
+    }
+}
+
+/// 실행
+run()
