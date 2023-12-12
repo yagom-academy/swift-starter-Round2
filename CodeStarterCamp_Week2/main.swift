@@ -9,20 +9,63 @@
 func generateLottoNumbers() -> Set<Int> {
     var baseNumbers: [Int] = [Int](1...45)
     var randomLottoNumbers: Set<Int> = Set<Int>()
-
-    while randomLottoNumbers.count < 6 {
-        if let randomNumber = baseNumbers.randomElement() {
-            
-            if let randomNumberIndex = baseNumbers.firstIndex(of: randomNumber) {
-                randomLottoNumbers.insert(randomNumber)
-                baseNumbers.remove(at: randomNumberIndex)
-            }
-        }
+    
+    for _ in 0..<6 {
+        let numbersCount = baseNumbers.count - 1
+        let randomIndex = Int.random(in: 0...numbersCount)
+        
+        randomLottoNumbers.insert(baseNumbers[randomIndex])
+        baseNumbers.remove(at: randomIndex)
     }
     
     return randomLottoNumbers
 }
 
+func saveLottoWinningResultWithRounds(_ rounds: Int) -> [String: Set<Int>] {
+    var lottoWinningResults: [String: Set<Int>] = [:]
+    
+    for round in 1...rounds {
+        lottoWinningResults["\(round)회차"] = generateLottoNumbers()
+    }
+    
+    return lottoWinningResults
+}
+
+func findLottoWinningNumbersWithRound(_ round: Int, and results: [String: Set<Int>]) -> Set<Int> {
+    if let lottoNumber = results["\(round)회차"] {
+        return lottoNumber
+    }
+    
+    return []
+}
+
+func printLottoWinningResultWithRound(_ round: Int, and results: [String: Set<Int>]) {
+    let lottoNumbers = findLottoWinningNumbersWithRound(round, and: results)
+    if lottoNumbers.isEmpty {
+        print("\(round)회차 로또 번호 조회에 실패하였습니다. 프로그램을 다시 실행해 주세요.")
+    } else {
+        let formattedString: String = lottoNumbers.sorted().map(String.init).joined(separator: ", ")
+        print("\(round)회차의 로또 당첨 번호는 \(formattedString) 입니다.")
+    }
+}
+
+func drawLottoWinningNumbers() {
+    let lottoWinningResults = saveLottoWinningResultWithRounds(5)
+    
+    for round in 1...5 {
+        printLottoWinningResultWithRound(round, and: lottoWinningResults)
+    }
+}
+
+// 결과 확인
+drawLottoWinningNumbers()
+
+
+
+
+/*
+ Noti. 이하는 Step2에 사용한 코드
+ */
 func findEqualNumbers(with myNumbers: [Int], and lottoNumbers: Set<Int>) {
     let equalNumbers = lottoNumbers.intersection(myNumbers)
     if equalNumbers.isEmpty {
@@ -78,4 +121,4 @@ func playLottoGame() {
 
 
 // 로또 게임 시작
-playLottoGame()
+//playLottoGame()
