@@ -6,10 +6,6 @@
 //  Copyright © csp. All rights reserved.
 //
 
-// 회차와 로또 번호를 저장하는 Dictionary 타입의 변수를 생성
-var lottoWinningResults: [String: Set<Int>] = [:]
-
-// 로또 당첨 번호 생성
 func generateLottoNumbers() -> Set<Int> {
     var baseNumbers: [Int] = [Int](1...45)
     var randomLottoNumbers: Set<Int> = Set<Int>()
@@ -25,47 +21,40 @@ func generateLottoNumbers() -> Set<Int> {
     return randomLottoNumbers
 }
 
-// '로또 당첨 번호 생성 함수'(Step2)를 호출할 때마다 회차와 로또 번호를 Dictionary에 저장하는 함수를 별도로 작성
-func saveLottoWinningResultWithRounds(_ rounds: Int) {
-    // Key : 회차
-    // Value : 로또 당첨 번호
-    // 예시 Key : Value = "1회차": [1, 2, 3, 4, 5]
+func saveLottoWinningResultWithRounds(_ rounds: Int) -> [String: Set<Int>] {
+    var lottoWinningResults: [String: Set<Int>] = [:]
+    
     for round in 1...rounds {
         lottoWinningResults["\(round)회차"] = generateLottoNumbers()
     }
+    
+    return lottoWinningResults
 }
 
-// Dictionary에서 원하는 회차의 로또 당첨 번호를 찾기
-func findLottoWinningNumbers(with round: Int) -> Set<Int> {
-    if let lottoNumber = lottoWinningResults["\(round)회차"] {
+func findLottoWinningNumbersWithRound(_ round: Int, and results: [String: Set<Int>]) -> Set<Int> {
+    if let lottoNumber = results["\(round)회차"] {
         return lottoNumber
     }
     
     return []
 }
 
-// Dictionary에서 추출한 원하는 회차의 로또 당첨 번호 6개를 출력
-func printLottoWinningResultWithRound(_ round: Int) {
-    let lottoNumbers = findLottoWinningNumbers(with: round)
+func printLottoWinningResultWithRound(_ round: Int, and results: [String: Set<Int>]) {
+    let lottoNumbers = findLottoWinningNumbersWithRound(round, and: results)
     if lottoNumbers.isEmpty {
-        print("오류가 발생하였습니다. 프로그램을 다시 실행해 주세요.")
+        print("\(round)회차 로또 번호 조회에 실패하였습니다. 프로그램을 다시 실행해 주세요.")
     } else {
         let formattedString: String = lottoNumbers.sorted().map(String.init).joined(separator: ", ")
         print("\(round)회차의 로또 당첨 번호는 \(formattedString) 입니다.")
     }
 }
 
-// 로또 당첨 번호를 생성한 후, Dictionary에 저장된 로또 당첨 번호를 확인
 func drawLottoWinningNumbers() {
-    // 로또 당첨 번호를 5번 생성
-    saveLottoWinningResultWithRounds(5)
+    let lottoWinningResults = saveLottoWinningResultWithRounds(5)
     
-    // Dictionary에서 추출한 원하는 회차의 로또 당첨 번호 6개를 출력
-    printLottoWinningResultWithRound(1)
-    printLottoWinningResultWithRound(2)
-    printLottoWinningResultWithRound(3)
-    printLottoWinningResultWithRound(4)
-    printLottoWinningResultWithRound(5)
+    for round in 1...5 {
+        printLottoWinningResultWithRound(round, and: lottoWinningResults)
+    }
 }
 
 // 결과 확인
