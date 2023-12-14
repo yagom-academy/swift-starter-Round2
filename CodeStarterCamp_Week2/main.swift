@@ -19,7 +19,7 @@ func makeNumber() {
     lottoInfo["\(lottoRound)회차"] = lottoNumber
 }
 
-func checkLottoNum(round: String) {
+func checkLottoNum(round: Int) {
     if let lottoNum = lottoInfo["\(round)회차"] {
         print("\(round)회차의 로또 당첨 번호는 \(lottoNum.map{String($0)}.joined(separator:", ")) 입니다.")
     }  else {
@@ -32,7 +32,11 @@ for _ in 1...5 {
 }
 
 if let round = readLine() {
-    checkLottoNum(round: round)
+    if let intRound = Int(round) {
+        checkLottoNum(round: intRound)
+    } else {
+        print("올바른 회차를 입력해주세요.")
+    }
 } else {
     print("올바른 회차를 입력해주세요.")
 }
