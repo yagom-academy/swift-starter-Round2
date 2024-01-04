@@ -8,8 +8,8 @@
 import Foundation
 
 private func generateLottoNumbers() -> Set<Int> {
-  var winningNumbers: Set<Int> = Set<Int>()
-
+  var winningNumbers: Set<Int> = .init()
+  
   repeat {
     winningNumbers.insert(Int.random(in: 1...45))
   } while winningNumbers.count != 6
@@ -17,9 +17,9 @@ private func generateLottoNumbers() -> Set<Int> {
   return winningNumbers
 }
 
-func checkLottoResult(_ input: [Int]) -> Set<Int> {
+func checkLottoResult(with lottoNumbers: Set<Int>) -> Set<Int> {
   let winningNumbers = generateLottoNumbers()
-  let matchingNumbers = Set<Int>(input).intersection(winningNumbers)
+  let matchingNumbers = lottoNumbers.intersection(winningNumbers)
   
   return matchingNumbers
 }
