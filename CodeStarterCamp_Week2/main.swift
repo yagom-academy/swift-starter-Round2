@@ -17,14 +17,16 @@ func checkMyLotto(myNumbers: Set<Int>, realNumbers: Set<Int>) -> Void {
     
     let intersectionLotto: Set<Int> = myNumbers.intersection(realNumbers)
     
-    if intersectionLotto.count == 0 {
+    guard intersectionLotto.count > 0 else {
         print("아쉽지만 겹치는 번호가 없습니다")
-    } else {
-        let matchLotto: [String] = intersectionLotto.map{ String($0) }
-        let matchLottoString: String = matchLotto.joined(separator: ",")
-        
-        print("축하합니다! 겹치는 번호는 \(matchLottoString) 입니다! ")
+        return
     }
+    
+    let matchLotto: [String] = intersectionLotto.map{ String($0) }
+    let matchLottoString: String = matchLotto.joined(separator: ",")
+        
+    print("축하합니다! 겹치는 번호는 \(matchLottoString) 입니다! ")
+    
     
 }
 
