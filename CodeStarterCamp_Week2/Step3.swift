@@ -7,38 +7,41 @@
 
 import Foundation
 
-class LottoManager {
+struct LottoManager {
+  private let minLottoNumber = 1
+  private let maxLottoNumber = 45
+  private let numOfLottoNumbers = 6
   
-  private var winningRecords: Dictionary<String, Set<Int>> = .init()
+  private var winningRecords: [UInt: Set<Int>] = .init()
   private var latestRound: UInt = 0
   
-  func generateLottoNumbers() {
+  mutating func generateLottoNumbers() {
     var winningNumbers: Set<Int> = .init()
     
     repeat {
-      winningNumbers.insert(Int.random(in: 1...45))
-    } while winningNumbers.count != 6
+      winningNumbers.insert(Int.random(in: minLottoNumber...maxLottoNumber))
+    } while winningNumbers.count < numOfLottoNumbers
     
-    self.latestRound += 1
-    self.winningRecords["\(self.latestRound)회차"] = winningNumbers
+    latestRound += 1
+    winningRecords[latestRound] = winningNumbers
   }
   
   func printAllWinningRecords() {
-    let sortedWinningRecords = self.winningRecords.sorted { $0.key < $1.key }
+    let sortedWinningRecords = winningRecords.sorted { $0.key < $1.key }
     for (round, winningNumbers) in sortedWinningRecords {
-      print(round, winningNumbers)
+      print(String(round) + "회차", winningNumbers)
     }
   }
   
   func printWinningRecordByRound(_ round: UInt) throws {
-    let winningNumbers = try self.searchWinningRecordByRound(round)
+    let winningNumbers = try searchWinningRecordByRound(round)
     print("\(round)회차의 로또 당첨 번호는 \(winningNumbers.descriptionWithoutBrackets()) 입니다.")
   }
   
-  func printLottoResult(with lottoNumbers: Set<Int>, round: UInt) throws {
+  func printLottoResult(with lottoNumbers: Set<Int>, at round: UInt) throws {
     try validateParameters()
     
-    let winningNumbers = try self.searchWinningRecordByRound(round)
+    let winningNumbers = try searchWinningRecordByRound(round)
     let matchingNumbers = lottoNumbers.intersection(winningNumbers)
     if matchingNumbers.isEmpty {
       print("아쉽지만 겹치는 번호가 없습니다.")
@@ -47,13 +50,13 @@ class LottoManager {
     }
     
     func validateParameters() throws {
-      guard lottoNumbers.count == 6, lottoNumbers.allSatisfy({ 1...45 ~= $0 }) else { throw LottoError.invalidLottoNumber }
+      guard lottoNumbers.count == numOfLottoNumbers, lottoNumbers.allSatisfy({ minLottoNumber...maxLottoNumber ~= $0 }) else { throw LottoError.invalidLottoNumber }
       guard 1...latestRound ~= round else { throw LottoError.nonExistentRound }
     }
   }
   
   private func searchWinningRecordByRound(_ round: UInt) throws -> Set<Int> {
-    guard let winningNumbers = self.winningRecords[String(round) + "회차"] else { throw LottoError.nonExistentRound }
+    guard let winningNumbers = winningRecords[round] else { throw LottoError.nonExistentRound }
     return winningNumbers
   }
   

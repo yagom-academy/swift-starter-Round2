@@ -23,7 +23,7 @@ let divider = {
   print("\n==============================\n")
 }
 
-let lottoManager = LottoManager()
+var lottoManager = LottoManager()
 
 for _ in 1...5 {
   lottoManager.generateLottoNumbers()
@@ -41,7 +41,7 @@ divider()
 
 let myLottoNumbers: Set<Int> = .init(arrayLiteral: 1, 2, 3, 4, 5, 6)
 do {
-  try lottoManager.printLottoResult(with: myLottoNumbers, round: 5)
+  try lottoManager.printLottoResult(with: myLottoNumbers, at: 5)
 } catch let error as LottoError {
   print("Error: \(error.localizedDescription)")
 }
