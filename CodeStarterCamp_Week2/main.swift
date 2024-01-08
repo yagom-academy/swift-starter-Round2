@@ -20,7 +20,7 @@ func makeWinningNumbers() -> Set<Int> {
 }
 
 func checkLottoNumbers(myNumbers: Set<Int>, answer: Set<Int>) {
-    let result: Set<Int> = myNumbers.intersection(answer)
+    let result: [Int] = myNumbers.intersection(answer).sorted()
     let resultStr: String = String(describing: result).dropFirst().dropLast().description
     
     if result.count == 0 {
@@ -33,4 +33,5 @@ func checkLottoNumbers(myNumbers: Set<Int>, answer: Set<Int>) {
 let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
 let winningNumbers = makeWinningNumbers()
 checkLottoNumbers(myNumbers: myLottoNumbers, answer: winningNumbers)
+
 
