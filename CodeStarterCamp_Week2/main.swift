@@ -21,8 +21,9 @@ compareMyNumberToLotto(myNumbers: myNumbers)
 var lottoDictByRound: [Int: Set<Int>] = [:]
 
 func printLottoByRound(selectRound: Int, lottoNumber: Set<Int>) {
+    let numbersString = lottoNumber.map(String.init).joined(separator: ", ")
     print("""
-    \(selectRound)회차의 로또 당첨 번호는 \(lottoNumber) 입니다.
+    \(selectRound)회차의 로또 당첨 번호는 \(numbersString) 입니다.
 """)
 }
 
