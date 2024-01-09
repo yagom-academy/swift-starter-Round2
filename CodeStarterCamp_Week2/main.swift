@@ -1,7 +1,7 @@
 import Foundation
 
 // Error enum
-enum mismatchError: Error {
+enum MismatchError: Error {
     case nonexistence
 }
 
@@ -23,7 +23,7 @@ func verifyWinningNumbers(userNumbers: Set<Int>, officialNumbers: Set<Int>) thro
     let matchLottoString: String = matchLotto.joined(separator: ",")
     
     guard intersectionLotto.count > 0 else {
-        throw mismatchError.nonexistence
+        throw MismatchError.nonexistence
     }
     
     print("축하합니다! 겹치는 번호는 \(matchLottoString) 입니다! ")
@@ -35,7 +35,7 @@ func checkMyLotto(myNumbers: Set<Int>, realNumbers: Set<Int>){
     do {
         try verifyWinningNumbers(userNumbers: myNumbers, officialNumbers: realNumbers)
         
-    } catch mismatchError.nonexistence {
+    } catch MismatchError.nonexistence {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } catch {
         print("알 수 없는 오류")
