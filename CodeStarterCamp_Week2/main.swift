@@ -21,12 +21,12 @@ func makeWinningNumbers() -> Set<Int> {
 
 func checkLottoNumbers(myNumbers: Set<Int>, answer: Set<Int>) {
     let result: [Int] = myNumbers.intersection(answer).sorted()
-    let resultStr: String = String(describing: result).dropFirst().dropLast().description
+    let resultString = String(describing: result).dropFirst().dropLast().description
     
     if result.count == 0 {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(resultStr) 입니다!")
+        print("축하합니다! 겹치는 번호는 \(resultString) 입니다!")
     }
 }
 
