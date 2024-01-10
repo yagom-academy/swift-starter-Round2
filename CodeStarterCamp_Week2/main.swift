@@ -8,30 +8,39 @@
 
 import Foundation
 
-func makeWinningNumbers() -> Set<Int> {
+func makeLotteryNumbers() -> [Int] {
     var result: Set<Int> = Set<Int>()
-    let lottoSize: Int = 6
+    let numberSize: Int = 6
     
-    while result.count != lottoSize {
+    while result.count != numberSize {
         result.insert(Int.random(in: 1...45))
     }
     
-    return result
+    return result.sorted()
 }
 
-func checkLottoNumbers(myNumbers: Set<Int>, answer: Set<Int>) {
-    let result: [Int] = myNumbers.intersection(answer).sorted()
-    let resultString = String(describing: result).dropFirst().dropLast().description
+func makeLotteries() -> [String: [Int]] {
+    var lotteries: [String: [Int]] = [:]
+    let lotterySize: Int = 5
     
-    if result.count == 0 {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        print("축하합니다! 겹치는 번호는 \(resultString) 입니다!")
+    for i in 1...lotterySize {
+        let round = "\(i)회차"
+        lotteries[round] = makeLotteryNumbers()
+    }
+    
+    return lotteries
+}
+
+func printLotteries(lotteries: [String: [Int]]) {
+    for i in 1...lotteries.count {
+        let round: String = "\(i)회차"
+        guard let lottery = lotteries[round] else { continue }
+        
+        let lotteryString: String = String(describing: lottery).dropFirst().dropLast().description
+        print(round + "의 로또 당첨 번호는 " + lotteryString + " 입니다.")
     }
 }
 
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-let winningNumbers = makeWinningNumbers()
-checkLottoNumbers(myNumbers: myLottoNumbers, answer: winningNumbers)
+printLotteries(lotteries: makeLotteries())
 
 
