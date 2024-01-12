@@ -8,30 +8,40 @@
 
 import Foundation
 
-func makeWinningNumbers() -> Set<Int> {
+func makeLotteryNumbers() -> [Int] {
     var result: Set<Int> = Set<Int>()
-    let lottoSize: Int = 6
+    let numberSize: Int = 6
     
-    while result.count != lottoSize {
+    while result.count != numberSize {
         result.insert(Int.random(in: 1...45))
     }
     
-    return result
+    return result.sorted()
 }
 
-func checkLottoNumbers(myNumbers: Set<Int>, answer: Set<Int>) {
-    let result: [Int] = myNumbers.intersection(answer).sorted()
-    let resultString = String(describing: result).dropFirst().dropLast().description
+func makeLotteries(lotterySize: Int) -> [String: [Int]] {
+    var lotteries: [String: [Int]] = [:]
     
-    if result.count == 0 {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    } else {
-        print("축하합니다! 겹치는 번호는 \(resultString) 입니다!")
+    for i in 1...lotterySize {
+        let round = "\(i)회차"
+        lotteries[round] = makeLotteryNumbers()
     }
+    
+    return lotteries
 }
 
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
-let winningNumbers = makeWinningNumbers()
-checkLottoNumbers(myNumbers: myLottoNumbers, answer: winningNumbers)
+func printSingleLottery(lotteries: [String: [Int]], round: Int) {
+    let roundText: String = "\(round)회차"
+    guard let lottery = lotteries[roundText] else {
+        print("회차 정보를 확인해주세요!")
+        return
+    }
+    
+    let lotteryText: String = String(describing: lottery).dropFirst().dropLast().description
+    print(roundText + "의 로또 당첨 번호는 " + lotteryText + " 입니다.")
+}
+
+printSingleLottery(lotteries: makeLotteries(lotterySize: 5), round: 4)
+
 
 
