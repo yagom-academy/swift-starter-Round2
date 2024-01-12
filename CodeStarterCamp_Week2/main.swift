@@ -8,29 +8,40 @@
 
 import Foundation
 
-let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-func makeLottoNumber() -> [Int] {
-    let lottoNumbers: [Int] = Array(1...45)
-    var lottoResults: [Int] = []
-    repeat {
-        let lottoNumber = lottoNumbers.randomElement()!
-        if !lottoResults.contains(lottoNumber) {
-            lottoResults.append(lottoNumber)
-        }
-    } while lottoResults.count < 6
-    return lottoResults
+var lottoRounds = [String: [Int]]()
+
+
+func makeLottoRound() {
+    var lottoNumber = Set<Int>()
+    
+    while lottoNumber.count < 6 {
+        lottoNumber.insert(Int.random(in: 1...45))
+    }
+    
+    lottoRounds["\(lottoRounds.count + 1)회차"] = lottoNumber.map{Int($0)}
 }
 
-func compareLottoNumber(myLottoNumbers: [Int], lottoNumbers: [Int]) {
-    let commonNumbers = Set(myLottoNumbers).intersection(Set(lottoNumbers))
-    if commonNumbers.count != 0 {
-        print("축하합니다! 겹치는 번호는 \(commonNumbers.map {String($0)}.joined(separator: ", ")) 입니다!")
+
+func findLottoRound(number round: Int) {
+    if let roundInfo = lottoRounds["\(round)회차"] {
+        print("\(round)회차의 로또 당첨 번호는 \(roundInfo.map{String($0)}.joined(separator: ", ")) 입니다.")
     } else {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+        print("진행되지 않은 회차입니다.")
     }
 }
 
-let lottoNumbers = makeLottoNumber()
 
-compareLottoNumber(myLottoNumbers: myLottoNumbers, lottoNumbers: lottoNumbers)
+
+// 테스트 코드
+//makeLottoRound()
+//makeLottoRound()
+//makeLottoRound()
+//makeLottoRound()
+//makeLottoRound()
+//
+//findLottoRound(number: 6)
+//findLottoRound(number: 13)
+//findLottoRound(number: 100)
+
+
