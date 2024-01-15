@@ -40,5 +40,5 @@ if matchNumbers.isEmpty {
 }
 
 
-lottoNumber()
+lottoNumber() 
 
