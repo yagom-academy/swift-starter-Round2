@@ -1,6 +1,3 @@
-var lottoRound = [String: Array<Int>]()
-
-
 func lottoNumber() -> Array<Int> {
     var lottoNumbers = [Int]()
     while lottoNumbers.count < 6 {
