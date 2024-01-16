@@ -20,7 +20,6 @@ func makeLottoNumbers() -> Set<Int> {
     
     
     winningNumbers = Set(candidates.prefix(6))
-    recordLottoHistory(Array(winningNumbers))
 
     return winningNumbers
 }
@@ -29,6 +28,14 @@ func makeLottoNumbers() -> Set<Int> {
 func recordLottoHistory(_ winningNumbers : [Int]){
         currentRound += 1
         historyOfLotto["\(currentRound)회차"] = winningNumbers
+}
+
+// 로또 번호를 생성하고 기록하는 함수
+func generateAndRecordLotto() -> Set<Int> {
+    let numbers = makeLottoNumbers()
+    recordLottoHistory(Array(numbers))
+    
+    return numbers
 }
 
 // 로또 회차별 번호 조회 함수
@@ -72,8 +79,6 @@ func checkMyLotto(myNumbers: Set<Int>, realNumbers: Set<Int>){
     }
 }
 
-
-
 // 로또 역사 변수
 var currentRound: Int = 0
 var historyOfLotto: [String:[Int]] = [:]
@@ -83,10 +88,10 @@ var historyOfLotto: [String:[Int]] = [:]
 //let myLottoNumbers: Set<Int> = [39, 12, 15, 23, 45, 9]
 //checkMyLotto(myNumbers: myLottoNumbers, realNumbers: lotto)
 
-makeLottoNumbers()
-makeLottoNumbers()
-makeLottoNumbers()
-makeLottoNumbers()
-makeLottoNumbers()
+generateAndRecordLotto()
+generateAndRecordLotto()
+generateAndRecordLotto()
+generateAndRecordLotto()
+generateAndRecordLotto()
 
 showLottoHistory(5)
