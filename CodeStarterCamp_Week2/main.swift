@@ -3,7 +3,7 @@
 func createLotto() -> Set<Int> {
     var lottoNumbers: Set<Int> = Set<Int>()
     while lottoNumbers.count < 6 {
-        var randomNumber = Int.random(in: 1...45)
+        let randomNumber = Int.random(in: 1...45)
             lottoNumbers.insert(randomNumber)
     }
     return lottoNumbers
@@ -11,7 +11,7 @@ func createLotto() -> Set<Int> {
 
 let myNumbers: Set<Int> = [1,2,3,4,5,6]
 
-func printResult(myNumbers myNumbers: Set<Int>) {
+func printResult(myNumbers: Set<Int>) {
     let lottoNumbers = createLotto()
     let sortedLottoNumbers = lottoNumbers.sorted().map { String($0) }.joined(separator: ", ")
     let sortedMyNumbers = myNumbers.sorted().map { String($0) }.joined(separator: ", ")
