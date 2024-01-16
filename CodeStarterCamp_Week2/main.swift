@@ -18,9 +18,38 @@ func makeLottoNumbers() -> Set<Int> {
     var winningNumbers: Set<Int> = []
     let candidates: [Int] = Array(1...45).shuffled()
     
-    winningNumbers = Set(candidates.prefix(6))
     
+    winningNumbers = Set(candidates.prefix(6))
+
     return winningNumbers
+}
+
+// 로또 번호 기록 함수
+func recordLottoHistory(_ winningNumbers : [Int]){
+        currentRound += 1
+        historyOfLotto["\(currentRound)회차"] = winningNumbers
+}
+
+// 로또 번호를 생성하고 기록하는 함수
+func generateAndRecordLotto() -> Set<Int> {
+    let numbers = makeLottoNumbers()
+    recordLottoHistory(Array(numbers))
+    
+    return numbers
+}
+
+// 로또 회차별 번호 조회 함수
+func showLottoHistory(_ round: Int = 0){
+    guard round > 0 else {
+        print(historyOfLotto)
+        return
+    }
+    
+    let numbers: [Int] = historyOfLotto["\(currentRound)회차"] ?? []
+    let numbersToString: String = numbers.sorted().map(String.init).joined(separator: ",")
+    
+    print("\(round)회차의 로또 당첨 번호는 \(numbersToString)입니다.")
+    
 }
 
 // 로또 번호 당첨 검증 함수
@@ -50,8 +79,19 @@ func checkMyLotto(myNumbers: Set<Int>, realNumbers: Set<Int>){
     }
 }
 
-let lotto: Set<Int> = makeLottoNumbers()
-let myLottoNumbers: Set<Int> = [39, 12, 15, 23, 45, 9]
+// 로또 역사 변수
+var currentRound: Int = 0
+var historyOfLotto: [String:[Int]] = [:]
 
-checkMyLotto(myNumbers: myLottoNumbers, realNumbers: lotto)
+// 나의 로또 변수
+//let lotto: Set<Int> = makeLottoNumbers()
+//let myLottoNumbers: Set<Int> = [39, 12, 15, 23, 45, 9]
+//checkMyLotto(myNumbers: myLottoNumbers, realNumbers: lotto)
 
+generateAndRecordLotto()
+generateAndRecordLotto()
+generateAndRecordLotto()
+generateAndRecordLotto()
+generateAndRecordLotto()
+
+showLottoHistory(5)
