@@ -1,45 +1,29 @@
-func lottoNumber() -> Array<Int> {
-    var lottoNumbers = [Int]()
+
+//로또번호 생성 함수
+func createLotto() -> Set<Int> {
+    var lottoNumbers: Set<Int> = Set<Int>()
     while lottoNumbers.count < 6 {
         var randomNumber = Int.random(in: 1...45)
-        if lottoNumbers.contains(randomNumber) {
-            continue
-        } else {
-            lottoNumbers.append(randomNumber)
-        }
-            lottoNumbers.sort()
-        }
+            lottoNumbers.insert(randomNumber)
+    }
     return lottoNumbers
 }
 
+let myNumbers: Set<Int> = [1,2,3,4,5,6]
 
-
-func checkLotto(lottoNumbers: [Int], myNumbers: [Int]) -> [Int] {
+func printResult(myNumbers myNumbers: Set<Int>) {
+    let lottoNumbers = createLotto()
+    let sortedLottoNumbers = lottoNumbers.sorted().map { String($0) }.joined(separator: ", ")
+    let sortedMyNumbers = myNumbers.sorted().map { String($0) }.joined(separator: ", ")
+    let sortedmatchNumbers = lottoNumbers.intersection(myNumbers).sorted().map { String($0) }.joined(separator: ", ")
     
-    var duplicates: [Int] = []
-
-    for value in lottoNumbers {
-        if myNumbers.contains(value) {
-            duplicates.append(value)
-        }
-    }
-
-    return duplicates
-}
-
-func printResult() {
-    var lottoNumbers = lottoNumber()
-    var myNumbers: [Int] = [1,2,3,4,5,6]
-    let matchNumbers = checkLotto(lottoNumbers: lottoNumbers, myNumbers: myNumbers)
     
-    print("로또 번호 :", lottoNumbers)
-    print("나의 번호 :", myNumbers)
+    print("당첨 숫자 : \(sortedLottoNumbers) \n나의 숫자 : \(sortedMyNumbers)")
     
-    if matchNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+    if sortedmatchNumbers.isEmpty {
+        print("아쉽지만 겹치는 숫자가 없습니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(matchNumbers)"+"입니다")
+        print("축하합니다! 겹치는 숫자는 \(sortedmatchNumbers) 입니다!", separator: "")
     }
 }
-
-printResult()
+printResult(myNumbers: myNumbers)
