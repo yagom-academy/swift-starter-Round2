@@ -1,4 +1,3 @@
-let rounds = 5
 var roundNumber = 0
 var recordDictionary: [Int:Set<Int>] = [:]
 
@@ -12,7 +11,7 @@ func createLotto() -> Set<Int> {
     return lottoNumbers
 }
 
-func checkResult(roundNumber: Int) {
+func checkResult(roundNumber: Int, rounds: Int) {
     if let value = recordDictionary[roundNumber] {
         let sortedValue = value.sorted().map { String($0) }.joined(separator: ", ")
         print("\(roundNumber)회차의 로또 당첨 번호는 \(sortedValue) 입니다.")
@@ -21,21 +20,21 @@ func checkResult(roundNumber: Int) {
     }
 }
 
-func recordRoundNumbers() {
+func recordRoundNumbers(rounds: Int) {
     for round in 1...rounds {
     recordDictionary[round] = createLotto()
     }
 }
 
 func printLottoRound() {
-    recordRoundNumbers()
-    checkResult(roundNumber: 1)
-    checkResult(roundNumber: 2)
-    checkResult(roundNumber: 3)
-    checkResult(roundNumber: 4)
-    checkResult(roundNumber: 5)
-    checkResult(roundNumber: 5)  //중복확인용
-    checkResult(roundNumber: -1)  //에러메시지 출력 확인용
+    recordRoundNumbers(rounds: 5)
+    checkResult(roundNumber: 1, rounds: 5)
+    checkResult(roundNumber: 2, rounds: 5)
+    checkResult(roundNumber: 3, rounds: 5)
+    checkResult(roundNumber: 4, rounds: 5)
+    checkResult(roundNumber: 5, rounds: 5)
+    checkResult(roundNumber: 5, rounds: 5)  //중복확인용
+    checkResult(roundNumber: 9, rounds: 5)  //에러메시지 출력 확인용
 
 }
 
