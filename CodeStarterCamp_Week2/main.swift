@@ -9,11 +9,11 @@
 
 
 let myLottoNumbers: [Int] = [3, 17, 23, 28, 31, 45]
-let winningNumbers: Set<Int> = drawRandomNumber()
+let winningNumbers: Set<Int> = drawRandomNumbers()
 
 checkWinning(compareWith: winningNumbers, from: myLottoNumbers)
 
-func drawRandomNumber() -> Set<Int> {
+func drawRandomNumbers() -> Set<Int> {
     return Set((1...45).shuffled().prefix(6))
 }
 
