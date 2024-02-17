@@ -20,5 +20,5 @@ for _ in 1...5 {
 }
 
 for round in 1...5 {
-    checkPastResults(round: round)
+    checkPastResults(round)
 }
