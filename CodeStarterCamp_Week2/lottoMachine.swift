@@ -5,13 +5,19 @@
 //  Created by 이지은 on 2/17/24.
 //
 
+var roundNumber: Int = 0
+var lottoResults = [Int: Set<Int>]()
+
 func makeLottoNumbers() -> Set<Int> {
     
-    var lottoNumbers: Set<Int> = Set<Int>()
+    var winningNumbers: Set<Int> = Set<Int>()
     
-    while lottoNumbers.count != 6 {
-        lottoNumbers.insert(Int.random(in: 1...45))
+    while winningNumbers.count != 6 {
+        winningNumbers.insert(Int.random(in: 1...45))
     }
     
-    return lottoNumbers
+    roundNumber += 1
+    lottoResults[roundNumber] = winningNumbers
+    
+    return winningNumbers
 }

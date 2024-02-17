@@ -6,12 +6,19 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-let myLottoNumbers: [Int] = [1, 16, 19, 23, 33, 45]
-let lottoWinningNumbers: Set<Int> = makeLottoNumbers()
-let matchedNumbers: Set<Int> = lottoWinningNumbers.intersection(myLottoNumbers)
+//Step 2
+//let myLottoNumbers: [Int] = [1, 16, 19, 23, 33, 45]
+//var lottoWinningNumbers: Set<Int> = Set<Int>()
+//
+//matchLottoResult(myNumbers: myLottoNumbers, winningNumbers: lottoWinningNumbers)
 
-if matchedNumbers.isEmpty {
-    print("아쉽지만 겹치는 번호가 없습니다.")
-} else {
-    print("축하합니다! 겹치는 번호는 \(matchedNumbers.map({ String($0) }).joined(separator: ", ")) 입니다!")
+//Step 3
+var lottoWinningNumbers: Set<Int> = Set<Int>()
+
+for _ in 1...5 {
+    lottoWinningNumbers = makeLottoNumbers()
+}
+
+for round in 1...5 {
+    checkPastResults(round: round)
 }
