@@ -8,27 +8,27 @@
 
 import Foundation
 
-var lottoSet: Set<Int> = Set<Int>()
-let myLottoNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+let myNumbers: Set<Int> = [1, 2, 3, 4, 5, 6]
+let winningNumbers: Set<Int> = generateLottoNumbers()
 
-generateLottoNums()
-checkLottoNums()
+checkLottoNumbers(my: myNumbers, winning: winningNumbers)
 
-func generateLottoNums() {
-    while (lottoSet.count < 6 ) {
-        let randomNum: Int = Int.random(in: 1...45)
-        lottoSet.insert(randomNum)
+func generateLottoNumbers() -> Set<Int> {
+    var winningNumbers: Set<Int> = Set<Int>()
+    while (winningNumbers.count < 6 ) {
+        winningNumbers.insert(Int.random(in: 1...45))
     }
-    print("이번 로또 당첨 번호는 \(lottoSet.sorted()) 입니다.")
+    print("이번 로또 당첨 번호는 \(winningNumbers.sorted().map{ String($0) }.joined(separator: ", ")) 입니다.")
+    return winningNumbers
 }
 
-func checkLottoNums() {
-    let intersectionLottoNum: Set<Int> = lottoSet.intersection(myLottoNumbers)
-    print("나의 로또 번호는 \(myLottoNumbers.sorted()) 입니다.")
+func checkLottoNumbers(my myNumbers: Set<Int>, winning winningNumbers: Set<Int>) {
+    let matchedNumbers: Set<Int> = winningNumbers.intersection(myNumbers)
+    print("나의 로또 번호는 \(myNumbers.sorted().map{ String($0) }.joined(separator: ", ")) 입니다.")
     
-    if (intersectionLottoNum.count >= 1) {
-        print("축하합니다! 겹치는 번호는 \(intersectionLottoNum.sorted()) 입니다!")
-    } else {
+    if (matchedNumbers.isEmpty) {
         print("아쉽지만 겹치는 번호가 없습니다.")
+    } else {
+        print("축하합니다! 겹치는 번호는 \(matchedNumbers.sorted().map{ String($0) }.joined(separator: ", ")) 입니다!")
     }
 }
