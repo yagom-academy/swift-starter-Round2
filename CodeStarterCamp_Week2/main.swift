@@ -6,23 +6,29 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
+var lottoNumbersHistories: [Int: Set<Int>] = [:]
 
+drawLottoGames()
+checkWinningHistory(at: 1)
+checkWinningHistory(at: 5)
+checkWinningHistory(at: 10)
+checkWinningHistory(at: -1)
 
-let myLottoNumbers: [Int] = [3, 17, 23, 28, 31, 45]
-let winningNumbers: Set<Int> = drawRandomNumbers()
-
-checkWinning(compareWith: winningNumbers, from: myLottoNumbers)
-
-func drawRandomNumbers() -> Set<Int> {
-    return Set((1...45).shuffled().prefix(6))
+func drawLottoGames() {
+    for i in 1...5 {
+        lottoNumbersHistories[i] = drawRandomNumbers()
+    }
 }
 
-func checkWinning(compareWith winningNumbers: Set<Int>, from myNumbers: [Int]) {
-    let matchingNumbers = winningNumbers.intersection(myNumbers)
+func checkWinningHistory(at round: Int) {
+    guard round > 0 else {
+        print("유효하지 않은 입력입니다.")
+        return
+    }
     
-    if matchingNumbers.isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
+    if let winningNumbers = lottoNumbersHistories[round] {
+        print("\(round)회차의 로또 당첨번호는 \(winningNumbers.map({ String($0) }).joined(separator: ", ")) 입니다.")
     } else {
-        print("축하합니다! 겹치는 번호는 \(matchingNumbers.map({ String($0) }).joined(separator: ", ")) 입니다!")
+        print("\(round)회차의 로또 당첨 번호는 아직 추첨하지 않았습니다.")
     }
 }
