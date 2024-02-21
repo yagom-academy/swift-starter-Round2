@@ -20,13 +20,20 @@ func pickRandomNum() {
 
 let myLottoNumbers = [2,3,8,21,38,44]
 
-func checkOverlapNum(numbers: Array<Int>, lottoNum: Set<Int>) {
-    let overLapNum = lottoNum.intersection(numbers)
-    if overLapNum.count != 0 {
-        print("축하합니다! 겹치는 번호는 \(overLapNum.sorted()) 입니다!")
-    } else { print("아쉽지만 겹치는 번호가 없습니다.") }
+func checkOverlapNum(myNum: Array<Int>, lottoNum: Set<Int>) {
+    let overLapNum = lottoNum.intersection(myNum)
+    
+//    if overLapNum.count != 0 {
+//        print("축하합니다! 겹치는 번호는 \(overLapNum.sorted()) 입니다!")
+//    } else { print("아쉽지만 겹치는 번호가 없습니다.") }
+//
+    
+    switch overLapNum.count != 0 {
+    case true : print("축하합니다! 겹치는 번호는 \(overLapNum.sorted()) 입니다!")
+    case false : print("아쉽지만 겹치는 번호가 없습니다.")
+    }
 }
 
 pickRandomNum()
-checkOverlapNum(numbers: myLottoNumbers, lottoNum: lottoNum)
+checkOverlapNum(myNum: myLottoNumbers, lottoNum: lottoNum)
 
