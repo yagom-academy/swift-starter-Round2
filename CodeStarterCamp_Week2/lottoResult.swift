@@ -9,11 +9,8 @@ func matchLottoResult(myNumbers: Array<Int>, winningNumbers: Set<Int>) {
     var matchedNumbers = [Int]()
     
     for myNumber in myNumbers {
-        for winningNumber in winningNumbers {
-            if myNumber == winningNumber {
-                matchedNumbers.append(myNumber)
-                break
-            }
+        if winningNumbers.contains(myNumber) {
+            matchedNumbers.append(myNumber)
         }
     }
     
@@ -24,8 +21,7 @@ func matchLottoResult(myNumbers: Array<Int>, winningNumbers: Set<Int>) {
     }
 }
 
-
-func checkPastResults(_ round: Int) {
+func checkPastResults(of round: Int) {
     if let selectedResult = lottoResults[round] {
         print("\(round)회차의 로또 당첨 번호는 \(selectedResult.map({ String($0) }).joined(separator: ", ")) 입니다.")
     }
