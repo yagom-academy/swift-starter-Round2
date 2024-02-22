@@ -7,11 +7,11 @@
 
 func makeLottoNumbers() -> Set<Int> {
     
-    var lottoNumbers: Set<Int> = Set<Int>()
+    var winningNumbers: Set<Int> = Set<Int>()
     
-    while lottoNumbers.count != 6 {
-        lottoNumbers.insert(Int.random(in: 1...45))
+    while winningNumbers.count != 6 {
+        winningNumbers.insert(Int.random(in: 1...45))
     }
     
-    return lottoNumbers
+    return winningNumbers
 }
