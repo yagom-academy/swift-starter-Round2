@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-21T22:52:01.500Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="oTkq5ozCPImverG_zlMj" version="23.1.5" type="device">
+<mxfile host="app.diagrams.net" modified="2024-02-22T01:51:08.033Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="hUao9CVvbbAPHox7UtuG" version="23.1.5" type="device">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2236" dy="2038" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1062" dy="1121" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -16,7 +16,7 @@
         <mxCell id="O7BcQqgrIBvrcE47ppgs-2" value="lottoNum : []&lt;br&gt;randomNum : 0" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="260" y="130" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="O7BcQqgrIBvrcE47ppgs-3" target="cc6fdQzZTqaJooS85zYE-0">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="O7BcQqgrIBvrcE47ppgs-3" target="cc6fdQzZTqaJooS85zYE-0" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="O7BcQqgrIBvrcE47ppgs-3" value="&quot;로또 번호 [ lottoNum 오름차순으로 정렬한 값 ] &quot; 출력" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -85,38 +85,44 @@
         <mxCell id="O7BcQqgrIBvrcE47ppgs-30" value="NO" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="310" y="460" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-0" target="cc6fdQzZTqaJooS85zYE-2">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-0" target="cc6fdQzZTqaJooS85zYE-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-0" value="myLottoNumbers : [2,3,8,21,38,44]" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-0" value="myLottoNumbers : [2,3,8,21,38,44]" style="whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="205" y="765" width="230" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-2" target="cc6fdQzZTqaJooS85zYE-4">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-2" target="cc6fdQzZTqaJooS85zYE-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-2" value="overLapNum : lottonMun과 myNum의 중복 값" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-2" value="overLapNum : lottonMun과 myNum의 중복 값" style="whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="159.5" y="845" width="321" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-4" target="cc6fdQzZTqaJooS85zYE-9">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-4" target="cc6fdQzZTqaJooS85zYE-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-4" target="cc6fdQzZTqaJooS85zYE-11">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-4" target="cc6fdQzZTqaJooS85zYE-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-4" value="overLapNum의 멤버 개수가 0이 아닌가?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-4" value="overLapNum의 멤버 개수가 0이 아닌가?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="170" y="930" width="300" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-9" target="O7BcQqgrIBvrcE47ppgs-4">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-9" target="O7BcQqgrIBvrcE47ppgs-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-9" value="&quot;축하합니다! 겹치는 번호는 &lt;br&gt;[ overLapNum을 오름차순으로 정렬한 값 ]&amp;nbsp;입니다!&quot; 출력" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-9" value="&quot;축하합니다! 겹치는 번호는 &lt;br&gt;[ overLapNum을 오름차순으로 정렬한 값 ]&amp;nbsp;입니다!&quot; 출력" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="60" y="1080" width="290" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-11" target="O7BcQqgrIBvrcE47ppgs-4">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cc6fdQzZTqaJooS85zYE-11" target="O7BcQqgrIBvrcE47ppgs-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cc6fdQzZTqaJooS85zYE-11" value="&quot;아쉽지만 겹치는 번호가 없습니다.&quot; 출력" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="cc6fdQzZTqaJooS85zYE-11" value="&quot;아쉽지만 겹치는 번호가 &lt;br&gt;없습니다.&quot; 출력" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="360" y="1080" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rFgUZCGzAXO0L4Nov0C8-0" value="YES" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="230" y="1020" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rFgUZCGzAXO0L4Nov0C8-1" value="NO" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="354" y="1020" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
