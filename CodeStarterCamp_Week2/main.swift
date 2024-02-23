@@ -28,7 +28,7 @@ func pickRandomNumbers() -> Set<Int> {
 func checkOverlapNumbers(myNumbers: Array<Int>, lottoNumbers: Set<Int>) {
     let overLapNumbers = lottoNumbers.intersection(myNumbers)
     
-    if overLapNumbers.count != 0 {
+    if !overLapNumbers.isEmpty {
         print("축하합니다! 겹치는 번호는 \(overLapNumbers.sorted().map { "\($0)" }.joined(separator: ", ")) 입니다!")
     } else { print("아쉽지만 겹치는 번호가 없습니다.") }
 }
