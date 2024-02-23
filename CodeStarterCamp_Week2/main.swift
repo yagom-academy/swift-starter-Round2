@@ -8,32 +8,30 @@
 
 import Foundation
 
-var lottoNums = Set<Int>()
-var randomNums = Int()
+func pickRandomNumbers() -> Set<Int> {
+    var lottoNumbers = Set<Int>()
 
-func pickRandomNums() {
-    while lottoNums.count < 6 {
-        lottoNums.insert(Int.random(in: 0...45))
+    while lottoNumbers.count < 6 {
+        var lottoRangeNumbers = Array(1...45)
+        if let randomNumber = lottoRangeNumbers.randomElement() {
+            lottoNumbers.insert(randomNumber)
+            lottoRangeNumbers.removeAll(where: { $0 == randomNumber })
+        } else { lottoRangeNumbers = Array(1...45) }
     }
-    print("로또 번호 \(lottoNums.sorted())")
+
+    print("로또 번호 \(lottoNumbers.sorted().map { "\($0)" }.joined(separator: ", "))")
+    return lottoNumbers
 }
 
 let myLottoNumbers = [2,3,8,21,38,44]
 
-func checkOverlapNums(myNums: Array<Int>, lottoNums: Set<Int>) {
-    let overLapNums = lottoNums.intersection(myNums)
+func checkOverlapNumbers(myNumbers: Array<Int>, lottoNumbers: Set<Int>) {
+    let overLapNumbers = lottoNumbers.intersection(myNumbers)
     
-//    if overLapNum.count != 0 {
-//        print("축하합니다! 겹치는 번호는 \(overLapNum.sorted()) 입니다!")
-//    } else { print("아쉽지만 겹치는 번호가 없습니다.") }
-//
-    
-    switch overLapNums.count != 0 {
-    case true : print("축하합니다! 겹치는 번호는 \(overLapNums.sorted()) 입니다!")
-    case false : print("아쉽지만 겹치는 번호가 없습니다.")
-    }
+    if overLapNumbers.count != 0 {
+        print("축하합니다! 겹치는 번호는 \(overLapNumbers.sorted().map { "\($0)" }.joined(separator: ", ")) 입니다!")
+    } else { print("아쉽지만 겹치는 번호가 없습니다.") }
 }
 
-pickRandomNums()
-checkOverlapNums(myNums: myLottoNumbers, lottoNums: lottoNums)
+checkOverlapNumbers(myNumbers: myLottoNumbers, lottoNumbers: pickRandomNumbers())
 
