@@ -23,14 +23,3 @@ func savePreviousResults() {
         previousLottoResults["\(count)회차"] = generateLottoNumbers()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
