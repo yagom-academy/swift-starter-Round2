@@ -1,0 +1,121 @@
+<mxfile host="app.diagrams.net" modified="2024-02-23T00:45:28.204Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="hy7vySYdSAHEf9x64sxR" version="23.1.6" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="861" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-1" target="cy5RryEcgWnBEIwlhZzS-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-1" value="myLottoNumbers = [2,3,8,21,38,44]&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="180" y="60" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-2" target="cy5RryEcgWnBEIwlhZzS-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-2" value="lottoRangeNumbers = 1부터 45까지의 정수&lt;br&gt;randomNumber = lottoRangeNumbers에서 랜덤으로 뽑은 정수" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="120" y="150" width="360" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-7" target="cy5RryEcgWnBEIwlhZzS-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-7" target="cy5RryEcgWnBEIwlhZzS-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-7" value="randomNumber가 빈 값인가?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="185" y="250" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-9" target="cy5RryEcgWnBEIwlhZzS-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="575" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-9" value="lottoRangeNumbers에 &lt;br&gt;1부터 45까지의 정수를&lt;br&gt;다시 초기화" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="500" y="260" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-13" target="cy5RryEcgWnBEIwlhZzS-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-13" value="lottoNumbers에 randomNumber 값 추가" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="130" y="380" width="340" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-15" target="cy5RryEcgWnBEIwlhZzS-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-15" value="lottoRangeNumbers에서 randomNumber 값 빼기" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="130" y="490" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-17" target="cy5RryEcgWnBEIwlhZzS-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="635" />
+              <mxPoint x="90" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-17" target="cy5RryEcgWnBEIwlhZzS-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-17" value="lottoNumbers의 값이 6개인가?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="185" y="595" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-34" target="cy5RryEcgWnBEIwlhZzS-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-34" value="&quot;로또 번호 [ lottoNum 오름차순으로 정렬한 값 ] &quot; 출력" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="130" y="730" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-35" value="끝" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="240" y="1180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-37" target="cy5RryEcgWnBEIwlhZzS-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-37" value="overLapNum : lottonMun과 myNum의 중복 값" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="139.5" y="815" width="321" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-40" target="cy5RryEcgWnBEIwlhZzS-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-40" target="cy5RryEcgWnBEIwlhZzS-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-40" value="overLapNum의 멤버 개수가 0이 아닌가?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="150" y="900" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-42" target="cy5RryEcgWnBEIwlhZzS-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-42" value="&quot;축하합니다! 겹치는 번호는 &lt;br&gt;[ overLapNum을 오름차순으로 정렬한 값 ]&amp;nbsp;입니다!&quot; 출력" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="1050" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="cy5RryEcgWnBEIwlhZzS-44" target="cy5RryEcgWnBEIwlhZzS-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-44" value="&quot;아쉽지만 겹치는 번호가 &lt;br&gt;없습니다.&quot; 출력" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="340" y="1050" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-45" value="YES" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="210" y="990" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-46" value="NO" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="334" y="990" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-48" value="YES" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="300" y="690" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-49" value="NO" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="450" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-50" value="YES" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="414" y="290" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cy5RryEcgWnBEIwlhZzS-51" value="NO" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="300" y="340" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

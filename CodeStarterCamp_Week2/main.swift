@@ -8,11 +8,13 @@
 
 import Foundation
 
+let myLottoNumbers = [2,3,8,21,38,44]
+
 func pickRandomNumbers() -> Set<Int> {
     var lottoNumbers = Set<Int>()
-
+    var lottoRangeNumbers = Array(1...45)
+    
     while lottoNumbers.count < 6 {
-        var lottoRangeNumbers = Array(1...45)
         if let randomNumber = lottoRangeNumbers.randomElement() {
             lottoNumbers.insert(randomNumber)
             lottoRangeNumbers.removeAll(where: { $0 == randomNumber })
@@ -22,8 +24,6 @@ func pickRandomNumbers() -> Set<Int> {
     print("로또 번호 \(lottoNumbers.sorted().map { "\($0)" }.joined(separator: ", "))")
     return lottoNumbers
 }
-
-let myLottoNumbers = [2,3,8,21,38,44]
 
 func checkOverlapNumbers(myNumbers: Array<Int>, lottoNumbers: Set<Int>) {
     let overLapNumbers = lottoNumbers.intersection(myNumbers)
