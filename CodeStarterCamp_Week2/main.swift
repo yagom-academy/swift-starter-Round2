@@ -47,13 +47,16 @@ func saveNumbersByRound(round: Int, numbers: Set<Int>) {
     lottoNumbersByRound["\(round)회차"] = numbers
 }
 
-func repeatFifthRound() {
+func repeatRound(numberOfRepetitions: Int) {
     var repeatResult = ""
-    for _ in 1...5 {
-        repeatResult += checkOverlapNumbers(myNumbers: myLottoNumbers, lottoNumbers: pickRandomNumbers()) + "\n"
+    if (numberOfRepetitions <= 0) { repeatResult = "1회 미만으로 반복할 수 없습니다." }
+    else {
+        for _ in 1...numberOfRepetitions {
+            repeatResult += checkOverlapNumbers(myNumbers: myLottoNumbers, lottoNumbers: pickRandomNumbers()) + "\n"
+        }
     }
     print(repeatResult)
 }
 
-repeatFifthRound()
+repeatRound(numberOfRepetitions: 0)
 print(findNumbersByRound(round: 2))
