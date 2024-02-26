@@ -53,7 +53,7 @@ func repeatFifthRound() {
         repeatResult += checkOverlapNumbers(myNumbers: myLottoNumbers, lottoNumbers: pickRandomNumbers()) + "\n"
     }
     print(repeatResult)
-    print(findNumbersByRound(round: 2))
 }
 
 repeatFifthRound()
+print(findNumbersByRound(round: 2))
