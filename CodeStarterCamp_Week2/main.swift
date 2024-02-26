@@ -9,6 +9,7 @@
 import Foundation
 
 let myLottoNumbers = [2,3,8,21,38,44]
+var lottoNumbersByRound = [String: Set<Int>]()
 
 func pickRandomNumbers() -> Set<Int> {
     var lottoNumbers = Set<Int>()
@@ -20,18 +21,39 @@ func pickRandomNumbers() -> Set<Int> {
             lottoRangeNumbers.removeAll(where: { $0 == randomNumber })
         } else { lottoRangeNumbers = Array(1...45) }
     }
-
-    print("로또 번호 \(lottoNumbers.sorted().map { "\($0)" }.joined(separator: ", "))")
+    saveNumbersByRound(round: lottoNumbersByRound.count + 1, numbers: lottoNumbers)
     return lottoNumbers
 }
 
-func checkOverlapNumbers(myNumbers: Array<Int>, lottoNumbers: Set<Int>) {
+func checkOverlapNumbers(myNumbers: Array<Int>, lottoNumbers: Set<Int>) -> String {
     let overLapNumbers = lottoNumbers.intersection(myNumbers)
     
     if !overLapNumbers.isEmpty {
-        print("축하합니다! 겹치는 번호는 \(overLapNumbers.sorted().map { "\($0)" }.joined(separator: ", ")) 입니다!")
-    } else { print("아쉽지만 겹치는 번호가 없습니다.") }
+        return "축하합니다! 겹치는 번호는 \(removeBracketFromSet(set: overLapNumbers)) 입니다!"
+    } else { return "아쉽지만 겹치는 번호가 없습니다." }
 }
 
-checkOverlapNumbers(myNumbers: myLottoNumbers, lottoNumbers: pickRandomNumbers())
+func findNumbersByRound(round: Int) -> String {
+    if let numbersByRound = lottoNumbersByRound["\(round)회차"] {
+        return "\(round)회차의 로또 당첨 번호는 \(removeBracketFromSet(set: numbersByRound)) 입니다."
+    } else { return "해당 회차의 로또 번호가 없습니다." }
+}
 
+func removeBracketFromSet(set: Set<Int>) -> String {
+    return set.sorted().map { "\($0)" }.joined(separator: ", ")
+}
+
+func saveNumbersByRound(round: Int, numbers: Set<Int>) {
+    lottoNumbersByRound["\(round)회차"] = numbers
+}
+
+func repeatFifthRound() {
+    var repeatResult = ""
+    for _ in 1...5 {
+        repeatResult += checkOverlapNumbers(myNumbers: myLottoNumbers, lottoNumbers: pickRandomNumbers()) + "\n"
+    }
+    print(repeatResult)
+    print(findNumbersByRound(round: 2))
+}
+
+repeatFifthRound()
