@@ -58,5 +58,5 @@ func repeatRound(numberOfRepetitions: Int) {
     print(repeatResult)
 }
 
-repeatRound(numberOfRepetitions: 0)
+repeatRound(numberOfRepetitions: 5)
 print(findNumbersByRound(round: 2))
