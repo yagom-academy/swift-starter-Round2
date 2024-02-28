@@ -8,5 +8,13 @@
 
 import Foundation
 
-print("Hello, World!")
+for iceColumn in 1...8 {
+    for iceRow in 1...11 {
+        print("*", terminator: "")
+    }
+    print("")
+}
 
+for stick in 1...4 {
+    print("    | |    ")
+}
