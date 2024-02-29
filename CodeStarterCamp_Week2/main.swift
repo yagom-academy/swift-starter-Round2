@@ -8,6 +8,7 @@
 
 var lottoNumbers: [Int] = []
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
+var matchNumbers: [Int] = []
 enum Result {
     case fail, success
 }
@@ -20,8 +21,8 @@ func makeNumber()-> [Int]{
         let number = Int.random(in: 1...45) //랜덤하게 수를 생성
         var isSame: Bool = false
         
-        for num in numList {
-            if num == number {
+        for containedNumber in numList {
+            if containedNumber == number {
                 isSame = true
                 break
             }
@@ -35,25 +36,26 @@ func makeNumber()-> [Int]{
 }
 
 func checkNumber()-> Result{
-    for num in myLottoNumbers{
-        if lottoNumbers.contains(num) == false{
-            return Result.fail
+    var result: Result = .fail
+    for myLottoNumber in myLottoNumbers{
+        if lottoNumbers.contains(myLottoNumber){
+            matchNumbers.append(myLottoNumber)
+            result = .success
         }
     }
-    return Result.success
+    return result
 }
-
 
 lottoNumbers = makeNumber()
 if checkNumber() == Result.fail{
     print("아쉽지만 겹치는 번호가 없습니다.")
 } else{
     var string = ""
-    for myLottoNumber in myLottoNumbers {
-        string += "\(myLottoNumber) "
-        if myLottoNumber != myLottoNumbers[myLottoNumbers.count-1]{
+    for matchNumber in matchNumbers {
+        string += " \(matchNumber)"
+        if matchNumber != matchNumbers[matchNumbers.count-1]{
             string += ","
         }
     }
-    print("축하합니다! 겹치는 번호는 \(string)입니다!")
+    print("축하합니다! 겹치는 번호는\(string)입니다!")
 }
