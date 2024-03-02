@@ -31,7 +31,7 @@ func playGame(gameType: Int) -> Set<Int> {
                     }
                 }
             }
-        }else {
+        } else {
             myNumbers = generateAutoNumbers()
         }
         print("선택번호는 \(myNumbers.sorted().map { String($0) }.joined(separator: ", ")) 입니다.")
@@ -64,7 +64,7 @@ func showGameResult(winningNumbers: Set<Int>, myNumbers: Set<Int>) {
     
     if matchingNumber.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
-    }else{
+    } else {
         print("축하합니다! 겹치는 번호는 \(matchingNumber.sorted().map { String($0) }.joined(separator: ", ")) 입니다!")
     }
 }
