@@ -48,4 +48,9 @@ if matchNumbers.count > 0 {
 }else{
     print("아쉽지만 겹치는 번호가 없습니다")
 }
-//print("내가 생성한 번호 : \(emptyArrayCollection)")
+
+
+
+
+
+print("내가 생성한 번호 : \(emptyArrayCollection)")
