@@ -13,7 +13,7 @@ func generateRandomNumbers() -> [Int] {
 
 let winningNumbers = generateRandomNumbers()
 
-func checkLottoNumbers(_ winningNumbers: [Int], _ myNumbers: [Int]) {
+func checkLotto(_ winningNumbers: [Int], _ myNumbers: [Int]) {
     let intersection = Set(winningNumbers).intersection(Set(myNumbers))
     
     if intersection.isEmpty {
@@ -23,7 +23,8 @@ func checkLottoNumbers(_ winningNumbers: [Int], _ myNumbers: [Int]) {
         print("축하합니다! 겹치는 번호는 \(matchingNumbers) 입니다!")
         print("당첨 번호는 \(winningNumbers) 입니다.")
     }
+    
 }
 
-checkLottoNumbers(winningNumbers, myLottoNumbers)
+checkLotto(winningNumbers, myLottoNumbers)
 
