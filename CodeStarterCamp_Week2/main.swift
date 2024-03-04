@@ -1,14 +1,14 @@
 let myLottoNumbers: [Int] = [1, 2, 3, 4, 5, 6]
 
 func generateRandomNumbers() -> [Int] {
-    var numbers = Set<Int>()
+    var winningLottoNumbers = Set<Int>()
     
-    while numbers.count < 6 {
+    while winningLottoNumbers.count < 6 {
         let randomNumber = Int.random(in: 1...45)
-        numbers.insert(randomNumber)
+        winningLottoNumbers.insert(randomNumber)
     }
     
-    return Array(numbers)
+    return Array(winningLottoNumbers)
 }
 
 let winningNumbers = generateRandomNumbers()
@@ -21,9 +21,9 @@ func checkLottoNumbers(_ winningNumbers: [Int], _ myNumbers: [Int]) {
     } else {
         let matchingNumbers = intersection.sorted()
         print("축하합니다! 겹치는 번호는 \(matchingNumbers) 입니다!")
+        print("당첨 번호는 \(winningNumbers) 입니다.")
     }
 }
 
-print("당첨 번호는 \(winningNumbers) 입니다.")
 checkLottoNumbers(winningNumbers, myLottoNumbers)
 
