@@ -5,37 +5,38 @@ showGameResult(winningNumbers: winningNumbers, myNumbers: myNumbers)
 
 func setGameType() -> Int {
     print("자동을 원하시면 0000, 수동을 원하시면 1000을 입력해주세요!")
-    if let userInput = readLine(), let gameType = Int(userInput){
-        if gameType == 1000 || gameType == 0000 {
-            return gameType
-        } else {
-            return setGameType()
-        }
-    } else {
+    guard let userInput = readLine(), let gameType = Int(userInput) else {
         return setGameType()
     }
+    return gameType
 }
 
 func playGame(gameType: Int) -> Set<Int> {
     var myNumbers: Set<Int> = []
-        if gameType != 0000 {
-            print("1~45 숫자 중에 6개를 선택해주세요.")
-            while myNumbers.count < 6 {
-                if let userInput = readLine(), let myNumber = Int(userInput) {
-                    if myNumber <= 0 {
-                        print("숫자가 너무 작습니다. 다시 입력해주세요.")
-                    }else if myNumber <= 45 {
-                        myNumbers.insert(myNumber)
-                    }else {
-                        print("숫자가 너무 큽니다. 다시 입력해주세요. ")
-                    }
-                }
-            }
-        } else {
-            myNumbers = generateAutoNumbers()
-        }
-        print("선택번호는 \(myNumbers.sorted().map { String($0) }.joined(separator: ", ")) 입니다.")
+    guard gameType == 0000 else {
+        myNumbers = generatePickNumbers()
         return myNumbers
+    }
+    myNumbers = generateAutoNumbers()
+    return myNumbers
+}
+
+func generatePickNumbers() -> Set<Int> {
+    var pickNumbers: Set<Int> = []
+    while pickNumbers.count < 6 {
+        print("1~45 숫자 중 하나를 택해주세요.")
+        guard let userInput = readLine(), let pickNumber = Int(userInput) else {
+            print("1~45 숫자 중 하나를 택해주세요.")
+            continue
+        }
+        
+        guard pickNumber > 0 && pickNumber <= 45 else {
+            print("1~45 숫자 중 하나를 택해주세요.")
+            continue
+        }
+        pickNumbers.insert(pickNumber)
+    }
+    return pickNumbers
 }
 
 func generateAutoNumbers() -> Set<Int> {
@@ -61,10 +62,11 @@ func drawWinningNumber() -> Set<Int> {
 
 func showGameResult(winningNumbers: Set<Int>, myNumbers: Set<Int>) {
     let matchingNumber = winningNumbers.intersection(myNumbers)
-    
+    print("선택번호는 \(myNumbers.sorted().map { String($0) }.joined(separator: ", ")) 입니다.")
     if matchingNumber.isEmpty {
         print("아쉽지만 겹치는 번호가 없습니다.")
     } else {
         print("축하합니다! 겹치는 번호는 \(matchingNumber.sorted().map { String($0) }.joined(separator: ", ")) 입니다!")
     }
 }
+
